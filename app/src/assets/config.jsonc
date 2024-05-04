@@ -1,0 +1,76 @@
+{
+    "components": {
+        ///////////////////////////////////////////
+        ///     View Components
+        ///////////////////////////////////////////
+        "MultipleSwitch": {
+            "theme": {
+                "primaryColor": "blue.500",
+                "secondaryColor": "blue.50"
+            }
+        },
+        "Navbar": {
+            "theme": {
+                "primaryColor": "blue.500",
+                "secondaryColor": "blue.50"
+            }
+        },
+        "ActionBar": {
+            "theme": {
+                "secondaryColor": "blue.500",
+                "primaryColor": "blue.50"
+            }
+        },
+        "Loader": {
+            "theme": {
+                "secondaryColor": "blue.50",
+                "primaryColor": "blue.500"
+            }
+        },
+        ///////////////////////////////////////////
+        ///     FileSystem Components
+        ///////////////////////////////////////////
+        "FileSystemGrid": {
+            "DEBUG_MODE": false
+        },
+        "FileSystemItem": {
+            "DEBUG_MODE": false,
+            "theme": {
+                "hoverColor": "blue.100",
+                "clickColor": "blue.300"
+            }
+        },
+        "FileSystemCards": {
+            "DEBUG_MODE": false,
+            "theme": {
+                "hoverColor": "blue.100",
+                "clickColor": "blue.300",
+                "backgroundColor": "gray.50"
+            }
+        }
+    },
+    "containers": {
+        "FileSystemNavigator": {
+            "DEBUG_MODE": false,
+            "theme": {
+                "secondaryColor": "blue.50",
+                "primaryColor": "blue.500"
+            }
+        }
+    },
+    "pages": {
+        "Dashboard": {
+            "DEBUG_MODE": false,
+            "theme": {
+                "primaryColor": "blue.500",
+                "secondaryColor": "blue.50"
+            },
+            "Drawer": {
+                "theme": {
+                    "primaryColor": "blue.500",
+                    "secondaryColor": "blue.50"
+                }
+            }
+        }
+    }
+}
