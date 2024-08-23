@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 /**
@@ -18,14 +17,6 @@ export default function withRouter(WrappedComponent) {
     function RouterComponent(props) {
         const location = useLocation();
         const navigate = useNavigate();
-
-        // Default redirect if the current location is the root path ('/')
-        useEffect(() => {
-            if (location.pathname === '/') {
-                // Redirect to the 'home' route
-                navigate('home');
-            }
-        }, [location.pathname, navigate]);
 
         // Pass the router-related props to the wrapped component
         return <WrappedComponent {...props} router={{ location, navigate }} />;

@@ -8,53 +8,55 @@ import { Stack } from '@chakra-ui/react'
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '@chakra-ui/react'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 
-import { useTheme } from "./component.styles";
+import styles from "./component.module.scss";
 
 /**
  * @param {object} props
- * @param {boolean} props.invertTheme 
- * @param {{ theme: { primaryColor: string, secondaryColor: string }}} props.config 
  * @param {{ icon: import('react').ReactElement }} props.actions 
  * @param {{ label: string, href: string }} props.navigation 
  * @param {{ }} props.position 
  * @returns {import('react').ReactElement}
  */
-function ActionBar({ config, actions, navigation, position }) {
+function ActionBar({ actions, navigation, position }) {
+    const styleComponent = position.top === "inherit" ? {
+        paddingX: '40px',
+        borderRadius: '65px'
+    } : {
+        borderBottomRadius: '25px',
+        paddingX: '40px',
+        boxShadow: "0px 0px 5px 3px rgba(0,0,0,0.1)",
+        backgroundColor: "blue.700"
+    }
 
-    const style = useTheme({
-        primaryColor: config.theme.primaryColor,
-        secondaryColor: config.theme.secondaryColor
-    })
-
-    return <Flex {...style.styleContainer(position)}>
-
-        <Breadcrumb {...style.styleNavigation} separator={<ChevronRightIcon {...style.styleNavigationSeparator} />}>
+    return <Flex className={styles.component}
+        top={position.top}
+        {...styleComponent}
+    >
+        <Breadcrumb className={styles.navigation}
+            spacing={'8px'}
+            separator={<ChevronRightIcon className={styles.separator} />}
+        >
             {navigation.map((item, index) =>
                 <BreadcrumbItem key={crypto.randomUUID()} isCurrentPage={index === navigation.length - 1}>
-                    <BreadcrumbLink {...style.styleBreadcrumbLink} href={item.href}>{item.label}</BreadcrumbLink>
+                    <BreadcrumbLink className={styles.breadcrumbLink} href={item.href}>
+                        {item.label}
+                    </BreadcrumbLink>
                 </BreadcrumbItem>
             )}
         </Breadcrumb>
 
-        <Flex {...style.styleAction}>
+        {actions && <Flex className={styles.actions}>
             {actions.map(item =>
                 <Stack key={crypto.randomUUID()}>
-                    <IconButton icon={item.icon} {...style.styleButton} />
+                    <IconButton className={styles.button} icon={item.icon} variant={'ghost'} />
                 </Stack>
             )}
-        </Flex>
-
+        </Flex>}
 
     </Flex>
 }
 
 ActionBar.propTypes = {
-    config: PropTypes.shape({
-        theme: PropTypes.shape({
-            primaryColor: PropTypes.string.isRequired,
-            secondaryColor: PropTypes.string.isRequired,
-        })
-    }).isRequired,
     actions: PropTypes.arrayOf(PropTypes.shape({
         icon: PropTypes.element,
     })),

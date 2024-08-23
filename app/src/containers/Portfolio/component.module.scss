@@ -1,0 +1,15 @@
+$DEBUG_MODE: false;
+$primary-color: var(--chakra-colors-blue-700);
+
+.separator {
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+
+    @if($DEBUG_MODE ==true) {
+        border: 1px solid red;
+    }
+}

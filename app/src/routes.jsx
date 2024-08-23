@@ -1,21 +1,16 @@
 import { createBrowserRouter } from 'react-router-dom';
-
-import config from '@app/assets/config.jsonc';
-import withDynamicImport from '@app/hocs/withDynamicImport';
+import { withDynamiContainer, withDynamicPage } from '@app/hocs/withDynamic';
 
 const routes = [
     {
         id: "root",
         path: "/",
-        element: withDynamicImport('Dashboard').pages(),
-        errorElement: <></>,
-        loader: () => ({ config }),
+        element: withDynamicPage('Landing'),
         children: [
             {
-                id: "file-system-navigator",
+                id: "home",
                 path: ':path/*',
-                element: withDynamicImport('FileSystemNavigator').containers(),
-                errorElement: <></>,
+                element: withDynamiContainer('Portfolio'),
             }
         ]
     }

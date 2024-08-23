@@ -12,12 +12,20 @@ import path from 'path'
 export default defineConfig({
   root: path.resolve(__dirname, 'app'),
   base: './',
-  publicDir: '/public',
-  cacheDir: path.resolve(__dirname, '.vite'),
+  publicDir: path.resolve(__dirname, 'public'),
   plugins: [
     react(),
     jsonX(),
     dynamicImport(),
+    {
+      name: "markdown-loader",
+      transform(code, id) {
+        if (id.slice(-3) === ".md") {
+          // For .md files, get the raw content
+          return `export default ${JSON.stringify(code)};`;
+        }
+      }
+    },
     viteStaticCopy({
       targets: [
         {
@@ -42,7 +50,7 @@ export default defineConfig({
 
     outDir: path.resolve(__dirname, 'dist'),
     copyPublicDir: true,
-    assetsDir: './js/',
+    assetsDir: 'js',
     emptyOutDir: false,
     sourcemap: false,
 

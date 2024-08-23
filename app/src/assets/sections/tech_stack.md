@@ -1,0 +1,6 @@
+In questa sezione sono elencate le tecnologie che ho utilizzato in progetti personali, collaborazioni e iniziative di sviluppo indipendenti. Anche se potrebbero non essere il fulcro del mio lavoro quotidiano, queste tecnologie rappresentano un'area in cui ho investito tempo e risorse per espandere le mie competenze al di là del contesto lavorativo tradizionale.
+
+- **Linguaggi:** Javascript (*esperto*), Typescript (*avanzato*), HTML *(intermedio)*, CSS *(intermedio)*, SASS *(base)*, Python *(base)*
+- **Framework & Librerie:** Node.js (*avanzato*), Express.js (*avanzato*), Nest.js *(base)*, React.js (*avanzato*), Redux (*avanzato*), Redux Toolkit *(intermedio)*, React router DOM (*avanzato*), Chakra-UI (*avanzato*), Parcel *(intermedio)*, Rollup *(intermedio)*, ViteJS *(intermedio)*, Flask *(base)*, React Beautiful DnD (*principiante*), Jest (*principiante*)
+- **Database:** SQLite *(base)*, MongoDB (*principiante*)
+- **Strumenti:** Git (*avanzato*), Visual Studio Code (*avanzato*), Yarn (*avanzato*), npm (*avanzato*), Pip *(base)*, Postman *(base)*, Docker *(intermedio)*, Docker Compose *(intermedio)*, GitHub *(base)*, GitLab *(base)*, Gitea *(base)*, Verdaccio *(base)*, Nginx *(intermedio)*
