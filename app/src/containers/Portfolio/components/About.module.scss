@@ -1,0 +1,50 @@
+$DEBUG_MODE: false;
+$primary-color: var(--chakra-colors-gray-500);
+
+.component {
+    padding: 10%;
+    width: 100%;
+    gap: 40px;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+
+    @if($DEBUG_MODE ==true) {
+        border: 2px dashed yellow;
+    }
+
+    .header {
+        color: white;
+        letter-spacing: 2px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: start;
+        align-content: start;
+        justify-content: start;
+        justify-items: start;
+
+        @if($DEBUG_MODE ==true) {
+            border: 1px dashed yellow;
+        }
+    }
+
+    .content {
+        gap: 10px;
+        width: 100%;
+        flex-direction: column;
+        align-items: start;
+        align-content: start;
+        justify-content: start;
+        justify-items: start;
+        color: white;
+        border-radius: 45px;
+        font-size: 1.25rem;
+
+        @if($DEBUG_MODE ==true) {
+            border: 1px dashed yellow;
+        }
+    }
+}

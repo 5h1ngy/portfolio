@@ -3,12 +3,7 @@ const path = require('path')
 module.exports = {
   root: true,
   env: { browser: true, es2020: true },
-  extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:react/jsx-runtime',
-    'plugin:react-hooks/recommended',
-  ],
+  extends: ['eslint:recommended', 'plugin:react/recommended', 'plugin:react/jsx-runtime', 'plugin:react-hooks/recommended', 'plugin:storybook/recommended'],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -29,13 +24,15 @@ module.exports = {
           ['@app/pages', path.resolve(__dirname, 'app', 'src', 'pages')],
           ['@app/services', path.resolve(__dirname, 'app', 'src', 'services')],
           ['@app/store', path.resolve(__dirname, 'app', 'src', 'store')],
+          ['@app/theme', path.resolve(__dirname, 'app', 'src', 'theme')],
         ],
         extensions: ['.ts', '.js', '.jsx', '.json']
       }
     }
   },
-  plugins: ['react-refresh', "chakra-ui"],
+  plugins: ['react-refresh', 'jsdoc', "chakra-ui"],
   rules: {
+    "jsdoc/no-undefined-types": 1,
     'react/jsx-no-target-blank': 'off',
     'react-refresh/only-export-components': [
       'warn',

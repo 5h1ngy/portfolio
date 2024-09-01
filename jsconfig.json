@@ -1,8 +1,12 @@
 {
-    "include": ["app/src/**/*"],
+    "include": [
+        "app/src/**/*"
+    ],
+    "exclude": [
+        "node_modules"
+    ],
     "compilerOptions": {
         "baseUrl": "./",
-        "module": "ES6",
         "paths": {
             "@app/assets/*": [
                 "app/src/assets/*"
@@ -24,6 +28,9 @@
             ],
             "@app/store/*": [
                 "app/src/store/*"
+            ],
+            "@app/theme/*": [
+                "app/src/theme/*"
             ]
         }
     }

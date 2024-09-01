@@ -11,13 +11,21 @@ import path from 'path'
 /** @type {import('vite').UserConfig} */
 export default defineConfig({
   root: path.resolve(__dirname, 'app'),
-  base: './',
-  publicDir: '/public',
-  cacheDir: path.resolve(__dirname, '.vite'),
+  base: "./",
+  publicDir: path.resolve(__dirname, 'public'),
   plugins: [
     react(),
     jsonX(),
     dynamicImport(),
+    {
+      name: "markdown-loader",
+      transform(code, id) {
+        if (id.slice(-3) === ".md") {
+          // For .md files, get the raw content
+          return `export default ${JSON.stringify(code)};`;
+        }
+      }
+    },
     viteStaticCopy({
       targets: [
         {
@@ -36,13 +44,14 @@ export default defineConfig({
       '@app/pages': path.resolve(__dirname, 'app', 'src', 'pages'),
       '@app/services': path.resolve(__dirname, 'app', 'src', 'services'),
       '@app/store': path.resolve(__dirname, 'app', 'src', 'store'),
+      '@app/theme': path.resolve(__dirname, 'app', 'src', 'theme'),
     },
   },
   build: {
 
     outDir: path.resolve(__dirname, 'dist'),
     copyPublicDir: true,
-    assetsDir: './js/',
+    assetsDir: 'js',
     emptyOutDir: false,
     sourcemap: false,
 
