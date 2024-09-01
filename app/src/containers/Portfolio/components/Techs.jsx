@@ -5,17 +5,20 @@ import { Flex } from '@chakra-ui/react';
 import { Heading } from '@chakra-ui/react'
 import ReactMarkdown from "react-markdown";
 import ChakraUIRenderer from "chakra-ui-markdown-renderer";
+import ReactApexChart from "react-apexcharts";
 
-import withRouter from "@app/hocs/withRouter"
+import withRouter from "@app/hocs/withRouter";
+import techs from "@app/assets/sections/techs.jsonc";
+import useTechGraphOptions from "@app/containers/Portfolio/hooks/useTechGraphOptions";
 
-import whoIm from "@app/assets/sections/who_im.jsonc";
-import styles from "./component.whoim.module.scss";
+import styles from "./Techs.module.scss";
 
-function WhoIm(props) {
+function Techs(props) {
     const [markdown, setMarkdown] = useState();
+    const radarGraphOptions = useTechGraphOptions()
 
     async function loadMarkdown() {
-        const module = await import(`./../../assets/sections/${whoIm.descFile}.md`);
+        const module = await import(`./../../../assets/sections/${techs.descFile}.md`);
         setMarkdown(module.default)
     }
 
@@ -23,13 +26,16 @@ function WhoIm(props) {
         loadMarkdown();
     }, [])
 
-    return <Flex className={styles.whoIm} {...props}>
+    return <Flex className={styles.component}
+        {...props}
+    >
 
-        <Heading className={styles.header} as='h1' size='4xl'>
-            {whoIm.title}
+        <Heading className={styles.header} as='h1' size='3xl'>
+            {techs.title}
         </Heading>
 
         <Flex className={styles.content}>
+
             <ReactMarkdown
                 children={markdown}
                 // Skip this if you don't use ChakraUI
@@ -37,8 +43,14 @@ function WhoIm(props) {
                 // Skip this if you don't use ChakraUI
                 skipHtml
             />
+
+            {/* Graph */}
+            <ReactApexChart type="polarArea" width={"900px"}
+                {...radarGraphOptions}
+            />
+
         </Flex>
-    </Flex>
+    </Flex >
 }
 
-export default withRouter(WhoIm)
+export default withRouter(Techs)

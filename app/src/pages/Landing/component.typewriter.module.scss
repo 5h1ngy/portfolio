@@ -1,0 +1,18 @@
+$DEBUG_MODE: false;
+
+.component {
+    width: 40rem;
+    text-align: center;
+
+    @if($DEBUG_MODE ==true) {
+        border: 1px solid red;
+    }
+
+    span {
+        word-break: break-word;
+        font-size: 6rem;
+        color: white;
+        font-family: Lato, sans-serif;
+        font-weight: 700;
+    }
+}

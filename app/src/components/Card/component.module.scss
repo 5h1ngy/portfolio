@@ -1,0 +1,119 @@
+$DEBUG_MODE: false;
+
+.card {
+    align-items: end;
+    align-content: start;
+    background-color: var(--chakra-colors-blue-700);
+    border-radius: 25px;
+    box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    height: 21rem;
+    justify-items: end;
+    justify-content: start;
+    width: 25rem;
+    min-height: 15rem;
+    overflow: hidden;
+    padding: 0.8rem;
+    row-gap: 0.5rem;
+
+    &:hover {
+        background-color: var(--chakra-colors-gray-700);
+    }
+
+    @if($DEBUG_MODE ==true) {
+        border: 1px solid red;
+    }
+
+    .thumbnail {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+
+        @if($DEBUG_MODE ==true) {
+            border: 1px solid red;
+        }
+
+        .preview {
+            border-radius: 20px;
+            display: block;
+            height: 10rem;
+            width: 25rem;
+
+            @if($DEBUG_MODE ==true) {
+                border: 1px solid red;
+            }
+        }
+
+        .actions {
+            bottom: 0.5rem;
+            right: 0.5rem;
+            flex-direction: row-reverse;
+            gap: 0.6rem;
+            position: absolute;
+            width: 100%;
+
+            @if($DEBUG_MODE ==true) {
+                border: 1px solid red;
+            }
+
+            .button {
+                box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.1);
+
+                @if($DEBUG_MODE ==true) {
+                    border: 1px solid red;
+                }
+
+                .icon {
+                    color: gray.500;
+
+                    @if($DEBUG_MODE ==true) {
+                        border: 1px solid red;
+                    }
+                }
+
+                &:hover {
+                    background-color: var(--chakra-colors-gray-500);
+                }
+            }
+        }
+    }
+
+    .title {
+        height: 3.9rem;
+        overflow: hidden;
+
+        @if($DEBUG_MODE ==true) {
+            border: 1px solid red;
+        }
+
+        .date {
+            font-size: 0.8rem;
+            margin-right: 0.3rem;
+
+            @if($DEBUG_MODE ==true) {
+                border: 1px solid red;
+            }
+        }
+    }
+
+    .tags {
+        display: inline-block;
+        height: 3.6rem;
+        margin-top: 0.2rem;
+        overflow: hidden;
+
+        @if($DEBUG_MODE ==true) {
+            border: 1px solid red;
+        }
+
+        .element {
+            border-radius: full;
+            margin: 0.1rem;
+
+            @if($DEBUG_MODE ==true) {
+                border: 1px solid red;
+            }
+        }
+    }
+}

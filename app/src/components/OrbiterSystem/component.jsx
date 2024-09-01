@@ -8,10 +8,10 @@ import "./component.animation.scss";
 /**
  * @param {object} props 
  * @param {{ logo: string }} props.stator 
- * @param {{ rotors: Array<{ icon: string, align: { top: string, bottom: string, left: string, right: string } }> }} props.config 
+ * @param {{ rotors: Array<{ icons: Array<{icon: string, align: { top: string, bottom: string, left: string, right: string }}> }> }} props.config 
  * @returns {import('react').ReactElement}
  */
-function OrbiterSystem({ stator, rotors }) {
+function Component({ stator, rotors }) {
 
     return <div className={styles.component}>
 
@@ -43,19 +43,21 @@ function OrbiterSystem({ stator, rotors }) {
     </div >
 }
 
-OrbiterSystem.propTypes = {
+Component.propTypes = {
     stator: PropTypes.shape({
         logo: PropTypes.any.isRequired
     }).isRequired,
     rotors: PropTypes.arrayOf(PropTypes.shape({
-        icon: PropTypes.any.isRequired,
-        align: PropTypes.shape({
-            top: PropTypes.string,
-            bottom: PropTypes.string,
-            left: PropTypes.string,
-            right: PropTypes.string,
-        }).isRequired,
+        icons: PropTypes.arrayOf(PropTypes.shape({
+            icon: PropTypes.any.isRequired,
+            align: PropTypes.shape({
+                top: PropTypes.string,
+                bottom: PropTypes.string,
+                left: PropTypes.string,
+                right: PropTypes.string,
+            }).isRequired,
+        }))
     })).isRequired,
 }
 
-export default OrbiterSystem;
+export default Component;

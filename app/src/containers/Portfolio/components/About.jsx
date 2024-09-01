@@ -6,16 +6,16 @@ import { Heading } from '@chakra-ui/react'
 import ReactMarkdown from "react-markdown";
 import ChakraUIRenderer from "chakra-ui-markdown-renderer";
 
-import withRouter from "@app/hocs/withRouter"
+import withRouter from "@app/hocs/withRouter";
 
-import projectsPublics from "@app/assets/sections/projects_publics.jsonc";
-import styles from "./component.projectsPublics.module.scss";
+import whoIm from "@app/assets/sections/about.jsonc";
+import styles from "./About.module.scss";
 
-function ProjectsPublics(props) {
+function About(props) {
     const [markdown, setMarkdown] = useState();
 
     async function loadMarkdown() {
-        const module = await import(`./../../assets/sections/${projectsPublics.descFile}.md`);
+        const module = await import(`./../../../assets/sections/${whoIm.descFile}.md`);
         setMarkdown(module.default)
     }
 
@@ -23,17 +23,17 @@ function ProjectsPublics(props) {
         loadMarkdown();
     }, [])
 
-    return <Flex className={styles.projectsPublics} {...props}>
+    return <Flex className={styles.component} {...props}>
 
-        <Heading className={styles.header} as='h1' size='4xl'>
-            {projectsPublics.title}
+        <Heading className={styles.header} as='h1' size='3xl'>
+            {whoIm.title}
         </Heading>
 
         <Flex className={styles.content}>
             <ReactMarkdown
                 children={markdown}
                 // Skip this if you don't use ChakraUI
-                // components={ChakraUIRenderer()}
+                components={ChakraUIRenderer()}
                 // Skip this if you don't use ChakraUI
                 skipHtml
             />
@@ -41,4 +41,4 @@ function ProjectsPublics(props) {
     </Flex>
 }
 
-export default withRouter(ProjectsPublics)
+export default withRouter(About)

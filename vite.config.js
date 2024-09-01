@@ -11,7 +11,7 @@ import path from 'path'
 /** @type {import('vite').UserConfig} */
 export default defineConfig({
   root: path.resolve(__dirname, 'app'),
-  base: './',
+  base: "./",
   publicDir: path.resolve(__dirname, 'public'),
   plugins: [
     react(),
@@ -44,6 +44,7 @@ export default defineConfig({
       '@app/pages': path.resolve(__dirname, 'app', 'src', 'pages'),
       '@app/services': path.resolve(__dirname, 'app', 'src', 'services'),
       '@app/store': path.resolve(__dirname, 'app', 'src', 'store'),
+      '@app/theme': path.resolve(__dirname, 'app', 'src', 'theme'),
     },
   },
   build: {
