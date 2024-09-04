@@ -36,17 +36,17 @@ function Techs(props) {
 
         <Flex className={styles.content}>
 
+            {/* Graph */}
+            <ReactApexChart type="radar" width={"900px"} height={"900px"}
+                {...radarGraphOptions}
+            />
+
             <ReactMarkdown
                 children={markdown}
                 // Skip this if you don't use ChakraUI
                 components={ChakraUIRenderer()}
                 // Skip this if you don't use ChakraUI
                 skipHtml
-            />
-
-            {/* Graph */}
-            <ReactApexChart type="polarArea" width={"900px"}
-                {...radarGraphOptions}
             />
 
         </Flex>

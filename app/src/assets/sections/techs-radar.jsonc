@@ -1,0 +1,46 @@
+{
+    "series": [
+        {
+            "name": "FrontEnd",
+            "data": [
+                100, 80, 40, 100,
+                0, 0,
+                0, 0,
+                0, 0, 0
+            ]
+        },
+        {
+            "name": "BackEnd",
+            "data": [
+                0, 0, 0, 100,
+                100, 40,
+                0, 0,
+                0, 0, 40
+            ]
+        },
+        {
+            "name": "DevOps",
+            "data": [
+                0, 0, 0, 0,
+                0, 0,
+                20, 60,
+                60, 60, 40
+            ]
+        },
+        {
+            "name": "Scripting",
+            "data": [
+                100, 0, 0, 0,
+                0, 0,
+                0, 0,
+                0, 0, 40
+            ]
+        }
+    ],
+    "categories": [
+        "Javascript/Typescript", "React", "SASS", "Nodejs",
+        "Express", "NestJs", 
+        "SQLite", "Docker",
+        "Docker Compoose", "Nginx", "Python"
+    ]
+}
