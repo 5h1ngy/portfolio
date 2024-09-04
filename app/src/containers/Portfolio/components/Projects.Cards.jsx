@@ -13,14 +13,12 @@ import Card from "@app/components/Card";
 export default function ({ project }) {
     const { isOpen, onOpen, onClose } = useDisclosure()
 
-    if (project.action === "modal") {
-        project.action = () => onOpen()
-    } else {
-        project.action = () => { }
-    }
+    const action = project.action === "modal"
+        ? () => onOpen()
+        : () => { }
 
     return <React.Fragment>
-        <Card {...project} />
+        <Card {...project} action={action} />
 
         <Drawer size={"lg"} placement={"right"} onClose={onClose} isOpen={isOpen}>
             <DrawerOverlay />
