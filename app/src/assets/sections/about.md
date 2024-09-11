@@ -1,7 +1,5 @@
-Sono uno sviluppatore e progettista software con una solida esperienza nello sviluppo frontend, attualmente verticalizzato su React. Ho contribuito a progetti chiave in settori diversificati come OSS (Operational Support Systems), startup, gambling e banking. Tra i risultati più significativi della mia carriera, spicca lo sviluppo di un Proof of Concept (POC) per un game engine 2D nel settore del gambling.
+Sono 5h1ngy, un Software Engineer con una forte passione per lo sviluppo di soluzioni innovative e scalabili. Ho esperienza nel progettare, implementare e ottimizzare software, con un focus particolare su tecnologie moderne come JavaScript, Python, React, Node.js.
 
-Le mie competenze principali includono NodeJS, JavaScript e React, con un'esperienza pregressa in Angular e altre tecnologie. Ho affinato un approccio metodico alla risoluzione dei problemi, che unisce una forte capacità analitica alla flessibilità di apprendere sul campo.
+Nel mio lavoro, combino creatività e precisione, puntando sempre alla qualità del codice, alla performance e all'efficienza. Amo affrontare nuove sfide, risolvere problemi complessi e imparare costantemente nuove tecnologie per migliorare le mie competenze.
 
-La curiosità è il motore della mia crescita professionale, spingendomi a rimanere aggiornato e a esplorare nuovi progetti personali. Sebbene abbia temporaneamente messo da parte la collaborazione con community open source, il mio passato include contributi nel settore del gaming online, dove ho esplorato varie aree, dallo sviluppo dei server al reverse engineering.
-
-I miei obiettivi a medio/lungo termine includono un costante aggiornamento delle mie competenze e una crescita professionale che mi permetta di raggiungere nuovi traguardi.
+In questo portfolio, potrai esplorare alcuni dei miei progetti più recenti. Se hai un'idea o un progetto, contattami e discutiamo di come posso aiutarti a trasformarla in realtà.

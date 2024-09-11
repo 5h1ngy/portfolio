@@ -12,7 +12,7 @@ import path from 'path'
 export default defineConfig({
   root: path.resolve(__dirname, 'app'),
   base: "./",
-  publicDir: path.resolve(__dirname, 'public'),
+  publicDir: path.resolve(__dirname, 'app', 'public'),
   plugins: [
     react(),
     jsonX(),
@@ -50,17 +50,16 @@ export default defineConfig({
   build: {
 
     outDir: path.resolve(__dirname, 'dist'),
-    copyPublicDir: true,
-    assetsDir: 'js',
+    copyPublicDir: false,
     emptyOutDir: false,
     sourcemap: false,
 
     rollupOptions: {
       treeshake: true,
       output: {
-        entryFileNames: `js/main.js`,
-        chunkFileNames: `js/[hash].js`,
-        assetFileNames: `js/[hash].[ext]`
+        entryFileNames: `main.js`,
+        chunkFileNames: `[hash].js`,
+        assetFileNames: `[hash].[ext]`
       },
     },
   }

@@ -1,6 +1,11 @@
-In questa sezione sono elencate le tecnologie che ho utilizzato in progetti personali, collaborazioni e iniziative di sviluppo indipendenti. Anche se potrebbero non essere il fulcro del mio lavoro quotidiano, queste tecnologie rappresentano un'area in cui ho investito tempo e risorse per espandere le mie competenze al di là del contesto lavorativo tradizionale.
+Le mie competenze principali includono Node.js, JavaScript e React, con un'esperienza pregressa anche su tecnologie legacy. Ho sviluppato un approccio metodico alla risoluzione dei problemi, combinando una forte capacità analitica con la flessibilità necessaria per apprendere rapidamente nuove tecnologie e adattarmi a contesti diversi.
 
-- **Linguaggi:** Javascript (*esperto*), Typescript (*avanzato*), HTML *(intermedio)*, CSS *(intermedio)*, SASS *(base)*, Python *(base)*
-- **Framework & Librerie:** Node.js (*avanzato*), Express.js (*avanzato*), Nest.js *(base)*, React.js (*avanzato*), Redux (*avanzato*), Redux Toolkit *(intermedio)*, React router DOM (*avanzato*), Chakra-UI (*avanzato*), Parcel *(intermedio)*, Rollup *(intermedio)*, ViteJS *(intermedio)*, Flask *(base)*, React Beautiful DnD (*principiante*), Jest (*principiante*)
-- **Database:** SQLite *(base)*, MongoDB (*principiante*)
-- **Strumenti:** Git (*avanzato*), Visual Studio Code (*avanzato*), Yarn (*avanzato*), npm (*avanzato*), Pip *(base)*, Postman *(base)*, Docker *(intermedio)*, Docker Compose *(intermedio)*, GitHub *(base)*, GitLab *(base)*, Gitea *(base)*, Verdaccio *(base)*, Nginx *(intermedio)*
+- **Linguaggi:** Javascript 🟣🟣🟣🟣🟣, Typescript 🔴🔴🔴🔴, HTML 🟡🟡🟡, CSS 🟡🟡🟡, SASS🟢🟢, Python 🟢🟢
+- **Librerie Grafiche**: Chakra-UI 🔴🔴🔴🔴, Material-UI 🟡🟡🟡, Bootstrap 🟡🟡🟡, React Beautiful DnD 🔵
+- State Management: Redux🔴🔴🔴🔴, Redux Toolkit 🟡🟡🟡, Redux Sagas 🟡🟡🟡
+- **Framework & Librerie:** Node.js 🟣🟣🟣🟣🟣, Express.js🟣🟣🟣🟣🟣, Nest.js 🟢🟢, React.js 🔴🔴🔴🔴, React router DOM 🔴🔴🔴🔴, Jest 🔵, Flask 🟢🟢
+- **Bundler**: Parcel 🟡🟡🟡, Rollup 🟡🟡🟡, ViteJS 🟡🟡🟡
+- **Package Manager**: npm 🔴🔴🔴🔴, Yarn 🔴🔴🔴🔴, Pip 🟢🟢
+- **Database:** SQLite 🟢🟢, MongoDB 🔵
+- **Devops**: Docker 🟡🟡🟡, Docker Compose 🟡🟡🟡, Verdaccio 🟢🟢, Nginx 🟡🟡🟡
+- **Strumenti:** Git 🔴🔴🔴🔴, Visual Studio Code 🔴🔴🔴🔴, Postman 🟢🟢

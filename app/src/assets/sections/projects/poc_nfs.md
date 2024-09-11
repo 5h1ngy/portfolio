@@ -1,4 +1,6 @@
-### *Proof of concept, Network File System*
+***Repo***: [*5h1ngy/fe-react-poc-nfs*](https://github.com/5h1ngy/fe-react-poc-nfs)
+
+***Licenza***: MIT
 
 Il progetto è un proof-of-concept di un client per navigare su file system, simile a Google Drive, Dropbox e simili.
 
@@ -19,7 +21,3 @@ L'obiettivo primario è sviluppare un'infrastruttura efficiente per la creazione
 - Abilità di ricerca e valutazione delle tecnologie più adatte.
 - Orientamento al miglioramento continuo e all'innovazione.
 - Flessibilità nell'adattarsi ai cambiamenti del progetto.
-
-**Nota Aggiuntiva**
-
-*Non sono stati implementati meccanismi per la gestione della sessione, dell'autenticazione e del multilingua poiché il progetto è un Proof of Concept.*
