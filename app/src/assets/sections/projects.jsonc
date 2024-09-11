@@ -19,6 +19,7 @@
             "action": "modal",
             "actions": [
                 { "type": "link", "icon":"github", "link": "https://github.com/5h1ngy/fe-pixijs-test-isometric-rpg" }
+                // { "type": "link", "icon":"host", "link": "https://fe-pixijs-test-isometric-rpg.vercel.app/" }
             ],
             "descFile": "projects/test_isometric_rpg",
             "tags": ["Test", "Frontend", "Videogame", "PixiJS", "ViteJS", "Yarn", "AI"]
@@ -29,7 +30,8 @@
             "name": "Proof of concept, Network File System",
             "action": "modal",
             "actions": [
-                { "type": "link", "icon":"github", "link": "https://github.com/5h1ngy/fe-react-poc-nfs" }
+                { "type": "link", "icon":"github", "link": "https://github.com/5h1ngy/fe-react-poc-nfs" },
+                { "type": "link", "icon":"host", "link": "https://fe-react-poc-nfs.vercel.app/" }
             ],
             "descFile": "projects/poc_nfs",
             "tags": ["Proof of Concept", "Frontend", "React", "React Router DOM", "ChakraUI", "ReduxJS", "Redux Sagas"]

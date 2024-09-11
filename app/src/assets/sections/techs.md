@@ -1,4 +1,4 @@
-Le mie competenze principali includono Node.js, JavaScript e React, con una esperienza pregressa in Angular e altre tecnologie. Ho sviluppato un approccio metodico alla risoluzione dei problemi, combinando una forte capacità analitica con la flessibilità necessaria per apprendere rapidamente nuove tecnologie e adattarmi a contesti diversi.
+Le mie competenze principali includono Node.js, JavaScript e React, con un'esperienza pregressa anche su tecnologie legacy. Ho sviluppato un approccio metodico alla risoluzione dei problemi, combinando una forte capacità analitica con la flessibilità necessaria per apprendere rapidamente nuove tecnologie e adattarmi a contesti diversi.
 
 - **Linguaggi:** Javascript 🟣🟣🟣🟣🟣, Typescript 🔴🔴🔴🔴, HTML 🟡🟡🟡, CSS 🟡🟡🟡, SASS🟢🟢, Python 🟢🟢
 - **Librerie Grafiche**: Chakra-UI 🔴🔴🔴🔴, Material-UI 🟡🟡🟡, Bootstrap 🟡🟡🟡, React Beautiful DnD 🔵
