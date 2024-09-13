@@ -7,7 +7,8 @@
             "name": "Portfolio",
             "action": "modal",
             "actions": [
-                { "type": "link", "icon":"github", "link": "https://github.com/5h1ngy/fe-react-portfolio" }
+                { "type": "link", "icon":"github", "link": "https://github.com/5h1ngy/fe-react-portfolio" },
+                { "type": "link", "icon":"host", "link": "https://fe-react-portfolio.vercel.app" }
             ],
             "descFile": "projects/portfolio",
             "tags": ["Frontend", "React", "ChakraUI", "ViteJS", "Yarn", "Storybook"]
@@ -18,8 +19,8 @@
             "name": "Test, Isometric RPG",
             "action": "modal",
             "actions": [
-                { "type": "link", "icon":"github", "link": "https://github.com/5h1ngy/fe-pixijs-test-isometric-rpg" }
-                // { "type": "link", "icon":"host", "link": "https://fe-pixijs-test-isometric-rpg.vercel.app/" }
+                { "type": "link", "icon":"github", "link": "https://github.com/5h1ngy/fe-pixijs-test-isometric-rpg" },
+                { "type": "link", "icon":"host", "link": "https://fe-pixijs-test-isometric-rpg.vercel.app/" }
             ],
             "descFile": "projects/test_isometric_rpg",
             "tags": ["Test", "Frontend", "Videogame", "PixiJS", "ViteJS", "Yarn", "AI"]
