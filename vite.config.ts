@@ -21,7 +21,19 @@ export default defineConfig(({ mode }) => {
 
   return {
     base: process.env.VITE_BASENAME,
-    plugins: [react(), tsconfigPaths()],
+    plugins: [react(), tsconfigPaths(),
+    // Custom plugin to load markdown files
+    {
+      name: "markdown-loader",
+      transform(code, id) {
+        if (id.slice(-3) === ".md") {
+          // For .md files, get the raw content
+          return `export default ${JSON.stringify(code)};`;
+        }
+      }
+    }
+    ],
+
     server: {
       host: "0.0.0.0", // Consente connessioni da qualsiasi host
       watch: {

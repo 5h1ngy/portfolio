@@ -34,7 +34,7 @@ const routes: RouteObject[] = [
             {
                 id: "home",
                 path: 'home',
-                element: withDynamicImport('Newest', <Loading />).containers(),
+                element: withDynamicImport('Home', <Loading />).containers(),
                 errorElement: <Error />,
             }
         ]
