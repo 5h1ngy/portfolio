@@ -3994,6 +3994,7 @@ __metadata:
     react-helmet-async: "npm:^2.0.5"
     react-icons: "npm:^5.3.0"
     react-markdown: "npm:^9.0.1"
+    react-masonry-css: "npm:^1.0.16"
     react-redux: "npm:^9.1.2"
     react-router-dom: "npm:^7.0.1"
     rehype-highlight: "npm:^7.0.1"
@@ -6148,6 +6149,15 @@ __metadata:
     "@types/react": ">=18"
     react: ">=18"
   checksum: 10c0/3a3895dbd56647bc864b8da46dd575e71a9e609eb1e43fea8e8e6209d86e208eddd5b07bf8d7b5306a194b405440760a8d134aebd5a4ce5dc7dee4299e84db96
+  languageName: node
+  linkType: hard
+
+"react-masonry-css@npm:^1.0.16":
+  version: 1.0.16
+  resolution: "react-masonry-css@npm:1.0.16"
+  peerDependencies:
+    react: ">=16.0.0"
+  checksum: 10c0/058dac3ffeba0c56608a252561188d7964e8a943a0812517ec6266183bbea8df474fc57607c01458b96b16d06219f0466995f3d32984dceba43b4b8b993326b3
   languageName: node
   linkType: hard
 

@@ -2,14 +2,15 @@ import React from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
-import "highlight.js/styles/github.css"; // Stile del codice
-import "./test.scss"
 
-type StyledMarkdownProps = {
+import "highlight.js/styles/github.css";
+import "./component.scss"
+
+type Props = {
     content: string;
 };
 
-const StyledMarkdown: React.FC<StyledMarkdownProps> = ({ content }) => {
+const Component: React.FC<Props> = ({ content }) => {
     return (
         <div className="markdown-container">
             <ReactMarkdown
@@ -21,4 +22,4 @@ const StyledMarkdown: React.FC<StyledMarkdownProps> = ({ content }) => {
     );
 };
 
-export default StyledMarkdown;
+export default Component;

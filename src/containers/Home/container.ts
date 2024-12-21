@@ -4,11 +4,11 @@ import { bindActionCreators, Dispatch } from "redux";
 import { State, actions } from '@/store';
 
 const mapStateToProps = (state: State) => ({
-    containerNewest: state.containerNewest,
+    ...state.containerPortfolio,
 })
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-    containerNewest: bindActionCreators(actions.containerNewest, dispatch),
+    ...bindActionCreators(actions.containerPortfolio, dispatch),
 })
 
 const bind = connect(mapStateToProps, mapDispatchToProps, (stateProps, dispatchProps, ownProps) => ({

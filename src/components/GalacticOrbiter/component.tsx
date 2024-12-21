@@ -24,7 +24,7 @@ interface Props {
     className?: string;
 }
 
-const GalacticOrbiter: React.FC<Props> = ({ centerImage, centerAlt = 'Center Image', orbits, className }) => {
+const Component: React.FC<Props> = ({ centerImage, centerAlt = 'Center Image', orbits, className }) => {
 
     const containerRef = useRef<HTMLDivElement>(null);
     const orbitRefs = useRef<HTMLDivElement[]>([]);
@@ -140,4 +140,4 @@ const GalacticOrbiter: React.FC<Props> = ({ centerImage, centerAlt = 'Center Ima
     );
 }
 
-export default GalacticOrbiter;
+export default Component;

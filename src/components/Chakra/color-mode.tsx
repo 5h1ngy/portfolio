@@ -67,7 +67,7 @@ export const ColorModeButtonExtended = function ColorModeButtonExtended(props: C
       // 'gray' | 'red' | 'orange' | 'yellow' | 'green' | 'teal' | 'blue' | 'cyan' | 'purple' | 'pink' | 'accent'
       // colorPalette={'red'}
       >
-        <Tabs.List>
+        <Tabs.List boxShadow="0px 0px 5px 3px rgba(0,0,0,0.4)">
           <Tabs.Trigger value="light">
             <HiSun />
           </Tabs.Trigger>

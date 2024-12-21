@@ -1,191 +1,142 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { Text } from "@chakra-ui/react"
+import { Box, Flex } from "@chakra-ui/react"
+
 import { WithRouterProps } from "@/hocs/withRouter";
-import { Box, chakra, Flex, Separator } from "@chakra-ui/react"
-// import ReactMarkdown from "react-markdown";
+import GalacticOrbiter from "@/components/GalacticOrbiter"
+import SliderCards from "@/components/SliderCards"
+import StyledMarkdown from "@/components/StyledMarkdown";
+
+import markdown from "@/assets/about.md"
+import softskill from "@/assets/softskill.md"
+import hardskill from "@/assets/hardskill.md"
 
 import { Bind } from "./container"
-import GalacticOrbiter from "@/components/GalacticOrbiter"
-import { useEffect, useState } from "react";
-import markdown from "@/assets/about.md"
-import techs from "@/assets/techs.md"
-import skill from "@/assets/skill.md"
-import { Text } from "@chakra-ui/react"
-import StyledMarkdown from "./StyledMarkdown";
+import { useEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Component: React.FC<Bind & WithRouterProps> = (props) => {
-    // const [markdown, setMarkdown] = useState();
+const Component: React.FC<Bind & WithRouterProps> = ({ actions, state }) => {
+    const { repositories } = state;
+    const { doGetRepositories } = actions;
 
-    // async function loadMarkdown() {
-    //     const module = await import(`./../assets/sections/about.md`);
-    //     setMarkdown(module.default)
-    // }
+    const avatarTechs = [
+        {
+            radius: 150,
+            orbitDuration: 6,
+            planets: [
+                { imgSrc: `${import.meta.env.VITE_BASENAME}/logos/logo-typescript.svg` },
+                { imgSrc: `${import.meta.env.VITE_BASENAME}/logos/logo-python.svg` },
+            ],
+        },
+        {
+            radius: 250,
+            orbitDuration: 9,
+            planets: [
+                { imgSrc: `${import.meta.env.VITE_BASENAME}/logos/logo-node-js.svg` },
+                { imgSrc: `${import.meta.env.VITE_BASENAME}/logos/logo-mysql.svg` },
+                { imgSrc: `${import.meta.env.VITE_BASENAME}/logos/logo-docker.svg` },
+            ],
+        },
+        {
+            radius: 350,
+            orbitDuration: 12,
+            planets: [
+                { imgSrc: `${import.meta.env.VITE_BASENAME}/logos/logo-vitejs.svg` },
+                { imgSrc: `${import.meta.env.VITE_BASENAME}/logos/logo-react.svg` },
+            ],
+        }
+    ];
 
-    // useEffect(() => {
-    //     loadMarkdown();
-    // }, [])
+    useEffect(() => {
+        doGetRepositories()
+    }, [])
 
-    return <>
+    return (
+        <>
+            <Flex
+                direction={"row"}
+                width={"100%"}
+                align={"center"}
+                justify={"center"}
+            >
+                <GalacticOrbiter
+                    centerImage={`${import.meta.env.VITE_BASENAME}/avatar.png`}
+                    orbits={avatarTechs}
+                />
+            </Flex>
 
-        <Flex direction={"row"} width={'100%'} align={"center"} justify={"center"}>
-            <GalacticOrbiter
-                centerImage={`${import.meta.env.VITE_BASENAME}/avatar.png`}
-                orbits={[
-                    {
-                        radius: 150,
-                        orbitDuration: 6,
-                        planets: [
-                            { imgSrc: `${import.meta.env.VITE_BASENAME}/logos/logo-typescript.svg` },
-                            { imgSrc: `${import.meta.env.VITE_BASENAME}/logos/logo-python.svg` },
-                        ],
-                    },
-                    {
-                        radius: 250,
-                        orbitDuration: 9,
-                        planets: [
-                            { imgSrc: `${import.meta.env.VITE_BASENAME}/logos/logo-node-js.svg` },
-                            { imgSrc: `${import.meta.env.VITE_BASENAME}/logos/logo-mysql.svg` },
-                            { imgSrc: `${import.meta.env.VITE_BASENAME}/logos/logo-docker.svg` },
-                        ],
-                    },
-                    {
-                        radius: 350,
-                        orbitDuration: 12,
-                        planets: [
-                            { imgSrc: `${import.meta.env.VITE_BASENAME}/logos/logo-vitejs.svg` },
-                            { imgSrc: `${import.meta.env.VITE_BASENAME}/logos/logo-react.svg` },
-                        ],
-                    }
-                ]}
-            />
-        </Flex>
 
-        {/* <Box
-            backgroundColor={"gray.100"} _dark={{ backgroundColor: "gray.900" }}
-            borderWidth='1px' padding={'3rem'}
-            borderRadius={'15px'}
-            border={'1px'}
-            width={'100%'} height={'100vh'}
-            // boxShadow="0px 0px 5px 3px rgba(0,0,0,0.4)"
-        >
-            <Text textStyle="md" fontWeight="normal">
-                {markdown}
-            </Text>
-        </Box> */}
-
-        <Flex
-            // backgroundColor={"gray.100"} _dark={{ backgroundColor: "gray.900" }}
-            // borderWidth='1px' padding={'3rem'}
-            // borderRadius={'15px'}
-            // border={'1px'}
-            wrap={"wrap"}
-            width={'100%'}
-            gap={'3rem'}
-            align={"start"}
-            justify={"center"}
-        >
-
-            <Flex direction={"column"} gap={'1rem'}>
-                <Text textStyle="4xl" fontWeight="bold">
-                    TEST
-                </Text>
+            {/* Card ABOUT */}
+            <Flex direction={"column"} gap={"1rem"} justify={"center"} width={"100%"}>
+                <Text textStyle="4xl" fontWeight="bold">About</Text>
                 <Box
-                    backgroundColor={"gray.100"} _dark={{ backgroundColor: "gray.900" }}
-                    borderWidth='1px' padding={'3rem'}
-                    borderRadius={'15px'}
-                    border={'1px'}
-                    width={'35rem'}
+                    // backgroundColor={"gray.100"}
+                    // _dark={{ backgroundColor: "gray.900" }}
+                    width={"100%"}
+                    padding={"3rem"}
+                    borderWidth="1px"
+                    borderRadius={"15px"}
+                    border={"1px"}
                 >
                     <Text textStyle="md" fontWeight="normal">
-                        {markdown}
+                        {/* Se vuoi usare lo StyledMarkdown anche qui: */}
+                        <StyledMarkdown content={markdown} />
                     </Text>
-                    {/* <ReactMarkdown
-                children={markdown}
-                // Skip this if you don't use ChakraUI
-                // components={ChakraUIRenderer()}
-                // Skip this if you don't use ChakraUI
-                skipHtml
-            /> */}
                 </Box>
             </Flex>
 
-            <Flex direction={"column"} gap={'1rem'}>
-                <Text textStyle="4xl" fontWeight="bold">
-                    TEST
-                </Text>
-                <Box
-                    backgroundColor={"gray.100"} _dark={{ backgroundColor: "gray.900" }}
-                    borderWidth='1px' padding={'3rem'}
-                    borderRadius={'15px'}
-                    border={'1px'}
-                    width={'35rem'}
-                // width={'30rem'}
-                >
-                    <Text textStyle="md" fontWeight="normal">
-                        <StyledMarkdown content={techs} />
-                        {/* {techs} */}
-                    </Text>
-                    {/* <ReactMarkdown
-                children={markdown}
-                // Skip this if you don't use ChakraUI
-                // components={ChakraUIRenderer()}
-                // Skip this if you don't use ChakraUI
-                skipHtml
-            /> */}
-                </Box>
+            <Flex direction={"row"} gap={"4rem"} width={"100%"} justify={"center"}>
+
+                {/* Card HARD SKILLS */}
+                <Flex direction={"column"} width={"35rem"}>
+                    <Text textStyle="4xl" fontWeight="bold">Hard Skills</Text>
+                    <Box
+                        margin={"1rem"}
+                        backgroundColor={"gray.100"}
+                        _dark={{ backgroundColor: "gray.900" }}
+                        boxShadow="0px 0px 5px 3px rgba(0,0,0,0.4)"
+                        width={"100%"}
+                        padding={"3rem"}
+                        borderWidth="1px"
+                        borderRadius={"15px"}
+                        border={"1px"}
+                    >
+                        <Text textStyle="md" fontWeight="normal">
+                            <StyledMarkdown content={hardskill} />
+                        </Text>
+                    </Box>
+                </Flex>
+
+                {/* Card SOFT SKILLS */}
+                <Flex direction={"column"} width={"35rem"}>
+                    <Text textStyle="4xl" fontWeight="bold">Soft Skills</Text>
+                    <Box
+                        margin={"1rem"}
+                        backgroundColor={"gray.100"}
+                        _dark={{ backgroundColor: "gray.900" }}
+                        boxShadow="0px 0px 5px 3px rgba(0,0,0,0.4)"
+                        width={"100%"}
+                        padding={"3rem"}
+                        borderWidth="1px"
+                        borderRadius={"15px"}
+                        border={"1px"}
+                    >
+                        <Text textStyle="md" fontWeight="normal">
+                            <StyledMarkdown content={softskill} />
+                        </Text>
+                    </Box>
+                </Flex>
             </Flex>
 
-            <Flex direction={"column"} gap={'1rem'}>
-                <Text textStyle="4xl" fontWeight="bold">
-                    TEST
-                </Text>
-                <Separator />
-                <Box
-                    backgroundColor={"gray.100"} _dark={{ backgroundColor: "gray.900" }}
-                    borderWidth='1px' padding={'3rem'}
-                    borderRadius={'15px'}
-                    border={'1px'}
-                    width={'60rem'}
-                // width={'30rem'}
-                >
-                    <Text textStyle="md" fontWeight="normal">
-                        <StyledMarkdown content={skill} />
-                        {/* {techs} */}
-                    </Text>
-                    {/* <ReactMarkdown
-                children={markdown}
-                // Skip this if you don't use ChakraUI
-                // components={ChakraUIRenderer()}
-                // Skip this if you don't use ChakraUI
-                skipHtml
-            /> */}
-                </Box>
+            {/* Sezione Projects */}
+            <Flex direction={"column"} gap={"1rem"} width={"100%"}>
+                <Text textStyle="4xl" fontWeight="bold">Projects</Text>
+                <SliderCards centerCount={2} cards={repositories} />
             </Flex>
-        </Flex>
-        {/* 
-        
-        Descrizione
-
-        // Splittato su destra
-        Stack Tecnologico
-
-        // Slides cards
-        Progetti
-
-        Carriera
-
-        <chakra.div width='10rem' height='10rem'
-            backgroundColor={"white"} _dark={{ backgroundColor: "black" }}
-            borderWidth='1px'
-        >
-
-        </chakra.div>
-
-        */}
-
-    </>
-}
+        </>
+    )
+};
 
 export default Component;
