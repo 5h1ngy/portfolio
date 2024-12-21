@@ -14,16 +14,13 @@ const routes: RouteObject[] = [
         path: "/",
         element: withDynamicImport('Landing', <Loading />).pages({
             logo: `${import.meta.env.VITE_BASENAME}/logo.png`,
-            decorationBody: `${import.meta.env.VITE_BASENAME}/decoration.png`,
             children: <Outlet />,
             navbarItems: [
-                { icon: <HiHome />, label: "About", value: '/about' },
+                { label: "About", value: '/about' },
+                { label: "Softskill", value: '/soft-skill' },
+                { label: "Hardskill", value: '/hard-skill' },
+                { label: "Projects", value: '/porojects' },
             ],
-            navbarSubItems: [
-                { icon: <HiHome />, label: 'Newset', value: '/home' },
-                { icon: <HiMagnifyingGlass />, label: 'Search', value: '/search' },
-                { icon: <HiBookmark />, label: 'My List', value: '/my-list' }
-            ]
         }),
         errorElement: <Error />,
         children: [

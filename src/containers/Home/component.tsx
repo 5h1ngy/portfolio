@@ -87,13 +87,13 @@ const Component: React.FC<Bind & WithRouterProps> = ({ actions, state }) => {
                 </Box>
             </Flex>
 
-            <Flex direction={"row"} gap={"4rem"} width={"100%"} justify={"center"}>
+            <Flex direction={"row"} gap={"8rem"} width={"100%"} justify={"center"}>
 
                 {/* Card HARD SKILLS */}
                 <Flex direction={"column"} width={"35rem"}>
                     <Text textStyle="4xl" fontWeight="bold">Hard Skills</Text>
                     <Box
-                        margin={"1rem"}
+                        margin={"3rem"}
                         backgroundColor={"gray.100"}
                         _dark={{ backgroundColor: "gray.900" }}
                         boxShadow="0px 0px 5px 3px rgba(0,0,0,0.4)"
@@ -113,7 +113,7 @@ const Component: React.FC<Bind & WithRouterProps> = ({ actions, state }) => {
                 <Flex direction={"column"} width={"35rem"}>
                     <Text textStyle="4xl" fontWeight="bold">Soft Skills</Text>
                     <Box
-                        margin={"1rem"}
+                        margin={"3rem"}
                         backgroundColor={"gray.100"}
                         _dark={{ backgroundColor: "gray.900" }}
                         boxShadow="0px 0px 5px 3px rgba(0,0,0,0.4)"
