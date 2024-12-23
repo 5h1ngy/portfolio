@@ -12,10 +12,10 @@ export async function getRepositories(): Promise<Repository[]> {
     }
 
     try {
-        let defaultQuery = `/api/respositories`;
-        const response = await axios.get<Repository[]>(defaultQuery);
+        let defaultQuery = `/api/github/repos`;
+        const response = await axios.get(defaultQuery);
 
-        return response.data;
+        return response.data.occurrences;
     } catch (error) {
         console.error("Errore durante la chiamata al servizio, uso mock:", error);
 

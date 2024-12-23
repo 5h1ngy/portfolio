@@ -1,8 +1,10 @@
 import _ from "lodash";
 import React from "react";
-import { Badge, Card, Flex, Image } from "@chakra-ui/react"
+import { Badge, Card, Flex, IconButton, Image } from "@chakra-ui/react"
+import { Text } from "@chakra-ui/react";
 
 import getRandomColor from "@/utils/getRandomColor"
+import { SlLogin  } from "react-icons/sl";
 
 export interface Props {
   _id: number;
@@ -22,7 +24,7 @@ const Component: React.FC<Props> = ({ thumbnail, title, description, topics, act
   >
 
     {thumbnail && <Image
-      marginY={"2rem"}
+      margin={"1rem"}
       width={"10rem"}
       height={"10rem"}
       src={thumbnail}
@@ -31,19 +33,28 @@ const Component: React.FC<Props> = ({ thumbnail, title, description, topics, act
 
     <Card.Body gap="2">
 
-      <Card.Title lineClamp="3">{title}</Card.Title>
+      <Card.Title lineClamp="3">
+      {title}
+        <IconButton
+          aria-label="Call support"
+          variant={"ghost"}
+          // onClick={}
+        >
+          <SlLogin  />
+        </IconButton>
+      </Card.Title>
 
-      {topics && description && <Card.Description lineClamp="3" >
+      {topics && description && <Card.Description>
         <Flex direction="row" wrap={"wrap"} gap={"1rem"}>
 
-          {description && <Card.Description lineClamp="3">
-            {description}
-          </Card.Description>}
+          {description && <Text textStyle="sm" fontWeight="normal" lineClamp="3">{description}</Text>}
 
           {topics && <Flex direction="row" wrap={"wrap"} gap={"0.4rem"}>
-            {topics.map(topic =>
-              <Badge colorPalette={getRandomColor()}>{topic}</Badge>
-            )}
+            <Text textStyle="md" fontWeight="normal" lineClamp="3">
+              {topics.map(topic =>
+                <Badge colorPalette={getRandomColor()}>{topic}</Badge>
+              )}
+            </Text>
           </Flex>}
 
         </Flex>

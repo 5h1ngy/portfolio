@@ -25,7 +25,7 @@ const Component: React.FC<Props> = ({ title, callback, callbackRef }) => {
     >
       <Text
         textStyle="sm"
-        fontWeight="normal"
+        fontWeight="medium"
         writingMode="vertical-rl" // Imposta il testo in verticale
       // textOrientation="upright" // Mantiene il testo leggibile in verticale
       >
