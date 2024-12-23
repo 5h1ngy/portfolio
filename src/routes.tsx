@@ -2,8 +2,6 @@ import { RouteObject } from "react-router-dom"
 import { Navigate } from 'react-router-dom';
 import { Outlet } from "react-router-dom";
 
-import { HiHome, HiBookmark, HiMagnifyingGlass } from "react-icons/hi2";
-
 import withDynamicImport from "@/hocs/withDynamicImport";
 import Error from "@/pages/Error"
 import Loading from "@/pages/Loading"
@@ -13,17 +11,14 @@ const routes: RouteObject[] = [
         id: "root",
         path: "/",
         element: withDynamicImport('Landing', <Loading />).pages({
-            logo: `${import.meta.env.VITE_BASENAME}/logo.png`,
-            decorationBody: `${import.meta.env.VITE_BASENAME}/decoration.png`,
+            logo: `${import.meta.env.VITE_BASENAME}/assets/logo.png`,
             children: <Outlet />,
             navbarItems: [
-                { icon: <HiHome />, label: "About", value: '/about' },
+                { label: "About", value: '/about' },
+                { label: "Softskill", value: '/soft-skill' },
+                { label: "Hardskill", value: '/hard-skill' },
+                { label: "Projects", value: '/porojects' },
             ],
-            navbarSubItems: [
-                { icon: <HiHome />, label: 'Newset', value: '/home' },
-                { icon: <HiMagnifyingGlass />, label: 'Search', value: '/search' },
-                { icon: <HiBookmark />, label: 'My List', value: '/my-list' }
-            ]
         }),
         errorElement: <Error />,
         children: [
@@ -34,7 +29,7 @@ const routes: RouteObject[] = [
             {
                 id: "home",
                 path: 'home',
-                element: withDynamicImport('Newest', <Loading />).containers(),
+                element: withDynamicImport('Home', <Loading />).containers(),
                 errorElement: <Error />,
             }
         ]

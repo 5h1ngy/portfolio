@@ -1,14 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import containerNewest from './containerNewest';
-import { actions as containerNewestActions } from "./containerNewest"
+import containerPortfolio from './containerPortfolio';
+import { actions as containerPortfolioActions } from "./containerPortfolio"
 
 export const actions = {
-    containerNewest: containerNewestActions,
+    containerPortfolio: containerPortfolioActions,
 }
 
 const reducer = {
-    containerNewest,
+    containerPortfolio: containerPortfolio,
 };
 
 const store = configureStore({

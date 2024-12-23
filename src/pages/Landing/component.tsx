@@ -1,106 +1,104 @@
-import { NavLink, useNavigate } from "react-router";
-import { useLocation } from 'react-router-dom';
+import { NavLink } from "react-router";
+import React, { useEffect, useRef } from 'react';
+import gsap from "gsap";
+import { Flex, Spacer, Image, Text, chakra } from "@chakra-ui/react";
 
-import { Flex } from "@chakra-ui/react"
-import { Spacer } from "@chakra-ui/react"
-import { Tabs, Image } from "@chakra-ui/react"
-import { Text } from "@chakra-ui/react"
-
-import { Toaster } from "@/components/Chakra/toaster"
 import { ColorModeButtonExtended } from "@/components/Chakra/color-mode"
-import { ComponentProps, NavbarSubItem } from "./component.types";
-
-function findMatchingNavbarValue(location: string, items: NavbarSubItem[]): string | null {
-    const locationBase = location.split('/')[1];
-    const matchedItem = items.find(item => locationBase === item.value.split('/')[1]);
-
-    return matchedItem ? matchedItem.value : null;
-}
+import { ComponentProps } from "./component.types";
 
 export default function Component(props: ComponentProps) {
-    const { children, navbarItems, navbarSubItems, logo, decorationBody } = props
-    const location = useLocation();
-    const navigate = useNavigate();
+    const { children, navbarItems, logo } = props;
 
-    const Logo: React.FC = () => logo &&
-        <Image src={logo} width={'42px'} />
+    const circleRef = useRef<HTMLDivElement>(null);
 
-    const DecorationBody: React.FC = () => decorationBody &&
-        <Image
-            src={decorationBody}
-            position={'fixed'}
-            transform="scaleX(-1)"
-            zIndex={-1}
-            right={0}
-            bottom={0}
-            display={{ base: "none", sm: "none", md: "none", lg: 'none', xl: 'block', "2xl": 'block' }}
-        />;
+    function handleMouseMove(event: MouseEvent) {
+        if (circleRef.current) {
+            gsap.to(circleRef.current, { x: event.clientX - 50, y: event.clientY - 50, duration: 0.1, ease: "power1.out" });
+        }
+    };
 
-    const Header: React.FC = () => <Flex wrap={"wrap"} position={"fixed"} zIndex={'2'} width={"100%"} top={0}
-        backgroundColor={"white"} _dark={{ backgroundColor: "black" }}
-        borderYWidth="1px"
-    >
+    useEffect(() => {
+        document.addEventListener('mousemove', handleMouseMove);
 
-        <Flex wrap={"wrap"} direction={"row"} width={'100%'}
-            gapX={'1rem'} justifyContent={"center"} justifyItems={"center"} alignContent={'center'} alignItems={'center'}
-            paddingX={'5%'} paddingTop={'1rem'}
-        >
-            <Logo />
+        return () => {
+            return document.removeEventListener('mousemove', handleMouseMove);
+        }
+    }, []);
 
-            {navbarItems.map(item => (
-                <NavLink key={crypto.randomUUID()} to={item.value} end>
-                    <Text textStyle="md">{item.label}</Text>
-                </NavLink>
-            ))}
+    const Logo: React.FC = () =>
+        logo && <Image src={logo} width={'42px'} />;
 
-            <Spacer />
-
-            {/** ColorMode button (custom) */}
-            <ColorModeButtonExtended variant="enclosed" size={"sm"} />
-        </Flex>
-
-        <Flex wrap={"wrap"} direction={"row"} width={'100%'}
-            gapX={'1rem'} justifyContent={"start"} justifyItems={"center"} alignContent={'center'} alignItems={'center'}
-            paddingX={'10%'}
-        >
-            <Tabs.Root key={crypto.randomUUID()}
-                defaultValue={findMatchingNavbarValue(location.pathname, navbarSubItems)}
-                variant={"line"}
-                size={"sm"}
-                onValueChange={(details: { value: string }) => {
-                    navigate(details.value)
-                }}
+    const Header: React.FC = () =>
+        <Flex wrap={"wrap"} position={"fixed"} zIndex={4} width={"100%"} top={0}>
+            <Flex
+                wrap={"wrap"} direction={"row"} width={'100%'}
+                gapX={'1rem'} justifyContent={"center"} justifyItems={"center"} alignContent={'center'} alignItems={'center'}
+                paddingX={'5%'} paddingY={'1rem'}
             >
-                <Tabs.List>
-                    {navbarSubItems.map(item => (
-                        <Tabs.Trigger key={crypto.randomUUID()} value={item.value}>
-                            {item.icon} {item.label}
-                        </Tabs.Trigger>
-                    ))}
-                </Tabs.List>
-            </ Tabs.Root>
+                <Logo />
+
+                {navbarItems.map(item => (
+                    <NavLink key={crypto.randomUUID()} to={item.value} end>
+                        <Text textStyle="md" fontWeight="medium">{item.label}</Text>
+                    </NavLink>
+                ))}
+
+                <Spacer />
+
+                <ColorModeButtonExtended variant="enclosed" size={"sm"} />
+            </Flex>
         </Flex>
 
-    </Flex>
+    const Body: React.FC = () => (
+        <Flex minHeight={'100vh'} zIndex={'3'} wrap={"wrap"} borderYWidth="1px"
+            paddingTop={'8rem'} paddingBottom={'5rem'}
+            paddingX={{ base: "5%", sm: "4rem", md: "4rem", lg: '4rem', xl: '20%', "2xl": '20%' }}
+            gap={'8rem'}
+        >
+            {children !== undefined && children}
+        </Flex>
+    )
 
-    const Body: React.FC = () => <Flex direction={"column"} zIndex={'1'} marginTop={'5.4rem'}
-        paddingX={{ base: "5%", sm: "4rem", md: "4rem", lg: '4rem', xl: '15%', "2xl": '15%' }} gap={'3rem'}
-        paddingY={'4rem'}
-        minHeight={'90.5vh'}
-        borderYWidth="1px"
-        backgroundColor={"gray.100"} _dark={{ backgroundColor: "gray.900" }}
+    return <Flex position="relative" overflow="hidden"
+        direction={"column"} width={"100%"} minHeight={'100vh'}
     >
+        {/* Background sfocato */}
+        <chakra.div
+            position={"absolute"} zIndex={1}
+            top={0} left={0} right={0} bottom={0}
 
-        <DecorationBody />
+            backgroundAttachment="fixed"
+            backgroundPosition="top"
+            backgroundSize="cover"
+            filter="blur(60px)"
 
-        {children !== undefined && children}
+            backgroundColor={"gray.100"}
+            backgroundImage={`url(${import.meta.env.VITE_BASENAME}/assets/background_white.png)`}
 
-        <Toaster />
+            _dark={{
+                backgroundColor: "gray.900",
+                backgroundImage: `url(${import.meta.env.VITE_BASENAME}/assets/background_dark.png)`
+            }}
+        />
 
-    </Flex>
+        {/* Cerchio dietro il mouse */}
+        <chakra.div ref={circleRef} pointerEvents="none"
+            position="fixed" zIndex={2}
+            top={0} left={0}
+            width="100px" height="100px"
+            borderRadius="50%"
+            background="radial-gradient(circle, {colors.gray.100} 0%, transparent 70%)"
+            _dark={{
+                background: "radial-gradient(circle, {colors.gray.900} 0%, transparent 70%)",
+            }}
+        />
 
-    return <Flex direction={"column"} width={"100%"} minHeight={'100vh'}>
-        <Header />
-        <Body />
+        {/* Contenuto non sfocato (in primo piano) */}
+        <Flex position="relative" zIndex={3}
+            direction={"column"} width={"100%"} minHeight={'100vh'}
+        >
+            <Header />
+            <Body />
+        </Flex>
     </Flex>
 }

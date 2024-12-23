@@ -1,35 +1,54 @@
 import _ from "lodash";
 import React from "react";
-import { Badge, Card, Image } from "@chakra-ui/react"
+import { Badge, Card, Flex, Image } from "@chakra-ui/react"
 
 import getRandomColor from "@/utils/getRandomColor"
 
 export interface Props {
-  id: string;
-  thumbnail: string;
-  season: string | null;
-  yearStart: number;
+  _id: number;
   title: string;
-  type: string;
+  thumbnail?: string,
+  topics?: string[],
+  description?: string,
   actions?: React.ReactElement;
 }
 
-const Component: React.FC<Props> = ({ thumbnail, yearStart, season, title, type, actions }) => {
+const Component: React.FC<Props> = ({ thumbnail, title, description, topics, actions }) => {
 
-  return (<Card.Root maxW={'180px'} overflow="hidden">
+  return (<Card.Root overflow="hidden" flexDirection="row"
+    minHeight="14rem" width="35rem" borderRadius={"15px"}
+    backgroundColor={"gray.100"}
+    _dark={{ backgroundColor: "gray.900" }}
+  >
 
-    <Image
+    {thumbnail && <Image
+      marginY={"2rem"}
+      width={"10rem"}
+      height={"10rem"}
       src={thumbnail}
       alt="Green double couch with wooden legs"
-    />
+    />}
 
     <Card.Body gap="2">
-      <Card.Title lineClamp="3">
-        {yearStart && <Badge colorPalette={getRandomColor()}>{yearStart}</Badge>}
-        {season && <Badge colorPalette={getRandomColor()}>{season}</Badge>}
-      </Card.Title>
+
       <Card.Title lineClamp="3">{title}</Card.Title>
-      {type && <Card.Description>{type}</Card.Description>}
+
+      {topics && description && <Card.Description lineClamp="3" >
+        <Flex direction="row" wrap={"wrap"} gap={"1rem"}>
+
+          {description && <Card.Description lineClamp="3">
+            {description}
+          </Card.Description>}
+
+          {topics && <Flex direction="row" wrap={"wrap"} gap={"0.4rem"}>
+            {topics.map(topic =>
+              <Badge colorPalette={getRandomColor()}>{topic}</Badge>
+            )}
+          </Flex>}
+
+        </Flex>
+      </Card.Description>}
+
     </Card.Body>
 
     {actions && <Card.Footer>

@@ -14,7 +14,5 @@ export interface NavbarSubItem {
 export interface ComponentProps {
     children?: ReactElement
     navbarItems: Array<NavbarItem>
-    navbarSubItems: Array<NavbarSubItem>
     logo: string | null
-    decorationBody: string | null
 }

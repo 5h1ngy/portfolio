@@ -1,9 +1,0 @@
-$DEBUG_MODE: false;
-$primary-color: var(--chakra-colors-blue-700);
-
-.component {
-
-    @if($DEBUG_MODE ==true) {
-        border: 1px solid red;
-    }
-}

@@ -9,48 +9,43 @@ type PlanetConfig = {
 
 type OrbitConfig = {
     radius: number;
-    orbitDuration: number; // durata in secondi per un giro completo
+    // durata in secondi per un giro completo
+    orbitDuration: number;
     planets: PlanetConfig[];
 };
 
 interface Props {
-    centerImage: string;         // immagine al centro del "sistema"
+    // immagine al centro del "sistema"
+    centerImage: string;
     centerAlt?: string;
-    orbits: OrbitConfig[];       // array di configurazioni per ciascuna orbita
-    className?: string;          // per customizzare container generico via CSS
+    // array di configurazioni per ciascuna orbita
+    orbits: OrbitConfig[];
+    // per customizzare container generico via CSS
+    className?: string;
 }
 
-const GalacticOrbiter: React.FC<Props> = ({ centerImage, centerAlt = 'Center Image', orbits, className }) => {
+const Component: React.FC<Props> = ({ centerImage, centerAlt = 'Center Image', orbits, className }) => {
 
     const containerRef = useRef<HTMLDivElement>(null);
     const orbitRefs = useRef<HTMLDivElement[]>([]);
     const planetRefs = useRef<HTMLDivElement[][]>([]);
-    // planetRefs sarà un array di array:
-    // planetRefs[i] conterrà i riferimenti ai pianeti della i-esima orbita
 
     orbitRefs.current = [];
-    planetRefs.current = orbits.map(() => []); // Inizializziamo la struttura dati
+    planetRefs.current = orbits.map(() => []);
 
     useLayoutEffect(() => {
-        orbitRefs.current.forEach((orbitEl, orbitIndex) => {
-            const orbitConf = orbits[orbitIndex];
-
-            // Animazione dell'orbita
-            gsap.to(orbitEl, {
-                rotation: 360,
-                duration: orbitConf.orbitDuration,
-                ease: 'linear',
-                repeat: -1,
-                onUpdate: () => {
-                    // Otteniamo la rotazione corrente dell'orbita
-                    const currentRotation = gsap.getProperty(orbitEl, "rotation") as number;
-                    // Invertiamo la rotazione per i pianeti di questa orbita
-                    planetRefs.current[orbitIndex].forEach((planetEl) => {
-                        gsap.set(planetEl, { rotation: -currentRotation });
-                    });
-                }
-            });
-        });
+        orbitRefs.current.forEach((orbitEl, orbitIndex) => gsap.to(orbitEl, {
+            rotation: 360,
+            duration: orbits[orbitIndex].orbitDuration,
+            ease: 'linear',
+            repeat: -1,
+            onUpdate: () => {
+                const currentRotation = gsap.getProperty(orbitEl, "rotation") as number;
+                planetRefs.current[orbitIndex].forEach((planetEl) => {
+                    gsap.set(planetEl, { rotation: -currentRotation });
+                });
+            }
+        }));
     }, [orbits]);
 
     const maxRadius = Math.max(...orbits.map(o => o.radius), 0);
@@ -61,14 +56,15 @@ const GalacticOrbiter: React.FC<Props> = ({ centerImage, centerAlt = 'Center Ima
             className={className ? className : 'galactic-orbiter-container'}
             style={{
                 position: 'relative',
-                width: `${maxRadius * 4}px`,
-                height: `${maxRadius * 4}px`,
+                width: `${maxRadius * 2}px`,
+                height: `${maxRadius * 2}px`,
             }}
         >
             {/* Centro */}
             <div
                 className="galactic-center"
                 style={{
+                    zIndex: 20,
                     position: 'absolute',
                     top: '50%',
                     left: '50%',
@@ -145,4 +141,4 @@ const GalacticOrbiter: React.FC<Props> = ({ centerImage, centerAlt = 'Center Ima
     );
 }
 
-export default GalacticOrbiter;
+export default Component;
