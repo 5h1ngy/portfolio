@@ -28,11 +28,11 @@ const Component: React.FC<CardsSliderProps> = ({ cards, centerCount }) => {
                     (index >= currentIndex + centerCount && index < currentIndex + centerCount + 2);
 
                 if (isCenter) {
-                    return <Card key={index} {...card} />;
+                    return <Card key={crypto.randomUUID()} {...card} />;
                 } else if (isCompact) {
                     return (
                         <CardCompact
-                            key={index}
+                            key={crypto.randomUUID()}
                             title={card.title}
                             callback={goToRef}
                             callbackRef={index}

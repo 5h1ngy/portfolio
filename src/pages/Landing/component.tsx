@@ -5,6 +5,7 @@ import { Flex, Spacer, Image, Text, chakra } from "@chakra-ui/react";
 
 import { ColorModeButtonExtended } from "@/components/Chakra/color-mode"
 import { ComponentProps } from "./component.types";
+import SmoothScrollProvider from "@/providers/SmoothScrollProvider";
 
 export default function Component(props: ComponentProps) {
     const { children, navbarItems, logo } = props;
@@ -52,7 +53,7 @@ export default function Component(props: ComponentProps) {
     const Body: React.FC = () => (
         <Flex minHeight={'100vh'} zIndex={'3'} wrap={"wrap"} borderYWidth="1px"
             paddingTop={'8rem'} paddingBottom={'5rem'}
-            paddingX={{ base: "5%", sm: "4rem", md: "4rem", lg: '4rem', xl: '20%', "2xl": '20%' }}
+            paddingX={{ base: "5%", sm: "5%", md: "5%", lg: '5%', xl: '10%', "2xl": '10%' }}
             gap={'8rem'}
         >
             {children !== undefined && children}
@@ -98,7 +99,11 @@ export default function Component(props: ComponentProps) {
             direction={"column"} width={"100%"} minHeight={'100vh'}
         >
             <Header />
-            <Body />
+
+            {/* Avvolgiamo TUTTO in SmoothScrollProvider */}
+            <SmoothScrollProvider>
+                <Body />
+            </SmoothScrollProvider>
         </Flex>
     </Flex>
 }

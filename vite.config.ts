@@ -20,9 +20,9 @@ export default defineConfig(({ mode }) => {
     : undefined; // Usa undefined invece di null per compatibilità con Vite
 
   return {
-    // build: {
-    //   sourcemap: true, // Abilita le source map in produzione
-    // },
+    build: {
+      sourcemap: true, // Abilita le source map in produzione
+    },
     base: process.env.VITE_BASENAME,
     plugins: [react(), tsconfigPaths(),
     // Custom plugin to load markdown files

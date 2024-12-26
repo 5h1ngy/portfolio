@@ -10,7 +10,7 @@ import routes from '@/routes'
 
 const App: React.FC = () => {
 
-    const imgUrl = new URL(`${import.meta.env.VITE_BASENAME}/logo.png`, import.meta.url).href
+    const imgUrl = new URL(`${import.meta.env.VITE_BASENAME}/logo.png`, location.origin).href
 
     return <Provider store={store}>
         <ThemeProvider>
@@ -33,6 +33,7 @@ const App: React.FC = () => {
                     v7_skipActionErrorRevalidation: true,
                 },
             })} />
+
         </ThemeProvider>
     </Provider>
 }

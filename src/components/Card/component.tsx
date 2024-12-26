@@ -52,7 +52,7 @@ const Component: React.FC<Props> = ({ thumbnail, title, description, topics, act
           {topics && <Flex direction="row" wrap={"wrap"} gap={"0.4rem"}>
             <Text textStyle="md" fontWeight="normal" lineClamp="3">
               {topics.map(topic =>
-                <Badge colorPalette={getRandomColor()}>{topic}</Badge>
+                <Badge key={crypto.randomUUID()} colorPalette={getRandomColor()}>{topic}</Badge>
               )}
             </Text>
           </Flex>}

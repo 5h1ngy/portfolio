@@ -22,7 +22,7 @@ export interface State {
         error?: any,
     },
     projects: {
-        occurrences?: Repository[],
+        occurrences: Repository[],
         status: STATUS,
         error?: any,
     },

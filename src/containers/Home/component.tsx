@@ -1,23 +1,22 @@
+import { useEffect } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { Text } from "@chakra-ui/react"
-import { Box, Flex } from "@chakra-ui/react"
+import { Flex } from "@chakra-ui/react";
 
 import { WithRouterProps } from "@/hocs/withRouter";
-import GalacticOrbiter from "@/components/GalacticOrbiter"
-import SliderCards from "@/components/SliderCards"
-import StyledMarkdown from "@/components/StyledMarkdown";
+import withRouter from '@/hocs/withRouter';
+import GalacticOrbiter from "@/components/GalacticOrbiter";
 
-import { ProgressCircleRing, ProgressCircleRoot } from "@/components/Chakra/progress-circle"
-
-import { Bind } from "./container"
-import { useEffect } from "react";
-import { STATUS } from "@/store/containerPortfolio";
+import { Bind } from "./container";
+import bind from "./container";
+import About from "./component.about";
+import HardSkills from "./component.hardskills";
+import SoftSkills from "./component.softskills";
+import Projects from "./component.projects";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Component: React.FC<Bind & WithRouterProps> = ({ actions, state }) => {
-    const { about, hardskill, softskill, projects } = state;
+const Component: React.FC<Bind & WithRouterProps> = ({ actions }) => {
     const { doGetRepositories, doGetAbout, doGetHardskill, doGetSoftskill } = actions;
 
     const avatarTechs = [
@@ -57,11 +56,8 @@ const Component: React.FC<Bind & WithRouterProps> = ({ actions, state }) => {
 
     return (
         <>
-            <Flex
-                direction={"row"}
-                width={"100%"}
-                align={"center"}
-                justify={"center"}
+            <Flex direction="row" width="100%" height="80vh"
+                align="center" justify="center" paddingX={"20vw"}
             >
                 <GalacticOrbiter
                     centerImage={`${import.meta.env.VITE_BASENAME}/logos/avatar.png`}
@@ -71,109 +67,28 @@ const Component: React.FC<Bind & WithRouterProps> = ({ actions, state }) => {
 
 
             {/* Card ABOUT */}
-            {about.status !== STATUS.FAILED
-                && <Flex direction={"column"} justify={"center"} width={"100%"}>
-                    <Text textStyle="4xl" fontWeight="bold">About</Text>
-                    <Box
-                        // backgroundColor={"gray.100"}
-                        // _dark={{ backgroundColor: "gray.900" }}
-                        width={"100%"}
-                        margin={"3rem"}
-                        borderWidth="1px"
-                        borderRadius={"15px"}
-                        border={"1px"}
-                    >
-                        <Text textStyle="md" fontWeight="normal">
-                            {about.status === STATUS.IDLE
-                                && <ProgressCircleRoot value={null} size="sm">
-                                    <ProgressCircleRing cap="round" />
-                                </ProgressCircleRoot>
-                            }
-                            {about.status === STATUS.SUCCESS
-                                && <StyledMarkdown content={about.occurrence!} />
-                            }
-                        </Text>
-                    </Box>
-                </Flex>
-            }
+            <Flex width={"100%"} direction={"column"} justifyContent={"center"} gap={"2rem"}>
+                <About />
+            </Flex>
 
-            <Flex direction={"row"} gap={"8rem"} width={"100%"}
-                justify={{ base: "", sm: "center", md: "center", lg: 'space-between', xl: 'space-between', "2xl": 'space-between' }}
-                wrap={{ base: "nowrap", sm: "wrap", md: "wrap", lg: "nowrap", xl: "nowrap", "2xl": "nowrap" }}
+            <Flex width={"100%"} direction={"row"} gap={"8rem"} justifyContent={"center"}
+                wrap={{ base: "wrap", sm: "wrap", md: "wrap", lg: 'wrap', xl: 'nowrap', "2xl": 'nowrap' }}
             >
 
                 {/* Card HARD SKILLS */}
-                {hardskill.status !== STATUS.FAILED
-                    && <Flex direction={"column"} width={"35rem"}>
-                        <Text textStyle="4xl" fontWeight="bold">Hard Skills</Text>
-                        <Box
-                            margin={{ base: "0", sm: "0", md: "0", lg: "3rem", xl: "3rem", "2xl": "3rem" }}
-                            marginY={{ base: "1rem", sm: "1rem", md: "1rem", lg: undefined, xl: undefined, "2xl": undefined }}
-                            backgroundColor={"gray.100"}
-                            _dark={{ backgroundColor: "gray.900" }}
-                            width={"100%"}
-                            padding={"3rem"}
-                            borderRadius={"15px"}
-                        >
-                            <Text textStyle="md" fontWeight="normal">
-                                {hardskill.status === STATUS.IDLE
-                                    && <ProgressCircleRoot value={null} size="sm">
-                                        <ProgressCircleRing cap="round" />
-                                    </ProgressCircleRoot>
-                                }
-                                {hardskill.status === STATUS.SUCCESS
-                                    && <StyledMarkdown content={hardskill.occurrence!} />
-                                }
-                            </Text>
-                        </Box>
-                    </Flex>
-                }
+                <HardSkills />
 
                 {/* Card SOFT SKILLS */}
-                {softskill.status !== STATUS.FAILED
-                    && <Flex direction={"column"} width={"35rem"}>
-                        <Text textStyle="4xl" fontWeight="bold">Soft Skills</Text>
-                        <Box
-                            margin={{ base: "0", sm: "0", md: "0", lg: "3rem", xl: "3rem", "2xl": "3rem" }}
-                            marginY={{ base: "1rem", sm: "1rem", md: "1rem", lg: undefined, xl: undefined, "2xl": undefined }}
-                            backgroundColor={"gray.100"}
-                            _dark={{ backgroundColor: "gray.900" }}
-                            width={"100%"}
-                            padding={"3rem"}
-                            borderRadius={"15px"}
-                        >
-                            <Text textStyle="md" fontWeight="normal">
-                                {softskill.status === STATUS.IDLE
-                                    && <ProgressCircleRoot value={null} size="sm">
-                                        <ProgressCircleRing cap="round" />
-                                    </ProgressCircleRoot>
-                                }
-                                {softskill.status === STATUS.SUCCESS
-                                    && <StyledMarkdown content={softskill.occurrence!} />
-                                }
-                            </Text>
-                        </Box>
-                    </Flex>
-                }
+                <SoftSkills />
+
             </Flex>
 
             {/* Sezione Projects */}
-            {projects.status !== STATUS.FAILED
-                && <Flex direction={"column"} width={"100%"}>
-                    <Text textStyle="4xl" fontWeight="bold">Projects</Text>
-
-                    {projects.status === STATUS.IDLE
-                        && <ProgressCircleRoot value={null} size="sm">
-                            <ProgressCircleRing cap="round" />
-                        </ProgressCircleRoot>
-                    }
-                    {projects.status === STATUS.SUCCESS
-                        && <SliderCards centerCount={1} cards={projects.occurrences!} />
-                    }
-                </Flex>
-            }
+            <Flex direction={"column"} width={"100%"}>
+                <Projects />
+            </Flex>
         </>
     )
 };
 
-export default Component;
+export default bind(withRouter(Component));
