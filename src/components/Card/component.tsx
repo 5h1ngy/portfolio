@@ -27,13 +27,45 @@ const Component: React.FC<Props> = ({ thumbnail, title, description, topics, lin
     _dark={{ backgroundColor: "gray.900" }}
   >
 
-    {thumbnail && <Image
-      margin={"1rem"}
-      width={"10rem"}
-      height={"10rem"}
-      src={thumbnail}
-      alt="Green double couch with wooden legs"
-    />}
+    <Flex flexDirection="column">
+
+      {thumbnail && <Image
+        margin={"1rem"}
+        width={"10rem"}
+        height={"10rem"}
+        src={thumbnail}
+        alt="Green double couch with wooden legs"
+      />}
+
+      {links && <Flex // height={"14rem"} 
+        flexDirection={"row"}
+        padding={"0.5rem"} gap={"0.8rem"}
+        borderLeftWidth={"1px"} justifyContent={"center"}
+      >
+
+        {links?.docs && <IconButton aria-label="" variant={"ghost"} onClick={() => urlCallback(links?.docs)} >
+          <SiGoogledocs />
+          <Text textStyle="xs" fontWeight="normal">Docs</Text>
+        </IconButton>}
+
+
+        {links?.swagger && <IconButton aria-label="" variant={"ghost"} onClick={() => urlCallback(links?.swagger)} >
+          <SiSwagger />
+          <Text textStyle="xs" fontWeight="normal">Swagger</Text>
+        </IconButton>}
+
+        {links?.storybook && <IconButton aria-label="" variant={"ghost"} onClick={() => urlCallback(links?.storybook)} >
+          <SiStorybook />
+          <Text textStyle="xs" fontWeight="normal">Storybook</Text>
+        </IconButton>}
+
+        {links?.host && <IconButton aria-label="" variant={"ghost"} onClick={() => urlCallback(links?.host)} >
+          <CiGlobe />
+          <Text textStyle="xs" fontWeight="normal">Host</Text>
+        </IconButton>}
+
+      </Flex>}
+    </Flex>
 
     <Card.Body gap="2">
 
@@ -59,37 +91,7 @@ const Component: React.FC<Props> = ({ thumbnail, title, description, topics, lin
 
         </Flex>
       </Card.Description>}
-
     </Card.Body>
-
-    {links && <Card.Footer height={"14rem"} flexDirection={"column"}
-      padding={"1.5rem"} gap={"1rem"}
-      borderLeftWidth={"1px"} justifyContent={"center"}
-    >
-
-      {links?.docs && <IconButton aria-label="" variant={"ghost"} onClick={() => urlCallback(links?.docs)} >
-        <SiGoogledocs />
-        <Text textStyle="xs" fontWeight="normal">Docs</Text>
-      </IconButton>}
-
-
-      {links?.swagger && <IconButton aria-label="" variant={"ghost"} onClick={() => urlCallback(links?.swagger)} >
-        <SiSwagger />
-        <Text textStyle="xs" fontWeight="normal">Swagger</Text>
-      </IconButton>}
-
-      {links?.storybook && <IconButton aria-label="" variant={"ghost"} onClick={() => urlCallback(links?.storybook)} >
-        <SiStorybook />
-        <Text textStyle="xs" fontWeight="normal">Storybook</Text>
-      </IconButton>}
-
-      {links?.host && <IconButton aria-label="" variant={"ghost"} onClick={() => urlCallback(links?.host)} >
-        <CiGlobe />
-        <Text textStyle="xs" fontWeight="normal">Host</Text>
-      </IconButton>}
-
-    </Card.Footer>}
-
   </Card.Root>)
 }
 

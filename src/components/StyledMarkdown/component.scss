@@ -1,31 +1,20 @@
-// .markdown-container {
-//     font-family: Arial, sans-serif;
-//     line-height: 1.6;
-//     color: #333;
-// }
+.markdown-container p {
+    margin: 1em 0;
+    /* Aggiunge spaziatura verticale tra i paragrafi */
+    line-height: 1.6;
+    /* Migliora la leggibilità */
+}
+
+.markdown-container ul,
+.markdown-container ol {
+    margin: 1em 0;
+    padding-left: 1.5em;
+    /* Allinea le liste */
+}
 
 .markdown-container h1,
 .markdown-container h2,
 .markdown-container h3 {
-    border-bottom: 2px solid #ddd;
-    padding-bottom: 0.3em;
+    margin: 1.5em 0 1em;
+    /* Spaziatura sopra e sotto i titoli */
 }
-
-.markdown-container ul {
-    list-style: disc inside;
-    margin-left: 1em;
-}
-
-// .markdown-container code {
-//     background-color: #f4f4f4;
-//     padding: 0.2em 0.4em;
-//     border-radius: 4px;
-//     font-family: monospace;
-// }
-
-// .markdown-container pre {
-//     background: #f9f9f9;
-//     padding: 1em;
-//     border-radius: 5px;
-//     overflow-x: auto;
-// }

@@ -59,7 +59,10 @@ const Component: React.FC<Bind & WithRouterProps> = ({ state }) => {
                 && <SliderCards
                     title="Frontend"
                     centerCount={1}
-                    cards={projects.occurrences.filter(occurrence => occurrence.title.startsWith("fe-"))}
+                    cards={projects.occurrences.filter(occurrence =>
+                        occurrence.title.startsWith("fe-") &&
+                        !occurrence.title.startsWith("fe-pixijs")
+                    )}
                 />
             }
 
@@ -69,6 +72,17 @@ const Component: React.FC<Bind & WithRouterProps> = ({ state }) => {
                     title="Backend"
                     centerCount={1}
                     cards={projects.occurrences.filter(occurrence => occurrence.title.startsWith("be-"))}
+                />
+            }
+
+            {/* STATUS.SUCCESS  */}
+            {projects.status === STATUS.SUCCESS && projects.occurrences?.length !== 0
+                && <SliderCards
+                    title="Videogames"
+                    centerCount={1}
+                    cards={projects.occurrences.filter(occurrence =>
+                        occurrence.title.startsWith("fe-pixijs")
+                    )}
                 />
             }
 

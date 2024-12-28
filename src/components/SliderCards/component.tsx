@@ -9,6 +9,8 @@ import useMediaQuery from '@/hooks/useMediaQuery';
 import Card from "@/components/Card"
 import CardCompact from "@/components/CardCompact"
 import CardMobile from '@/components/CardMobile';
+import { CiFolderOff } from 'react-icons/ci';
+import { EmptyState } from "@/components/Chakra/empty-state"
 
 interface CardsSliderProps {
     cards: Repository[];
@@ -115,6 +117,15 @@ const Component: React.FC<CardsSliderProps> = ({ title, cards, centerCount }) =>
                 >
                     {getDefaultCards()}
                 </Flex>
+            }
+
+            {/* STATUS.SUCCESS */}
+            {cards.length === 0
+                && <EmptyState
+                    icon={<CiFolderOff />}
+                    title={`No ${title} Found`}
+                    description="Please go to Github/5h1ngy to see more projects"
+                />
             }
         </Flex>
     );

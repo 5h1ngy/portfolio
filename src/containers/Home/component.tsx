@@ -13,11 +13,12 @@ import About from "./component.about";
 import HardSkills from "./component.hardskills";
 import SoftSkills from "./component.softskills";
 import Projects from "./component.projects";
+import Contacts from "./component.contacts";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Component: React.FC<Bind & WithRouterProps> = ({ actions }) => {
-    const { doGetRepositories, doGetAbout, doGetHardskill, doGetSoftskill } = actions;
+    const { doGetRepositories, doGetAbout, doGetHardskill, doGetSoftskill, doGetContacts } = actions;
 
     const avatarTechs = [
         {
@@ -52,11 +53,12 @@ const Component: React.FC<Bind & WithRouterProps> = ({ actions }) => {
         doGetAbout()
         doGetHardskill()
         doGetSoftskill()
+        doGetContacts()
     }, [])
 
     return (
         <>
-            <Flex direction="row" width="100%" height="50vh"
+            <Flex direction="row" width="80vw" height="80vh"
                 align="center" justify="center" paddingX={"20vw"}
             >
                 <GalacticOrbiter
@@ -67,11 +69,11 @@ const Component: React.FC<Bind & WithRouterProps> = ({ actions }) => {
 
 
             {/* Card ABOUT */}
-            <Flex width={"100%"} direction={"column"} justifyContent={"center"} gap={"2rem"}>
+            <Flex id="about" width={"100%"} direction={"column"} justifyContent={"center"} gap={"2rem"}>
                 <About />
             </Flex>
 
-            <Flex width={"100%"} direction={"row"} gap={"8rem"} justifyContent={"center"}
+            <Flex id="skills" width={"100%"} direction={"row"} gap={"8rem"} justifyContent={"center"}
                 wrap={{ base: "wrap", sm: "wrap", md: "wrap", lg: 'wrap', xl: 'nowrap', "2xl": 'nowrap' }}
             >
 
@@ -84,8 +86,13 @@ const Component: React.FC<Bind & WithRouterProps> = ({ actions }) => {
             </Flex>
 
             {/* Sezione Projects */}
-            <Flex direction={"column"} width={"100%"} gap={"1rem"}>
+            <Flex id="projects" direction={"column"} width={"100%"} gap={"1rem"}>
                 <Projects />
+            </Flex>
+
+            {/* Card Contacts */}
+            <Flex id="about" width={"100%"} direction={"column"} justifyContent={"center"} gap={"2rem"}>
+                <Contacts />
             </Flex>
         </>
     )

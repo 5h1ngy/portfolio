@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getRepositories } from '@/services/github';
-import { getAbout, getHardskill, getSoftskill } from '@/services/markdown';
+import { getAbout, getHardskill, getSoftskill, getContacts } from '@/services/markdown';
 import { Repository } from "@/services/github.types";
 
 export enum STATUS { IDLE, LOADING, SUCCESS, FAILED }
@@ -26,6 +26,11 @@ export interface State {
         status: STATUS,
         error?: any,
     },
+    contacts: {
+        occurrence?: string,
+        status: STATUS,
+        error?: any,
+    },
 }
 
 const doGetRepositories = createAsyncThunk(
@@ -48,6 +53,11 @@ const doGetSoftskill = createAsyncThunk(
     async () => await getSoftskill()
 );
 
+const doGetContacts = createAsyncThunk(
+    'container/portfolio/doGetContacts',
+    async () => await getContacts()
+);
+
 const slice = createSlice({
     name: 'container/portfolio',
     initialState: {
@@ -68,6 +78,11 @@ const slice = createSlice({
         },
         projects: {
             occurrences: [],
+            status: STATUS.IDLE,
+            error: undefined,
+        },
+        contacts: {
+            occurrence: undefined,
             status: STATUS.IDLE,
             error: undefined,
         },
@@ -121,6 +136,18 @@ const slice = createSlice({
         .addCase(doGetSoftskill.rejected, (state, action) => {
             state.softskill.status = STATUS.FAILED;
             state.softskill.error = action.error.message;
+        })
+        // Contacts .MD
+        .addCase(doGetContacts.pending, (state) => {
+            state.contacts.status = STATUS.LOADING;
+        })
+        .addCase(doGetContacts.fulfilled, (state, action) => {
+            state.contacts.status = STATUS.SUCCESS;
+            state.contacts.occurrence = action.payload;
+        })
+        .addCase(doGetContacts.rejected, (state, action) => {
+            state.contacts.status = STATUS.FAILED;
+            state.contacts.error = action.error.message;
         }),
 });
 
@@ -130,6 +157,7 @@ export const actions = {
     doGetAbout,
     doGetHardskill,
     doGetSoftskill,
+    doGetContacts,
 };
 
 export default slice.reducer;

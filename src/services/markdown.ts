@@ -16,6 +16,20 @@ export async function getAbout(): Promise<string> {
     }
 }
 
+export async function getContacts(): Promise<string> {
+
+    try {
+        let defaultQuery = `${PATH}/contacts.md`;
+        const response = await axios.get<string>(defaultQuery);
+
+        return response.data;
+    } catch (error) {
+        console.error("Errore durante la chiamata al servizio", error);
+
+        throw new Error(<string>error)
+    }
+}
+
 export async function getHardskill(): Promise<string> {
 
     try {

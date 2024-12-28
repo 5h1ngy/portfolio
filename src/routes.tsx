@@ -15,9 +15,8 @@ const routes: RouteObject[] = [
             children: <Outlet />,
             navbarItems: [
                 { label: "About", value: '/about' },
-                { label: "Softskill", value: '/soft-skill' },
-                { label: "Hardskill", value: '/hard-skill' },
-                { label: "Projects", value: '/porojects' },
+                { label: "Skills", value: '/skills' },
+                { label: "Projects", value: '/projects' },
             ],
         }),
         errorElement: <Error />,
@@ -29,6 +28,30 @@ const routes: RouteObject[] = [
             {
                 id: "home",
                 path: 'home',
+                element: withDynamicImport('Home', <Loading />).containers(),
+                errorElement: <Error />,
+            },
+            {
+                id: "about",
+                path: 'about',
+                element: withDynamicImport('Home', <Loading />).containers(),
+                errorElement: <Error />,
+            },
+            {
+                id: "skills",
+                path: 'skills',
+                element: withDynamicImport('Home', <Loading />).containers(),
+                errorElement: <Error />,
+            },
+            {
+                id: "projects",
+                path: 'projects',
+                element: withDynamicImport('Home', <Loading />).containers(),
+                errorElement: <Error />,
+            },
+            {
+                id: "contacts",
+                path: 'contacts',
                 element: withDynamicImport('Home', <Loading />).containers(),
                 errorElement: <Error />,
             }
