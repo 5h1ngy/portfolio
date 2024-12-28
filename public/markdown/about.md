@@ -1,5 +1,5 @@
-Sono un Software Engineer con una forte passione per lo sviluppo di soluzioni innovative e scalabili. Ho esperienza nel progettare, implementare e ottimizzare software, con un focus particolare su tecnologie moderne come JavaScript, Python, React, Node.js.
+I am a Software Engineer with a strong passion for developing innovative and scalable solutions. I have experience in designing, implementing, and optimizing software, with a particular focus on modern technologies such as JavaScript, Python, React, and Node.js.
 
-Nel mio lavoro, combino creatività e modularità, puntando sempre al raggiungimento dell'obbiettivo. Amo affrontare nuove sfide, risolvere problemi complessi e apprendere costantemente.
+In my work, I combine creativity and modularity, always aiming to achieve the goal. I love tackling new challenges, solving complex problems, and continuously learning.
 
-In questo portfolio, potrai esplorare alcuni dei miei progetti più recenti. Se hai un'idea o un progetto, contattami e discutiamo di come posso aiutarti a trasformarla in realtà.
+In this portfolio, you can explore some of my most recent projects. If you have an idea or a project, feel free to contact me, and let’s discuss how I can help you turn it into reality.

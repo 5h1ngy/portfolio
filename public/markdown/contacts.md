@@ -1,7 +1,7 @@
-Se desideri metterti in contatto, puoi utilizzare uno dei seguenti canali. Sono disponibile per collaborazioni, richieste di informazioni o progetti interessanti!
-  
+If you’d like to get in touch, you can use one of the following channels. I’m available for collaborations, inquiries, or interesting projects!
+
 - **GitHub**: [5h1ngy](https://www.github.com/5h1ngy)  
-  Esplora i miei progetti open-source e il mio lavoro di sviluppo.
+  Explore my open-source projects and development work.
 
 - **Email**: [sig.scarano@outlook.it](mailto:sig.scarano@outlook.it)  
-  Il modo migliore per contattarmi per richieste formali o dettagliate.
+  The best way to contact me for formal or detailed inquiries.

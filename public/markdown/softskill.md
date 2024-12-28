@@ -1,9 +1,9 @@
-🧠 **Problem Solving**: Abilità nel risolvere problemi complessi con soluzioni scalabili e modulari.
+🧠 **Problem Solving**: Skilled in solving complex problems with scalable and modular solutions.
 
-🤝 **Teamwork**: Collaborazione efficace con team multidisciplinari e mentoring di sviluppatori junior.
+🤝 **Teamwork**: Effective collaboration with multidisciplinary teams and mentoring junior developers.
 
-🌟 **Adaptability**: Capacità di apprendere rapidamente nuove tecnologie e adattarsi a contesti dinamici.
+🌟 **Adaptability**: Ability to quickly learn new technologies and adapt to dynamic environments.
 
-🔧 **Continuous Improvement**: Dedizione alla qualità del codice e al miglioramento continuo.
+🔧 **Continuous Improvement**: Commitment to code quality and continuous improvement.
 
-💡 **Innovation**: Proattività nell’esplorare nuove tecnologie per ottimizzare i processi di sviluppo.
+💡 **Innovation**: Proactive in exploring new technologies to optimize development processes.

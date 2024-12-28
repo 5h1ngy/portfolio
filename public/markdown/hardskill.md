@@ -1,11 +1,11 @@
-🖥️ **Frontend Development**: Esperienza avanzata con React.js, Redux Toolkit, e TypeScript.
+🖥️ **Frontend Development**: Advanced experience with React.js, Redux Toolkit, and TypeScript.
 
-🎨 **UI Frameworks**: Utilizzo esperto di Chakra UI e Material-UI per interfacce moderne e accessibili.
+🎨 **UI Frameworks**: Expertise in using Chakra UI and Material-UI for modern and accessible interfaces.
 
-🔄 **State Management**: Integrazione di Redux, React Query, e Context API per la gestione avanzata dello stato.
+🔄 **State Management**: Integration of Redux, React Query, and Context API for advanced state management.
 
-⚙️ **Toolchain Configuration**: Ottimizzazione della toolchain con Webpack, Vite, e Jest.
+⚙️ **Toolchain Configuration**: Optimization of toolchain with Webpack, Vite, and Jest.
 
-🌐 **API Integration**: Consumo di API REST e GraphQL per app scalabili e performanti.
+🌐 **API Integration**: Consumption of REST and APIs for scalable and high-performance apps.
 
-🚀 **DevOps**: Utilizzo di Docker e CI/CD pipelines per automazione e deployment efficiente.
+🚀 **DevOps**: Proficient in using Docker and CI/CD pipelines for automation and efficient deployment.
