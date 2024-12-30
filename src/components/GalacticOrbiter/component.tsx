@@ -108,7 +108,7 @@ const Component: React.FC<Props> = ({ centerImage, orbits }) => {
         // Contenitore principale "fullscreen" (100% larghezza e altezza).
         <chakra.div
             width="100%"
-            minHeight="100%"
+            height="100%"
             position="relative"
         >
             {/* Contenitore interno per il calcolo delle dimensioni */}

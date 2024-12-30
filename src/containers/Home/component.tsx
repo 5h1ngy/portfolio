@@ -74,7 +74,7 @@ const Component: React.FC<Bind & WithRouterProps> = ({ actions }) => {
             <Flex
                 direction="row" // Disposizione orizzontale.
                 width="100vw" // Larghezza della sezione.
-                height="100vh" // Altezza della sezione.
+                height={{ base: "30vh", sm: "60vh", md: "60vh", lg: '60vh', xl: '80vh', "2xl": '80vh' }} // Altezza della sezione.
                 align="center" // Allinea al centro verticalmente.
                 justify="center" // Allinea al centro orizzontalmente.
                 paddingX={"20vw"} // Padding orizzontale.
