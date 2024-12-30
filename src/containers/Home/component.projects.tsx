@@ -82,7 +82,8 @@ const Component: React.FC<Bind & WithRouterProps> = ({ state }) => {
                         centerCount={1}
                         cards={projects.occurrences.filter(occurrence =>
                             occurrence.title.startsWith("fe-") &&
-                            !occurrence.title.startsWith("fe-pixijs")
+                            !occurrence.title.startsWith("fe-pixijs") &&
+                            !occurrence.title.startsWith("fe-phaser")
                         )}
                     />
                 )}
@@ -103,6 +104,7 @@ const Component: React.FC<Bind & WithRouterProps> = ({ state }) => {
                         centerCount={1}
                         cards={projects.occurrences.filter(occurrence =>
                             occurrence.title.startsWith("fe-pixijs")
+                            || occurrence.title.startsWith("fe-phaser")
                         )}
                     />
                 )}
