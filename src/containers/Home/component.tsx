@@ -73,8 +73,8 @@ const Component: React.FC<Bind & WithRouterProps> = ({ actions }) => {
             {/* Sezione iniziale con orbite animate */}
             <Flex
                 direction="row" // Disposizione orizzontale.
-                width="80vw" // Larghezza della sezione.
-                height="80vh" // Altezza della sezione.
+                width="100vw" // Larghezza della sezione.
+                height="100vh" // Altezza della sezione.
                 align="center" // Allinea al centro verticalmente.
                 justify="center" // Allinea al centro orizzontalmente.
                 paddingX={"20vw"} // Padding orizzontale.
