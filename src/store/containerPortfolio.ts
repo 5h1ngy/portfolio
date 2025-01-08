@@ -111,7 +111,7 @@ const slice = createSlice({
         })
         .addCase(doGetRepositories.fulfilled, (state, action) => {
             state.projects.status = STATUS.SUCCESS; // Stato "success" se la richiesta ha successo.
-            state.projects.occurrences = action.payload; // Salva i repository ottenuti.
+            state.projects.occurrences = action.payload // Salva i repository ottenuti.
         })
         .addCase(doGetRepositories.rejected, (state, action) => {
             state.projects.status = STATUS.FAILED; // Stato "failed" se la richiesta fallisce.

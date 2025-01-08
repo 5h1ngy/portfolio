@@ -62,7 +62,12 @@ const Component: React.FC<Bind & WithRouterProps> = ({ state }) => {
                     <SliderCards
                         title="Infrastructure"
                         centerCount={1}
-                        cards={projects.occurrences.filter(occurrence => occurrence.title.startsWith("infra-"))}
+                        cards={projects.occurrences
+                            .filter(occurrence => occurrence.title.startsWith("infra-"))
+                            .sort((a, b) => {
+                                return new Date(b.updated).getTime() - new Date(a.updated).getTime();
+                            })
+                        }
                     />
                 )}
 
@@ -71,7 +76,12 @@ const Component: React.FC<Bind & WithRouterProps> = ({ state }) => {
                     <SliderCards
                         title="Command Line Interface"
                         centerCount={1}
-                        cards={projects.occurrences.filter(occurrence => occurrence.title.startsWith("cli-"))}
+                        cards={projects.occurrences
+                            .filter(occurrence => occurrence.title.startsWith("cli-"))
+                            .sort((a, b) => {
+                                return new Date(b.updated).getTime() - new Date(a.updated).getTime();
+                            })
+                        }
                     />
                 )}
 
@@ -80,11 +90,16 @@ const Component: React.FC<Bind & WithRouterProps> = ({ state }) => {
                     <SliderCards
                         title="Frontend"
                         centerCount={1}
-                        cards={projects.occurrences.filter(occurrence =>
-                            occurrence.title.startsWith("fe-") &&
-                            !occurrence.title.startsWith("fe-pixijs") &&
-                            !occurrence.title.startsWith("fe-phaser")
-                        )}
+                        cards={projects.occurrences
+                            .filter(occurrence =>
+                                occurrence.title.startsWith("fe-") &&
+                                !occurrence.title.startsWith("fe-pixijs") &&
+                                !occurrence.title.startsWith("fe-phaser")
+                            )
+                            .sort((a, b) => {
+                                return new Date(b.updated).getTime() - new Date(a.updated).getTime();
+                            })
+                        }
                     />
                 )}
 
@@ -93,7 +108,12 @@ const Component: React.FC<Bind & WithRouterProps> = ({ state }) => {
                     <SliderCards
                         title="Backend"
                         centerCount={1}
-                        cards={projects.occurrences.filter(occurrence => occurrence.title.startsWith("be-"))}
+                        cards={projects.occurrences
+                            .filter(occurrence => occurrence.title.startsWith("be-"))
+                            .sort((a, b) => {
+                                return new Date(b.updated).getTime() - new Date(a.updated).getTime();
+                            })
+                        }
                     />
                 )}
 
@@ -102,8 +122,12 @@ const Component: React.FC<Bind & WithRouterProps> = ({ state }) => {
                     <SliderCards
                         title="Videogames"
                         centerCount={1}
-                        cards={projects.occurrences.filter(occurrence => occurrence.title.startsWith("fe-phaser")
-                        )}
+                        cards={projects.occurrences
+                            .filter(occurrence => occurrence.title.startsWith("fe-phaser"))
+                            .sort((a, b) => {
+                                return new Date(b.updated).getTime() - new Date(a.updated).getTime();
+                            })
+                        }
                     />
                 )}
 

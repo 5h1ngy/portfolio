@@ -1,5 +1,5 @@
-import { NavLink, useLocation } from "react-router"; // Importa NavLink per navigazione e useLocation per ottenere l'URL corrente.
-import React, { useEffect, useRef } from 'react'; // Hook per gestire il ciclo di vita e riferimenti DOM.
+import { useLocation } from "react-router"; // Importa NavLink per navigazione e useLocation per ottenere l'URL corrente.
+import React, { useEffect, useRef, useState } from 'react'; // Hook per gestire il ciclo di vita e riferimenti DOM.
 import gsap from "gsap"; // Libreria per animazioni.
 import { Flex, Spacer, Image, Text, chakra } from "@chakra-ui/react"; // Componenti UI di Chakra UI.
 import { IconButton } from "@chakra-ui/react"; // Pulsante con icone di Chakra UI.
@@ -54,8 +54,10 @@ export default function Component(props: ComponentProps) {
         logo && <Image src={logo} width={'42px'} />;
 
     // Header del componente, con elementi dinamici in base alla dimensione della viewport.
-    const Header: React.FC = () =>
-        <Flex wrap={"wrap"} position={"fixed"} zIndex={4} width={"100%"} top={0}>
+    const Header: React.FC = () => {
+        const [open, setOpen] = useState(false)
+
+        return <Flex wrap={"wrap"} position={"fixed"} zIndex={4} width={"100%"} top={0}>
             {!isMobileRef
 
                 ? <Flex
@@ -79,7 +81,7 @@ export default function Component(props: ComponentProps) {
                     gapX={'1rem'} justifyContent={"start"} justifyItems={"center"} alignContent={'center'} alignItems={'center'}
                     paddingX={'5%'} paddingY={'1rem'}
                 >
-                    <DrawerRoot size={"full"}>
+                    <DrawerRoot size={"full"} open={open} onOpenChange={(event) => setOpen(event.open)}>
                         <DrawerBackdrop />
                         <DrawerTrigger asChild>
                             <IconButton aria-label="" variant={"subtle"} >
@@ -91,18 +93,27 @@ export default function Component(props: ComponentProps) {
                         <DrawerContent>
                             <DrawerBody>
                                 <Flex direction={"column"} gap={"3rem"} height={"100%"} alignItems={"center"} justifyContent={"center"}>
-                                    {navbarItems.map(item => (
-                                        <NavLink key={crypto.randomUUID()} to={item.value} end>
-                                            <Text textStyle="3xl" fontWeight="medium">{item.label}</Text>
-                                        </NavLink>
-                                    ))}
+                                    {navbarItems.map(item =>
+                                        <Text
+                                            textStyle="3xl"
+                                            fontWeight="medium"
+                                            style={{ cursor: 'pointer' }}
+                                            onClick={() => {
+                                                handleNavigationAndScroll(item.value.replace('/', ''))
+                                                setOpen(false)
+                                            }}
+                                        >
+                                            {item.label}
+                                        </Text>
+                                    )}
                                 </Flex>
                             </DrawerBody>
                             <DrawerCloseTrigger />
                         </DrawerContent>
                     </DrawerRoot>
                 </Flex>}
-        </Flex>;
+        </Flex>
+    };
 
     // Corpo principale del componente.
     const Body: React.FC = () => (
