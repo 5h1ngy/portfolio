@@ -1,0 +1,3 @@
+Frontend Engineer with experience and a passion for web development, specializing in technologies such as React, TypeScript, Node.js, and Docker. I have developed solid skills working on complex projects in the banking, e-commerce, gaming, and OSS (Operational Support Systems), where I created user interfaces for enterprise systems and integrated REST and SOAP APIs.
+
+I have further expanded my technical expertise through personal projects, working with technologies such as Redux, Pixi.js, Angular, and DevOps tools like Terraform and CI/CD. I am characterized by strong problem-solving skills, adaptability, and a focus on continuous improvement, which enable me to tackle complex challenges and deliver innovative solutions.
