@@ -122,7 +122,7 @@ const Component: React.FC<Props> = ({ thumbnail, title, description, topics, lin
               {/* Argomenti associati al progetto (come badge) */}
               {topics && (
                 <Flex direction="row" wrap={"wrap"} gap={"0.4rem"}>
-                  <Text textStyle="md" fontWeight="normal" lineClamp="3">
+                  <Text textStyle="md" fontWeight="normal" lineClamp="3" spaceX={"0.2rem"}>
                     {topics.map((topic) => (
                       <Badge key={crypto.randomUUID()} colorPalette={getRandomColor()}>
                         {topic}
