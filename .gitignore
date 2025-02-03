@@ -1,3 +1,9 @@
+dist
+docs
+data
+certs
+.env.*
+
 # Logs
 logs
 *.log

@@ -1,4 +1,4 @@
 {
-    "storybook": "https://www.5h1ngy-dev.click/storybook/fe-react-portfolio",
-    "host": "https://www.5h1ngy-dev.click/"
+    "docs": "https://www.5h1ngy.click/docs/be-node-portfolio",
+    "swagger": "https://www.5h1ngy.click/api/be-node-portfolio/swagger"
 }
