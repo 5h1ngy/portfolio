@@ -6,7 +6,8 @@ import Error from "react-goblin-system/layouts/Error"
 import Loading from "react-goblin-system/layouts/Loading"
 
 import withDynamicImport from "@/hocs/withDynamicImport";
-import Landing from "@/pages/Landing";
+import Landing from "@/layouts/Landing";
+// import { route as aboutPageRoute } from "@/pages/About";
 
 export const routes: RouteObject[] = [
     {
