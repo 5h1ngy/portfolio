@@ -4,7 +4,7 @@ import { Badge, Flex, Text } from "@chakra-ui/react";
 
 import getRandomColor from '@/utils/getRandomColor';
 import { Repository } from "@/services/github.types";
-import useMediaQuery from '@/hooks/useMediaQuery';
+import useMediaQuery from '@/layouts/Landing/useMediaQuery';
 import Card from "@/components/Card";
 import CardCompact from "@/components/CardCompact";
 import CardMobile from '@/components/CardMobile';

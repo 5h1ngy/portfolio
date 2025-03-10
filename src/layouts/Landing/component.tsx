@@ -5,13 +5,13 @@ import { Flex, Spacer, Image, Text, chakra } from "@chakra-ui/react"; // Compone
 import { IconButton } from "@chakra-ui/react"; // Pulsante con icone di Chakra UI.
 import { CiGlobe } from "react-icons/ci"; // Icona di un globo.
 
-import useMediaQuery from '@/hooks/useMediaQuery'; // Hook per rilevare query media.
+import useMediaQuery from '@/layouts/Landing/useMediaQuery'; // Hook per rilevare query media.
 import { ColorModeButtonExtended } from "@/components/Chakra/color-mode"; // Pulsante per la modalità chiara/scura.
 import { DrawerBackdrop, DrawerBody, DrawerCloseTrigger } from "@/components/Chakra/drawer"; // Componenti per la gestione del drawer.
 import { DrawerContent, DrawerRoot, DrawerTrigger } from "@/components/Chakra/drawer"; // Altri componenti del drawer.
 
 import { ComponentProps } from "./component.types"; // Tipizzazione dei props per il componente.
-import scrollToSection from "@/utils/scrollToSection"; // Funzione per scorrere a una sezione specifica.
+import scrollToSection from "@/layouts/Landing/scrollToSection"; // Funzione per scorrere a una sezione specifica.
 
 export default function Component(props: ComponentProps) {
     const { children, navbarItems, logo } = props; // Props passati al componente.

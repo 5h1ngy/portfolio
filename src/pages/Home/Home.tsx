@@ -135,4 +135,4 @@ const Component: React.FC<Bind & WithRouterProps> = ({ actions }) => {
 };
 
 // Esporta il componente con stato bindato e supporto al routing.
-export default bind(withRouter(Component));
+export default withContainer(withRouter(AboutPage));

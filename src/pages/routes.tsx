@@ -1,12 +1,9 @@
-import { RouteObject } from "react-router-dom";
-import { Navigate } from 'react-router-dom';
-import { Outlet } from "react-router-dom";
+import { RouteObject, Outlet, Navigate } from "react-router-dom"
 
 import Error from "react-goblin-system/layouts/Error"
-import Loading from "react-goblin-system/layouts/Loading"
 
-import withDynamicImport from "@/hocs/withDynamicImport";
-import Landing from "@/pages/Landing";
+import Landing from "@/layouts/Landing";
+import { route as homePageRoute } from "@/pages/Home";
 
 export const routes: RouteObject[] = [
     {
@@ -29,35 +26,30 @@ export const routes: RouteObject[] = [
                 element: <Navigate to="/home" replace />
             },
             {
-                id: "home",
+                id: "ROOT_CHILD_HOME",
                 path: 'home',
-                element: withDynamicImport('Home', <Loading />).containers(),
-                errorElement: <Error />,
+                ...homePageRoute,
             },
             {
-                id: "about",
+                id: "HOME_ABOUT",
                 path: 'about',
-                element: withDynamicImport('Home', <Loading />).containers(),
-                errorElement: <Error />,
+                ...homePageRoute,
             },
             {
-                id: "skills",
+                id: "HOME_SKILLS",
                 path: 'skills',
-                element: withDynamicImport('Home', <Loading />).containers(),
-                errorElement: <Error />,
+                ...homePageRoute,
             },
             {
-                id: "projects",
+                id: "HOME_PROJECTS",
                 path: 'projects',
-                element: withDynamicImport('Home', <Loading />).containers(),
-                errorElement: <Error />,
+                ...homePageRoute,
             },
             {
-                id: "contacts",
+                id: "HOME_CONTACTS",
                 path: 'contacts',
-                element: withDynamicImport('Home', <Loading />).containers(),
-                errorElement: <Error />,
-            }
+                ...homePageRoute,
+            },
         ]
     }
 ];
