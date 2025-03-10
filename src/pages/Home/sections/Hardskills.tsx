@@ -17,16 +17,11 @@ gsap.registerPlugin(ScrollTrigger);
 const Hardskills: React.FC<Bind & WithRouterProps> = ({ state }) => {
     const cardRef = useRef<HTMLDivElement | null>(null);
 
-    useEffect(() => {
-
-        let ctx = gsap.context(() => {
-            const tl = gsap.timeline({ scrollTrigger: { trigger: cardRef.current, start: "top 80%", }, });
-            tl.from(cardRef.current, { opacity: 0, y: 50, duration: 1, ease: "power2.out", });
-            tl.from(".card-text", { opacity: 0, y: 20, duration: 0.6, ease: "power2.out", stagger: 0.05, }, "-=0.5");
-        }, cardRef);
-
-        return () => ctx.revert();
-    }, []);
+    useEffect(() => () => gsap.context(() => {
+        const timeline = gsap.timeline({ scrollTrigger: { trigger: cardRef.current, start: "top 80%", }, });
+        timeline.from(cardRef.current, { opacity: 0, y: 50, duration: 1, ease: "power2.out", });
+        timeline.from(".card-text", { opacity: 0, y: 20, duration: 0.6, ease: "power2.out", stagger: 0.05, }, "-=0.5");
+    }, cardRef).revert(), []);
 
     return (
         <Flex

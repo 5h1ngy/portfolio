@@ -3,6 +3,7 @@ import { STATUS } from "react-goblin-system/store/shared";
 export type Repository = {
     name: string;
     url: string;
+    updated_at: string;
     license: null | {
         name: string;
     };
