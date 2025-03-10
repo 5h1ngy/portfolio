@@ -1,7 +1,6 @@
 import { ActionFunction, LoaderFunction } from "react-router-dom";
 
 import Loading from "react-goblin-system/layouts/Loading"
-import { PrivateRoute } from "react-goblin-system/providers/Auth"
 
 import store from "@/store";
 import { asyncActions } from "@/store";
@@ -21,4 +20,4 @@ export const action: ActionFunction | undefined =
     undefined;
 
 export const element: React.ReactElement =
-    <PrivateRoute render={withDynamicPages({ pageName: 'Home', loader: <Loading /> })} />
+    withDynamicPages({ pageName: 'Home', loader: <Loading /> })

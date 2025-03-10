@@ -21,7 +21,7 @@ function transformRepositories<T, K extends keyof T>(data: T[], fields: readonly
 }
 
 export async function getRepositories(): Promise<Response<GitHubRepo[]>> {
-    const FIELDS = ['name', 'url', 'license', 'topics', 'description'] as const;
+    const FIELDS = ['name', 'url', 'license', 'topics', 'description', 'updated_at'] as const;
 
     if (IS_MOCK) {
         const { data } = await getRepositoriesResponse
