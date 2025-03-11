@@ -139,10 +139,10 @@ export default function Component(props: ComponentProps) {
             backgroundSize="cover"
             filter="blur(60px)"
             backgroundColor={"gray.100"}
-            backgroundImage={`url(${import.meta.env.VITE_BASENAME}/assets/background_white.png)`}
+            backgroundImage={'/assets/background_white.png'}
             _dark={{
                 backgroundColor: "gray.900",
-                backgroundImage: `url(${import.meta.env.VITE_BASENAME}/assets/background_dark.png)`
+                backgroundImage: '/assets/background_dark.png'
             }}
         />
 

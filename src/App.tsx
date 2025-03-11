@@ -19,7 +19,7 @@ const App: React.FC = () =>
                     <link
                         rel="icon"
                         type="image/svg+xml"
-                        href={new URL(`${import.meta.env.VITE_BASENAME}/logo.png`, location.origin).href}
+                        href={'/logo.png'}
                     />
                 </Helmet>
                 <RouterProvider
