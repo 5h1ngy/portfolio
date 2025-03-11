@@ -1,6 +1,6 @@
 import { useEffect, useLayoutEffect, RefObject } from "react";
 import gsap from "gsap";
-import { OrbitConfig } from "../GalacticOrbiter.types";
+import { OrbitConfig } from "./GalacticOrbiter.types";
 
 /**
  * Hook per osservare i cambiamenti di dimensioni di un elemento DOM
@@ -39,13 +39,24 @@ export function useResizeObserver(
 export function useOrbitAnimations(
     orbitRefs: RefObject<HTMLDivElement[]>,
     planetRefs: RefObject<HTMLDivElement[][]>,
-    orbits: OrbitConfig[]
+    orbits: OrbitConfig[],
+    scaleFactor: number
 ) {
     useLayoutEffect(() => {
+        // Uccide eventuali animazioni già esistenti
+        orbitRefs.current.forEach((orbitEl) => {
+            if (!orbitEl) return;
+            gsap.killTweensOf(orbitEl);
+        });
+
+        // Crea nuove animazioni
         orbitRefs.current.forEach((orbitEl, i) => {
             if (!orbitEl) return;
-
             const orbitDuration = orbits[i]?.orbitDuration ?? 10;
+
+            gsap.set(orbitEl, {
+                transformOrigin: "50% 50%",
+            });
 
             gsap.to(orbitEl, {
                 rotation: 360,
@@ -53,17 +64,18 @@ export function useOrbitAnimations(
                 ease: "linear",
                 repeat: -1,
                 onUpdate: () => {
-                    // Legge la rotazione corrente dell'orbita
                     const currentRotation = gsap.getProperty(orbitEl, "rotation") as number;
-
-                    // Inverte la rotazione dei pianeti per mantenerli "dritti"
+                    // Per ogni pianeta nell'orbita, applica la contro-rotazione sull'elemento interno
                     planetRefs.current[i].forEach((planetEl) => {
                         if (planetEl) {
-                            gsap.set(planetEl, { rotation: -currentRotation });
+                            const innerEl = planetEl.querySelector(".planet-inner");
+                            if (innerEl) {
+                                gsap.set(innerEl, { rotation: -currentRotation });
+                            }
                         }
                     });
                 },
             });
         });
-    }, [orbits, orbitRefs, planetRefs]);
+    }, [orbits, scaleFactor, orbitRefs, planetRefs]);
 }

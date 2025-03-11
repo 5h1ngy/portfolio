@@ -28,6 +28,7 @@ const OrbitCircle: React.FC<OrbitCircleProps> = ({
             top="50%"
             left="50%"
             transform="translate(-50%, -50%)"
+            transformOrigin="center"
             // 1px = 0.0625rem
             border="0.0625rem dashed"
             borderColor="gray.900"

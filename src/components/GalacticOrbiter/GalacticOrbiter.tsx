@@ -1,7 +1,7 @@
 import React, { useRef, useState, useMemo } from "react";
 import { chakra } from "@chakra-ui/react";
 
-import { useOrbitAnimations, useResizeObserver } from "./shared/hooks";
+import { useOrbitAnimations, useResizeObserver } from "./hooks";
 import { Props } from "./GalacticOrbiter.types";
 import CenterImage from "./CenterImage";
 import OrbitCircle from "./OrbitCircle";
@@ -47,7 +47,8 @@ const GalacticOrbiter: React.FC<Props> = ({ centerImage, orbits }) => {
         return minSide / (largestOrbitRadius * 2);
     }, [largestOrbitRadius, containerSize]);
 
-    useOrbitAnimations(orbitRefs, planetRefs, orbits);
+
+    useOrbitAnimations(orbitRefs, planetRefs, orbits, scaleFactor);
 
     return (
         <chakra.div w="100%" h="100%" position="relative">

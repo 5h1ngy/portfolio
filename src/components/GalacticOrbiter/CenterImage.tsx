@@ -5,9 +5,9 @@ import { CenterImageProps } from "./CenterImage.types";
 
 const CenterImage: React.FC<CenterImageProps> = ({ centerImage, scaleFactor }) => {
 
-    const baseSizeRem = 10.75 * scaleFactor;
-    const minSizeRem = 3.75;
-    const maxSizeRem = 11.25;
+    const computedSizeRem = 10.75 * scaleFactor;
+    const clampedSizeRem = Math.max(3.75, Math.min(computedSizeRem, 11.25));
+
 
     return (
         <chakra.div
@@ -20,9 +20,7 @@ const CenterImage: React.FC<CenterImageProps> = ({ centerImage, scaleFactor }) =
             <Image
                 src={centerImage}
                 alt="Center"
-                width={`${baseSizeRem.toFixed(3)}rem`}
-                minWidth={`${minSizeRem.toFixed(3)}rem`}
-                maxWidth={`${maxSizeRem.toFixed(3)}rem`}
+                width={`${clampedSizeRem.toFixed(3)}rem`}
             />
         </chakra.div>
     );
