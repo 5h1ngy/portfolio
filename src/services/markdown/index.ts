@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Response } from "../shared/types";
 
-const URL_BASE = `${import.meta.env.VITE_BASENAME}/markdown`;
+const URL_BASE = '/markdown';
 
 export async function getAbout(): Promise<Response<string>> {
     try {

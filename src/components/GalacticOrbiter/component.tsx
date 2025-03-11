@@ -8,43 +8,23 @@ import React, {
 import gsap from "gsap";
 import { Image, chakra } from "@chakra-ui/react";
 
-/** 
- * Rappresenta la configurazione di un singolo Pianeta.
- * - `imgSrc`: URL dell'immagine del pianeta
- */
 type PlanetConfig = {
     imgSrc: string;
 };
 
-/**
- * Configurazione di una singola Orbita.
- * - `radius`: Raggio dell'orbita in pixel o unità logiche.
- * - `orbitDuration`: Durata in secondi per un giro completo (360°).
- * - `planets`: Elenco di pianeti associati all'orbita.
- */
 type OrbitConfig = {
     radius: number;
     orbitDuration: number;
     planets: PlanetConfig[];
 };
 
-/**
- * Proprietà del componente `GalacticOrbiter`.
- * - `centerImage`: URL dell'immagine centrale (il fulcro dell'orbita).
- * - `orbits`: Array di configurazioni per le orbite.
- */
 interface Props {
     centerImage: string;
     orbits: OrbitConfig[];
 }
 
-/**
- * Hook personalizzato per osservare le dimensioni di un elemento usando ResizeObserver.
- * @param ref Riferimento all'elemento DOM da osservare.
- * @param callback Funzione richiamata con l'oggetto `ResizeObserverEntry` ogni volta che cambia la dimensione.
- */
 function useResizeObserver(
-    ref: React.RefObject<HTMLDivElement>,
+    ref: React.RefObject<HTMLDivElement | null>,
     callback: (entry: ResizeObserverEntry) => void
 ) {
     useEffect(() => {
@@ -55,10 +35,6 @@ function useResizeObserver(
     }, [ref, callback]);
 }
 
-/**
- * Componente principale `GalacticOrbiter`.
- * - Mostra un'immagine centrale e pianeti orbitanti attorno a una o più orbite.
- */
 const Component: React.FC<Props> = ({ centerImage, orbits }) => {
     const [containerWidth, setContainerWidth] = useState(0); // Larghezza effettiva del contenitore.
     const containerRef = useRef<HTMLDivElement>(null); // Riferimento al contenitore principale.
@@ -86,14 +62,10 @@ const Component: React.FC<Props> = ({ centerImage, orbits }) => {
         setContainerWidth(entry.contentRect.width);
     });
 
-    // Anima le orbite con GSAP per una rotazione continua.
     useLayoutEffect(() => {
         orbitRefs.current.forEach((orbitEl, i) =>
             gsap.to(orbitEl, {
-                rotation: 360,
-                duration: orbits[i].orbitDuration,
-                ease: "linear",
-                repeat: -1,
+                rotation: 360, duration: orbits[i].orbitDuration, ease: "linear", repeat: -1,
                 onUpdate: () => {
                     const currentRotation = gsap.getProperty(orbitEl, "rotation") as number;
                     planetRefs.current[i].forEach((planetEl) =>
@@ -105,34 +77,12 @@ const Component: React.FC<Props> = ({ centerImage, orbits }) => {
     }, [orbits]);
 
     return (
-        // Contenitore principale "fullscreen" (100% larghezza e altezza).
-        <chakra.div
-            width="100%"
-            height="100%"
-            position="relative"
-        >
-            {/* Contenitore interno per il calcolo delle dimensioni */}
-            <chakra.div
-                ref={containerRef}
-                position="absolute"
-                top={0}
-                bottom={0}
-                left={0}
-                right={0}
-            >
+        <chakra.div width="100%" height="100%" position="relative">
+            <chakra.div ref={containerRef} position="absolute" top={0} bottom={0} left={0} right={0}>
+
                 {/* Immagine centrale */}
-                <chakra.div
-                    position="absolute"
-                    zIndex={20}
-                    top="50%"
-                    left="50%"
-                    transform="translate(-50%, -50%)"
-                >
-                    <Image
-                        src={centerImage}
-                        alt=""
-                        width={`clamp(3rem, ${10 * scaleFactor}rem, 15rem)`}
-                    />
+                <chakra.div position="absolute" zIndex={20} top="50%" left="50%" transform="translate(-50%, -50%)">
+                    <Image src={centerImage} alt="" width={`clamp(3rem, ${10 * scaleFactor}rem, 15rem)`} />
                 </chakra.div>
 
                 {/* Generazione delle orbite e pianeti */}
@@ -143,18 +93,11 @@ const Component: React.FC<Props> = ({ centerImage, orbits }) => {
                     return (
                         <chakra.div
                             key={crypto.randomUUID()}
-                            ref={(element: HTMLDivElement) =>
-                                element && (orbitRefs.current[orbitIndex] = element)
-                            }
+                            ref={(element: HTMLDivElement) => element && (orbitRefs.current[orbitIndex] = element)}
                             position="absolute"
-                            width={`${scaledOrbitRadius * 2}px`}
-                            height={`${scaledOrbitRadius * 2}px`}
-                            top="50%"
-                            left="50%"
-                            transform="translate(-50%, -50%)"
-                            border="1px dashed"
-                            borderColor="gray.900"
-                            _dark={{ borderColor: "gray.100" }}
+                            width={`${scaledOrbitRadius * 2}px`} height={`${scaledOrbitRadius * 2}px`}
+                            top="50%" left="50%" transform="translate(-50%, -50%)"
+                            border="1px dashed" borderColor="gray.900" _dark={{ borderColor: "gray.100" }}
                             borderRadius="50%"
                         >
                             {orbit.planets.map((planet, pIndex) => {
@@ -166,18 +109,11 @@ const Component: React.FC<Props> = ({ centerImage, orbits }) => {
                                 return (
                                     <chakra.div
                                         key={crypto.randomUUID()}
-                                        ref={(element: HTMLDivElement) =>
-                                            element &&
-                                            (planetRefs.current[orbitIndex][pIndex] = element)
-                                        }
+                                        ref={(element: HTMLDivElement) => element && (planetRefs.current[orbitIndex][pIndex] = element)}
                                         position="absolute"
                                         transform={`translate(${x + scaledOrbitRadius}px, ${y + scaledOrbitRadius}px) translate(-50%, -50%)`}
-                                        background="white"
-                                        borderRadius="50%"
-                                        display="flex"
-                                        alignItems="center"
-                                        justifyContent="center"
-                                        padding="0.2rem"
+                                        background="white" borderRadius="50%"
+                                        display="flex" alignItems="center" justifyContent="center" padding="0.2rem"
                                     >
                                         <Image
                                             src={planet.imgSrc}

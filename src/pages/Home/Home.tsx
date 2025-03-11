@@ -20,31 +20,32 @@ const avatarTechs = [
         radius: 150,
         orbitDuration: 6,
         planets: [
-            { imgSrc: `${import.meta.env.VITE_BASENAME}/logos/typescript.svg` },
-            { imgSrc: `${import.meta.env.VITE_BASENAME}/logos/python.svg` },
+            { imgSrc: `/logos/typescript.svg` },
+            { imgSrc: `/logos/python.svg` },
         ],
     },
     {
         radius: 250,
         orbitDuration: 9,
         planets: [
-            { imgSrc: `${import.meta.env.VITE_BASENAME}/logos/nodejs.svg` },
-            { imgSrc: `${import.meta.env.VITE_BASENAME}/logos/mysql.svg` },
-            { imgSrc: `${import.meta.env.VITE_BASENAME}/logos/docker.svg` },
+            { imgSrc: `/logos/nodejs.svg` },
+            { imgSrc: `/logos/mysql.svg` },
+            { imgSrc: `/logos/docker.svg` },
         ],
     },
     {
         radius: 350,
         orbitDuration: 12,
         planets: [
-            { imgSrc: `${import.meta.env.VITE_BASENAME}/logos/vitejs.svg` },
-            { imgSrc: `${import.meta.env.VITE_BASENAME}/logos/react.svg` },
+            { imgSrc: `/logos/vitejs.svg` },
+            { imgSrc: `/logos/react.svg` },
         ],
     }
 ];
 
 const Home: React.FC<Bind & WithRouterProps> = () =>
-    <>
+    <Flex direction={"column"}>
+        
         <Flex
             direction="row"
             width="100vw"
@@ -54,7 +55,7 @@ const Home: React.FC<Bind & WithRouterProps> = () =>
             paddingX={"20vw"}
         >
             <GalacticOrbiter
-                centerImage={`${import.meta.env.VITE_BASENAME}/logos/avatar.png`}
+                centerImage={`/logos/avatar.png`}
                 orbits={avatarTechs}
             />
         </Flex>
@@ -101,6 +102,6 @@ const Home: React.FC<Bind & WithRouterProps> = () =>
         >
             <Contacts />
         </Flex>
-    </>
+    </Flex>
 
 export default withContainer(withRouter(Home));
