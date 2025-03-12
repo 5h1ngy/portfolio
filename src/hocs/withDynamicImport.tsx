@@ -11,9 +11,7 @@ function withGsapAnimation<P extends object>(WrappedComponent: ComponentType<P>)
       }
     }, []);
 
-    return <div ref={ref} style={{ width: "100%", display: "flex", justifyContent: "center" }}>
-      <WrappedComponent {...props} />
-    </div>
+    return <WrappedComponent {...props} />
   };
 
   return GsapAnimated;

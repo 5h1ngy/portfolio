@@ -24,7 +24,7 @@ const Softskills: React.FC<Bind & WithRouterProps> = ({ state }) => {
     }, cardRef).revert(), []);
 
     return (
-        <Flex ref={cardRef} direction="column" gap="2rem" width="35rem">
+        <Flex ref={cardRef} direction="column" gap="2rem" width={'100%'}>
 
             <Text textStyle="4xl" fontWeight="bold" className="card-text">
                 Soft Skills

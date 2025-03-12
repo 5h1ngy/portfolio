@@ -15,7 +15,12 @@ import SliderCards from "@/components/SliderCards";
 gsap.registerPlugin(ScrollTrigger);
 
 const Projects: React.FC<Bind & WithRouterProps> = ({ state }) =>
-    <>
+    <Flex
+        id="projects"
+        direction={"column"}
+        width="100%"
+        gap={"1rem"}
+    >
         <Text textStyle="4xl" fontWeight="bold" marginBottom={"1.5rem"}>
             Projects
             {state.projects.status === STATUS.LOADING && (
@@ -115,6 +120,6 @@ const Projects: React.FC<Bind & WithRouterProps> = ({ state }) =>
                 />
             )}
         </Flex>
-    </>
+    </Flex>
 
 export default withContainer(withRouter(Projects));

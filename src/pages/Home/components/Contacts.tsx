@@ -1,6 +1,6 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { Text } from "@chakra-ui/react";
+import { Flex, Text } from "@chakra-ui/react";
 import { Box } from "@chakra-ui/react";
 import { IoMdFlashOff } from "react-icons/io";
 
@@ -15,7 +15,13 @@ import { EmptyState } from "@/components/Chakra/empty-state";
 gsap.registerPlugin(ScrollTrigger);
 
 const Contacts: React.FC<Bind & WithRouterProps> = ({ state }) =>
-    <>
+    <Flex
+        id="contacts"
+        width={"100%"}
+        direction={"column"}
+        justifyContent={"center"}
+        gap={"2rem"}
+    >
         <Text textStyle="4xl" fontWeight="bold">
             Contacts
             {state.contacts.status === STATUS.LOADING
@@ -47,6 +53,6 @@ const Contacts: React.FC<Bind & WithRouterProps> = ({ state }) =>
                 </Text>
             </Box>
         }
-    </>
+    </Flex>
 
 export default withContainer(withRouter(Contacts));
