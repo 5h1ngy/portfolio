@@ -14,38 +14,37 @@ import { EmptyState } from "@/components/Chakra/empty-state";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Softskills: React.FC<Bind & WithRouterProps> = ({ state }) => {
+const Hardskills: React.FC<Bind & WithRouterProps> = ({ state }) => {
     const cardRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => () => gsap.context(() => {
-        const tl = gsap.timeline({ scrollTrigger: { trigger: cardRef.current, start: "top 80%", }, });
-        tl.from(cardRef.current, { opacity: 0, y: 50, duration: 1, ease: "power2.out", });
-        tl.from(".card-text", { opacity: 0, y: 20, duration: 0.6, ease: "power2.out", stagger: 0.05, }, "-=0.5");
+        const timeline = gsap.timeline({ scrollTrigger: { trigger: cardRef.current, start: "top 80%", }, });
+        timeline.from(cardRef.current, { opacity: 0, y: 50, duration: 1, ease: "power2.out", });
+        timeline.from(".card-text", { opacity: 0, y: 20, duration: 0.6, ease: "power2.out", stagger: 0.05, }, "-=0.5");
     }, cardRef).revert(), []);
 
     return (
-        <Flex ref={cardRef} direction="column" gap="2rem" width="35rem">
-
+        <Flex ref={cardRef} direction="column" gap="2rem" width={'100%'}>
             <Text textStyle="4xl" fontWeight="bold" className="card-text">
-                Soft Skills
-                {state.softskill.status === STATUS.LOADING && (
+                Hard Skills
+                {state.hardskill.status === STATUS.LOADING && (
                     <ProgressCircleRoot value={null} size="xs" marginLeft="0.8rem">
                         <ProgressCircleRing cap="round" />
                     </ProgressCircleRoot>
                 )}
             </Text>
 
-            {state.softskill.status === STATUS.SUCCESS && !state.softskill.occurrence && (
+            {state.hardskill.status === STATUS.SUCCESS && !state.hardskill.occurrence && (
                 <EmptyState
                     icon={<IoMdFlashOff />}
-                    title="No Soft skills"
+                    title="No Hard skills"
                     description="Work in progress"
                     marginX={{ base: "0", sm: "0", md: "0", lg: "0", xl: "2rem", "2xl": "2rem" }}
                     className="card-text"
                 />
             )}
 
-            {state.softskill.status === STATUS.SUCCESS && state.softskill.occurrence && (
+            {state.hardskill.status === STATUS.SUCCESS && state.hardskill.occurrence && (
                 <Box
                     backgroundColor="gray.100"
                     _dark={{ backgroundColor: "gray.900" }}
@@ -55,7 +54,7 @@ const Softskills: React.FC<Bind & WithRouterProps> = ({ state }) => {
                     className="card-text"
                 >
                     <Text textStyle="md" fontWeight="normal">
-                        <StyledMarkdown content={state.softskill.occurrence} />
+                        <StyledMarkdown content={state.hardskill.occurrence} />
                     </Text>
                 </Box>
             )}
@@ -63,4 +62,5 @@ const Softskills: React.FC<Bind & WithRouterProps> = ({ state }) => {
     );
 };
 
-export default withContainer(withRouter(Softskills));
+
+export default withContainer(withRouter(Hardskills));
