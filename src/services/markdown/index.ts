@@ -13,16 +13,6 @@ export async function getAbout(): Promise<Response<string>> {
     }
 }
 
-export async function getContacts(): Promise<Response<string>> {
-    try {
-        const { data } = await axios.get<string>(`${URL_BASE}/contacts.md`);
-
-        return [data, null];
-    } catch (error) {
-        return [null, error];
-    }
-}
-
 export async function getHardskill(): Promise<Response<string>> {
     try {
         const { data } = await axios.get<string>(`${URL_BASE}/hardskill.md`);
