@@ -2,6 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { STATUS } from "react-goblin-system/store/shared";
 import * as apiGithub from '@/services/github';
 import * as apiMarkdown from '@/services/markdown';
+import * as apiJSON from '@/services/jsons';
 import { Repository, State } from './types';
 
 export const doGetRepositories = createAsyncThunk<Repository[], void>(
@@ -72,10 +73,10 @@ export const doGetSoftskill = createAsyncThunk<string, void>(
     }
 );
 
-export const doGetContacts = createAsyncThunk<string, void>(
+export const doGetContacts = createAsyncThunk<Record<string, string>, void>(
     'slice/portfolio/doGetContacts',
     async (_, { rejectWithValue }) => {
-        const [response, error] = await apiMarkdown.getContacts();
+        const [response, error] = await apiJSON.getContacts();
         if (!response) return rejectWithValue(error);
         return response;
     },

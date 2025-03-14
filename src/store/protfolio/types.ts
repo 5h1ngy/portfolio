@@ -28,12 +28,12 @@ export interface State {
         error?: any;
     },
     projects: {
-        occurrences: Repository[];
+        occurrences: Record<string, Repository[]>;
         status: STATUS;
         error?: any;
     },
     contacts: {
-        occurrence?: string;
+        occurrence?: Record<string, string>;
         status: STATUS;
         error?: any;
     },

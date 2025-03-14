@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { Badge, Flex, Text } from "@chakra-ui/react";
 
 import getRandomColor from '@/utils/getRandomColor';
-import { Repository } from "@/services/github.types";
+import { Repository } from "@/store/protfolio/types";
 import useMediaQuery from '@/layouts/Landing/shared/useMediaQuery';
 import Card from "@/components/Card";
 import CardCompact from "@/components/CardCompact";
@@ -78,7 +78,7 @@ const Component: React.FC<CardsSliderProps> = ({ title, cards, centerCount }) =>
                 return (
                     <CardCompact
                         key={crypto.randomUUID()}
-                        title={card.title}
+                        title={card.name}
                         callback={goToRef}
                         callbackRef={index}
                     />
