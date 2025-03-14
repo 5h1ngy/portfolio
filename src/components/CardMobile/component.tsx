@@ -14,10 +14,17 @@ export interface Props {
   _id: number; // Identificatore unico del componente.
   title: string; // Titolo del progetto o elemento.
   thumbnail?: string; // URL immagine opzionale (thumbnail).
-  topics?: string[]; // Array di argomenti/tag associati.
-  description?: string; // Descrizione testuale opzionale.
   links?: Record<string, string>; // Oggetto con chiavi per URL (es. docs, swagger, ecc.).
   urlCallback: Function; // Funzione di callback per gestire il click sui link.
+
+  name: string;
+  url: string;
+  updated_at: string;
+  license: null | {
+    name: string;
+  };
+  topics: string[];
+  description: null | string;
 }
 
 /**
@@ -26,7 +33,12 @@ export interface Props {
  * Rappresenta una card per visualizzare informazioni su un progetto o elemento,
  * inclusi immagine, descrizione, argomenti e link utili.
  */
-const Component: React.FC<Props> = ({ thumbnail, title, description, topics, links, urlCallback }) => {
+const Component: React.FC<Props> = ({
+  thumbnail, title, links, urlCallback,
+
+  name, url, updated_at, license, topics, description
+
+}) => {
 
   return (
     <Card.Root

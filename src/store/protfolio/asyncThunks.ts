@@ -73,7 +73,7 @@ export const doGetSoftskill = createAsyncThunk<string, void>(
     }
 );
 
-export const doGetContacts = createAsyncThunk<string, void>(
+export const doGetContacts = createAsyncThunk<Record<string, string>, void>(
     'slice/portfolio/doGetContacts',
     async (_, { rejectWithValue }) => {
         const [response, error] = await apiJSON.getContacts();
