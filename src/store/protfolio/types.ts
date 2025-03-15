@@ -1,14 +1,13 @@
 import { STATUS } from "react-goblin-system/store/shared";
 
 export type Repository = {
-    name: string;
-    url: string;
-    updated_at: string;
-    license: null | {
-        name: string;
-    };
+    name: string | null;
+    updated_at: string | null;
+    license: null | { name: string; };
     topics: string[];
-    description: null | string;
+    description: string | null;
+    html_url: string | null;
+    homepage: string | null;
 }
 
 export interface State {
