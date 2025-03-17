@@ -17,8 +17,13 @@ export const initialState: State = {
         status: STATUS.IDLE,
         error: undefined,
     },
+    selfHosted: {
+        occurrences: [],
+        status: STATUS.IDLE,
+        error: undefined,
+    },
     projects: {
-        occurrences: [], // Nessun repository inizialmente.
+        occurrences: {},
         status: STATUS.IDLE,
         error: undefined,
     },

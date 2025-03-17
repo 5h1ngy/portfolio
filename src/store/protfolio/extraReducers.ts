@@ -14,7 +14,7 @@ export const extraReducers = (builder: ActionReducerMapBuilder<State>) => builde
     .addCase(thunks.doGetRepositories.fulfilled, (state, action) => {
         state.projects.status = STATUS.SUCCESS;
 
-        const occurrencesByCategory: Record<string, Repository[]> = {
+        const projectsOccurrences: Record<string, Repository[]> = {
             "Infrastructure": [],
             "Command Line Interface": [],
             "Frontend": [],
@@ -22,24 +22,29 @@ export const extraReducers = (builder: ActionReducerMapBuilder<State>) => builde
             "Videogames": [],
         };
 
+        const selfHostedOccurrences: Repository[] = [];
+
         for (const repo of action.payload as Repository[]) {
             if (repo.name.startsWith("infra-"))
-                occurrencesByCategory['Infrastructure'].push(repo);
+                projectsOccurrences['Infrastructure'].push(repo);
             else if (repo.name.startsWith("cli-"))
-                occurrencesByCategory["Command Line Interface"].push(repo);
+                projectsOccurrences["Command Line Interface"].push(repo);
             else if (repo.name.startsWith("fe-") && !repo.name.startsWith("fe-phaser") && !repo.name.startsWith("fe-pixijs"))
-                occurrencesByCategory['Frontend'].push(repo);
+                projectsOccurrences['Frontend'].push(repo);
             else if (repo.name.startsWith("be-"))
-                occurrencesByCategory['Backend'].push(repo);
+                projectsOccurrences['Backend'].push(repo);
             else if (repo.name.startsWith("fe-phaser"))
-                occurrencesByCategory['Videogames'].push(repo);
+                projectsOccurrences['Videogames'].push(repo);
+            else if (repo.name.startsWith("fs-"))
+                selfHostedOccurrences.push(repo);
             else {
                 // If you need an "Other" array for anything else:
                 // occurrencesByCategory.Other.push(repo);
             }
         }
 
-        state.projects.occurrences = occurrencesByCategory;
+        state.projects.occurrences = projectsOccurrences;
+        state.selfHosted.occurrences = selfHostedOccurrences;
     })
     .addCase(thunks.doGetRepositories.rejected, (state, action) => {
         state.projects.status = STATUS.FAILED;
