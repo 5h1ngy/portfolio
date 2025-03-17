@@ -10,40 +10,54 @@ export const extraReducers = (builder: ActionReducerMapBuilder<State>) => builde
     // ======================================================
     .addCase(thunks.doGetRepositories.pending, (state) => {
         state.projects.status = STATUS.LOADING;
+        state.selfHosted.status = STATUS.LOADING;
     })
     .addCase(thunks.doGetRepositories.fulfilled, (state, action) => {
         state.projects.status = STATUS.SUCCESS;
+        state.selfHosted.status = STATUS.SUCCESS;
 
-        const occurrencesByCategory: Record<string, Repository[]> = {
+        const projectsOccurrences: Record<string, Repository[]> = {
             "Infrastructure": [],
             "Command Line Interface": [],
             "Frontend": [],
+            "Frontend Packages": [],
             "Backend": [],
             "Videogames": [],
         };
 
+        const selfHostedOccurrences: Repository[] = [];
+
         for (const repo of action.payload as Repository[]) {
-            if (repo.name.startsWith("infra-"))
-                occurrencesByCategory['Infrastructure'].push(repo);
-            else if (repo.name.startsWith("cli-"))
-                occurrencesByCategory["Command Line Interface"].push(repo);
-            else if (repo.name.startsWith("fe-") && !repo.name.startsWith("fe-phaser") && !repo.name.startsWith("fe-pixijs"))
-                occurrencesByCategory['Frontend'].push(repo);
-            else if (repo.name.startsWith("be-"))
-                occurrencesByCategory['Backend'].push(repo);
-            else if (repo.name.startsWith("fe-phaser"))
-                occurrencesByCategory['Videogames'].push(repo);
-            else {
-                // If you need an "Other" array for anything else:
-                // occurrencesByCategory.Other.push(repo);
+            if (repo.description !== null && repo.description !== '' && repo.topics !== null && repo.topics.length !== 0) {
+                if (repo.name.startsWith("infra-"))
+                    projectsOccurrences['Infrastructure'].push(repo);
+                else if (repo.name.startsWith("cli-"))
+                    projectsOccurrences["Command Line Interface"].push(repo);
+                else if (repo.name.startsWith("fe-") && !repo.name.startsWith("fe-phaser") && !repo.name.startsWith("fe-pixijs"))
+                    projectsOccurrences['Frontend'].push(repo);
+                else if (repo.name.startsWith("pkg-fe-"))
+                    projectsOccurrences['Frontend Packages'].push(repo);
+                else if (repo.name.startsWith("be-"))
+                    projectsOccurrences['Backend'].push(repo);
+                else if (repo.name.startsWith("fe-phaser"))
+                    projectsOccurrences['Videogames'].push(repo);
+                else if (repo.name.startsWith("fs-"))
+                    selfHostedOccurrences.push(repo);
+                else {
+                    // If you need an "Other" array for anything else:
+                    // occurrencesByCategory.Other.push(repo);
+                }
             }
         }
 
-        state.projects.occurrences = occurrencesByCategory;
+        state.projects.occurrences = projectsOccurrences;
+        state.selfHosted.occurrences = selfHostedOccurrences;
     })
     .addCase(thunks.doGetRepositories.rejected, (state, action) => {
         state.projects.status = STATUS.FAILED;
+        state.selfHosted.status = STATUS.FAILED;
         state.projects.error = action.error.message;
+        state.selfHosted.error = action.error.message;
     })
 
     // ======================================================

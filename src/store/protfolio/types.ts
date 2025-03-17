@@ -2,13 +2,12 @@ import { STATUS } from "react-goblin-system/store/shared";
 
 export type Repository = {
     name: string;
-    url: string;
-    updated_at: string;
-    license: null | {
-        name: string;
-    };
+    updated_at: string | null;
+    license: null | { name: string; };
     topics: string[];
-    description: null | string;
+    description: string | null;
+    html_url: string;
+    homepage: string | null;
 }
 
 export interface State {
@@ -24,6 +23,11 @@ export interface State {
     },
     softskill: {
         occurrence?: string;
+        status: STATUS;
+        error?: any;
+    },
+    selfHosted: {
+        occurrences: Repository[];
         status: STATUS;
         error?: any;
     },
