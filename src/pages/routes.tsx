@@ -22,7 +22,6 @@ export const routes: RouteObject[] = [
             navbarItems={[
                 { label: "About", value: "/about" },
                 { label: "Skills", value: "/skills" },
-                { label: "Open-source", value: "/open-source" },
                 { label: "Projects", value: "/projects" },
                 { label: "Contacts", value: "/contacts" },
             ]}
@@ -32,7 +31,6 @@ export const routes: RouteObject[] = [
             { id: "ROOT_CHILD_HOME", path: "home", ...homePageRoute, },
             { id: "HOME_CHILD_ABOUT", path: "about", ...homePageRoute, },
             { id: "HOME_CHILD_SKILLS", path: "skills", ...homePageRoute, },
-            { id: "HOME_CHILD_OPEN-SOURCE", path: "open-source", ...homePageRoute, },
             { id: "HOME_CHILD_PROJECTS", path: "projects", ...homePageRoute, },
             { id: "HOME_CHILD_CONTACTS", path: "contacts", ...homePageRoute, },
         ]

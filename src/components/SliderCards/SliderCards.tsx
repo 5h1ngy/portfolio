@@ -1,190 +1,75 @@
-import React, { useState, useRef, useEffect, useLayoutEffect, useCallback } from "react"
-import gsap from "gsap"
-import { Badge, Flex, Text } from "@chakra-ui/react"
-import { CiFolderOff } from "react-icons/ci"
-import { Repository } from "@/store/protfolio/types"
-import { EmptyState } from "react-goblin-system/components/Factory/Chakra/empty-state"
+import React, { useState } from "react";
+import { Flex, IconButton } from "@chakra-ui/react";
+import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 
-import { getRandomColor } from 'react-goblin-system/shared/utils';
-import SuperCard from "react-goblin-system/components/SuperCard";
+import SuperCard from "@/components/SuperCard";
+import { SliderCardsProps } from "./SliderCards.types";
 
-interface CardsSliderProps {
-  cards: Repository[]
-  title: string
-  fullWidth?: boolean
-}
+const SliderCards: React.FC<SliderCardsProps> = ({
+  items,
+  isCircular = true,
+}) => {
+  if (!items || items.length === 0) return null;
 
-function useAlignedHeights(length: number, deps: any[] = []) {
-  const cardRefs = useRef<Array<HTMLDivElement | null>>([])
-  const [maxHeight, setMaxHeight] = useState(0)
-  if (cardRefs.current.length !== length) {
-    cardRefs.current = Array(length).fill(null).map((_, i) => cardRefs.current[i] || null)
-  }
-  const measureHeights = useCallback(() => {
-    let localMax = 0
-    cardRefs.current.forEach((el) => {
-      if (el) {
-        const h = el.offsetHeight
-        if (h > localMax) localMax = h
-      }
-    })
-    setMaxHeight(localMax)
-  }, [])
-  useLayoutEffect(() => {
-    measureHeights()
-  }, [measureHeights, ...deps])
-  return { cardRefs, maxHeight }
-}
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-const topicColorMap = new Map<string, string>()
-function getStableColorForTopic(topic: string): string {
-  if (topicColorMap.has(topic)) return topicColorMap.get(topic)!
-  const color = getRandomColor()
-  topicColorMap.set(topic, color)
-  return color
-}
-
-const CardsSlider: React.FC<CardsSliderProps> = ({ title, cards, fullWidth }) => {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [isOverflow, setIsOverflow] = useState(false)
-  const containerRef = useRef<HTMLDivElement | null>(null)
-  const cardRef = useRef<HTMLDivElement | null>(null)
-  const { cardRefs, maxHeight } = useAlignedHeights(cards.length, [cards, currentIndex])
-  const checkOverflow = useCallback(() => {
-    if (!containerRef.current) return
-    setIsOverflow(containerRef.current.scrollWidth > containerRef.current.clientWidth)
-  }, [])
-  useEffect(() => {
-    checkOverflow()
-    window.addEventListener("resize", checkOverflow)
-    return () => window.removeEventListener("resize", checkOverflow)
-  }, [checkOverflow])
-  const goToRef = useCallback((refIndex: number) => {
-    if (!containerRef.current) {
-      setCurrentIndex(refIndex)
-      return
+  const goToPrevious = () => {
+    if (currentIndex === 0) {
+      if (isCircular) setCurrentIndex(items.length - 1);
+    } else {
+      setCurrentIndex(currentIndex - 1);
     }
-    const tl = gsap.timeline()
-    tl.to(containerRef.current, {
-      scale: 0.9,
-      duration: 0.2,
-      ease: "power1.in",
-      onComplete: () => setCurrentIndex(refIndex),
-    })
-    tl.to(containerRef.current, {
-      scale: 1,
-      duration: 0.6,
-      ease: "bounce.out",
-    })
-  }, [])
-  const getDesktopCards = useCallback(() => {
-    const displayedCount = 3
-    return cards.map((card, index) => {
-      const inExtendedRange = index >= currentIndex && index < currentIndex + displayedCount
-      const nearRangeLeft = index >= currentIndex - 3 && index < currentIndex
-      const nearRangeRight = index >= currentIndex + displayedCount && index < currentIndex + displayedCount + 3
-      const inCompactRange = nearRangeLeft || nearRangeRight
-      const localRef = (el: HTMLDivElement | null) => {
-        cardRefs.current[index] = el
-      }
-      if (inExtendedRange) {
-        return (
-          <Flex key={card.id || index} ref={localRef} height={maxHeight > 0 ? `${maxHeight}px` : "auto"}>
-            <SuperCard
-              orientation="vertical"
-              title={card.name}
-              subTitle={card.license?.name ?? ""}
-              description={card.description ?? ""}
-              topics={card.topics}
-              onCardClick={() => window.open(card.url, "_blank")}
-              size="md"
-              variant="subtle"
-              minWidth="14rem"
-              maxWidth="14rem"
-            />
-          </Flex>
-        )
-      } else if (inCompactRange) {
-        return (
-          <Flex key={card.id || index} ref={localRef} height={maxHeight > 0 ? `${maxHeight}px` : "auto"}>
-            <SuperCard compact title={card.name} onCardClick={() => goToRef(index)} minWidth="4rem" maxWidth="4rem" />
-          </Flex>
-        )
-      }
-      return null
-    })
-  }, [cards, cardRefs, currentIndex, maxHeight, goToRef])
-  const getMobileCards = useCallback(() => {
-    return cards.map((card, index) => {
-      const localRef = (el: HTMLDivElement | null) => {}
-      return (
-        <Flex key={card.id || index} ref={localRef} width="100%">
-          <SuperCard
-            orientation="vertical"
-            title={card.name}
-            subTitle={card.license?.name ?? ""}
-            description={card.description ?? ""}
-            topics={card.topics}
-            onCardClick={() => window.open(card.url, "_blank")}
-            size="sm"
-            variant="outline"
-            width="100%"
-          />
-        </Flex>
-      )
-    })
-  }, [cards])
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: cardRef.current,
-          start: "top 80%",
-        },
-      })
-      tl.from(cardRef.current, {
-        opacity: 0,
-        y: 50,
-        duration: 1,
-        ease: "power2.out",
-      })
-    }, cardRef)
-    return () => ctx.revert()
-  }, [])
-  return (
-    <Flex ref={cardRef} direction="column" gap="1rem" width={fullWidth ? "100%" : "100%"}>
-      <Text>
-        <Badge colorPalette={getRandomColor()} size="lg">
-          {title}
-        </Badge>
-      </Text>
-      {isOverflow ? (
-        <Flex ref={containerRef} direction="column" gap="1rem" width="100%">
-          {getMobileCards()}
-        </Flex>
-      ) : (
-        <Flex
-          ref={containerRef}
-          direction="row"
-          position="relative"
-          gap="1rem"
-          width={fullWidth ? "100%" : "100%"}
-          overflowX="auto"
-          justifyContent="start"
-          alignItems="start"
-        >
-          {getDesktopCards()}
-        </Flex>
-      )}
-      {cards.length === 0 && (
-        <EmptyState
-          icon={<CiFolderOff />}
-          title={`No ${title} Found`}
-          description="Please go to Github/5h1ngy to see more projects"
-        />
-      )}
-    </Flex>
-  )
-}
+  };
 
-export default CardsSlider
+  const goToNext = () => {
+    if (currentIndex === items.length - 1) {
+      if (isCircular) setCurrentIndex(0);
+    } else {
+      setCurrentIndex(currentIndex + 1);
+    }
+  };
+
+  // Calcolo degli indici per le card di sinistra e destra
+  const prevIndex = (currentIndex - 1 + items.length) % items.length;
+  const nextIndex = (currentIndex + 1) % items.length;
+
+  // I pulsanti vengono disabilitati se non si tratta di un componente circolare
+  const disablePrev = !isCircular && currentIndex === 0;
+  const disableNext = !isCircular && currentIndex === items.length - 1;
+
+  // Estrazione delle card: TUTTE in modalità compact
+  const mainCard = items[currentIndex];
+  const leftCard = items.length > 1 ? items[prevIndex] : undefined;
+  const rightCard = items.length > 1 ? items[nextIndex] : undefined;
+
+  return (
+    <Flex direction="column" align="center" justify="center" gap={4}>
+
+      {/* Container delle card, che si adatta fluidamente */}
+      <Flex direction="row" align="center" justify="center" gap={4} wrap="wrap">
+        {leftCard && <SuperCard {...leftCard} display={{ base: "none", xs: "none", lg: "flex", } as any} compact orientation={"horizontal"} />}
+        <SuperCard {...mainCard} orientation={"horizontal"} />
+        {rightCard && <SuperCard {...rightCard} display={{ base: "none", xs: "none", lg: "flex", } as any} compact orientation={"horizontal"} />}
+      </Flex>
+
+      {/* Container dei pulsanti: in una riga, sotto le card */}
+      <Flex direction="row" align="center" justify="center" gap={2}>
+        <IconButton
+          aria-label="Previous" variant={"ghost"}
+          onClick={goToPrevious} disabled={disablePrev}
+        >
+          <SlArrowLeft />
+        </IconButton>
+
+        <IconButton
+          aria-label="Next" variant={"ghost"}
+          onClick={goToNext} disabled={disableNext}
+        >
+          <SlArrowRight />
+        </IconButton>
+      </Flex>
+    </Flex>
+  );
+};
+
+export default SliderCards;
