@@ -13,7 +13,6 @@ export function mapRepositoryToProps(repo: Repository): SuperCardProps {
         description: repo.description,
         thumbnail: `/thumbnails/${repo.name}.png`,
         thumbnailFallback: IoCodeSlash,
-        orientation: "vertical",
         links: [
             { label: "GitHub", icon: <FaGithub />, onClick: () => window.open(repo.html_url) },
             ...(typeof repo.homepage === 'string' && repo.homepage !== ''

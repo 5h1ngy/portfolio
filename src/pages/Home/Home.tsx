@@ -11,10 +11,10 @@ import { useFooter } from "react-goblin-system/layouts/Transformer"
 import GalacticOrbiter from "react-goblin-system/components/GalacticOrbiter";
 import SectionCard from "react-goblin-system/components/SectionCard";
 import StyledMarkdown from "react-goblin-system/components/StyledMarkdown";
-import SuperCard from "@/components/SuperCard";
+import SuperCard from "react-goblin-system/components/SuperCard";
+import SliderCards from "react-goblin-system/components/SliderCards";
 
 import { withContainer, Bind } from "@/hocs/withSlicePortfolio";
-import SliderCards from "@/components/SliderCards";
 import { mapRepositoryToProps } from "./utils";
 
 const avatarTechs = {

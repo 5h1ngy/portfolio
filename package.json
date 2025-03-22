@@ -29,8 +29,8 @@
   "scripts": {
     "start:mock": "vite --mode mock",
     "start:dev": "vite --mode development",
-    "start:prod": "vite preview --mode prod --outDir dist",
     "build:prod": "tsc -b && vite build --mode prod --outDir dist",
+    "preview:prod": "vite preview --mode prod --outDir dist",
     "clean": "rm -rfdv build node_modules .yarn"
   },
   "devDependencies": {
@@ -59,7 +59,7 @@
     "next-themes": "^0.4.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-goblin-system": "./libs/pkg-fe-react-goblin-system-1.4.7.tgz",
+    "react-goblin-system": "./libs/pkg-fe-react-goblin-system-1.7.0.tgz",
     "react-helmet": "^6.1.0",
     "react-helmet-async": "^2.0.5",
     "react-icons": "^5.5.0",
