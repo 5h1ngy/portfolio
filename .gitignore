@@ -46,11 +46,11 @@ coverage/
 # Lock Files
 #################################
 # Dependency lock files to ensure reproducible installs
-yarn.lock
-package-lock.json
-pnpm-lock.yaml
+#yarn.lock
+#package-lock.json
+#pnpm-lock.yaml
 # Bower lock file (if applicable)
-bower-lock.json
+#bower-lock.json
 
 #################################
 # Environment and Configuration Files
