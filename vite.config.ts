@@ -38,7 +38,7 @@ export default defineConfig(({ mode }) => {
     ],
     // Inietta la variabile in fase di build in modo che import.meta.env abbia il token
     define: {
-      'import.meta.env.VITE_GITHUB_BEARER': JSON.stringify(VITE_GITHUB_BEARER),
+      "import.meta.env.VITE_GITHUB_BEARER": JSON.stringify(VITE_GITHUB_BEARER),
     },
     server: {
       host: "0.0.0.0",
