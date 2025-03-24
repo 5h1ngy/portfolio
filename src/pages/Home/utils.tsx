@@ -6,12 +6,16 @@ import { Props as SuperCardProps } from "react-goblin-system/components/SuperCar
 
 import { Repository } from "@/store/protfolio/types";
 
+const basename = import.meta.env.VITE_BASENAME.startsWith("http")
+    ? new URL(import.meta.env.VITE_BASENAME).pathname
+    : import.meta.env.VITE_BASENAME;
+
 export function mapRepositoryToProps(repo: Repository): SuperCardProps {
     return {
         title: repo.name,
         topics: repo.topics,
         description: repo.description,
-        thumbnail: `/thumbnails/${repo.name}.png`,
+        thumbnail: `${basename}/thumbnails/${repo.name}.png`,
         thumbnailFallback: IoCodeSlash,
         links: [
             { label: "GitHub", icon: <FaGithub />, onClick: () => window.open(repo.html_url) },

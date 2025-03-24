@@ -3,12 +3,20 @@ import { GitHubRepo } from "./types";
 import { getRepositoriesResponse } from "./mock";
 import { Response } from "../shared/types";
 
-const IS_MOCK = import.meta.env.VITE_USE_MOCK === "true";
+const IS_MOCK = import.meta.env.VITE_MODE === "mock";
 
 const HEADERS = {
-    ["X-GitHub-Api-Version"]: "2022-11-28",
-    ["Accept"]: "application/vnd.github+json",
-    ["Authorization"]: `Bearer ${import.meta.env.VITE_GITHUB_BEARER}`,
+    ...import.meta.env.VITE_MODE === "dev"
+        ? {
+            ["X-GitHub-Api-Version"]: "2022-11-28",
+            ["Accept"]: "application/vnd.github+json",
+            ["Authorization"]: `Bearer ${import.meta.env.VITE_GITHUB_BEARER}`,
+        }
+        : {
+            Accept: 'application/vnd.github+json',
+            // opzionalmente, puoi aggiungere un User-Agent se richiesto:
+            'User-Agent': 'MyApp/1.0'
+        }
 }
 
 const URL_REPOS = `https://api.github.com/users/${import.meta.env.VITE_GITHUB_USER}/repos`
