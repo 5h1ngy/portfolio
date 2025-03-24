@@ -12,7 +12,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
-      VITE_GITHUB_BEARER: ${{ secrets.fe-react-portfolio }}
+      VITE_GITHUB_BEARER: ${{ secrets.VITE_GITHUB_BEARER }}
 
     steps:
       - name: Checkout repository
