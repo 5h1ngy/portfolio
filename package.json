@@ -1,6 +1,6 @@
 {
   "name": "fe-react-portfolio",
-  "version": "1.0.0",
+  "version": "4.0.0",
   "license": "MIT",
   "description": "A modern React-based portfolio showcasing projects, skills, and achievements with support for Storybook and Chakra UI.",
   "keywords": [
