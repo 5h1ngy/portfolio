@@ -16,11 +16,13 @@ const App: React.FC = () =>
                     <meta charSet="UTF-8" />
                     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                     <title>5h1ngy Portfolio</title>
-                    <link rel="icon" type="image/svg+xml" href={'/logo.png'} />
+                    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.VITE_BASENAME}/logo.png`} />
                 </Helmet>
                 <RouterProvider
                     router={createBrowserRouter(routes, {
-                        basename: import.meta.env.VITE_BASENAME,
+                        basename: import.meta.env.VITE_BASENAME.startsWith("http")
+                            ? new URL(import.meta.env.VITE_BASENAME).pathname
+                            : import.meta.env.VITE_BASENAME,
                     })}
                 />
             </HelmetProvider>

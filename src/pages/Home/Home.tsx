@@ -17,32 +17,36 @@ import SliderCards from "react-goblin-system/components/SliderCards";
 import { withContainer, Bind } from "@/hocs/withSlicePortfolio";
 import { mapRepositoryToProps } from "./utils";
 
+const basename = import.meta.env.VITE_BASENAME.startsWith("http")
+    ? new URL(import.meta.env.VITE_BASENAME).pathname
+    : import.meta.env.VITE_BASENAME;
+
 const avatarTechs = {
-    centerImage: '/logos/avatar.png',
+    centerImage: `${basename}/logos/avatar.png`,
     orbits: [
         {
             radius: 150,
             orbitDuration: 6,
             planets: [
-                { imgSrc: `/logos/typescript.svg` },
-                { imgSrc: `/logos/python.svg` },
+                { imgSrc: `${basename}/logos/typescript.svg` },
+                { imgSrc: `${basename}/logos/python.svg` },
             ],
         },
         {
             radius: 250,
             orbitDuration: 9,
             planets: [
-                { imgSrc: `/logos/nodejs.svg` },
-                { imgSrc: `/logos/mysql.svg` },
-                { imgSrc: `/logos/docker.svg` },
+                { imgSrc: `${basename}/logos/nodejs.svg` },
+                { imgSrc: `${basename}/logos/mysql.svg` },
+                { imgSrc: `${basename}/logos/docker.svg` },
             ],
         },
         {
             radius: 350,
             orbitDuration: 12,
             planets: [
-                { imgSrc: `/logos/vitejs.svg` },
-                { imgSrc: `/logos/react.svg` },
+                { imgSrc: `${basename}/logos/vitejs.svg` },
+                { imgSrc: `${basename}/logos/react.svg` },
             ],
         }
     ]

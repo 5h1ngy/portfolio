@@ -5,6 +5,10 @@ import Transformer from "react-goblin-system/layouts/Transformer"
 
 import { route as homePageRoute } from "@/pages/Home";
 
+const basename = import.meta.env.VITE_BASENAME.startsWith("http")
+    ? new URL(import.meta.env.VITE_BASENAME).pathname
+    : import.meta.env.VITE_BASENAME;
+
 export const routes: RouteObject[] = [
     {
         id: "ROOT",
@@ -12,12 +16,12 @@ export const routes: RouteObject[] = [
         errorElement: <Error />,
         element: <Transformer
             children={<Outlet />}
-            logo={"/assets/logo.png"}
+            logo={`${basename}/assets/logo.png`}
             navigationScroll={true}
             background={{
                 opacity: 60,
-                image: "/assets/background_white.png",
-                imageDark: "/assets/background_dark.png",
+                image: `${basename}/assets/background_white.png`,
+                imageDark: `${basename}/assets/background_dark.png`,
             }}
             navbarItems={[
                 { label: "About", value: "/about" },
