@@ -6,6 +6,9 @@ import dotenv from 'dotenv';
 export default defineConfig(({ mode }) => {
   dotenv.config({ path: `.env.${mode}` });
 
+  // In questo caso, se il token è impostato nell'ambiente (ad es. da GitHub Actions)
+  // verrà preso da process.env
+  const VITE_GITHUB_BEARER = process.env.VITE_GITHUB_BEARER || "";
   console.log('env', `.env.${mode}`);
 
   // Definizione del proxy basato su variabile di ambiente
@@ -33,6 +36,10 @@ export default defineConfig(({ mode }) => {
         },
       }
     ],
+    // Inietta la variabile in fase di build in modo che import.meta.env abbia il token
+    define: {
+      'import.meta.env.VITE_GITHUB_BEARER': JSON.stringify(VITE_GITHUB_BEARER),
+    },
     server: {
       host: "0.0.0.0",
       watch: {
