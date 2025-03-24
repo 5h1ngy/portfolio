@@ -60,6 +60,7 @@ bower-lock.json
 .env.local
 .env.*.local
 .env.development
+.env.dev
 .env.production
 .env.test
 
