@@ -20,115 +20,100 @@ A modern portfolio application built using **React**, **TypeScript**, and **Chak
    </div>
 </p>
 
-## **Table of Contents**
+## **Table of Contents 🧭**
+- [URLs 🌐](#urls-)
+- [Introduction 🤔](#introduction-)
+- [Features ✨](#features-)
+- [Requirements 🏁](#requirements-)
+- [Build Process 🏭](#build-process-)
+- [Usage 💻](#usage-)
+- [Project Structure 🏗](#project-structure-)
+- [Key Dependencies 🔑](#key-dependencies-)
+- [Testing 🧪](#testing-)
+- [License 📜](#license-)
+- [Contributing 🤝](#contributing-)
+- [Contact 📫](#contact-)
 
-- [Introduction](#introduction)
-- [Features](#features)
-- [Requirements](#requirements)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-- [Key Dependencies](#key-dependencies)
-- [Testing](#testing)
-- [License](#license)
-- [Contributing](#contributing)
-- [Contact](#contact)
+## **URLs 🌐**
 
-## **Introduction**
+| Key  | Value                                                          |
+|------|----------------------------------------------------------------|
+| Site | [https://5h1ngy.github.io/fe-react-portfolio/home](#)         |
 
-**FE-React-Portfolio** is a modular, themeable portfolio application designed to showcase projects, skills, and professional information. It leverages modern frontend technologies and integrates well with tools like Storybook and GSAP for interactive storytelling and animations.
+## **Introduction 🤔**
 
-## **Features**
+**FE-React-Portfolio** is a modular, themeable portfolio application designed to showcase projects, skills, and professional information. It leverages modern frontend technologies and integrates seamlessly with libraries such as **GSAP** for animations and **Redux Toolkit** for state management.
 
-- ✅ Responsive design with light/dark themes
-- ✅ Interactive project showcase with animations (powered by GSAP)
-- ✅ Modular component-based structure for reusability
-- ✅ Built-in Markdown rendering for project descriptions
-- ✅ Storybook integration for component testing and preview
-- ✅ Type-safe development using **TypeScript**
-- ✅ State management with **Redux Toolkit**
+## **Features ✨**
+- **Responsive design** with light/dark themes.  
+- **Interactive project showcase** with animations (powered by GSAP).  
+- **Modular component-based** structure for reusability.  
+- **Built-in Markdown rendering** for project descriptions.
+- **Type-safe** development using **TypeScript**.  
+- **State management** with **Redux Toolkit**.  
 
-## **Requirements**
+## **Requirements 🏁**
+- **Node.js**: `>= 20.18.0`  
+- **Yarn**: `>= 4.5.1`  
 
-Ensure the following are installed on your system:
+## **Build Process 🏭**
+- **Production build**:
+  ```bash
+  yarn build:prod
+  ```
+- **Production preview**:
+  ```bash
+  yarn preview:prod
+  ```
 
-- **Node.js**: `>= 20.18.0`
-- **Yarn**: `>= 4.5.1`
+## **Usage 💻**
 
-## **Installation**
+- **Project Showcase**: Interactive cards displaying project details, links, and thumbnails.  
+- **Markdown Support**: Render project descriptions dynamically using Markdown.  
+- **Dark Mode**: Built-in light/dark theme toggling via Chakra UI.  
+- **Animations**: Smooth page transitions and interactive elements with GSAP.  
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/5h1ngy/fe-react-portfolio.git
-   cd fe-react-portfolio
-   ```
+> **Note**: Since this is a frontend application, please see your preferred deployment guide or host to run the compiled project in a production environment.
 
-2. Install dependencies:
-   ```bash
-   yarn install
-   ```
-
-3. Start the development server:
-   ```bash
-   yarn start:dev
-   ```
-
-For a production build:
-```bash
-yarn build:prod
-```
-
-## **Usage**
-
-### Core Features:
-- **Project Showcase**: Interactive cards displaying project details, links, and thumbnails.
-- **Markdown Support**: Render project descriptions dynamically using Markdown.
-- **Dark Mode**: Built-in light/dark theming support using Chakra-UI.
-- **Animations**: Smooth animations for transitions and interactive elements.
-
-## **Project Structure**
+## **Project Structure 🏗**
 
 ```plaintext
 src/
 ├── assets/          # Static assets (images, icons, etc.)
 ├── components/      # Reusable components
-├── hooks/           # Custom React hooks
-├── pages/           # Page-level components
-├── store/           # Redux state slices
-├── styles/          # Global styles and themes
+├── hocs/            # Higher-order components
+├── pages/           # Page-level components (Home, About, etc.)
+├── services/        # API calls, data fetching, etc.
+├── store/           # Redux state slices and async thunks
+├── styles/          # Global styles or theming config
 ├── utils/           # Helper functions and utilities
 ├── App.tsx          # Main app entry point
 └── main.tsx         # Application bootstrap file
 ```
 
-## **Key Dependencies**
+## **Key Dependencies 🔑**
+- **React** (v19.x)
+- **TypeScript** (v5.x)
+- **Chakra-UI** (v3.x)
+- **Redux Toolkit** (v2.x)
+- **GSAP** (v3.x)
 
-- **React**: UI framework for building user interfaces
-- **TypeScript**: Ensures type safety across the project
-- **Chakra-UI**: Modular and accessible component library
-- **Redux Toolkit**: State management solution
-- **Storybook**: Component testing and interactive development
-- **GSAP**: For advanced animations and transitions
+## **Testing 🧪**
 
-## **Testing**
-
-Run tests with:
+Run your **unit tests** with:
 
 ```bash
 yarn test
 ```
 
-For component testing, launch Storybook:
-
-```bash
-yarn start:storybook
-```
-
-## **License**
-
+## **License 📜**
 This project is licensed under the [MIT License](./LICENSE).
 
-## **Contact**
+## **Contributing 🤝**
+1. **Fork** the repository or open a new branch in your local clone.
+2. Make your changes in the dedicated folder or file.
+3. Open a **pull request** describing your changes.
 
+## **Contact 📫**
 - **Author**: [5h1ngy](https://github.com/5h1ngy)  
-- **Repository**: [GitHub](https://github.com/5h1ngy/fe-react-portfolio)  
+- **Repository**: [GitHub](https://github.com/5h1ngy/fe-react-portfolio)
