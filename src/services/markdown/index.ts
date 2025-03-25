@@ -1,9 +1,7 @@
 import axios from "axios";
 import { Response } from "../shared/types";
 
-const basename = import.meta.env.VITE_BASENAME.startsWith("http")
-    ? new URL(import.meta.env.VITE_BASENAME).pathname
-    : import.meta.env.VITE_BASENAME;
+const basename = import.meta.env.VITE_BASENAME;
 
 const URL_BASE = `${basename}/markdown`;
 

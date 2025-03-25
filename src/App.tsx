@@ -20,9 +20,7 @@ const App: React.FC = () =>
                 </Helmet>
                 <RouterProvider
                     router={createBrowserRouter(routes, {
-                        basename: import.meta.env.VITE_BASENAME.startsWith("http")
-                            ? new URL(import.meta.env.VITE_BASENAME).pathname
-                            : import.meta.env.VITE_BASENAME,
+                        basename: import.meta.env.VITE_BASENAME,
                     })}
                 />
             </HelmetProvider>

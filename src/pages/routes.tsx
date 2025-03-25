@@ -5,9 +5,7 @@ import Transformer from "react-goblin-system/layouts/Transformer"
 
 import { route as homePageRoute } from "@/pages/Home";
 
-const basename = import.meta.env.VITE_BASENAME.startsWith("http")
-    ? new URL(import.meta.env.VITE_BASENAME).pathname
-    : import.meta.env.VITE_BASENAME;
+const basename = import.meta.env.VITE_BASENAME;
 
 export const routes: RouteObject[] = [
     {
