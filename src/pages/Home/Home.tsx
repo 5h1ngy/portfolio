@@ -17,9 +17,7 @@ import SliderCards from "react-goblin-system/components/SliderCards";
 import { withContainer, Bind } from "@/hocs/withSlicePortfolio";
 import { mapRepositoryToProps } from "./utils";
 
-const basename = import.meta.env.VITE_BASENAME.startsWith("http")
-    ? new URL(import.meta.env.VITE_BASENAME).pathname
-    : import.meta.env.VITE_BASENAME;
+const basename = import.meta.env.VITE_BASENAME;
 
 const avatarTechs = {
     centerImage: `${basename}/logos/avatar.png`,
