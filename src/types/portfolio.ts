@@ -23,36 +23,38 @@ export interface PortfolioProfileLink {
   type: 'github' | 'website' | 'email' | 'linkedin' | 'xing' | 'behance' | 'dribbble' | 'medium' | 'resume' | 'phone'
 }
 
+export interface HeroOrbitItem {
+  label: string
+  icon: string
+  size: number
+  radius: number
+  speed: number
+}
+
+export interface HeroOrbit {
+  center: string
+  items: HeroOrbitItem[]
+}
+
 export interface PortfolioProfile {
   name: string
   headline: string
   location: string
   availability: string
-  summary: string
-  focusAreas: string[]
   pronouns?: string
   avatar?: string
   resumeUrl?: string
   links: PortfolioProfileLink[]
 }
 
-export interface PortfolioHeroStat {
-  label: string
-  value: string
-  description?: string
-}
-
 export interface PortfolioHero {
-  badge: string
-  preTitle: string
+  eyebrow: string
   title: string
   subtitle: string
   description: string
   primaryAction: PortfolioActionLink
-  secondaryAction: PortfolioActionLink
-  quickFacts: string[]
-  floatingLabels: string[]
-  stats: PortfolioHeroStat[]
+  secondaryAction?: PortfolioActionLink
+  orbit: HeroOrbit
 }
 
 export interface PortfolioHighlight {
