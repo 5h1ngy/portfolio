@@ -1,37 +1,35 @@
-import type { PortfolioMeta, PortfolioProfile } from '../types/portfolio'
+import type { PortfolioMeta, PortfolioProfile } from "../types/portfolio";
+import { FooterInner, FooterLinks, FooterMeta, FooterPill, FooterRoot } from "./Footer.style";
 
 interface FooterProps {
-  profile: PortfolioProfile
-  meta: PortfolioMeta
+  profile: PortfolioProfile;
+  meta: PortfolioMeta;
 }
 
-const isExternal = (url: string) => /^https?:\/\//i.test(url)
+const isExternal = (url: string) => /^https?:\/\//i.test(url);
 
 export const Footer = ({ profile, meta }: FooterProps) => (
-  <footer className="app-footer">
-    <div className="app-footer__inner">
+  <FooterRoot>
+    <FooterInner>
       <div>
         <strong>{profile.name}</strong>
-        <div className="app-footer__meta">
-          {profile.location} Â· {profile.availability}
-        </div>
+        <FooterMeta>
+          {profile.location} · {profile.availability}
+        </FooterMeta>
       </div>
-      <div className="app-footer__links">
+      <FooterLinks>
         {profile.links.map((link) => (
-          <a
+          <FooterPill
             key={`${link.type}-${link.label}`}
-            className="pill"
             href={link.url}
             target={isExternal(link.url) ? '_blank' : undefined}
             rel={isExternal(link.url) ? 'noreferrer' : undefined}
           >
             {link.label}
-          </a>
+          </FooterPill>
         ))}
-      </div>
-      <div className="app-footer__meta">
-        Â© {new Date().getFullYear()} Â· {meta.title}
-      </div>
-    </div>
-  </footer>
-)
+      </FooterLinks>
+      <FooterMeta>© {new Date().getFullYear()} · {meta.title}</FooterMeta>
+    </FooterInner>
+  </FooterRoot>
+);

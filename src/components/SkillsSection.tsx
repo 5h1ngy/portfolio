@@ -1,48 +1,57 @@
-import { Section } from './Section'
-import type { PortfolioSkills } from '../types/portfolio'
+import type { PortfolioSkills } from "../types/portfolio";
+import { Section } from "./Section";
+import {
+  Block,
+  BlockTitle,
+  CategoryCard,
+  CategoryGrid,
+  CategoryList,
+  CategorySubtitle,
+  CategoryTitle,
+  Tag,
+  TagCloud,
+} from "./SkillsSection.style";
 
 interface SkillsSectionProps {
-  skills: PortfolioSkills
+  skills: PortfolioSkills;
 }
 
 export const SkillsSection = ({ skills }: SkillsSectionProps) => (
   <Section id="skills" accent="Competenze" title={skills.title} description={skills.caption}>
     {skills.categories.length > 0 && (
-      <div className="card-grid card-grid--three">
+      <CategoryGrid>
         {skills.categories.map((category) => (
-          <article key={category.title} className="card">
-            <h3 className="card__title">{category.title}</h3>
-            <p className="card__subtitle">{category.summary}</p>
-            <ul className="timeline-item__achievements">
+          <CategoryCard key={category.title}>
+            <CategoryTitle>{category.title}</CategoryTitle>
+            <CategorySubtitle>{category.summary}</CategorySubtitle>
+            <CategoryList>
               {category.items.map((item, idx) => (
                 <li key={idx}>{item}</li>
               ))}
-            </ul>
-          </article>
+            </CategoryList>
+          </CategoryCard>
         ))}
-      </div>
+      </CategoryGrid>
     )}
     {skills.toolbelt.length > 0 && (
-      <div>
-        <h3 className="card__title">Toolbelt</h3>
-        <div className="tag-cloud">
+      <Block>
+        <BlockTitle>Toolbelt</BlockTitle>
+        <TagCloud>
           {skills.toolbelt.map((item) => (
-            <span key={item} className="pill">
-              {item}
-            </span>
+            <Tag key={item}>{item}</Tag>
           ))}
-        </div>
-      </div>
+        </TagCloud>
+      </Block>
     )}
     {skills.workflows.length > 0 && (
-      <div>
-        <h3 className="card__title">Workflows</h3>
-        <ul className="timeline-item__achievements">
+      <Block>
+        <BlockTitle>Workflows</BlockTitle>
+        <CategoryList>
           {skills.workflows.map((workflow, idx) => (
             <li key={idx}>{workflow}</li>
           ))}
-        </ul>
-      </div>
+        </CategoryList>
+      </Block>
     )}
   </Section>
-)
+);

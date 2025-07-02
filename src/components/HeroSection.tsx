@@ -10,6 +10,8 @@ import {
   HeroLinksLabel,
   HeroLinksList,
   HeroLink,
+  PrimaryButton,
+  SecondaryButton,
   HeroSectionWrapper,
   HeroSubtitle,
   HeroTitle,
@@ -55,23 +57,21 @@ export const HeroSection = ({ hero, socialLinks }: HeroSectionProps) => {
             </HeroLinks>
           )}
           <HeroActions>
-            <a
-              className="button button--primary"
+            <PrimaryButton
               href={hero.primaryAction.href}
               target={isExternal(hero.primaryAction.href, hero.primaryAction.external) ? '_blank' : undefined}
               rel={isExternal(hero.primaryAction.href, hero.primaryAction.external) ? 'noreferrer' : undefined}
             >
               {hero.primaryAction.label}
-            </a>
+            </PrimaryButton>
             {hero.secondaryAction?.href && (
-              <a
-                className="button button--secondary"
+              <SecondaryButton
                 href={hero.secondaryAction.href}
                 target={isExternal(hero.secondaryAction.href, hero.secondaryAction.external) ? '_blank' : undefined}
                 rel={isExternal(hero.secondaryAction.href, hero.secondaryAction.external) ? 'noreferrer' : undefined}
               >
                 {hero.secondaryAction.label}
-              </a>
+              </SecondaryButton>
             )}
           </HeroActions>
         </HeroLead>

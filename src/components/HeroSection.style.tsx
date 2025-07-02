@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
-export const HeroSectionWrapper = styled.section.attrs({ className: 'section' })`
+export const HeroSectionWrapper = styled.section`
   position: relative;
   padding: clamp(3rem, 8vw, 5rem) 0 clamp(2rem, 4vw, 3rem);
 
@@ -8,7 +8,7 @@ export const HeroSectionWrapper = styled.section.attrs({ className: 'section' })
     content: '';
     position: absolute;
     inset: -8%;
-    background: var(--app-gradient-overlay);
+    background: ${({ theme }) => theme.gradients.overlay};
     filter: blur(90px);
     opacity: 0.55;
     pointer-events: none;
@@ -18,7 +18,7 @@ export const HeroSectionWrapper = styled.section.attrs({ className: 'section' })
     position: relative;
     z-index: 1;
   }
-`
+`;
 
 export const HeroLayout = styled.div`
   position: relative;
@@ -31,7 +31,7 @@ export const HeroLayout = styled.div`
     grid-template-columns: minmax(0, 1fr);
     text-align: center;
   }
-`
+`;
 
 export const HeroLead = styled.div`
   display: grid;
@@ -42,34 +42,34 @@ export const HeroLead = styled.div`
   @media (max-width: 960px) {
     margin: 0 auto;
   }
-`
+`;
 
 export const HeroEyebrow = styled.span`
   font-size: 0.82rem;
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: rgba(92, 243, 233, 0.85);
+  color: ${({ theme }) => theme.colors.accent};
   font-weight: 600;
-`
+`;
 
 export const HeroTitle = styled.h1`
   margin: 0;
   font-size: clamp(2.6rem, 7vw, 4rem);
   line-height: 1.05;
-  color: var(--app-text-primary);
-`
+  color: ${({ theme }) => theme.colors.textPrimary};
+`;
 
 export const HeroSubtitle = styled.p`
   margin: 0;
   font-size: clamp(1rem, 2.5vw, 1.2rem);
-  color: rgba(230, 241, 255, 0.8);
-`
+  color: ${({ theme }) => theme.colors.textSecondary};
+`;
 
 export const HeroDescription = styled.p`
   margin: 0;
   font-size: clamp(0.95rem, 2vw, 1.05rem);
-  color: var(--app-text-secondary);
-`
+  color: ${({ theme }) => theme.colors.textSecondary};
+`;
 
 export const HeroLinks = styled.div`
   display: flex;
@@ -80,35 +80,35 @@ export const HeroLinks = styled.div`
   @media (max-width: 960px) {
     justify-content: center;
   }
-`
+`;
 
 export const HeroLinksLabel = styled.span`
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(92, 243, 233, 0.8);
+  color: ${({ theme }) => theme.colors.accent};
   font-weight: 600;
-`
+`;
 
 export const HeroLinksList = styled.div`
   display: flex;
   gap: 0.65rem;
-`
+`;
 
 export const HeroLink = styled.a`
-  color: var(--app-text-primary);
+  color: ${({ theme }) => theme.colors.textPrimary};
   font-weight: 500;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   border-bottom: 1px solid transparent;
   padding-bottom: 0.15rem;
-  transition: border-color var(--app-transition), color var(--app-transition);
+  transition: border-color 160ms ease, color 160ms ease;
 
   &:hover,
   &:focus-visible {
-    border-color: var(--app-accent);
-    color: var(--app-accent);
+    border-color: ${({ theme }) => theme.colors.accent};
+    color: ${({ theme }) => theme.colors.accent};
   }
-`
+`;
 
 export const HeroActions = styled.div`
   display: flex;
@@ -119,4 +119,46 @@ export const HeroActions = styled.div`
   @media (max-width: 640px) {
     flex-direction: column;
   }
-`
+`;
+
+const buttonBase = `
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  border-radius: 999px;
+  padding: 0.65rem 1.35rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-transform: none;
+  transition: background 160ms ease, border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+`;
+
+export const PrimaryButton = styled.a`
+  ${buttonBase}
+  border: 1px solid ${({ theme }) => theme.colors.accentOutline};
+  background: linear-gradient(135deg, ${({ theme }) => theme.colors.accent}, rgba(141, 124, 255, 0.93));
+  color: #041320;
+  box-shadow: ${({ theme }) => theme.shadows.accent};
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-1px);
+    border-color: ${({ theme }) => theme.colors.accent};
+  }
+`;
+
+export const SecondaryButton = styled.a`
+  ${buttonBase}
+  border: 1px solid ${({ theme }) => theme.colors.accentOutline};
+  background: ${({ theme }) => theme.colors.accentSoft};
+  color: ${({ theme }) => theme.colors.accent};
+  box-shadow: 0 0 22px rgba(92, 243, 233, 0.16);
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-1px);
+    border-color: ${({ theme }) => theme.colors.accent};
+  }
+`;

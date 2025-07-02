@@ -1,11 +1,20 @@
-import { Section } from './Section'
-import type { PortfolioContact } from '../types/portfolio'
+import type { PortfolioContact } from "../types/portfolio";
+import { Section } from "./Section";
+import {
+  Availability,
+  ContactLink,
+  ContactRow,
+  ContactTable,
+  LabelCell,
+  Message,
+  ValueCell,
+} from "./ContactSection.style";
 
 interface ContactSectionProps {
-  contact: PortfolioContact
+  contact: PortfolioContact;
 }
 
-const isExternal = (href: string) => /^https?:\/\//i.test(href)
+const isExternal = (href: string) => /^https?:\/\//i.test(href);
 
 export const ContactSection = ({ contact }: ContactSectionProps) => (
   <Section
@@ -14,25 +23,25 @@ export const ContactSection = ({ contact }: ContactSectionProps) => (
     title={contact.title}
     description={contact.caption}
   >
-    <p>{contact.message}</p>
-    <p className="card__subtitle">{contact.availability}</p>
-    <table className="table">
+    <Message>{contact.message}</Message>
+    <Availability>{contact.availability}</Availability>
+    <ContactTable>
       <tbody>
         {contact.channels.map((channel) => (
-          <tr key={`${channel.type}-${channel.label}`}>
-            <td className="table__label">{channel.label}</td>
-            <td className="table__value">
-              <a
+          <ContactRow key={`${channel.type}-${channel.label}`}>
+            <LabelCell>{channel.label}</LabelCell>
+            <ValueCell>
+              <ContactLink
                 href={channel.href}
                 target={isExternal(channel.href) ? '_blank' : undefined}
                 rel={isExternal(channel.href) ? 'noreferrer' : undefined}
               >
                 {channel.value || channel.href}
-              </a>
-            </td>
-          </tr>
+              </ContactLink>
+            </ValueCell>
+          </ContactRow>
         ))}
       </tbody>
-    </table>
+    </ContactTable>
   </Section>
-)
+);

@@ -1,28 +1,53 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useState } from "react";
 
-import { Section } from './Section'
-import type { PortfolioExperience } from '../types/portfolio'
+import type { PortfolioExperience } from "../types/portfolio";
+import { Section } from "./Section";
+import {
+  Badge,
+  HighlightsList,
+  LinkGroup,
+  LinkItem,
+  LinkList,
+  Tag,
+  TagCloud,
+  TimelineBadges,
+  TimelineBody,
+  TimelineContent,
+  TimelineGrid,
+  TimelineHeader,
+  TimelineHeaderTop,
+  TimelineHeading,
+  TimelineItem,
+  TimelineList,
+  TimelineMarker,
+  TimelinePeriod,
+  TimelineSummary,
+  TimelineSummaryText,
+  TimelineTitle,
+  TimelineSubtitle,
+  TimelineToggle,
+} from "./ExperienceSection.style";
 
 interface ExperienceSectionProps {
-  experience: PortfolioExperience
+  experience: PortfolioExperience;
 }
 
-const isExternal = (href: string, external?: boolean) => external || /^https?:\/\//i.test(href)
+const isExternal = (href: string, external?: boolean) => external || /^https?:\/\//i.test(href);
 
 export const ExperienceSection = ({ experience }: ExperienceSectionProps) => (
   <InteractiveTimeline experience={experience} />
-)
+);
 
 const InteractiveTimeline = ({ experience }: ExperienceSectionProps) => {
   const defaultId = useMemo(
     () => (experience.timeline.length > 0 ? buildItemId(experience.timeline[0]) : null),
     [experience.timeline],
-  )
-  const [activeId, setActiveId] = useState<string | null>(defaultId)
+  );
+  const [activeId, setActiveId] = useState<string | null>(defaultId);
 
   const toggle = (id: string) => {
-    setActiveId((current) => (current === id ? null : id))
-  }
+    setActiveId((current) => (current === id ? null : id));
+  };
 
   return (
     <Section
@@ -31,133 +56,115 @@ const InteractiveTimeline = ({ experience }: ExperienceSectionProps) => {
       title={experience.title}
       description={experience.caption}
     >
-      <div className="timeline timeline--interactive" role="list">
+      <TimelineList role="list">
         {experience.timeline.map((item, index) => {
-          const id = buildItemId(item)
-          const expanded = activeId === id
-          const periodLabel = formatPeriod(item.start, item.end)
-          const markerLabel = extractYearOrLabel(item.start)
-          const side = index % 2 === 0 ? 'left' : 'right'
+          const id = buildItemId(item);
+          const expanded = activeId === id;
+          const periodLabel = formatPeriod(item.start, item.end);
+          const markerLabel = extractYearOrLabel(item.start);
+          const side = index % 2 === 0 ? 'left' : 'right';
 
           return (
-            <article
-              key={id}
-              className={`timeline-card timeline-card--${side}${expanded ? ' timeline-card--expanded' : ''}`}
-              role="listitem"
-            >
-              <span className="timeline-card__marker">
-                {markerLabel}
-              </span>
-              <div className={`timeline-card__body${expanded ? ' timeline-card__body--expanded' : ''}`}>
-                <header className="timeline-card__header">
-                  <div className="timeline-card__header-top">
-                    {expanded && <span className="timeline-card__period">{periodLabel}</span>}
-                    <button
+            <TimelineItem key={id} role="listitem" $side={side} $expanded={expanded}>
+              <TimelineMarker $side={side}>{markerLabel}</TimelineMarker>
+              <TimelineBody $side={side} $expanded={expanded}>
+                <TimelineHeader>
+                  <TimelineHeaderTop>
+                    {expanded && <TimelinePeriod>{periodLabel}</TimelinePeriod>}
+                    <TimelineToggle
                       type="button"
-                      className="timeline-card__toggle"
                       onClick={() => toggle(id)}
                       aria-expanded={expanded}
                       aria-controls={`${id}-content`}
                     >
                       {expanded ? 'Chiudi focus' : 'Esplora dettagli'}
-                    </button>
-                  </div>
-                  <div className="timeline-card__heading">
-                    <h3 className="timeline-card__title">{item.role}</h3>
+                    </TimelineToggle>
+                  </TimelineHeaderTop>
+                  <TimelineHeading>
+                    <TimelineTitle>{item.role}</TimelineTitle>
                     {expanded && (
-                      <p className="timeline-card__subtitle">
+                      <TimelineSubtitle>
                         {item.company}
                         {item.client ? ` - Client: ${item.client}` : ''}
-                      </p>
+                      </TimelineSubtitle>
                     )}
-                  </div>
+                  </TimelineHeading>
                   {expanded && (
-                    <div className="timeline-card__badges">
-                      <span className="badge badge--location">{item.location}</span>
-                      <span className="badge badge--scope">{item.tech.length} core tech</span>
-                      <span className="badge badge--impact">{item.achievements.length} key wins</span>
-                    </div>
+                    <TimelineBadges>
+                      <Badge>{item.location}</Badge>
+                      <Badge>{item.tech.length} core tech</Badge>
+                      <Badge>{item.achievements.length} key wins</Badge>
+                    </TimelineBadges>
                   )}
-                </header>
+                </TimelineHeader>
 
                 {expanded && (
-                  <div className="timeline-card__summary">
-                    <p className="timeline-card__summary-text timeline-card__summary-text--expanded">{item.summary}</p>
-                  </div>
+                  <TimelineSummary>
+                    <TimelineSummaryText>{item.summary}</TimelineSummaryText>
+                  </TimelineSummary>
                 )}
 
-                <div
-                  id={`${id}-content`}
-                  className={`timeline-card__content${expanded ? ' timeline-card__content--visible' : ''}`}
-                  hidden={!expanded}
-                >
-                  {expanded && (
-                    <>
-                      <div className="timeline-card__grid">
-                        <div>
-                          <h4>Risultati principali</h4>
-                          <ul className="timeline-card__highlights">
-                            {item.achievements.map((achievement, idx) => (
-                              <li key={idx}>{achievement}</li>
-                            ))}
-                          </ul>
-                        </div>
-                        <div>
-                          <h4>Stack &amp; responsabilita</h4>
-                          <div className="tag-cloud">
-                            {item.tech.map((tech) => (
-                              <span key={tech} className="pill">
-                                {tech}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                      {item.links.length > 0 && (
-                        <div className="timeline-card__links">
-                          <h4>Approfondimenti</h4>
-                          <div className="link-list">
-                            {item.links.map((link) => (
-                              <a
-                                key={link.label}
-                                className="link"
-                                href={link.href}
-                                target={isExternal(link.href, link.external) ? '_blank' : undefined}
-                                rel={isExternal(link.href, link.external) ? 'noreferrer' : undefined}
-                              >
-                                {link.label}
-                              </a>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-                    </>
+                <TimelineContent id={`${id}-content`} $visible={expanded}>
+                  <TimelineGrid>
+                    <div>
+                      <h4>Risultati principali</h4>
+                      <HighlightsList>
+                        {item.achievements.map((achievement, idx) => (
+                          <li key={idx}>{achievement}</li>
+                        ))}
+                      </HighlightsList>
+                    </div>
+                    <div>
+                      <h4>Stack & responsabilita</h4>
+                      <TagCloud>
+                        {item.tech.map((tech) => (
+                          <Tag key={tech}>{tech}</Tag>
+                        ))}
+                      </TagCloud>
+                    </div>
+                  </TimelineGrid>
+                  {item.links.length > 0 && (
+                    <LinkGroup>
+                      <h4>Approfondimenti</h4>
+                      <LinkList>
+                        {item.links.map((link) => (
+                          <LinkItem
+                            key={link.label}
+                            href={link.href}
+                            target={isExternal(link.href, link.external) ? '_blank' : undefined}
+                            rel={isExternal(link.href, link.external) ? 'noreferrer' : undefined}
+                          >
+                            {link.label}
+                          </LinkItem>
+                        ))}
+                      </LinkList>
+                    </LinkGroup>
                   )}
-                </div>
-              </div>
-            </article>
-          )
+                </TimelineContent>
+              </TimelineBody>
+            </TimelineItem>
+          );
         })}
-      </div>
+      </TimelineList>
     </Section>
-  )
-}
+  );
+};
 
 const buildItemId = (item: PortfolioExperience['timeline'][number]) =>
-  `${item.company}-${item.role}-${item.start}`.toLowerCase().replace(/\s+/g, '-')
+  `${item.company}-${item.role}-${item.start}`.toLowerCase().replace(/\s+/g, '-');
 
 const formatPeriod = (start: string, end: string) => {
-  const startLabel = extractYearOrLabel(start)
-  const endLabel = extractYearOrLabel(end)
+  const startLabel = extractYearOrLabel(start);
+  const endLabel = extractYearOrLabel(end);
 
   if (!endLabel || startLabel === endLabel) {
-    return startLabel
+    return startLabel;
   }
 
-  return `${startLabel} → ${endLabel}`
-}
+  return `${startLabel} → ${endLabel}`;
+};
 
 const extractYearOrLabel = (value: string) => {
-  const match = value.match(/\d{4}/)
-  return match ? match[0] : value
-}
+  const match = value.match(/\d{4}/);
+  return match ? match[0] : value;
+};

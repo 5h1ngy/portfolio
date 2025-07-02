@@ -1,5 +1,17 @@
-import { Section } from './Section'
 import type { PortfolioProjects } from '../types/portfolio'
+import {
+  ProjectCard,
+  ProjectDescription,
+  ProjectHeader,
+  ProjectLink,
+  ProjectLinks,
+  ProjectSubtitle,
+  ProjectTag,
+  ProjectTags,
+  ProjectTitle,
+  ProjectsGrid,
+} from './ProjectsSection.style'
+import { Section } from './Section'
 
 interface ProjectsSectionProps {
   id: string
@@ -12,77 +24,71 @@ const isExternal = (href: string) => /^https?:\/\//i.test(href)
 export const ProjectsSection = ({ id, accent, projects }: ProjectsSectionProps) => (
   <Section id={id} accent={accent} title={projects.title} description={projects.caption}>
     {projects.featured.length > 0 && (
-      <div className="card-grid">
+      <ProjectsGrid>
         {projects.featured.map((project) => (
-          <article key={project.name} className="card">
-            <header>
-              <h3 className="card__title">{project.name}</h3>
-              <p className="card__subtitle">{project.period}</p>
-            </header>
-            <p>{project.description}</p>
+          <ProjectCard key={project.name}>
+            <ProjectHeader>
+              <ProjectTitle>{project.name}</ProjectTitle>
+              <ProjectSubtitle>{project.period}</ProjectSubtitle>
+            </ProjectHeader>
+            <ProjectDescription>{project.description}</ProjectDescription>
             {project.tech.length > 0 && (
-              <div className="card__tags">
+              <ProjectTags>
                 {project.tech.map((tech) => (
-                  <span key={tech} className="pill">
-                    {tech}
-                  </span>
+                  <ProjectTag key={tech}>{tech}</ProjectTag>
                 ))}
-              </div>
+              </ProjectTags>
             )}
             {project.links.length > 0 && (
-              <div className="link-list">
+              <ProjectLinks>
                 {project.links.map((link) => (
-                  <a
+                  <ProjectLink
                     key={`${project.name}-${link.label}`}
-                    className="link"
                     href={link.url}
                     target={isExternal(link.url) ? '_blank' : undefined}
                     rel={isExternal(link.url) ? 'noreferrer' : undefined}
                   >
                     {link.label}
-                  </a>
+                  </ProjectLink>
                 ))}
-              </div>
+              </ProjectLinks>
             )}
-            {project.highlight && <p className="card__subtitle">{project.highlight}</p>}
-          </article>
+            {project.highlight && <ProjectSubtitle>{project.highlight}</ProjectSubtitle>}
+          </ProjectCard>
         ))}
-      </div>
+      </ProjectsGrid>
     )}
     {projects.others.length > 0 && (
-      <div className="card-grid card-grid--two">
+      <ProjectsGrid $columns={2}>
         {projects.others.map((project) => (
-          <article key={project.name} className="card">
-            <h4 className="card__title">{project.name}</h4>
-            <p className="card__subtitle">{project.period}</p>
-            <p>{project.description}</p>
+          <ProjectCard key={project.name}>
+            <ProjectTitle as="h4">{project.name}</ProjectTitle>
+            <ProjectSubtitle>{project.period}</ProjectSubtitle>
+            <ProjectDescription>{project.description}</ProjectDescription>
             {project.tech.length > 0 && (
-              <div className="card__tags">
+              <ProjectTags>
                 {project.tech.map((tech) => (
-                  <span key={tech} className="pill">
-                    {tech}
-                  </span>
+                  <ProjectTag key={tech}>{tech}</ProjectTag>
                 ))}
-              </div>
+              </ProjectTags>
             )}
             {project.links.length > 0 && (
-              <div className="link-list">
+              <ProjectLinks>
                 {project.links.map((link) => (
-                  <a
+                  <ProjectLink
                     key={`${project.name}-${link.label}`}
-                    className="link"
                     href={link.url}
                     target={isExternal(link.url) ? '_blank' : undefined}
                     rel={isExternal(link.url) ? 'noreferrer' : undefined}
                   >
                     {link.label}
-                  </a>
+                  </ProjectLink>
                 ))}
-              </div>
+              </ProjectLinks>
             )}
-          </article>
+          </ProjectCard>
         ))}
-      </div>
+      </ProjectsGrid>
     )}
   </Section>
 )

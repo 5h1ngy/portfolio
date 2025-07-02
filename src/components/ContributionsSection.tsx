@@ -1,11 +1,22 @@
-import { Section } from './Section'
-import type { PortfolioContributions } from '../types/portfolio'
+import type { PortfolioContributions } from "../types/portfolio";
+import { Section } from "./Section";
+import {
+  ContributionCard,
+  ContributionDescription,
+  ContributionGrid,
+  ContributionLink,
+  ContributionLinks,
+  ContributionSubtitle,
+  ContributionTag,
+  ContributionTags,
+  ContributionTitle,
+} from "./ContributionsSection.style";
 
 interface ContributionsSectionProps {
-  contributions: PortfolioContributions
+  contributions: PortfolioContributions;
 }
 
-const isExternal = (href: string) => /^https?:\/\//i.test(href)
+const isExternal = (href: string) => /^https?:\/\//i.test(href);
 
 export const ContributionsSection = ({ contributions }: ContributionsSectionProps) => (
   <Section
@@ -14,40 +25,37 @@ export const ContributionsSection = ({ contributions }: ContributionsSectionProp
     title={contributions.title}
     description={contributions.caption}
   >
-    <div className="card-grid card-grid--two">
+    <ContributionGrid>
       {contributions.items.map((item) => (
-        <article key={`${item.name}-${item.period}`} className="card">
-          <h3 className="card__title">{item.name}</h3>
-          <p className="card__subtitle">
-            {item.period} Â· {item.role}
-          </p>
-          <p>{item.description}</p>
+        <ContributionCard key={`${item.name}-${item.period}`}>
+          <ContributionTitle>{item.name}</ContributionTitle>
+          <ContributionSubtitle>
+            {item.period} · {item.role}
+          </ContributionSubtitle>
+          <ContributionDescription>{item.description}</ContributionDescription>
           {item.skills.length > 0 && (
-            <div className="card__tags">
+            <ContributionTags>
               {item.skills.map((skill) => (
-                <span key={skill} className="pill">
-                  {skill}
-                </span>
+                <ContributionTag key={skill}>{skill}</ContributionTag>
               ))}
-            </div>
+            </ContributionTags>
           )}
           {item.links.length > 0 && (
-            <div className="link-list">
+            <ContributionLinks>
               {item.links.map((link) => (
-                <a
+                <ContributionLink
                   key={`${item.name}-${link.label}`}
-                  className="link"
                   href={link.url}
                   target={isExternal(link.url) ? '_blank' : undefined}
                   rel={isExternal(link.url) ? 'noreferrer' : undefined}
                 >
                   {link.label}
-                </a>
+                </ContributionLink>
               ))}
-            </div>
+            </ContributionLinks>
           )}
-        </article>
+        </ContributionCard>
       ))}
-    </div>
+    </ContributionGrid>
   </Section>
-)
+);

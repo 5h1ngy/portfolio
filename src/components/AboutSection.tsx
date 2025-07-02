@@ -1,5 +1,16 @@
-import { Section } from './Section'
 import type { PortfolioAbout } from '../types/portfolio'
+import { Section } from './Section'
+import {
+  HighlightCard,
+  HighlightDescription,
+  HighlightIcon,
+  HighlightTitle,
+  HighlightsGrid,
+  StatCard,
+  StatLabel,
+  StatValue,
+  StatsList,
+} from './AboutSection.style'
 
 interface AboutSectionProps {
   about: PortfolioAbout
@@ -13,23 +24,23 @@ export const AboutSection = ({ about }: AboutSectionProps) => (
       ))}
     </div>
     {about.highlights.length > 0 && (
-      <div className="card-grid card-grid--two">
+      <HighlightsGrid>
         {about.highlights.map((highlight) => (
-          <div key={highlight.title} className="card">
-            {highlight.icon && <span className="pill">{highlight.icon}</span>}
-            <h3 className="card__title">{highlight.title}</h3>
-            <p className="card__subtitle">{highlight.description}</p>
-          </div>
+          <HighlightCard key={highlight.title}>
+            {highlight.icon && <HighlightIcon>{highlight.icon}</HighlightIcon>}
+            <HighlightTitle>{highlight.title}</HighlightTitle>
+            <HighlightDescription>{highlight.description}</HighlightDescription>
+          </HighlightCard>
         ))}
-      </div>
+      </HighlightsGrid>
     )}
-    <div className="stat-list">
+    <StatsList>
       {about.stats.map((stat) => (
-        <div key={stat.label} className="stat-card">
-          <span className="stat-card__value">{stat.value}</span>
-          <span className="stat-card__label">{stat.label}</span>
-        </div>
+        <StatCard key={stat.label}>
+          <StatValue>{stat.value}</StatValue>
+          <StatLabel>{stat.label}</StatLabel>
+        </StatCard>
       ))}
-    </div>
+    </StatsList>
   </Section>
 )
