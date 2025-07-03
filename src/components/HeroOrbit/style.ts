@@ -21,7 +21,7 @@ export const OrbitRing = styled.span<{ $size: number }>`
   inset: 50%;
   transform: translate(-50%, -50%);
   border-radius: 999px;
-  border: 1px dashed rgba(255, 255, 255, 0.16);
+  border: 1px dashed ${({ theme }) => theme.colors.accentOutline};
   opacity: 0.65;
   width: ${({ $size }) => `${$size}px`};
   height: ${({ $size }) => `${$size}px`};
@@ -35,9 +35,9 @@ export const OrbitCenter = styled.div`
   width: clamp(120px, 18vw, 180px);
   height: clamp(120px, 18vw, 180px);
   border-radius: 999px;
-  background: rgba(8, 18, 38, 0.72);
-  border: 2px solid rgba(92, 243, 233, 0.45);
-  box-shadow: 0 30px 60px rgba(4, 12, 30, 0.45), inset 0 0 40px rgba(92, 243, 233, 0.18);
+  background: ${({ theme }) => theme.colors.surfaceMuted};
+  border: 2px solid ${({ theme }) => theme.colors.accentOutline};
+  box-shadow: ${({ theme }) => theme.shadows.accent}, inset 0 0 40px ${({ theme }) => theme.colors.accentSoft};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -83,8 +83,8 @@ export const OrbitIcon = styled.span`
   width: 100%;
   height: 100%;
   border-radius: 999px;
-  background: rgba(8, 18, 38, 0.72);
-  border: 1px solid rgba(92, 243, 233, 0.22);
+  background: ${({ theme }) => theme.colors.surfaceMuted};
+  border: 1px solid ${({ theme }) => theme.colors.accentOutline};
   align-items: center;
   justify-content: center;
   padding: 6px;
