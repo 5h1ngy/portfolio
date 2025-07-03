@@ -1,5 +1,5 @@
-import type { HeaderProps } from './types'
-import { useHeaderCompact } from './hooks'
+﻿import type { HeaderProps } from '@components/Header/types'
+import { useHeaderCompact } from '@components/Header/hooks'
 import {
   AccentPicker,
   AccentSwatch,
@@ -13,7 +13,7 @@ import {
   NavLink,
   ThemeToggle,
   Toggles,
-} from './style'
+} from '@components/Header/style'
 
 export const Header = ({
   navigation,
@@ -43,7 +43,7 @@ export const Header = ({
           </Nav>
           <Toggles>
             <ThemeToggle type="button" onClick={onToggleTheme} aria-label="Cambia tema">
-              <span aria-hidden>{themeMode === 'dark' ? '🌙' : '☀️'}</span>
+              <span aria-hidden>{themeMode === 'dark' ? 'ðŸŒ™' : 'â˜€ï¸'}</span>
             </ThemeToggle>
             <AccentPicker role="group" aria-label="Accent color">
               {accentOptions.map((option) => (
@@ -64,3 +64,4 @@ export const Header = ({
     </HeaderRoot>
   )
 }
+

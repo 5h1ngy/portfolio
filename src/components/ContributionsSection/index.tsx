@@ -1,6 +1,6 @@
-﻿import type { ContributionsSectionProps } from './types';
-import { Section } from '../Section';
-import { isExternal } from './helpers';
+﻿import type { ContributionsSectionProps } from '@components/ContributionsSection/types';
+import { Section } from '@components/Section';
+import { isExternal } from '@components/ContributionsSection/helpers';
 import {
   ContributionCard,
   ContributionDescription,
@@ -11,7 +11,7 @@ import {
   ContributionTag,
   ContributionTags,
   ContributionTitle,
-} from './style';
+} from '@components/ContributionsSection/style';
 
 export const ContributionsSection = ({ contributions }: ContributionsSectionProps) => (
   <Section
@@ -54,3 +54,4 @@ export const ContributionsSection = ({ contributions }: ContributionsSectionProp
     </ContributionGrid>
   </Section>
 );
+

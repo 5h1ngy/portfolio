@@ -1,5 +1,6 @@
-﻿import type { PortfolioExperience } from '../../types/portfolio';
+﻿import type { PortfolioExperience } from '@data/portfolio.types';
 
 export interface ExperienceSectionProps {
   experience: PortfolioExperience;
 }
+

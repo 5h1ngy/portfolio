@@ -1,4 +1,4 @@
-﻿import type { PortfolioContact } from '../../types/portfolio';
+﻿import type { PortfolioContact } from '@data/portfolio.types';
 
 export interface ContactSectionProps {
   contact: PortfolioContact;

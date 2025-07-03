@@ -1,6 +1,6 @@
-﻿import type { FooterProps } from './types';
-import { isExternal } from './helpers';
-import { FooterInner, FooterLinks, FooterMeta, FooterPill, FooterRoot } from './style';
+﻿import type { FooterProps } from '@components/Footer/types';
+import { isExternal } from '@components/Footer/helpers';
+import { FooterInner, FooterLinks, FooterMeta, FooterPill, FooterRoot } from '@components/Footer/style';
 
 export const Footer = ({ profile, meta }: FooterProps) => (
   <FooterRoot>
@@ -27,3 +27,4 @@ export const Footer = ({ profile, meta }: FooterProps) => (
     </FooterInner>
   </FooterRoot>
 );
+

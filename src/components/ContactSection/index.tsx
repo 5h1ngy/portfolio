@@ -1,7 +1,7 @@
-﻿import type { ContactSectionProps } from './types';
-import { Section } from '../Section';
-import { isExternal } from './helpers';
-import { Availability, ContactLink, ContactRow, ContactTable, LabelCell, Message, ValueCell } from './style';
+﻿import type { ContactSectionProps } from '@components/ContactSection/types';
+import { Section } from '@components/Section';
+import { isExternal } from '@components/ContactSection/helpers';
+import { Availability, ContactLink, ContactRow, ContactTable, LabelCell, Message, ValueCell } from '@components/ContactSection/style';
 
 export const ContactSection = ({ contact }: ContactSectionProps) => (
   <Section
@@ -32,3 +32,4 @@ export const ContactSection = ({ contact }: ContactSectionProps) => (
     </ContactTable>
   </Section>
 );
+

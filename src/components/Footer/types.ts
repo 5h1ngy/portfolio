@@ -1,6 +1,7 @@
-﻿import type { PortfolioMeta, PortfolioProfile } from '../../types/portfolio';
+﻿import type { PortfolioMeta, PortfolioProfile } from '@data/portfolio.types';
 
 export interface FooterProps {
   profile: PortfolioProfile;
   meta: PortfolioMeta;
 }
+

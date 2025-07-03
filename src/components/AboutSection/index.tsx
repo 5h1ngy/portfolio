@@ -1,5 +1,5 @@
-﻿import type { AboutSectionProps } from './types';
-import { Section } from '../Section';
+﻿import type { AboutSectionProps } from '@components/AboutSection/types';
+import { Section } from '@components/Section';
 import {
   HighlightCard,
   HighlightDescription,
@@ -10,7 +10,7 @@ import {
   StatLabel,
   StatValue,
   StatsList,
-} from './style';
+} from '@components/AboutSection/style';
 
 export const AboutSection = ({ about }: AboutSectionProps) => (
   <Section id="about" accent="Chi sono" title={about.title} description={about.caption}>
@@ -40,3 +40,4 @@ export const AboutSection = ({ about }: AboutSectionProps) => (
     </StatsList>
   </Section>
 );
+

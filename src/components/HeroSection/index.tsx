@@ -1,5 +1,8 @@
-import { useMemo } from 'react'
-import type { PortfolioHero, PortfolioProfileLink } from '../../data/portfolio.types'
+﻿import { useMemo } from 'react'
+
+import { HeroOrbit } from '@components/HeroOrbit'
+import { isExternal } from '@components/HeroSection/helpers'
+import type { HeroSectionProps } from '@components/HeroSection/types'
 import {
   HeroActions,
   HeroDescription,
@@ -15,15 +18,7 @@ import {
   HeroSectionWrapper,
   HeroSubtitle,
   HeroTitle,
-} from './style'
-import { HeroOrbit } from '../HeroOrbit'
-
-interface HeroSectionProps {
-  hero: PortfolioHero
-  socialLinks: PortfolioProfileLink[]
-}
-
-const isExternal = (href: string, external?: boolean) => external || /^https?:\/\//i.test(href)
+} from '@components/HeroSection/style'
 
 export const HeroSection = ({ hero, socialLinks }: HeroSectionProps) => {
   const primaryLinks = useMemo(
@@ -44,12 +39,7 @@ export const HeroSection = ({ hero, socialLinks }: HeroSectionProps) => {
               <HeroLinksLabel>Connect</HeroLinksLabel>
               <HeroLinksList>
                 {primaryLinks.map((link) => (
-                  <HeroLink
-                    key={link.label}
-                    href={link.url}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
+                  <HeroLink key={link.label} href={link.url} target="_blank" rel="noreferrer">
                     {link.label}
                   </HeroLink>
                 ))}

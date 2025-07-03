@@ -1,5 +1,5 @@
-﻿import type { ThemeMode } from '../../styles/theme';
-import type { PortfolioNavigationItem, PortfolioProfile } from '../../types/portfolio';
+﻿import type { ThemeMode } from '@styles/theme';
+import type { PortfolioNavigationItem, PortfolioProfile } from '@data/portfolio.types';
 
 export interface HeaderProps {
   navigation: PortfolioNavigationItem[];
@@ -10,3 +10,4 @@ export interface HeaderProps {
   accentColor: string;
   onAccentChange: (color: string) => void;
 }
+

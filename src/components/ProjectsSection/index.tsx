@@ -1,5 +1,5 @@
-﻿import type { PortfolioProjects } from '../../data/portfolio.types';
-import { Section } from '../Section';
+﻿import type { PortfolioProjects } from '@data/portfolio.types';
+import { Section } from '@components/Section';
 import {
   ProjectCard,
   ProjectDescription,
@@ -11,7 +11,7 @@ import {
   ProjectTags,
   ProjectTitle,
   ProjectsGrid,
-} from './style';
+} from '@components/ProjectsSection/style';
 
 interface ProjectsSectionProps {
   id: string;
@@ -92,3 +92,4 @@ export const ProjectsSection = ({ id, accent, projects }: ProjectsSectionProps) 
     )}
   </Section>
 );
+

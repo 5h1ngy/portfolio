@@ -1,7 +1,7 @@
-import { Section } from '../Section'
-import type { ExperienceSectionProps } from './types'
-import { useActiveTimeline } from './hooks'
-import { buildItemId, extractYearOrLabel, formatPeriod, isExternal } from './helpers'
+﻿import { Section } from '@components/Section'
+import type { ExperienceSectionProps } from '@components/ExperienceSection/types'
+import { useActiveTimeline } from '@components/ExperienceSection/hooks'
+import { buildItemId, extractYearOrLabel, formatPeriod, isExternal } from '@components/ExperienceSection/helpers'
 import {
   Badge,
   HighlightsList,
@@ -26,7 +26,7 @@ import {
   TimelineTitle,
   TimelineSubtitle,
   TimelineToggle,
-} from './style'
+} from '@components/ExperienceSection/style'
 
 export const ExperienceSection = ({ experience }: ExperienceSectionProps) => (
   <InteractiveTimeline experience={experience} />
@@ -101,7 +101,7 @@ const InteractiveTimeline = ({ experience }: ExperienceSectionProps) => {
                       </HighlightsList>
                     </div>
                     <div>
-                      <h4>Stack & responsabilità</h4>
+                      <h4>Stack & responsabilitÃ </h4>
                       <TagCloud>
                         {item.tech.map((tech) => (
                           <Tag key={tech}>{tech}</Tag>
@@ -135,3 +135,5 @@ const InteractiveTimeline = ({ experience }: ExperienceSectionProps) => {
     </Section>
   )
 }
+
+
