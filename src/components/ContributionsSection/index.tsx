@@ -1,5 +1,5 @@
-import type { PortfolioContributions } from "../types/portfolio";
-import { Section } from "./Section";
+﻿import type { PortfolioContributions } from '../../types/portfolio';
+import { Section } from '../Section';
 import {
   ContributionCard,
   ContributionDescription,
@@ -10,7 +10,7 @@ import {
   ContributionTag,
   ContributionTags,
   ContributionTitle,
-} from "./ContributionsSection.style";
+} from './style';
 
 interface ContributionsSectionProps {
   contributions: PortfolioContributions;
@@ -30,7 +30,7 @@ export const ContributionsSection = ({ contributions }: ContributionsSectionProp
         <ContributionCard key={`${item.name}-${item.period}`}>
           <ContributionTitle>{item.name}</ContributionTitle>
           <ContributionSubtitle>
-            {item.period} � {item.role}
+            {item.period} · {item.role}
           </ContributionSubtitle>
           <ContributionDescription>{item.description}</ContributionDescription>
           {item.skills.length > 0 && (

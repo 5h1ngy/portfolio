@@ -1,5 +1,5 @@
-import type { PortfolioAbout } from '../types/portfolio'
-import { Section } from './Section'
+import type { PortfolioAbout } from '../../types/portfolio'
+import { Section } from '../Section'
 import {
   HighlightCard,
   HighlightDescription,
@@ -10,7 +10,7 @@ import {
   StatLabel,
   StatValue,
   StatsList,
-} from './AboutSection.style'
+} from './style'
 
 interface AboutSectionProps {
   about: PortfolioAbout

@@ -1,5 +1,5 @@
-import type { PortfolioMeta, PortfolioProfile } from "../types/portfolio";
-import { FooterInner, FooterLinks, FooterMeta, FooterPill, FooterRoot } from "./Footer.style";
+ï»¿import type { PortfolioMeta, PortfolioProfile } from '../../types/portfolio';
+import { FooterInner, FooterLinks, FooterMeta, FooterPill, FooterRoot } from './style';
 
 interface FooterProps {
   profile: PortfolioProfile;
@@ -14,7 +14,7 @@ export const Footer = ({ profile, meta }: FooterProps) => (
       <div>
         <strong>{profile.name}</strong>
         <FooterMeta>
-          {profile.location} · {profile.availability}
+          {profile.location} Â· {profile.availability}
         </FooterMeta>
       </div>
       <FooterLinks>
@@ -29,7 +29,7 @@ export const Footer = ({ profile, meta }: FooterProps) => (
           </FooterPill>
         ))}
       </FooterLinks>
-      <FooterMeta>© {new Date().getFullYear()} · {meta.title}</FooterMeta>
+      <FooterMeta>Â© {new Date().getFullYear()} Â· {meta.title}</FooterMeta>
     </FooterInner>
   </FooterRoot>
 );

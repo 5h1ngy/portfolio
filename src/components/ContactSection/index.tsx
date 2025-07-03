@@ -1,5 +1,5 @@
-import type { PortfolioContact } from "../types/portfolio";
-import { Section } from "./Section";
+import type { PortfolioContact } from "../../types/portfolio";
+import { Section } from "../Section";
 import {
   Availability,
   ContactLink,
@@ -8,7 +8,7 @@ import {
   LabelCell,
   Message,
   ValueCell,
-} from "./ContactSection.style";
+} from "./style";
 
 interface ContactSectionProps {
   contact: PortfolioContact;

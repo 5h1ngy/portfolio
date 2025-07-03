@@ -49,24 +49,24 @@ export const App = () => {
       <GlobalStyle />
       <AppShell>
         <Header
-        navigation={ui.navigation}
-        profile={profile}
-        themeMode={themeMode}
-        onToggleTheme={() => setThemeMode((mode) => (mode === 'dark' ? 'light' : 'dark'))}
-        accentOptions={ACCENT_OPTIONS}
-        accentColor={accentColor}
-        onAccentChange={setAccentColor}
-      />
-      <AppMain>
-        <HeroSection hero={hero} socialLinks={profile.links} />
-        <AboutSection about={about} />
-        <ExperienceSection experience={experience} />
-        <ProjectsSection id="projects" accent="Progetti" projects={projects} />
-        <ProjectsSection id="open-source" accent="Open source" projects={openSource} />
-        <SkillsSection skills={skills} />
-        <ContributionsSection contributions={contributions} />
-        <ContactSection contact={contact} />
-      </AppMain>
+          navigation={ui.navigation}
+          profile={profile}
+          themeMode={themeMode}
+          onToggleTheme={() => setThemeMode((mode) => (mode === 'dark' ? 'light' : 'dark'))}
+          accentOptions={ACCENT_OPTIONS}
+          accentColor={accentColor}
+          onAccentChange={setAccentColor}
+        />
+        <AppMain>
+          <HeroSection hero={hero} socialLinks={profile.links} />
+          <AboutSection about={about} />
+          <ExperienceSection experience={experience} />
+          <ProjectsSection id="projects" accent="Progetti" projects={projects} />
+          <ProjectsSection id="open-source" accent="Open source" projects={openSource} />
+          <SkillsSection skills={skills} />
+          <ContributionsSection contributions={contributions} />
+          <ContactSection contact={contact} />
+        </AppMain>
         <Footer profile={profile} meta={meta} />
       </AppShell>
     </ThemeProvider>

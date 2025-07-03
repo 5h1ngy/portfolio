@@ -1,4 +1,5 @@
-import type { PortfolioProjects } from '../types/portfolio'
+﻿import type { PortfolioProjects } from '../../types/portfolio';
+import { Section } from '../Section';
 import {
   ProjectCard,
   ProjectDescription,
@@ -10,16 +11,15 @@ import {
   ProjectTags,
   ProjectTitle,
   ProjectsGrid,
-} from './ProjectsSection.style'
-import { Section } from './Section'
+} from './style';
 
 interface ProjectsSectionProps {
-  id: string
-  accent: string
-  projects: PortfolioProjects
+  id: string;
+  accent: string;
+  projects: PortfolioProjects;
 }
 
-const isExternal = (href: string) => /^https?:\/\//i.test(href)
+const isExternal = (href: string) => /^https?:\/\//i.test(href);
 
 export const ProjectsSection = ({ id, accent, projects }: ProjectsSectionProps) => (
   <Section id={id} accent={accent} title={projects.title} description={projects.caption}>
@@ -91,4 +91,4 @@ export const ProjectsSection = ({ id, accent, projects }: ProjectsSectionProps) 
       </ProjectsGrid>
     )}
   </Section>
-)
+);

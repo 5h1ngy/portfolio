@@ -1,7 +1,7 @@
-import { useMemo, useState } from "react";
+﻿import { useMemo, useState } from 'react';
 
-import type { PortfolioExperience } from "../types/portfolio";
-import { Section } from "./Section";
+import type { PortfolioExperience } from '../../types/portfolio';
+import { Section } from '../Section';
 import {
   Badge,
   HighlightsList,
@@ -26,7 +26,7 @@ import {
   TimelineTitle,
   TimelineSubtitle,
   TimelineToggle,
-} from "./ExperienceSection.style";
+} from './style';
 
 interface ExperienceSectionProps {
   experience: PortfolioExperience;
@@ -115,7 +115,7 @@ const InteractiveTimeline = ({ experience }: ExperienceSectionProps) => {
                       </HighlightsList>
                     </div>
                     <div>
-                      <h4>Stack & responsabilita</h4>
+                      <h4>Stack & responsabilità</h4>
                       <TagCloud>
                         {item.tech.map((tech) => (
                           <Tag key={tech}>{tech}</Tag>
