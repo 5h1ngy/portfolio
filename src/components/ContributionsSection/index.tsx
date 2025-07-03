@@ -1,5 +1,6 @@
-﻿import type { PortfolioContributions } from '../../data/portfolio.types';
+﻿import type { ContributionsSectionProps } from './types';
 import { Section } from '../Section';
+import { isExternal } from './helpers';
 import {
   ContributionCard,
   ContributionDescription,
@@ -11,12 +12,6 @@ import {
   ContributionTags,
   ContributionTitle,
 } from './style';
-
-interface ContributionsSectionProps {
-  contributions: PortfolioContributions;
-}
-
-const isExternal = (href: string) => /^https?:\/\//i.test(href);
 
 export const ContributionsSection = ({ contributions }: ContributionsSectionProps) => (
   <Section

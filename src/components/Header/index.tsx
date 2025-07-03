@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react'
-import type { PortfolioNavigationItem, PortfolioProfile } from '../../data/portfolio.types'
+import type { HeaderProps } from './types'
+import { useHeaderCompact } from './hooks'
 import {
   AccentPicker,
   AccentSwatch,
@@ -15,18 +15,6 @@ import {
   Toggles,
 } from './style'
 
-type ThemeMode = 'dark' | 'light'
-
-interface HeaderProps {
-  navigation: PortfolioNavigationItem[]
-  profile: PortfolioProfile
-  themeMode: ThemeMode
-  onToggleTheme: () => void
-  accentOptions: string[]
-  accentColor: string
-  onAccentChange: (color: string) => void
-}
-
 export const Header = ({
   navigation,
   profile,
@@ -36,17 +24,7 @@ export const Header = ({
   accentColor,
   onAccentChange,
 }: HeaderProps) => {
-  const [isCompact, setIsCompact] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsCompact(window.scrollY > 24)
-    }
-
-    handleScroll()
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  const isCompact = useHeaderCompact()
 
   return (
     <HeaderRoot $compact={isCompact}>

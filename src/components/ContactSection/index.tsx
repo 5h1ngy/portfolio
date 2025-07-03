@@ -1,20 +1,7 @@
-import type { PortfolioContact } from "../../data/portfolio.types";
-import { Section } from "../Section";
-import {
-  Availability,
-  ContactLink,
-  ContactRow,
-  ContactTable,
-  LabelCell,
-  Message,
-  ValueCell,
-} from "./style";
-
-interface ContactSectionProps {
-  contact: PortfolioContact;
-}
-
-const isExternal = (href: string) => /^https?:\/\//i.test(href);
+﻿import type { ContactSectionProps } from './types';
+import { Section } from '../Section';
+import { isExternal } from './helpers';
+import { Availability, ContactLink, ContactRow, ContactTable, LabelCell, Message, ValueCell } from './style';
 
 export const ContactSection = ({ contact }: ContactSectionProps) => (
   <Section

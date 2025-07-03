@@ -1,5 +1,5 @@
-import type { PortfolioAbout } from '../../data/portfolio.types'
-import { Section } from '../Section'
+﻿import type { AboutSectionProps } from './types';
+import { Section } from '../Section';
 import {
   HighlightCard,
   HighlightDescription,
@@ -10,11 +10,7 @@ import {
   StatLabel,
   StatValue,
   StatsList,
-} from './style'
-
-interface AboutSectionProps {
-  about: PortfolioAbout
-}
+} from './style';
 
 export const AboutSection = ({ about }: AboutSectionProps) => (
   <Section id="about" accent="Chi sono" title={about.title} description={about.caption}>
@@ -43,4 +39,4 @@ export const AboutSection = ({ about }: AboutSectionProps) => (
       ))}
     </StatsList>
   </Section>
-)
+);

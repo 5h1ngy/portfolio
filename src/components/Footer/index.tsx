@@ -1,12 +1,6 @@
-﻿import type { PortfolioMeta, PortfolioProfile } from '../../data/portfolio.types';
+﻿import type { FooterProps } from './types';
+import { isExternal } from './helpers';
 import { FooterInner, FooterLinks, FooterMeta, FooterPill, FooterRoot } from './style';
-
-interface FooterProps {
-  profile: PortfolioProfile;
-  meta: PortfolioMeta;
-}
-
-const isExternal = (url: string) => /^https?:\/\//i.test(url);
 
 export const Footer = ({ profile, meta }: FooterProps) => (
   <FooterRoot>
