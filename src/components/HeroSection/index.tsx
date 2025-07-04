@@ -1,5 +1,10 @@
-import { useMemo } from 'react'
-import type { PortfolioHero, PortfolioProfileLink } from '../../data/portfolio.types'
+﻿import { useEffect, useMemo, useRef } from 'react'
+import gsap from 'gsap'
+import { TextPlugin } from 'gsap/TextPlugin'
+
+import { HeroOrbit } from '@components/HeroOrbit'
+import { isExternal } from '@components/HeroSection/helpers'
+import type { HeroSectionProps } from '@components/HeroSection/types'
 import {
   HeroActions,
   HeroDescription,
@@ -10,20 +15,19 @@ import {
   HeroLinksLabel,
   HeroLinksList,
   HeroLink,
-  PrimaryButton,
-  SecondaryButton,
   HeroSectionWrapper,
   HeroSubtitle,
   HeroTitle,
-} from './style'
-import { HeroOrbit } from '../HeroOrbit'
+  HeroTitleGhost,
+  HeroTitleText,
+  PrimaryButton,
+  SecondaryButton,
+} from '@components/HeroSection/style'
 
-interface HeroSectionProps {
-  hero: PortfolioHero
-  socialLinks: PortfolioProfileLink[]
-}
+gsap.registerPlugin(TextPlugin)
 
-const isExternal = (href: string, external?: boolean) => external || /^https?:\/\//i.test(href)
+const TYPING_BASE_SPEED = 0.08
+const TYPING_MIN_DURATION = 1.2
 
 export const HeroSection = ({ hero, socialLinks }: HeroSectionProps) => {
   const primaryLinks = useMemo(
@@ -31,12 +35,50 @@ export const HeroSection = ({ hero, socialLinks }: HeroSectionProps) => {
     [socialLinks],
   )
 
+  const typingSequence = useMemo(
+    () => (hero.typingTitles && hero.typingTitles.length > 0 ? hero.typingTitles : [hero.title]),
+    [hero.typingTitles, hero.title],
+  )
+
+  const sequenceKey = useMemo(() => typingSequence.join('|'), [typingSequence])
+  const longestTitle = useMemo(
+    () => typingSequence.reduce((longest, current) => (current.length > longest.length ? current : longest), ''),
+    [typingSequence],
+  )
+  const titleRef = useRef<HTMLSpanElement>(null)
+
+  useEffect(() => {
+    if (!titleRef.current) {
+      return
+    }
+
+    const node = titleRef.current
+    const tl = gsap.timeline({ repeat: -1, repeatDelay: 0.9, defaults: { ease: 'none' } })
+
+    tl.set(node, { text: '' })
+
+    typingSequence.forEach((word) => {
+      const duration = Math.max(word.length * TYPING_BASE_SPEED, TYPING_MIN_DURATION)
+
+      tl.to(node, { duration, text: word })
+        .to(node, { duration: 0.6, text: word })
+        .to(node, { duration: Math.min(duration * 0.45, 1.1), text: '' })
+    })
+
+    return () => {
+      tl.kill()
+    }
+  }, [sequenceKey, typingSequence])
+
   return (
     <HeroSectionWrapper id="hero">
       <HeroLayout>
         <HeroLead>
           {hero.eyebrow && <HeroEyebrow>{hero.eyebrow}</HeroEyebrow>}
-          <HeroTitle>{hero.title}</HeroTitle>
+          <HeroTitle aria-live="polite">
+            <HeroTitleGhost aria-hidden="true">{longestTitle || typingSequence[0]}</HeroTitleGhost>
+            <HeroTitleText ref={titleRef}>{typingSequence[0]}</HeroTitleText>
+          </HeroTitle>
           {hero.subtitle && <HeroSubtitle>{hero.subtitle}</HeroSubtitle>}
           <HeroDescription>{hero.description}</HeroDescription>
           {primaryLinks.length > 0 && (
@@ -44,12 +86,7 @@ export const HeroSection = ({ hero, socialLinks }: HeroSectionProps) => {
               <HeroLinksLabel>Connect</HeroLinksLabel>
               <HeroLinksList>
                 {primaryLinks.map((link) => (
-                  <HeroLink
-                    key={link.label}
-                    href={link.url}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
+                  <HeroLink key={link.label} href={link.url} target="_blank" rel="noreferrer">
                     {link.label}
                   </HeroLink>
                 ))}

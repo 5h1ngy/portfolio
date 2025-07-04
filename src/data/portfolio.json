@@ -1,4 +1,4 @@
-{
+﻿{
   "meta": {
     "title": "Sig Scarano - Senior Frontend and AI Integration Engineer",
     "description": "Senior frontend engineer crafting reliable AI enabled platforms with React, TypeScript, and resilient DX tooling.",
@@ -96,8 +96,8 @@
   },
   "profile": {
     "name": "Sig Scarano",
-    "headline": "Senior Frontend Engineer · AI & Design Systems",
-    "location": "Milan · Remote-friendly",
+    "headline": "Senior Frontend Engineer Â· AI & Design Systems",
+    "location": "Milan Â· Remote-friendly",
     "availability": "Aperto a ruoli permanenti e iniziative interne con focus su AI e developer experience",
     "resumeUrl": "https://5h1ngy.github.io/fe-react-portfolio/cv",
     "links": [
@@ -124,8 +124,9 @@
     ]
   },
   "hero": {
-    "eyebrow": "Frontend engineer • AI tinkerer",
+    "eyebrow": "Frontend engineer â€¢ AI tinkerer",
     "title": "Sig Scarano",
+    "typingTitles": ["5h1ngy", "Sig Scarano"],
     "subtitle": "Creo interfacce e toolchain affidabili.",
     "description": "React, TypeScript e DX fluida per team che vogliono spingere.",
     "primaryAction": {
@@ -232,7 +233,7 @@
   },
   "experience": {
     "title": "Esperienza professionale",
-    "caption": "Ruoli a lungo termine dove ho costruito fiducia, strumenti condivisi e una cultura di qualità nel frontend.",
+    "caption": "Ruoli a lungo termine dove ho costruito fiducia, strumenti condivisi e una cultura di qualitÃ  nel frontend.",
     "timeline": [
       {
         "company": "Begear",
@@ -265,7 +266,7 @@
         ]
       },
       {
-        "company": "Dacomat · Nexi Digital",
+        "company": "Dacomat Â· Nexi Digital",
         "role": "Front-end Engineer, Banking and Payments",
         "location": "Milan",
         "start": "Aug 2022",
@@ -295,7 +296,7 @@
         ]
       },
       {
-        "company": "Proxima Informatica · Eurobet",
+        "company": "Proxima Informatica Â· Eurobet",
         "role": "Front-end Game Developer",
         "location": "Rome",
         "start": "Sep 2021",
@@ -339,7 +340,7 @@
         "links": []
       },
       {
-        "company": "Advanced Global Solution · HPE",
+        "company": "Advanced Global Solution Â· HPE",
         "role": "Frontend Developer OSS",
         "location": "Rome",
         "start": "Aug 2019",
@@ -555,7 +556,7 @@
   },
   "contributions": {
     "title": "Innovazione e contributi",
-    "caption": "Iniziative nate da passione personale e necessità interne: creo strumenti, documentazione e processi che restano al team.",
+    "caption": "Iniziative nate da passione personale e necessitÃ  interne: creo strumenti, documentazione e processi che restano al team.",
     "items": [
       {
         "name": "Private Lab DevOps Stack",
@@ -663,7 +664,7 @@
     "title": "Restiamo in contatto",
     "caption": "Felice di confrontarmi su opportunita in team stabili, iniziative interne e community tech.",
     "message": "Scrivimi qualche riga su progetto, squadra e obiettivi: rispondo sempre e, se serve, fissiamo una chiacchierata informale.",
-    "availability": "Preferenza 09:00 - 18:00 CET · Disponibile anche per meetup serali",
+    "availability": "Preferenza 09:00 - 18:00 CET Â· Disponibile anche per meetup serali",
     "channels": [
       {
         "type": "email",

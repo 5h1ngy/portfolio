@@ -1,5 +1,6 @@
-﻿import type { PortfolioContributions } from '../../data/portfolio.types';
-import { Section } from '../Section';
+﻿import type { ContributionsSectionProps } from '@components/ContributionsSection/types';
+import { Section } from '@components/Section';
+import { isExternal } from '@components/ContributionsSection/helpers';
 import {
   ContributionCard,
   ContributionDescription,
@@ -10,13 +11,7 @@ import {
   ContributionTag,
   ContributionTags,
   ContributionTitle,
-} from './style';
-
-interface ContributionsSectionProps {
-  contributions: PortfolioContributions;
-}
-
-const isExternal = (href: string) => /^https?:\/\//i.test(href);
+} from '@components/ContributionsSection/style';
 
 export const ContributionsSection = ({ contributions }: ContributionsSectionProps) => (
   <Section
@@ -59,3 +54,4 @@ export const ContributionsSection = ({ contributions }: ContributionsSectionProp
     </ContributionGrid>
   </Section>
 );
+

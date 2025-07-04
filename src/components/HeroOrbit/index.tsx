@@ -1,9 +1,5 @@
-import type { HeroOrbit as HeroOrbitConfig } from '../../data/portfolio.types'
-import { OrbitCenter, OrbitIcon, OrbitItem, OrbitRing, OrbitRings, OrbitWrapper } from './style'
-
-interface HeroOrbitProps {
-  orbit: HeroOrbitConfig
-}
+﻿import type { HeroOrbitProps } from '@components/HeroOrbit/types'
+import { OrbitCenter, OrbitIcon, OrbitItem, OrbitRing, OrbitRings, OrbitWrapper } from '@components/HeroOrbit/style'
 
 export const HeroOrbit = ({ orbit }: HeroOrbitProps) => (
   <OrbitWrapper>

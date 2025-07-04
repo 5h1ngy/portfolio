@@ -1,5 +1,7 @@
-import { useEffect, useState } from 'react'
-import type { PortfolioNavigationItem, PortfolioProfile } from '../../data/portfolio.types'
+﻿import { useEffect, useMemo, useState } from 'react'
+
+import type { HeaderProps } from '@components/Header/types'
+import { useHeaderCompact } from '@components/Header/hooks'
 import {
   AccentPicker,
   AccentSwatch,
@@ -9,22 +11,20 @@ import {
   Controls,
   HeaderInner,
   HeaderRoot,
+  HiddenLabel,
+  MobileBackdrop,
+  MobileToggle,
   Nav,
   NavLink,
   ThemeToggle,
   Toggles,
-} from './style'
+} from '@components/Header/style'
 
-type ThemeMode = 'dark' | 'light'
-
-interface HeaderProps {
-  navigation: PortfolioNavigationItem[]
-  profile: PortfolioProfile
-  themeMode: ThemeMode
-  onToggleTheme: () => void
-  accentOptions: string[]
-  accentColor: string
-  onAccentChange: (color: string) => void
+const ACCENT_LABELS: Record<string, string> = {
+  '#5cf3e9': 'Aqua glow',
+  '#ff7de8': 'Magenta pulse',
+  '#6dff89': 'Lime spark',
+  '#7ca9ff': 'Azure breeze',
 }
 
 export const Header = ({
@@ -36,17 +36,53 @@ export const Header = ({
   accentColor,
   onAccentChange,
 }: HeaderProps) => {
-  const [isCompact, setIsCompact] = useState(false)
+  const isCompact = useHeaderCompact()
+  const [isNavOpen, setIsNavOpen] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsCompact(window.scrollY > 24)
+    const update = () => {
+      if (typeof window !== 'undefined') {
+        setIsMobile(window.innerWidth <= 720)
+      }
     }
 
-    handleScroll()
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
+    update()
+    window.addEventListener('resize', update)
+    return () => window.removeEventListener('resize', update)
   }, [])
+
+  useEffect(() => {
+    if (!isMobile) {
+      setIsNavOpen(false)
+    }
+  }, [isMobile])
+
+  useEffect(() => {
+    if (!isMobile) {
+      document.body.style.overflow = ''
+      return
+    }
+
+    document.body.style.overflow = isNavOpen ? 'hidden' : ''
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [isNavOpen, isMobile])
+
+  const themeLabel = useMemo(
+    () => (themeMode === 'dark' ? 'Passa al tema chiaro' : 'Passa al tema scuro'),
+    [themeMode],
+  )
+  const themeIcon = themeMode === 'dark' ? '🌙' : '☀️'
+  const menuLabel = isNavOpen ? 'Chiudi navigazione' : 'Apri navigazione'
+  const accentLabel = (value: string, index: number) => ACCENT_LABELS[value] ?? `Accent color ${index + 1}`
+
+  const handleNavLinkClick = () => {
+    if (isMobile) {
+      setIsNavOpen(false)
+    }
+  }
 
   return (
     <HeaderRoot $compact={isCompact}>
@@ -56,33 +92,68 @@ export const Header = ({
           <BrandRole>{profile.headline}</BrandRole>
         </Brand>
         <Controls>
-          <Nav aria-label="Sezioni portfolio">
-            {navigation.map((item) => (
-              <NavLink key={item.targetId} href={`#${item.targetId}`}>
-                {item.label}
-              </NavLink>
-            ))}
-          </Nav>
           <Toggles>
-            <ThemeToggle type="button" onClick={onToggleTheme} aria-label="Cambia tema">
-              <span aria-hidden>{themeMode === 'dark' ? '🌙' : '☀️'}</span>
+            <ThemeToggle
+              type="button"
+              onClick={() => {
+                onToggleTheme()
+                if (isMobile) {
+                  setIsNavOpen(false)
+                }
+              }}
+              aria-label={themeLabel}
+              title={themeLabel}
+            >
+              <span aria-hidden>{themeIcon}</span>
+              <HiddenLabel>{themeLabel}</HiddenLabel>
             </ThemeToggle>
             <AccentPicker role="group" aria-label="Accent color">
-              {accentOptions.map((option) => (
+              {accentOptions.map((option, index) => (
                 <AccentSwatch
                   key={option}
                   type="button"
                   $color={option}
                   $active={option === accentColor}
-                  onClick={() => onAccentChange(option)}
+                  onClick={() => {
+                    onAccentChange(option)
+                    if (isMobile) {
+                      setIsNavOpen(false)
+                    }
+                  }}
                   aria-pressed={option === accentColor}
-                  aria-label={`Accent color ${option}`}
-                />
+                  aria-label={accentLabel(option, index)}
+                  title={accentLabel(option, index)}
+                >
+                  <HiddenLabel>{accentLabel(option, index)}</HiddenLabel>
+                </AccentSwatch>
               ))}
             </AccentPicker>
           </Toggles>
+          <MobileToggle
+            type="button"
+            onClick={() => setIsNavOpen((open) => !open)}
+            aria-expanded={isNavOpen}
+            aria-controls="primary-navigation"
+            $isActive={isNavOpen}
+          >
+            <HiddenLabel>{menuLabel}</HiddenLabel>
+            <span aria-hidden>{isNavOpen ? 'Close' : 'Menu'}</span>
+          </MobileToggle>
+          <Nav id="primary-navigation" aria-label="Sezioni portfolio" $isOpen={isMobile ? isNavOpen : true}>
+            {navigation.map((item) => (
+              <NavLink key={item.targetId} href={`#${item.targetId}`} onClick={handleNavLinkClick}>
+                {item.label}
+              </NavLink>
+            ))}
+          </Nav>
         </Controls>
       </HeaderInner>
+      <MobileBackdrop
+        type="button"
+        $visible={isMobile && isNavOpen}
+        aria-hidden={!(isMobile && isNavOpen)}
+        onClick={() => setIsNavOpen(false)}
+      />
     </HeaderRoot>
   )
 }

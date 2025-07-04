@@ -50,6 +50,7 @@ export interface PortfolioProfile {
 export interface PortfolioHero {
   eyebrow: string
   title: string
+  typingTitles?: string[]
   subtitle: string
   description: string
   primaryAction: PortfolioActionLink

@@ -1,7 +1,7 @@
-﻿import { useMemo, useState } from 'react';
-
-import type { PortfolioExperience } from '../../data/portfolio.types';
-import { Section } from '../Section';
+﻿import { Section } from '@components/Section'
+import type { ExperienceSectionProps } from '@components/ExperienceSection/types'
+import { useActiveTimeline } from '@components/ExperienceSection/hooks'
+import { buildItemId, extractYearOrLabel, formatPeriod, isExternal } from '@components/ExperienceSection/helpers'
 import {
   Badge,
   HighlightsList,
@@ -26,28 +26,14 @@ import {
   TimelineTitle,
   TimelineSubtitle,
   TimelineToggle,
-} from './style';
-
-interface ExperienceSectionProps {
-  experience: PortfolioExperience;
-}
-
-const isExternal = (href: string, external?: boolean) => external || /^https?:\/\//i.test(href);
+} from '@components/ExperienceSection/style'
 
 export const ExperienceSection = ({ experience }: ExperienceSectionProps) => (
   <InteractiveTimeline experience={experience} />
-);
+)
 
 const InteractiveTimeline = ({ experience }: ExperienceSectionProps) => {
-  const defaultId = useMemo(
-    () => (experience.timeline.length > 0 ? buildItemId(experience.timeline[0]) : null),
-    [experience.timeline],
-  );
-  const [activeId, setActiveId] = useState<string | null>(defaultId);
-
-  const toggle = (id: string) => {
-    setActiveId((current) => (current === id ? null : id));
-  };
+  const { activeId, toggle } = useActiveTimeline(experience)
 
   return (
     <Section
@@ -58,11 +44,11 @@ const InteractiveTimeline = ({ experience }: ExperienceSectionProps) => {
     >
       <TimelineList role="list">
         {experience.timeline.map((item, index) => {
-          const id = buildItemId(item);
-          const expanded = activeId === id;
-          const periodLabel = formatPeriod(item.start, item.end);
-          const markerLabel = extractYearOrLabel(item.start);
-          const side = index % 2 === 0 ? 'left' : 'right';
+          const id = buildItemId(item)
+          const expanded = activeId === id
+          const periodLabel = formatPeriod(item.start, item.end)
+          const markerLabel = extractYearOrLabel(item.start)
+          const side = index % 2 === 0 ? 'left' : 'right'
 
           return (
             <TimelineItem key={id} role="listitem" $side={side} $expanded={expanded}>
@@ -115,7 +101,7 @@ const InteractiveTimeline = ({ experience }: ExperienceSectionProps) => {
                       </HighlightsList>
                     </div>
                     <div>
-                      <h4>Stack & responsabilità</h4>
+                      <h4>Stack & responsabilitÃ </h4>
                       <TagCloud>
                         {item.tech.map((tech) => (
                           <Tag key={tech}>{tech}</Tag>
@@ -143,28 +129,11 @@ const InteractiveTimeline = ({ experience }: ExperienceSectionProps) => {
                 </TimelineContent>
               </TimelineBody>
             </TimelineItem>
-          );
+          )
         })}
       </TimelineList>
     </Section>
-  );
-};
+  )
+}
 
-const buildItemId = (item: PortfolioExperience['timeline'][number]) =>
-  `${item.company}-${item.role}-${item.start}`.toLowerCase().replace(/\s+/g, '-');
 
-const formatPeriod = (start: string, end: string) => {
-  const startLabel = extractYearOrLabel(start);
-  const endLabel = extractYearOrLabel(end);
-
-  if (!endLabel || startLabel === endLabel) {
-    return startLabel;
-  }
-
-  return `${startLabel} → ${endLabel}`;
-};
-
-const extractYearOrLabel = (value: string) => {
-  const match = value.match(/\d{4}/);
-  return match ? match[0] : value;
-};

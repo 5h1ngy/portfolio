@@ -1,12 +1,6 @@
-﻿import type { PortfolioMeta, PortfolioProfile } from '../../data/portfolio.types';
-import { FooterInner, FooterLinks, FooterMeta, FooterPill, FooterRoot } from './style';
-
-interface FooterProps {
-  profile: PortfolioProfile;
-  meta: PortfolioMeta;
-}
-
-const isExternal = (url: string) => /^https?:\/\//i.test(url);
+﻿import type { FooterProps } from '@components/Footer/types';
+import { isExternal } from '@components/Footer/helpers';
+import { FooterInner, FooterLinks, FooterMeta, FooterPill, FooterRoot } from '@components/Footer/style';
 
 export const Footer = ({ profile, meta }: FooterProps) => (
   <FooterRoot>
@@ -33,3 +27,4 @@ export const Footer = ({ profile, meta }: FooterProps) => (
     </FooterInner>
   </FooterRoot>
 );
+

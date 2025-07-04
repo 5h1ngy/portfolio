@@ -1,5 +1,5 @@
-import type { PortfolioSkills } from "../../data/portfolio.types";
-import { Section } from "../Section";
+﻿import type { PortfolioSkills } from "@data/portfolio.types";
+import { Section } from "@components/Section";
 import {
   Block,
   BlockTitle,
@@ -10,7 +10,7 @@ import {
   CategoryTitle,
   Tag,
   TagCloud,
-} from "./style";
+} from "@components/SkillsSection/style";
 
 interface SkillsSectionProps {
   skills: PortfolioSkills;
@@ -55,3 +55,5 @@ export const SkillsSection = ({ skills }: SkillsSectionProps) => (
     )}
   </Section>
 );
+
+

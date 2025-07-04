@@ -1,4 +1,4 @@
-import type { PropsWithChildren } from 'react'
+﻿import type { PropsWithChildren } from 'react'
 import {
   SectionAccent,
   SectionContent,
@@ -6,7 +6,7 @@ import {
   SectionHeader,
   SectionTitle,
   SectionWrapper,
-} from './style'
+} from '@components/Section/style'
 
 interface SectionProps {
   id: string
@@ -39,3 +39,4 @@ export const Section = ({
     </SectionWrapper>
   )
 }
+

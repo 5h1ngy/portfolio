@@ -1,4 +1,13 @@
-import styled from "styled-components";
+﻿import styled, { keyframes } from "styled-components";
+
+const caretBlink = keyframes`
+  0%, 50% {
+    opacity: 1;
+  }
+  50.01%, 100% {
+    opacity: 0;
+  }
+`;
 
 export const HeroSectionWrapper = styled.section`
   position: relative;
@@ -57,6 +66,10 @@ export const HeroTitle = styled.h1`
   font-size: clamp(2.6rem, 7vw, 4rem);
   line-height: 1.05;
   color: ${({ theme }) => theme.colors.textPrimary};
+  position: relative;
+  display: inline-block;
+  min-height: 1.2em;
+  padding-right: 0.5rem;
 `;
 
 export const HeroSubtitle = styled.p`
@@ -160,5 +173,31 @@ export const SecondaryButton = styled.a`
   &:focus-visible {
     transform: translateY(-1px);
     border-color: ${({ theme }) => theme.colors.accent};
+  }
+`;
+
+export const HeroTitleGhost = styled.span`
+  display: block;
+  visibility: hidden;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+`;
+
+export const HeroTitleText = styled.span`
+  position: absolute;
+  inset: 0 auto auto 0;
+  display: inline-block;
+  white-space: nowrap;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 12%;
+    right: -0.35rem;
+    width: 2px;
+    height: 76%;
+    background: ${({ theme }) => theme.colors.accent};
+    animation: ${caretBlink} 1s steps(2, start) infinite;
   }
 `;
