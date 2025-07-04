@@ -1,13 +1,8 @@
-﻿export interface PortfolioNavigationItem {
-  label: string
-  targetId: string
-}
-
 export interface PortfolioActionLink {
   label: string
   href: string
   external?: boolean
-  type?: 'github' | 'website' | 'docs' | 'video' | 'storybook' | 'email' | 'resume' | 'linkedin'
+  type?: 'github' | 'website' | 'linkedin' | 'docs'
 }
 
 export interface PortfolioMeta {
@@ -20,7 +15,14 @@ export interface PortfolioMeta {
 export interface PortfolioProfileLink {
   label: string
   url: string
-  type: 'github' | 'website' | 'email' | 'linkedin' | 'xing' | 'behance' | 'dribbble' | 'medium' | 'resume' | 'phone'
+  type: 'github' | 'linkedin' | 'website'
+}
+
+export interface PortfolioProfile {
+  name: string
+  headline: string
+  tagline: string
+  links: PortfolioProfileLink[]
 }
 
 export interface HeroOrbitItem {
@@ -36,19 +38,8 @@ export interface HeroOrbit {
   items: HeroOrbitItem[]
 }
 
-export interface PortfolioProfile {
-  name: string
-  headline: string
-  location: string
-  availability: string
-  pronouns?: string
-  avatar?: string
-  resumeUrl?: string
-  links: PortfolioProfileLink[]
-}
-
 export interface PortfolioHero {
-  eyebrow: string
+  eyebrow?: string
   title: string
   typingTitles?: string[]
   subtitle: string
@@ -58,13 +49,12 @@ export interface PortfolioHero {
   orbit: HeroOrbit
 }
 
-export interface PortfolioHighlight {
+export interface PortfolioAboutFocus {
   title: string
   description: string
-  icon: string
 }
 
-export interface PortfolioStat {
+export interface PortfolioAboutFact {
   label: string
   value: string
 }
@@ -72,68 +62,25 @@ export interface PortfolioStat {
 export interface PortfolioAbout {
   title: string
   caption: string
-  introduction: string[]
-  highlights: PortfolioHighlight[]
-  stats: PortfolioStat[]
+  summary: string[]
+  focus: PortfolioAboutFocus[]
+  quickFacts: PortfolioAboutFact[]
 }
 
-export interface PortfolioExperienceItem {
+export interface PortfolioExperienceRole {
   company: string
   role: string
-  location: string
-  start: string
-  end: string
+  period: string
   summary: string
-  client?: string
-  achievements: string[]
-  tech: string[]
-  links: PortfolioActionLink[]
+  highlights: string[]
+  tags: string[]
+  link?: PortfolioActionLink
 }
 
 export interface PortfolioExperience {
   title: string
   caption: string
-  timeline: PortfolioExperienceItem[]
-}
-
-export interface PortfolioProjectLink {
-  label: string
-  url: string
-  type: 'github' | 'website' | 'docs' | 'video' | 'storybook'
-}
-
-export interface PortfolioProject {
-  name: string
-  headline: string
-  description: string
-  period: string
-  tech: string[]
-  highlight: string
-  links: PortfolioProjectLink[]
-  cover?: string
-  badge?: string
-}
-
-export interface PortfolioProjects {
-  title: string
-  caption: string
-  featured: PortfolioProject[]
-  others: PortfolioProject[]
-}
-
-export interface PortfolioContribution {
-  name: string
-  period: string
-  description: string
-  role: string
-  skills: string[]
-  links: PortfolioProjectLink[]
-}
-
-export interface PortfolioContributions {
-  title: string
-  caption: string
-  items: PortfolioContribution[]
+  roles: PortfolioExperienceRole[]
 }
 
 export interface PortfolioSkillCategory {
@@ -142,71 +89,42 @@ export interface PortfolioSkillCategory {
   items: string[]
 }
 
+export interface PortfolioProduct {
+  name: string
+  description: string
+  tags: string[]
+  link?: PortfolioActionLink
+}
+
 export interface PortfolioSkills {
   title: string
   caption: string
   categories: PortfolioSkillCategory[]
   toolbelt: string[]
   workflows: string[]
+  products: PortfolioProduct[]
 }
 
-export interface PortfolioContactChannel {
-  type: 'email' | 'phone' | 'website' | 'github' | 'linkedin' | 'portfolio' | 'whatsapp'
-  label: string
-  value: string
-  href: string
+export interface PortfolioOpenSourceProject {
+  name: string
+  description: string
+  period: string
+  tags: string[]
+  link?: PortfolioActionLink
 }
 
-export interface PortfolioContact {
+export interface PortfolioOpenSource {
   title: string
   caption: string
-  message: string
-  availability: string
-  channels: PortfolioContactChannel[]
-}
-
-export interface PortfolioUIBackground {
-  background?: string
-  surface?: string
-  surfaceMuted?: string
-  surfaceElevated?: string
-}
-
-export interface PortfolioUIDecoration {
-  id: string
-  type: 'orb' | 'grid' | 'outline'
-  size: number
-  top: string
-  left: string
-  blur?: number
-  opacity?: number
-}
-
-export interface PortfolioUIGradients {
-  hero?: string
-  section?: string
-  accent?: string
-}
-
-export interface PortfolioUI {
-  accentColor?: string
-  background?: PortfolioUIBackground
-  gradients?: PortfolioUIGradients
-  navigation: PortfolioNavigationItem[]
-  decorations: PortfolioUIDecoration[]
+  projects: PortfolioOpenSourceProject[]
 }
 
 export interface PortfolioData {
   meta: PortfolioMeta
-  ui: PortfolioUI
   profile: PortfolioProfile
   hero: PortfolioHero
   about: PortfolioAbout
   experience: PortfolioExperience
-  projects: PortfolioProjects
-  openSource: PortfolioProjects
-  contributions: PortfolioContributions
   skills: PortfolioSkills
-  contact: PortfolioContact
+  openSource: PortfolioOpenSource
 }
-

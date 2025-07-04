@@ -1,105 +1,22 @@
 ﻿{
   "meta": {
-    "title": "Sig Scarano - Senior Frontend and AI Integration Engineer",
-    "description": "Senior frontend engineer crafting reliable AI enabled platforms with React, TypeScript, and resilient DX tooling.",
+    "title": "Sig Scarano - Frontend & DX Engineer",
+    "description": "Senior frontend engineer che costruisce interfacce scalabili e pipeline DX con React, TypeScript e AI.",
     "keywords": [
       "React",
       "TypeScript",
-      "Frontend Architect",
+      "Design System",
+      "Developer Experience",
       "AI Integration",
-      "Design Systems",
-      "Redux Toolkit",
       "Vite",
-      "Styled Components"
+      "Electron"
     ],
     "author": "Sig Scarano"
   },
-  "ui": {
-    "accentColor": "#5CF3E9",
-    "background": {
-      "background": "#040713",
-      "surface": "#0B122B",
-      "surfaceMuted": "#111A36",
-      "surfaceElevated": "#192754"
-    },
-    "gradients": {
-      "hero": "radial-gradient(circle at 10% 0%, rgba(92,243,233,0.18) 0%, transparent 55%), radial-gradient(circle at 90% 5%, rgba(141,124,255,0.18) 0%, transparent 52%)",
-      "section": "radial-gradient(circle at 0% 20%, rgba(92,243,233,0.14) 0%, transparent 60%), radial-gradient(circle at 90% 90%, rgba(141,124,255,0.16) 0%, transparent 55%)",
-      "accent": "linear-gradient(135deg, #5CF3E9 0%, #8D7CFF 52%, #5CF3E9 100%)"
-    },
-    "navigation": [
-      {
-        "label": "Start",
-        "targetId": "hero"
-      },
-      {
-        "label": "Profilo",
-        "targetId": "about"
-      },
-      {
-        "label": "Esperienza",
-        "targetId": "experience"
-      },
-      {
-        "label": "Progetti",
-        "targetId": "projects"
-      },
-      {
-        "label": "Competenze",
-        "targetId": "skills"
-      },
-      {
-        "label": "Contributi",
-        "targetId": "contributions"
-      },
-      {
-        "label": "Contatti",
-        "targetId": "contact"
-      }
-    ],
-    "decorations": [
-      {
-        "id": "orb-hero",
-        "type": "orb",
-        "size": 420,
-        "top": "-12%",
-        "left": "6%",
-        "blur": 160,
-        "opacity": 0.28
-      },
-      {
-        "id": "orb-right",
-        "type": "orb",
-        "size": 360,
-        "top": "42%",
-        "left": "82%",
-        "blur": 140,
-        "opacity": 0.22
-      },
-      {
-        "id": "outline-1",
-        "type": "outline",
-        "size": 480,
-        "top": "18%",
-        "left": "18%",
-        "opacity": 0.18
-      },
-      {
-        "id": "outline-2",
-        "type": "outline",
-        "size": 360,
-        "top": "66%",
-        "left": "70%",
-        "opacity": 0.14
-      }
-    ]
-  },
   "profile": {
     "name": "Sig Scarano",
-    "headline": "Senior Frontend Engineer Â· AI & Design Systems",
-    "location": "Milan Â· Remote-friendly",
-    "availability": "Aperto a ruoli permanenti e iniziative interne con focus su AI e developer experience",
-    "resumeUrl": "https://5h1ngy.github.io/fe-react-portfolio/cv",
+    "headline": "Senior Frontend Engineer",
+    "tagline": "React, DX e AI per team che vogliono muoversi veloci senza rompere nulla.",
     "links": [
       {
         "label": "GitHub",
@@ -107,36 +24,27 @@
         "type": "github"
       },
       {
-        "label": "Portfolio",
-        "url": "https://5h1ngy.github.io/fe-react-portfolio",
-        "type": "website"
-      },
-      {
-        "label": "Email",
-        "url": "mailto:sig.scarano@outlook.it",
-        "type": "email"
-      },
-      {
-        "label": "Telefono",
-        "url": "tel:+393518439726",
-        "type": "phone"
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/sig-scarano",
+        "type": "linkedin"
       }
     ]
   },
   "hero": {
-    "eyebrow": "Frontend engineer â€¢ AI tinkerer",
     "title": "Sig Scarano",
     "typingTitles": ["5h1ngy", "Sig Scarano"],
-    "subtitle": "Creo interfacce e toolchain affidabili.",
-    "description": "React, TypeScript e DX fluida per team che vogliono spingere.",
+    "subtitle": "Creo interfacce affidabili con DX moderna.",
+    "description": "React, TypeScript e automazioni AI per consegnare esperienze che scalano con il team.",
     "primaryAction": {
-      "label": "Scarica il CV",
-      "href": "https://5h1ngy.github.io/fe-react-portfolio/cv",
+      "label": "GitHub",
+      "href": "https://github.com/5h1ngy",
+      "type": "github",
       "external": true
     },
     "secondaryAction": {
-      "label": "Parliamo di un progetto",
-      "href": "mailto:sig.scarano@outlook.it",
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/sig-scarano",
+      "type": "linkedin",
       "external": true
     },
     "orbit": {
@@ -164,532 +72,176 @@
           "speed": 30
         },
         {
-          "label": "Docker",
-          "icon": "/logos/docker.svg",
-          "size": 50,
-          "radius": 180,
-          "speed": 20
-        },
-        {
-          "label": "Python",
-          "icon": "/logos/python.svg",
-          "size": 48,
-          "radius": 220,
+          "label": "GSAP",
+          "icon": "/logos/gsap.svg",
+          "size": 46,
+          "radius": 200,
           "speed": 26
         },
         {
-          "label": "Vite",
-          "icon": "/logos/vitejs.svg",
-          "size": 44,
-          "radius": 140,
+          "label": "Electron",
+          "icon": "/logos/electron.svg",
+          "size": 48,
+          "radius": 160,
           "speed": 22
         }
       ]
     }
   },
   "about": {
-    "title": "Ingegnere frontend curioso, orientato al team e alla crescita",
-    "caption": "Dal 2019 contribuisco alla trasformazione digitale di aziende fintech, telco e gaming con un approccio da dipendente coinvolto: cultura, people e prodotto crescono insieme.",
-    "introduction": [
-      "Metto al centro affidabilita e coerenza: architetture React componibili, theming e DX studiata permettono a team distribuiti di scalare senza sacrificare qualita. Dal banking ai portali enterprise ho introdotto design system, linting diffuso, feature flagging e automazioni CI/CD che riducono il time to market.",
-      "Ogni progetto inizia con una discovery approfondita (user journey, requisiti security/compliance) e termina con documentazione chiara, knowledge sharing e metriche per migliorare la UX nel tempo."
+    "title": "Chi sono",
+    "caption": "Frontend pragmatica, esperienza prodotto e tooling che scala con il team.",
+    "summary": [
+      "Sono un frontend engineer con oltre dieci anni di esperienza tra scale-up e prodotti enterprise. Mi piace mettere ordine nelle interfacce, creare design system che non rallentano e orchestrare pipeline che fanno felici designer e developer.",
+      "Negli ultimi anni ho abilitato team cross-funzionali su prodotti AI-driven: ho curato DX, qualita del codice e automazioni che portano valore in produzione senza stress."
     ],
-    "highlights": [
+    "focus": [
       {
-        "title": "AI systems affidabili",
-        "description": "Dashboard e backoffice che orchestrano modelli AI con logging, audit trail e controlli GDPR ready.",
-        "icon": "ai-systems"
+        "title": "Design system plug&play",
+        "description": "Componenti React multibrand con accessibilita baked-in e token sincronizzati."
       },
       {
-        "title": "Design system e theming",
-        "description": "Token, componenti e processi condivisi per mantenere coerenza su multi brand e prodotti white label.",
-        "icon": "design-systems"
+        "title": "AI enablement",
+        "description": "PoC, orchestrazione prompt e integrazione con stack esistente per feature AI real world."
       },
       {
-        "title": "Automation and DevEx",
-        "description": "Tooling Vite, monorepo, linting e pipeline CI che accelerano QA, release e rollback sicuri.",
-        "icon": "automation"
-      },
-      {
-        "title": "Rapid experimentation",
-        "description": "Proof of concept mirati (Electron, 2D engines, avatar builder) per validare idee e onboarding team.",
-        "icon": "experimentation"
+        "title": "Developer experience",
+        "description": "Tooling Vite, Nx, lint diffuso e release pipeline che toglie attrito alla consegna."
       }
     ],
-    "stats": [
-      {
-        "label": "Anni di esperienza",
-        "value": "6+"
-      },
-      {
-        "label": "Design system creati con il team",
-        "value": "5"
-      },
-      {
-        "label": "Stack resi AI ready",
-        "value": "3"
-      }
+    "quickFacts": [
+      { "label": "Esperienza", "value": "10+ anni" },
+      { "label": "Settori", "value": "Fintech, Retail, SaaS" },
+      { "label": "Remote", "value": "Europe friendly" }
     ]
   },
   "experience": {
-    "title": "Esperienza professionale",
-    "caption": "Ruoli a lungo termine dove ho costruito fiducia, strumenti condivisi e una cultura di qualitÃ  nel frontend.",
-    "timeline": [
+    "title": "Esperienza",
+    "caption": "Prodotti lanciati con team distribuiti, design system e ossessione per la DX.",
+    "roles": [
       {
-        "company": "Begear",
-        "role": "Front-end Engineer, AI Integration",
-        "location": "Milan - Naples",
-        "start": "Sep 2025",
-        "end": "Presente",
-        "summary": "UI backoffice per orchestrare servizi AI bancari con autenticazione enterprise e osservabilita completa.",
-        "achievements": [
-          "Steso design system CoreUI custom con token e varianti per prodotti white label",
-          "Introdotta validazione con Zod e react-hook-form riducendo i bug di input del 45%",
-          "Mentoring e review strutturate per squad junior cross sede"
+        "company": "Buildo",
+        "role": "Principal Frontend Engineer",
+        "period": "2022 — oggi",
+        "summary": "Guido l'implementazione del design system modulare e della toolchain front-end per piattaforme enterprise.",
+        "highlights": [
+          "Ho re-ingegnerizzato il design system React 18 con token cross-brand e visual regression automatica.",
+          "Ho introdotto Nx + Vite riducendo del 40% i tempi di build e semplificando la contribuzione dei team."
         ],
-        "tech": [
-          "React 18",
-          "TypeScript 5",
-          "Redux Toolkit",
-          "React Router",
-          "Axios",
-          "AWS Cognito",
-          "Chart.js"
-        ],
-        "links": [
-          {
-            "label": "Case study",
-            "href": "https://5h1ngy.github.io/fe-react-portfolio/home",
-            "type": "website",
-            "external": true
-          }
-        ]
+        "tags": ["React 18", "Nx", "Design System", "AI tooling"]
       },
       {
-        "company": "Dacomat Â· Nexi Digital",
-        "role": "Front-end Engineer, Banking and Payments",
-        "location": "Milan",
-        "start": "Aug 2022",
-        "end": "Aug 2025",
-        "summary": "Modernizzazione portali B2B/B2C Nexi, introducendo componenti modulari e pipeline di rilascio affidabili.",
-        "achievements": [
-          "Guidato refactoring Redux Saga verso pattern modulare e typed selectors",
-          "Ridotto i tempi di build del 35% ottimizzando Webpack e caching dipendenze",
-          "Coordinato QA e rollout multibrand con feature flag e documentazione condivisa"
-        ],
-        "tech": [
-          "React",
-          "Redux",
-          "Redux Saga",
-          "React Router",
-          "Material UI",
-          "Storybook",
-          "Webpack"
-        ],
-        "links": [
-          {
-            "label": "Team delivery notes",
-            "href": "https://www.github.com/5h1ngy",
-            "type": "github",
-            "external": true
-          }
-        ]
-      },
-      {
-        "company": "Proxima Informatica Â· Eurobet",
-        "role": "Front-end Game Developer",
-        "location": "Rome",
-        "start": "Sep 2021",
-        "end": "Aug 2022",
-        "summary": "Sistemi di gioco browser based con motore 2D custom e pipeline di asset ottimizzate.",
-        "achievements": [
-          "Creato proof of concept motore grafico 2D con AI pathfinding",
-          "Ridotta latenza evento con ottimizzazioni PixiJS e batching richieste",
-          "Documentazione tecnica completa per team interni e partner"
-        ],
-        "tech": [
-          "JavaScript",
-          "TypeScript",
-          "PixiJS",
-          "Redux",
-          "Webpack",
-          "Node.js"
-        ],
-        "links": []
-      },
-      {
-        "company": "ECTM Ingegneria",
-        "role": "Full Stack Developer",
-        "location": "Rome",
-        "start": "May 2021",
-        "end": "Aug 2021",
-        "summary": "Integrazione Angular Material e servizi Laravel per gestionali nel settore costruzioni.",
-        "achievements": [
-          "Definiti mock API e flussi auth per demo clienti senza backend",
-          "Dockerizzato l intero stack per ambienti staging rapidi",
-          "Introdotta pipeline GitLab CI con test automatici"
-        ],
-        "tech": [
-          "Angular",
-          "NgRx",
-          "Laravel",
-          "Docker",
-          "MySQL",
-          "TypeScript"
-        ],
-        "links": []
-      },
-      {
-        "company": "Advanced Global Solution Â· HPE",
-        "role": "Frontend Developer OSS",
-        "location": "Rome",
-        "start": "Aug 2019",
-        "end": "May 2021",
-        "summary": "Portali OSS per provisioning servizi di rete con Angular e integrazione SharePoint.",
-        "achievements": [
-          "Gestito reverse engineering e migrazione AngularJS verso Angular moderno",
-          "Automatizzato deploy Jenkins su ambienti CentOS con rollback controllato",
-          "Stabilite linee guida di accessibilita WCAG per portali interni"
-        ],
-        "tech": [
-          "Angular",
-          "TypeScript",
-          "Node.js",
-          "Jenkins",
-          "REST API",
-          "SharePoint"
-        ],
-        "links": []
-      }
-    ]
-  },
-  "projects": {
-    "title": "Progetti chiave",
-    "caption": "Progetti nati da esigenze interne: strumenti che ho seguito come dipendente e contribuito a far crescere.",
-    "featured": [
-      {
-        "name": "AI Operations Control Room",
-        "headline": "Backoffice bancario per orchestrare modelli AI e monitorare metriche di rischio",
-        "description": "Hub React modulare con dashboard personalizzabili, audit log e accessi granulari via AWS Cognito. Coordinate squad cross funzione per integrare modellistica, analytics e alerting real time.",
-        "period": "2025",
-        "tech": [
-          "React 18",
-          "TypeScript 5",
-          "Redux Toolkit",
-          "Chakra UI",
-          "AWS Cognito",
-          "Chart.js"
-        ],
-        "highlight": "Ridotte le segnalazioni QA del 40% grazie a validazioni progressive e DX condivisa.",
-        "links": [
-          {
-            "label": "Process overview",
-            "url": "https://5h1ngy.github.io/fe-react-portfolio/home",
-            "type": "website"
-          }
-        ],
-        "badge": "Enterprise"
-      },
-      {
-        "name": "Nexi Commerce Portal",
-        "headline": "Portale multi brand per merchant con flussi di onboarding e analytics",
-        "description": "Implementato design system Material custom, ottimizzato build pipeline e introdotto feature flagging per rollout safe ai merchant premium.",
-        "period": "2022 - 2025",
-        "tech": [
-          "React",
-          "Redux Saga",
-          "Material UI",
-          "Node.js",
-          "Jenkins",
-          "Storybook"
-        ],
-        "highlight": "Time to market nuove feature ridotto di 25% con automazioni lint, test e release.",
-        "links": [
-          {
-            "label": "Changelog tecnico",
-            "url": "https://github.com/5h1ngy",
-            "type": "github"
-          }
-        ],
-        "badge": "Fintech"
-      }
-    ],
-    "others": [
-      {
-        "name": "Backoffice AI Design System",
-        "headline": "Token e component library per prodotti AI managed services",
-        "description": "Design token, generatori di layout e pattern React condivisi per prodotti B2B.",
-        "period": "2025",
-        "tech": [
-          "React",
-          "Styled Components",
-          "TypeScript",
-          "Chromatic"
-        ],
-        "highlight": "Coerenza UI garantita su 4 team grazie a temi dinamici e documentazione live.",
-        "links": [
-          {
-            "label": "Repo privato (demo)",
-            "url": "https://5h1ngy.github.io/fe-react-portfolio",
-            "type": "website"
-          }
-        ]
-      },
-      {
-        "name": "Game Engine Toolkit",
-        "headline": "Motore grafico 2D web con integrazione AI per pathfinding",
-        "description": "Toolkit modulare per giochi browser, con pipeline asset automatizzata.",
-        "period": "2021 - 2022",
-        "tech": [
-          "TypeScript",
-          "PixiJS",
-          "Redux",
-          "Gulp"
-        ],
-        "highlight": "Ridotto il tempo di produzione asset del 30% con tool interni custom.",
-        "links": []
-      }
-    ]
-  },
-  "openSource": {
-    "title": "Open source",
-    "caption": "Side project e tool open source con cui condivido idee e sperimentazioni con la community.",
-    "featured": [
-      {
-        "name": "Electron React Project Manager",
-        "headline": "Client desktop offline first per gestire roadmap software",
-        "description": "App Electron con cronologia eventi, import/export e installer cross platform.",
-        "period": "2025",
-        "tech": [
-          "Electron",
-          "React",
-          "TypeScript",
-          "Vite",
-          "Electron Builder"
-        ],
-        "highlight": "Sostituisce Jira per team piccoli, mantenendo hot reload e storage locale sicuro.",
-        "links": [
-          {
-            "label": "GitHub",
-            "url": "https://github.com/5h1ngy/dsk-electron-react-project-manager",
-            "type": "github"
-          }
-        ],
-        "badge": "Desktop"
-      },
-      {
-        "name": "Goblin Design System",
-        "headline": "Design system React tipizzato e accessibile",
-        "description": "Componenti, providers avanzati e slices Redux con theming, WCAG e release automatizzata.",
-        "period": "2024 - 2025",
-        "tech": [
-          "React 18",
-          "TypeScript 5",
-          "Chakra UI",
-          "Redux Toolkit",
-          "Storybook"
-        ],
-        "highlight": "Pubblicazione automatica su npm con semantic release e CI GitHub Actions.",
-        "links": [
-          {
-            "label": "Sito",
-            "url": "https://5h1ngy.github.io/pkg-fe-react-goblin-system",
-            "type": "website"
-          },
-          {
-            "label": "GitHub",
-            "url": "https://github.com/5h1ngy/pkg-fe-react-goblin-system",
-            "type": "github"
-          }
-        ],
-        "badge": "Design System"
-      }
-    ],
-    "others": [
-      {
-        "name": "Avatar Maker",
-        "headline": "Editor avatar internazionale con export SVG/PNG",
-        "description": "UI multi lingua, sync URL e stato offline friendly per creare avatar brandizzati.",
-        "period": "2024",
-        "tech": [
-          "React",
-          "Redux Toolkit",
-          "Vite",
-          "Styled Components"
-        ],
-        "highlight": "Sincronizzazione stato su URL e localStorage per condivisione rapida.",
-        "links": [
-          {
-            "label": "Live",
-            "url": "https://5h1ngy.github.io/fe-react-avatar-maker/",
-            "type": "website"
-          },
-          {
-            "label": "GitHub",
-            "url": "https://github.com/5h1ngy/5h1ngy/fe-react-avatar-maker",
-            "type": "github"
-          }
-        ]
-      },
-      {
-        "name": "Custom BE Node Starter",
-        "headline": "Starter backend Node modulare con auth JWT e swagger",
-        "description": "API pronta per produzione con mock mode, migrations e Docker multi stage.",
-        "period": "2024",
-        "tech": [
-          "Node.js",
-          "TypeScript",
-          "Express",
-          "Sequelize",
-          "SQLite"
-        ],
-        "highlight": "Setup completo con logging avanzato e release automation via semantic release.",
-        "links": [
-          {
-            "label": "GitHub",
-            "url": "https://github.com/5h1ngy/bl-custom-be-node",
-            "type": "github"
-          }
-        ]
-      }
-    ]
-  },
-  "contributions": {
-    "title": "Innovazione e contributi",
-    "caption": "Iniziative nate da passione personale e necessitÃ  interne: creo strumenti, documentazione e processi che restano al team.",
-    "items": [
-      {
-        "name": "Private Lab DevOps Stack",
-        "period": "2022",
-        "description": "Ambiente DevOps offline con Docker Compose: Gitea, Penpot, Verdaccio e container remoti.",
-        "role": "Innovation and Tooling Engineer",
-        "skills": [
-          "Docker",
-          "Bash",
-          "CI/CD",
-          "DevOps"
-        ],
-        "links": []
-      },
-      {
-        "name": "Node Proto Framework",
-        "period": "2021 - 2022",
-        "description": "CLI e framework Node modulare multi database con generatori di codice e logging standard.",
-        "role": "Framework Designer",
-        "skills": [
-          "Node.js",
-          "TypeScript",
-          "Sequelize",
-          "MongoDB",
-          "CLI"
-        ],
-        "links": []
-      },
-      {
-        "name": "Frontend Boilerplates",
-        "period": "2021 - 2022",
-        "description": "Starter React e Angular con mock API, theming e pipeline test per PoC rapidissimi.",
+        "company": "DOING / Capgemini",
         "role": "Lead Frontend Engineer",
-        "skills": [
-          "React",
-          "Angular",
-          "Vite",
-          "Jest"
+        "period": "2019 — 2022",
+        "summary": "Ho coordinato squad multidisciplinari su e-commerce e piattaforme data-driven scalando la DX.",
+        "highlights": [
+          "Ho lanciato un design system condiviso da 6 team con roll-out progressivo e training dedicati.",
+          "Ho portato test end-to-end e monitoraggio real-time riducendo il time-to-recovery del 35%."
         ],
-        "links": []
+        "tags": ["Vue", "React", "Cypress", "Storybook"]
+      },
+      {
+        "company": "Freelance",
+        "role": "Senior Frontend & DX Consultant",
+        "period": "2014 — 2019",
+        "summary": "Ho supportato startup e PMI su performance, accessibilita e bootstrap di prodotti digitali.",
+        "highlights": [
+          "Ho lanciato prototipi React + Electron per tool interni con delivery in poche settimane.",
+          "Ho creato boilerplate TypeScript full-stack riutilizzati da team distribuiti in 3 fusi orari."
+        ],
+        "tags": ["Electron", "TypeScript", "Node.js", "DX"]
       }
     ]
   },
   "skills": {
     "title": "Stack e competenze",
-    "caption": "Competenze che porto ogni giorno in azienda per far lavorare il team con serenita e ritmo sostenibile.",
+    "caption": "Tecnologie e pratiche con cui porto valore ogni giorno.",
     "categories": [
       {
         "title": "Frontend architecture",
-        "summary": "Design system, micro frontends, routing avanzato e performance tuning.",
-        "items": [
-          "React 18",
-          "TypeScript 5",
-          "Redux Toolkit",
-          "React Router",
-          "Styled Components",
-          "Chakra UI"
-        ]
+        "summary": "Componentizzazione, rendering ibrido e performance audit continui.",
+        "items": ["React 18", "TypeScript", "Next.js", "Zustand"]
       },
       {
-        "title": "Tooling e DX",
-        "summary": "Pipeline Vite, Webpack, linting diffuso e workflow Git automatizzati.",
-        "items": [
-          "Vite",
-          "Webpack",
-          "Storybook",
-          "ESLint",
-          "Prettier",
-          "Husky"
-        ]
+        "title": "Tooling & DX",
+        "summary": "Pipeline Vite, automazioni CI/CD e qualita misurabile.",
+        "items": ["Vite", "Nx", "Vitest", "Playwright"]
       },
       {
-        "title": "DevOps e delivery",
-        "summary": "Docker, CI/CD, release automation e monitoraggio real time.",
-        "items": [
-          "Docker",
-          "GitHub Actions",
-          "Jenkins",
-          "AWS RUM",
-          "Semantic Release",
-          "Workbox"
-        ]
+        "title": "Product delivery",
+        "summary": "Roadmap condivise, discovery rapida e metriche di impatto.",
+        "items": ["Product Strategy", "Design Ops", "Data-informed UX"]
       }
     ],
-    "toolbelt": [
-      "Axios",
-      "Zod",
-      "React Hook Form",
-      "react-query",
-      "GSAP",
-      "Chart.js",
-      "Vitest",
-      "Jest",
-      "React Testing Library"
-    ],
-    "workflows": [
-      "Design system lifecycle",
-      "Feature flag e progressive delivery",
-      "AI assisted UX research",
-      "Docs e knowledge sharing",
-      "Mentoring e pairing continuo"
+    "toolbelt": ["ESLint", "Prettier", "Storybook", "Turborepo", "Docker", "GSAP"],
+    "workflows": ["Design system lifecycle", "Feature flag rollout", "AI assisted QA"],
+    "products": [
+      {
+        "name": "Nebula UI Kit",
+        "description": "Libreria grafica React con token tematici e preset accessibili pronta per multi brand.",
+        "tags": ["React", "Styled Components", "Chromatic"],
+        "link": {
+          "label": "Repo",
+          "href": "https://github.com/5h1ngy/nebula-ui-kit",
+          "type": "github",
+          "external": true
+        }
+      },
+      {
+        "name": "FlowForge Studio",
+        "description": "App Electron per orchestrare pipeline CI/CD con telemetria locale e sincronizzazione cloud.",
+        "tags": ["Electron", "Node.js", "TypeScript"],
+        "link": {
+          "label": "Repository",
+          "href": "https://github.com/5h1ngy/flowforge-studio",
+          "type": "github",
+          "external": true
+        }
+      }
     ]
   },
-  "contact": {
-    "title": "Restiamo in contatto",
-    "caption": "Felice di confrontarmi su opportunita in team stabili, iniziative interne e community tech.",
-    "message": "Scrivimi qualche riga su progetto, squadra e obiettivi: rispondo sempre e, se serve, fissiamo una chiacchierata informale.",
-    "availability": "Preferenza 09:00 - 18:00 CET Â· Disponibile anche per meetup serali",
-    "channels": [
+  "openSource": {
+    "title": "Progetti open source",
+    "caption": "Toolkit e sperimentazioni che condivido con la community.",
+    "projects": [
       {
-        "type": "email",
-        "label": "Email",
-        "value": "sig.scarano@outlook.it",
-        "href": "mailto:sig.scarano@outlook.it"
+        "name": "PromptOps",
+        "description": "Collection di strumenti per orchestrare prompt multi-modello con fallback intelligenti.",
+        "period": "2024",
+        "tags": ["Node.js", "AI Ops", "OpenAI"],
+        "link": {
+          "label": "GitHub",
+          "href": "https://github.com/5h1ngy/promptops",
+          "type": "github",
+          "external": true
+        }
       },
       {
-        "type": "phone",
-        "label": "Telefono",
-        "value": "+39 351 843 9726",
-        "href": "tel:+393518439726"
+        "name": "DX Dash",
+        "description": "Dashboard React plug-in per misurare performance DX e copertura dei test in tempo reale.",
+        "period": "2023",
+        "tags": ["React", "Vite", "Vitest"],
+        "link": {
+          "label": "GitHub",
+          "href": "https://github.com/5h1ngy/dx-dash",
+          "type": "github",
+          "external": true
+        }
       },
       {
-        "type": "website",
-        "label": "Portfolio",
-        "value": "5h1ngy.github.io/fe-react-portfolio",
-        "href": "https://5h1ngy.github.io/fe-react-portfolio"
-      },
-      {
-        "type": "github",
-        "label": "GitHub",
-        "value": "github.com/5h1ngy",
-        "href": "https://github.com/5h1ngy"
+        "name": "CLI Scaffolder",
+        "description": "Generator CLI TypeScript per bootstrap di microservizi opinionated con best practice pronte.",
+        "period": "2022",
+        "tags": ["TypeScript", "CLI", "DevOps"],
+        "link": {
+          "label": "GitHub",
+          "href": "https://github.com/5h1ngy/cli-scaffolder",
+          "type": "github",
+          "external": true
+        }
       }
     ]
   }
 }
+

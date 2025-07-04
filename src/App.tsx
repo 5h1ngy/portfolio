@@ -2,13 +2,11 @@
 import { ThemeProvider } from 'styled-components'
 
 import { AboutSection } from '@components/AboutSection'
-import { ContactSection } from '@components/ContactSection'
-import { ContributionsSection } from '@components/ContributionsSection'
 import { ExperienceSection } from '@components/ExperienceSection'
 import { Footer } from '@components/Footer'
 import { Header } from '@components/Header'
 import { HeroSection } from '@components/HeroSection'
-import { ProjectsSection } from '@components/ProjectsSection'
+import { OpenSourceSection } from '@components/OpenSourceSection'
 import { SkillsSection } from '@components/SkillsSection'
 import { portfolioData } from '@data/portfolio'
 import { AppMain, AppShell } from '@/App.style'
@@ -16,13 +14,20 @@ import { GlobalStyle } from '@styles'
 import { createTheme, type ThemeMode } from '@styles/theme'
 
 const ACCENT_OPTIONS = ['#5cf3e9', '#ff7de8', '#6dff89', '#7ca9ff']
+const DEFAULT_NAVIGATION = [
+  { label: 'Start', targetId: 'hero' },
+  { label: 'Profilo', targetId: 'about' },
+  { label: 'Esperienza', targetId: 'experience' },
+  { label: 'Competenze', targetId: 'skills' },
+  { label: 'Open source', targetId: 'open-source' },
+]
+const DEFAULT_ACCENT = ACCENT_OPTIONS[0]
 
 export const App = () => {
-  const { meta, ui, profile, hero, about, experience, projects, openSource, contributions, skills, contact } =
-    portfolioData
+  const { meta, profile, hero, about, experience, skills, openSource } = portfolioData
 
   const [themeMode, setThemeMode] = useState<ThemeMode>('dark')
-  const [accentColor, setAccentColor] = useState<string>(ui.accentColor ?? ACCENT_OPTIONS[0])
+  const [accentColor, setAccentColor] = useState<string>(DEFAULT_ACCENT)
 
   const theme = useMemo(() => createTheme(themeMode, accentColor), [themeMode, accentColor])
 
@@ -49,7 +54,7 @@ export const App = () => {
       <GlobalStyle />
       <AppShell>
         <Header
-          navigation={ui.navigation}
+          navigation={DEFAULT_NAVIGATION}
           profile={profile}
           themeMode={themeMode}
           onToggleTheme={() => setThemeMode((mode) => (mode === 'dark' ? 'light' : 'dark'))}
@@ -61,11 +66,8 @@ export const App = () => {
           <HeroSection hero={hero} socialLinks={profile.links} />
           <AboutSection about={about} />
           <ExperienceSection experience={experience} />
-          <ProjectsSection id="projects" accent="Progetti" projects={projects} />
-          <ProjectsSection id="open-source" accent="Open source" projects={openSource} />
           <SkillsSection skills={skills} />
-          <ContributionsSection contributions={contributions} />
-          <ContactSection contact={contact} />
+          <OpenSourceSection openSource={openSource} />
         </AppMain>
         <Footer profile={profile} meta={meta} />
       </AppShell>
