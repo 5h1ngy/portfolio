@@ -1,4 +1,13 @@
-import styled from "styled-components";
+﻿import styled, { keyframes } from "styled-components";
+
+const caretBlink = keyframes`
+  0%, 50% {
+    opacity: 1;
+  }
+  50.01%, 100% {
+    opacity: 0;
+  }
+`;
 
 export const HeroSectionWrapper = styled.section`
   position: relative;
@@ -57,6 +66,21 @@ export const HeroTitle = styled.h1`
   font-size: clamp(2.6rem, 7vw, 4rem);
   line-height: 1.05;
   color: ${({ theme }) => theme.colors.textPrimary};
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  min-height: 1.2em;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 12%;
+    right: -0.35rem;
+    width: 2px;
+    height: 76%;
+    background: ${({ theme }) => theme.colors.accent};
+    animation: ${caretBlink} 1s steps(2, start) infinite;
+  }
 `;
 
 export const HeroSubtitle = styled.p`

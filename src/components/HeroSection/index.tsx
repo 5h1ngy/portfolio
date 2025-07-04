@@ -1,4 +1,6 @@
-﻿import { useMemo } from 'react'
+﻿import { useEffect, useMemo, useRef } from 'react'
+import gsap from 'gsap'
+import { TextPlugin } from 'gsap/TextPlugin'
 
 import { HeroOrbit } from '@components/HeroOrbit'
 import { isExternal } from '@components/HeroSection/helpers'
@@ -13,12 +15,17 @@ import {
   HeroLinksLabel,
   HeroLinksList,
   HeroLink,
-  PrimaryButton,
-  SecondaryButton,
   HeroSectionWrapper,
   HeroSubtitle,
   HeroTitle,
+  PrimaryButton,
+  SecondaryButton,
 } from '@components/HeroSection/style'
+
+gsap.registerPlugin(TextPlugin)
+
+const TYPING_BASE_SPEED = 0.08
+const TYPING_MIN_DURATION = 1.2
 
 export const HeroSection = ({ hero, socialLinks }: HeroSectionProps) => {
   const primaryLinks = useMemo(
@@ -26,12 +33,45 @@ export const HeroSection = ({ hero, socialLinks }: HeroSectionProps) => {
     [socialLinks],
   )
 
+  const typingSequence = useMemo(
+    () => (hero.typingTitles && hero.typingTitles.length > 0 ? hero.typingTitles : [hero.title]),
+    [hero.typingTitles, hero.title],
+  )
+
+  const sequenceKey = useMemo(() => typingSequence.join('|'), [typingSequence])
+  const titleRef = useRef<HTMLHeadingElement>(null)
+
+  useEffect(() => {
+    if (!titleRef.current) {
+      return
+    }
+
+    const node = titleRef.current
+    const tl = gsap.timeline({ repeat: -1, repeatDelay: 0.9, defaults: { ease: 'none' } })
+
+    tl.set(node, { text: '' })
+
+    typingSequence.forEach((word) => {
+      const duration = Math.max(word.length * TYPING_BASE_SPEED, TYPING_MIN_DURATION)
+
+      tl.to(node, { duration, text: word })
+        .to(node, { duration: 0.6, text: word })
+        .to(node, { duration: Math.min(duration * 0.45, 1.1), text: '' })
+    })
+
+    return () => {
+      tl.kill()
+    }
+  }, [sequenceKey, typingSequence])
+
   return (
     <HeroSectionWrapper id="hero">
       <HeroLayout>
         <HeroLead>
           {hero.eyebrow && <HeroEyebrow>{hero.eyebrow}</HeroEyebrow>}
-          <HeroTitle>{hero.title}</HeroTitle>
+          <HeroTitle ref={titleRef} aria-live="polite">
+            {typingSequence[0]}
+          </HeroTitle>
           {hero.subtitle && <HeroSubtitle>{hero.subtitle}</HeroSubtitle>}
           <HeroDescription>{hero.description}</HeroDescription>
           {primaryLinks.length > 0 && (
