@@ -1,13 +1,15 @@
-﻿import type { ThemeMode } from '@styles/theme';
-import type { PortfolioNavigationItem, PortfolioProfile } from '@data/portfolio.types';
+import type { ThemeMode } from '@styles/theme';
+
+export interface HeaderNavigationItem {
+  label: string;
+  targetId: string;
+}
 
 export interface HeaderProps {
-  navigation: PortfolioNavigationItem[];
-  profile: PortfolioProfile;
+  navigation: HeaderNavigationItem[];
   themeMode: ThemeMode;
-  onToggleTheme: () => void;
+  onThemeChange: (mode: ThemeMode) => void;
   accentOptions: string[];
   accentColor: string;
   onAccentChange: (color: string) => void;
 }
-

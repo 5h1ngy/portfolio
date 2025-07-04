@@ -52,10 +52,19 @@ export const OrbitCenter = styled.div`
 
 const orbitSpin = keyframes`
   0% {
-    transform: rotate(0deg) translateX(var(--orbit-distance)) rotate(0deg);
+    transform: rotate(var(--orbit-angle)) translateX(var(--orbit-distance));
   }
   100% {
-    transform: rotate(360deg) translateX(var(--orbit-distance)) rotate(-360deg);
+    transform: rotate(calc(var(--orbit-angle) + 360deg)) translateX(var(--orbit-distance));
+  }
+`
+
+const iconCounterSpin = keyframes`
+  0% {
+    transform: rotate(var(--orbit-angle-negative));
+  }
+  100% {
+    transform: rotate(calc(var(--orbit-angle-negative) - 360deg));
   }
 `
 
@@ -64,6 +73,7 @@ export const OrbitItem = styled.div<{
   $size: number
   $duration: number
   $delay: number
+  $angle: number
 }>`
   position: absolute;
   top: 50%;
@@ -72,13 +82,18 @@ export const OrbitItem = styled.div<{
   height: ${({ $size }) => `${$size}px`};
   margin: ${({ $size }) => `-${$size / 2}px`};
   --orbit-distance: ${({ $radius }) => `${$radius}px`};
-  animation: ${orbitSpin} ${({ $duration }) => `${$duration}s`} linear infinite;
-  animation-delay: ${({ $delay }) => `${$delay}s`};
+  --orbit-duration: ${({ $duration }) => `${$duration}s`};
+  --orbit-delay: ${({ $delay }) => `${$delay}s`};
+  --orbit-angle: ${({ $angle }) => `${$angle}deg`};
+  --orbit-angle-negative: ${({ $angle }) => `${-$angle}deg`};
+  animation: ${orbitSpin} var(--orbit-duration) linear infinite;
+  animation-delay: var(--orbit-delay);
   transform-origin: center;
+  will-change: transform;
   filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.35));
 `
 
-export const OrbitIcon = styled.span`
+export const OrbitIcon = styled.span<{ $duration: number; $delay: number }>`
   display: inline-flex;
   width: 100%;
   height: 100%;
@@ -88,6 +103,9 @@ export const OrbitIcon = styled.span`
   align-items: center;
   justify-content: center;
   padding: 6px;
+  animation: ${iconCounterSpin} ${({ $duration }) => `${$duration}s`} linear infinite;
+  animation-delay: ${({ $delay }) => `${$delay}s`};
+  will-change: transform;
 
   img {
     width: 100%;

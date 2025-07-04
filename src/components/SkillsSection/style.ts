@@ -36,32 +36,3 @@ export const CategoryList = styled.ul`
   gap: 0.55rem;
   color: ${({ theme }) => theme.colors.textSecondary};
 `;
-
-export const Block = styled.div`
-  display: grid;
-  gap: 0.75rem;
-`;
-
-export const BlockTitle = styled.h3`
-  margin: 0;
-  font-size: 1.05rem;
-`;
-
-export const TagCloud = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-`;
-
-export const Tag = styled.span`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.35rem;
-  border-radius: 999px;
-  border: 1px solid ${({ theme }) => theme.colors.accentOutline};
-  padding: 0.35rem 0.9rem;
-  font-size: 0.82rem;
-  color: ${({ theme }) => theme.colors.textSecondary};
-  background: ${({ theme }) => theme.colors.surfaceMuted};
-`;

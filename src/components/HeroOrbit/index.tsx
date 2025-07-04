@@ -1,29 +1,47 @@
-﻿import type { HeroOrbitProps } from '@components/HeroOrbit/types'
-import { OrbitCenter, OrbitIcon, OrbitItem, OrbitRing, OrbitRings, OrbitWrapper } from '@components/HeroOrbit/style'
+import type { HeroOrbitProps } from '@components/HeroOrbit/types';
+import { OrbitCenter, OrbitIcon, OrbitItem, OrbitRing, OrbitRings, OrbitWrapper } from '@components/HeroOrbit/style';
+import { resolveOrbitAsset } from '@components/HeroOrbit/helpers';
+import { useOrbitRings } from '@components/HeroOrbit/hooks';
 
-export const HeroOrbit = ({ orbit }: HeroOrbitProps) => (
-  <OrbitWrapper>
-    <OrbitRings aria-hidden="true">
-      <OrbitRing $size={220} />
-      <OrbitRing $size={300} />
-      <OrbitRing $size={380} />
-    </OrbitRings>
-    <OrbitCenter>
-      <img src={orbit.center} alt="" />
-    </OrbitCenter>
-    {orbit.items.map((item, index) => (
-      <OrbitItem
-        key={item.label}
-        $radius={item.radius}
-        $size={item.size}
-        $duration={item.speed}
-        $delay={index * 0.6}
-        aria-label={item.label}
-      >
-        <OrbitIcon>
-          <img src={item.icon} alt={item.label} />
-        </OrbitIcon>
-      </OrbitItem>
-    ))}
-  </OrbitWrapper>
-)
+export const HeroOrbit = ({ orbit }: HeroOrbitProps) => {
+  const rings = useOrbitRings(orbit);
+  const centerAsset = resolveOrbitAsset(orbit.center);
+
+  return (
+    <OrbitWrapper>
+      <OrbitRings aria-hidden="true">
+        {rings.map((ring) => (
+          <OrbitRing key={ring.radius} $size={ring.radius * 2} />
+        ))}
+      </OrbitRings>
+      <OrbitCenter>
+        <img src={centerAsset} alt="" />
+      </OrbitCenter>
+      {rings.map((ring, ringIndex) => {
+        const iconCount = ring.icons.length;
+        return ring.icons.map((icon, iconIndex) => {
+          const asset = resolveOrbitAsset(icon.icon);
+          const angle = icon.offset ?? (iconCount > 1 ? (360 / iconCount) * iconIndex : 0);
+          const duration = icon.speed ?? ring.speed;
+          const delay = icon.delay ?? ringIndex * 0.4 + iconIndex * 0.35;
+
+          return (
+            <OrbitItem
+              key={`${ring.radius}-${icon.label}`}
+              $radius={ring.radius}
+              $size={icon.size}
+              $duration={duration}
+              $delay={delay}
+              $angle={angle}
+              aria-label={icon.label}
+            >
+              <OrbitIcon $duration={duration} $delay={delay}>
+                <img src={asset} alt={icon.label} />
+              </OrbitIcon>
+            </OrbitItem>
+          );
+        });
+      })}
+    </OrbitWrapper>
+  );
+};

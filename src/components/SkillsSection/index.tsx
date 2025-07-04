@@ -1,16 +1,12 @@
-﻿import type { PortfolioSkills } from "@data/portfolio.types";
-import { Section } from "@components/Section";
+import type { PortfolioSkills } from '@data/portfolio.types';
+import { Section } from '@components/Section';
 import {
-  Block,
-  BlockTitle,
   CategoryCard,
   CategoryGrid,
   CategoryList,
   CategorySubtitle,
   CategoryTitle,
-  Tag,
-  TagCloud,
-} from "@components/SkillsSection/style";
+} from '@components/SkillsSection/style';
 
 interface SkillsSectionProps {
   skills: PortfolioSkills;
@@ -33,27 +29,5 @@ export const SkillsSection = ({ skills }: SkillsSectionProps) => (
         ))}
       </CategoryGrid>
     )}
-    {skills.toolbelt.length > 0 && (
-      <Block>
-        <BlockTitle>Toolbelt</BlockTitle>
-        <TagCloud>
-          {skills.toolbelt.map((item) => (
-            <Tag key={item}>{item}</Tag>
-          ))}
-        </TagCloud>
-      </Block>
-    )}
-    {skills.workflows.length > 0 && (
-      <Block>
-        <BlockTitle>Workflows</BlockTitle>
-        <CategoryList>
-          {skills.workflows.map((workflow, idx) => (
-            <li key={idx}>{workflow}</li>
-          ))}
-        </CategoryList>
-      </Block>
-    )}
   </Section>
 );
-
-

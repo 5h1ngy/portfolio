@@ -33,12 +33,13 @@ export const HeroLayout = styled.div`
   position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(280px, 38vw);
-  gap: clamp(2.5rem, 8vw, 6rem);
+  gap: clamp(3.5rem, 10vw, 8.5rem);
   align-items: center;
 
   @media (max-width: 960px) {
     grid-template-columns: minmax(0, 1fr);
     text-align: center;
+    gap: clamp(6rem, 18vw, 9rem);
   }
 `;
 
@@ -50,6 +51,8 @@ export const HeroLead = styled.div`
 
   @media (max-width: 960px) {
     margin: 0 auto;
+    justify-items: center;
+    text-align: center;
   }
 `;
 
@@ -84,96 +87,56 @@ export const HeroDescription = styled.p`
   color: ${({ theme }) => theme.colors.textSecondary};
 `;
 
-export const HeroLinks = styled.div`
+export const HeroIconRow = styled.div`
   display: flex;
   align-items: center;
-  gap: 1rem;
-  font-size: 0.88rem;
+  gap: 1.1rem;
+  margin-top: 1.25rem;
 
   @media (max-width: 960px) {
     justify-content: center;
   }
 `;
 
-export const HeroLinksLabel = styled.span`
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: ${({ theme }) => theme.colors.accent};
-  font-weight: 600;
-`;
-
-export const HeroLinksList = styled.div`
-  display: flex;
-  gap: 0.65rem;
-`;
-
-export const HeroLink = styled.a`
-  color: ${({ theme }) => theme.colors.textPrimary};
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  border-bottom: 1px solid transparent;
-  padding-bottom: 0.15rem;
-  transition: border-color 160ms ease, color 160ms ease;
-
-  &:hover,
-  &:focus-visible {
-    border-color: ${({ theme }) => theme.colors.accent};
-    color: ${({ theme }) => theme.colors.accent};
-  }
-`;
-
-export const HeroActions = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.85rem;
-  margin-top: 0.5rem;
-
-  @media (max-width: 640px) {
-    flex-direction: column;
-  }
-`;
-
-const buttonBase = `
+export const HeroIconButton = styled.a`
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  border: 1px solid ${({ theme }) => theme.colors.accentOutline};
+  background: ${({ theme }) => theme.colors.surfaceElevated};
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.6rem;
-  border-radius: 999px;
-  padding: 0.65rem 1.35rem;
-  font-weight: 600;
-  font-size: 0.95rem;
-  cursor: pointer;
-  text-transform: none;
-  transition: background 160ms ease, border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
-`;
+  color: ${({ theme }) => theme.colors.textPrimary};
+  box-shadow: ${({ theme }) => theme.shadows.ambient};
+  position: relative;
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease, color 0.18s ease;
 
-export const PrimaryButton = styled.a`
-  ${buttonBase}
-  border: 1px solid ${({ theme }) => theme.colors.accentOutline};
-  background: linear-gradient(135deg, ${({ theme }) => theme.colors.accent}, rgba(141, 124, 255, 0.93));
-  color: #041320;
-  box-shadow: ${({ theme }) => theme.shadows.accent};
+  svg {
+    width: 26px;
+    height: 26px;
+    display: block;
+  }
 
   &:hover,
   &:focus-visible {
-    transform: translateY(-1px);
+    transform: translateY(-2px) scale(1.03);
     border-color: ${({ theme }) => theme.colors.accent};
+    color: ${({ theme }) => theme.colors.accent};
+    box-shadow: ${({ theme }) => theme.shadows.accent};
   }
 `;
 
-export const SecondaryButton = styled.a`
-  ${buttonBase}
-  border: 1px solid ${({ theme }) => theme.colors.accentOutline};
-  background: ${({ theme }) => theme.colors.accentSoft};
-  color: ${({ theme }) => theme.colors.accent};
-  box-shadow: 0 0 22px rgba(92, 243, 233, 0.16);
-
-  &:hover,
-  &:focus-visible {
-    transform: translateY(-1px);
-    border-color: ${({ theme }) => theme.colors.accent};
-  }
+export const HeroIconLabel = styled.span`
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 `;
 
 export const HeroTitleGhost = styled.span`
