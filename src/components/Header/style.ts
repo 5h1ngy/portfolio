@@ -1,8 +1,10 @@
-import styled from 'styled-components';
+﻿import styled from 'styled-components';
 
 export const HeaderRoot = styled.header<{ $compact: boolean }>`
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 20;
   display: flex;
   justify-content: center;
@@ -336,3 +338,4 @@ export const MobileBackdrop = styled.button<{ $visible: boolean }>`
     pointer-events: ${({ $visible }) => ($visible ? 'auto' : 'none')};
   }
 `;
+
