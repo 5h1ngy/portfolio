@@ -1,4 +1,4 @@
-﻿import styled, { keyframes } from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 const caretBlink = keyframes`
   0%, 50% {
@@ -11,10 +11,16 @@ const caretBlink = keyframes`
 
 export const HeroSectionWrapper = styled.section`
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
   padding: clamp(3rem, 8vw, 5rem) 0 clamp(2rem, 4vw, 3rem);
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: -8%;
     background: ${({ theme }) => theme.gradients.overlay};
@@ -27,16 +33,24 @@ export const HeroSectionWrapper = styled.section`
     position: relative;
     z-index: 1;
   }
+
+  @media (max-width: 960px) {
+    min-height: auto;
+    justify-content: flex-start;
+  }
 `;
 
 export const HeroLayout = styled.div`
   position: relative;
+  width: min(1120px, 92vw);
+  margin-top: -35vh;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(280px, 38vw);
-  gap: clamp(3.5rem, 10vw, 8.5rem);
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 20vw);
+  gap: clamp(4.25rem, 12vw, 9.5rem);
   align-items: center;
 
   @media (max-width: 960px) {
+    margin: 0 auto;
     grid-template-columns: minmax(0, 1fr);
     text-align: center;
     gap: clamp(6rem, 18vw, 9rem);
@@ -110,7 +124,8 @@ export const HeroIconButton = styled.a`
   color: ${({ theme }) => theme.colors.textPrimary};
   box-shadow: ${({ theme }) => theme.shadows.ambient};
   position: relative;
-  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease, color 0.18s ease;
+  transition: transform 0.18s ease, border-color 0.18s ease,
+    box-shadow 0.18s ease, color 0.18s ease;
 
   svg {
     width: 26px;
@@ -154,7 +169,7 @@ export const HeroTitleText = styled.span`
   white-space: nowrap;
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 12%;
     right: -0.35rem;

@@ -9,6 +9,7 @@ export const AppShell = styled.div`
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  overflow-x: hidden;
 `
 
 export const AppMain = styled.main`

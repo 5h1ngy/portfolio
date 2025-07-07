@@ -1,239 +1,299 @@
-{
-  "meta": {
-    "title": "Davide Scarano - Frontend & DX Engineer",
-    "description": "Senior frontend engineer che costruisce interfacce scalabili e pipeline DX con React, TypeScript e AI.",
-    "keywords": [
-      "React",
-      "TypeScript",
-      "Design System",
-      "Developer Experience",
-      "AI Integration",
-      "Vite",
-      "Electron"
-    ],
-    "author": "Davide Scarano"
-  },
-  "profile": {
-    "name": "Davide Scarano",
-    "headline": "Senior Frontend Engineer",
-    "tagline": "React, DX e AI per team che vogliono muoversi veloci senza rompere nulla.",
-    "links": [
-      {
-        "label": "GitHub",
-        "url": "https://github.com/5h1ngy",
-        "type": "github"
-      },
-      {
-        "label": "LinkedIn",
-        "url": "https://www.linkedin.com/in/sig-scarano",
-        "type": "linkedin"
-      }
-    ]
-  },
-  "hero": {
-    "title": "Davide Scarano",
-    "typingTitles": ["5h1ngy", "Davide Scarano"],
-    "subtitle": "Creo interfacce affidabili con DX moderna.",
-    "description": "React, TypeScript e automazioni AI per consegnare esperienze che scalano con il team.",
-    "primaryAction": {
-      "label": "GitHub",
-      "href": "https://github.com/5h1ngy",
-      "type": "github",
-      "external": true
-    },
-    "secondaryAction": {
-      "label": "LinkedIn",
-      "href": "https://www.linkedin.com/in/sig-scarano",
-      "type": "linkedin",
-      "external": true
-    },
-    "orbit": {
-      "center": "/logos/avatar.png",
-      "rings": [
-        {
-          "radius": 120,
-          "speed": 18,
-          "icons": [
-            { "label": "React", "icon": "/logos/react.svg", "size": 52 },
-            { "label": "TypeScript", "icon": "/logos/typescript.svg", "size": 48 }
-          ]
-        },
-        {
-          "radius": 170,
-          "speed": 24,
-          "icons": [
-            { "label": "Node.js", "icon": "/logos/nodejs.svg", "size": 50 },
-            { "label": "Vite", "icon": "/logos/vitejs.svg", "size": 46 },
-            { "label": "Redux", "icon": "/logos/redux.svg", "size": 44 }
-          ]
-        },
-        {
-          "radius": 210,
-          "speed": 30,
-          "icons": [
-            { "label": "Docker", "icon": "/logos/docker.svg", "size": 48 },
-            { "label": "MongoDB", "icon": "/logos/mongo-db.svg", "size": 44 },
-            { "label": "NestJS", "icon": "/logos/nestjs.svg", "size": 46 },
-            { "label": "Bash", "icon": "/logos/bash.svg", "size": 40 }
-          ]
-        }
-      ]
-    }
-  },
-  "about": {
-    "title": "Chi sono",
-    "caption": "Frontend pragmatica, esperienza prodotto e tooling che scala con il team.",
-    "summary": [
-      "Sono un frontend engineer con oltre dieci anni di esperienza tra scale-up e prodotti enterprise. Mi piace mettere ordine nelle interfacce, creare design system che non rallentano e orchestrare pipeline che fanno felici designer e developer.",
-      "Negli ultimi anni ho abilitato team cross-funzionali su prodotti AI-driven: ho curato DX, qualita del codice e automazioni che portano valore in produzione senza stress."
-    ],
-    "focus": [
-      {
-        "title": "Design system plug&play",
-        "description": "Componenti React multibrand con accessibilita baked-in e token sincronizzati."
-      },
-      {
-        "title": "AI enablement",
-        "description": "PoC, orchestrazione prompt e integrazione con stack esistente per feature AI real world."
-      },
-      {
-        "title": "Developer experience",
-        "description": "Tooling Vite, Nx, lint diffuso e release pipeline che toglie attrito alla consegna."
-      }
-    ],
-    "quickFacts": [
-      { "label": "Esperienza", "value": "10+ anni" },
-      { "label": "Settori", "value": "Fintech, Retail, SaaS" },
-      { "label": "Remote", "value": "Europe friendly" }
-    ]
-  },
-  "experience": {
-    "title": "Esperienza",
-    "caption": "Prodotti lanciati con team distribuiti, design system e ossessione per la DX.",
-    "roles": [
-      {
-        "company": "Buildo",
-        "role": "Principal Frontend Engineer",
-        "period": "2022 — oggi",
-        "summary": "Guido l'implementazione del design system modulare e della toolchain front-end per piattaforme enterprise.",
-        "highlights": [
-          "Ho re-ingegnerizzato il design system React 18 con token cross-brand e visual regression automatica.",
-          "Ho introdotto Nx + Vite riducendo del 40% i tempi di build e semplificando la contribuzione dei team."
-        ],
-        "tags": ["React 18", "Nx", "Design System", "AI tooling"]
-      },
-      {
-        "company": "DOING / Capgemini",
-        "role": "Lead Frontend Engineer",
-        "period": "2019 — 2022",
-        "summary": "Ho coordinato squad multidisciplinari su e-commerce e piattaforme data-driven scalando la DX.",
-        "highlights": [
-          "Ho lanciato un design system condiviso da 6 team con roll-out progressivo e training dedicati.",
-          "Ho portato test end-to-end e monitoraggio real-time riducendo il time-to-recovery del 35%."
-        ],
-        "tags": ["Vue", "React", "Cypress", "Storybook"]
-      },
-      {
-        "company": "Freelance",
-        "role": "Senior Frontend & DX Consultant",
-        "period": "2014 — 2019",
-        "summary": "Ho supportato startup e PMI su performance, accessibilita e bootstrap di prodotti digitali.",
-        "highlights": [
-          "Ho lanciato prototipi React + Electron per tool interni con delivery in poche settimane.",
-          "Ho creato boilerplate TypeScript full-stack riutilizzati da team distribuiti in 3 fusi orari."
-        ],
-        "tags": ["Electron", "TypeScript", "Node.js", "DX"]
-      }
-    ]
-  },
-  "skills": {
-    "title": "Stack e competenze",
-    "caption": "Tecnologie e pratiche con cui porto valore ogni giorno.",
-    "categories": [
-      {
-        "title": "Frontend architecture",
-        "summary": "Componentizzazione, rendering ibrido e performance audit continui.",
-        "items": ["React 18", "TypeScript", "Next.js", "Zustand"]
-      },
-      {
-        "title": "Tooling & DX",
-        "summary": "Pipeline Vite, automazioni CI/CD e qualita misurabile.",
-        "items": ["Vite", "Nx", "Vitest", "Playwright"]
-      },
-      {
-        "title": "Product delivery",
-        "summary": "Roadmap condivise, discovery rapida e metriche di impatto.",
-        "items": ["Product Strategy", "Design Ops", "Data-informed UX"]
-      }
-    ],
-    "toolbelt": ["ESLint", "Prettier", "Storybook", "Turborepo", "Docker", "GSAP"],
-    "workflows": ["Design system lifecycle", "Feature flag rollout", "AI assisted QA"],
-    "products": [
-      {
-        "name": "Nebula UI Kit",
-        "description": "Libreria grafica React con token tematici e preset accessibili pronta per multi brand.",
-        "tags": ["React", "Styled Components", "Chromatic"],
-        "link": {
-          "label": "Repo",
-          "href": "https://github.com/5h1ngy/nebula-ui-kit",
-          "type": "github",
-          "external": true
-        }
-      },
-      {
-        "name": "FlowForge Studio",
-        "description": "App Electron per orchestrare pipeline CI/CD con telemetria locale e sincronizzazione cloud.",
-        "tags": ["Electron", "Node.js", "TypeScript"],
-        "link": {
-          "label": "Repository",
-          "href": "https://github.com/5h1ngy/flowforge-studio",
-          "type": "github",
-          "external": true
-        }
-      }
-    ]
-  },
-  "openSource": {
-    "title": "Progetti open source",
-    "caption": "Toolkit e sperimentazioni che condivido con la community.",
-    "projects": [
-      {
-        "name": "PromptOps",
-        "description": "Collection di strumenti per orchestrare prompt multi-modello con fallback intelligenti.",
-        "period": "2024",
-        "tags": ["Node.js", "AI Ops", "OpenAI"],
-        "link": {
-          "label": "GitHub",
-          "href": "https://github.com/5h1ngy/promptops",
-          "type": "github",
-          "external": true
-        }
-      },
-      {
-        "name": "DX Dash",
-        "description": "Dashboard React plug-in per misurare performance DX e copertura dei test in tempo reale.",
-        "period": "2023",
-        "tags": ["React", "Vite", "Vitest"],
-        "link": {
-          "label": "GitHub",
-          "href": "https://github.com/5h1ngy/dx-dash",
-          "type": "github",
-          "external": true
-        }
-      },
-      {
-        "name": "CLI Scaffolder",
-        "description": "Generator CLI TypeScript per bootstrap di microservizi opinionated con best practice pronte.",
-        "period": "2022",
-        "tags": ["TypeScript", "CLI", "DevOps"],
-        "link": {
-          "label": "GitHub",
-          "href": "https://github.com/5h1ngy/cli-scaffolder",
-          "type": "github",
-          "external": true
-        }
-      }
-    ]
-  }
+ï»¿{
+    "meta":  {
+                 "title":  "Davide Scarano - Frontend \u0026 DX Engineer",
+                 "description":  "Senior frontend engineer che costruisce interfacce scalabili e pipeline DX con React, TypeScript e AI.",
+                 "keywords":  [
+                                  "React",
+                                  "TypeScript",
+                                  "Design System",
+                                  "Developer Experience",
+                                  "AI Integration",
+                                  "Vite",
+                                  "Electron"
+                              ]
+             },
+    "profile":  {
+                    "name":  "Davide Scarano",
+                    "tagline":  "React, DX e AI per team che vogliono muoversi veloci senza rompere nulla.",
+                    "links":  [
+                                  {
+                                      "label":  "GitHub",
+                                      "url":  "https://github.com/5h1ngy",
+                                      "type":  "github"
+                                  },
+                                  {
+                                      "label":  "LinkedIn",
+                                      "url":  "https://www.linkedin.com/in/sig-scarano",
+                                      "type":  "linkedin"
+                                  }
+                              ]
+                },
+    "hero":  {
+                 "title":  "Davide Scarano",
+                 "typingTitles":  [
+                                      "5h1ngy",
+                                      "Davide Scarano"
+                                  ],
+                 "subtitle":  "Creo interfacce affidabili con DX moderna.",
+                 "description":  "React, TypeScript e automazioni AI per consegnare esperienze che scalano con il team.",
+                 "primaryAction":  {
+                                       "label":  "GitHub",
+                                       "href":  "https://github.com/5h1ngy",
+                                       "type":  "github",
+                                       "external":  true
+                                   },
+                 "secondaryAction":  {
+                                         "label":  "LinkedIn",
+                                         "href":  "https://www.linkedin.com/in/sig-scarano",
+                                         "type":  "linkedin",
+                                         "external":  true
+                                     },
+                 "orbit":  {
+                               "center":  "/logos/avatar.png",
+                               "rings":  [
+                                             {
+                                                 "radius":  120,
+                                                 "speed":  18,
+                                                 "icons":  [
+                                                               {
+                                                                   "label":  "React",
+                                                                   "icon":  "/logos/react.svg",
+                                                                   "size":  52
+                                                               },
+                                                               {
+                                                                   "label":  "TypeScript",
+                                                                   "icon":  "/logos/typescript.svg",
+                                                                   "size":  48
+                                                               }
+                                                           ]
+                                             },
+                                             {
+                                                 "radius":  170,
+                                                 "speed":  24,
+                                                 "icons":  [
+                                                               {
+                                                                   "label":  "Node.js",
+                                                                   "icon":  "/logos/nodejs.svg",
+                                                                   "size":  50
+                                                               },
+                                                               {
+                                                                   "label":  "Vite",
+                                                                   "icon":  "/logos/vitejs.svg",
+                                                                   "size":  46
+                                                               },
+                                                               {
+                                                                   "label":  "Redux",
+                                                                   "icon":  "/logos/redux.svg",
+                                                                   "size":  44
+                                                               }
+                                                           ]
+                                             },
+                                             {
+                                                 "radius":  210,
+                                                 "speed":  30,
+                                                 "icons":  [
+                                                               {
+                                                                   "label":  "Docker",
+                                                                   "icon":  "/logos/docker.svg",
+                                                                   "size":  48
+                                                               },
+                                                               {
+                                                                   "label":  "MongoDB",
+                                                                   "icon":  "/logos/mongo-db.svg",
+                                                                   "size":  44
+                                                               },
+                                                               {
+                                                                   "label":  "NestJS",
+                                                                   "icon":  "/logos/nestjs.svg",
+                                                                   "size":  46
+                                                               },
+                                                               {
+                                                                   "label":  "Bash",
+                                                                   "icon":  "/logos/bash.svg",
+                                                                   "size":  40
+                                                               }
+                                                           ]
+                                             }
+                                         ]
+                           }
+             },
+    "about":  {
+                  "title":  "Chi sono",
+                  "caption":  "Frontend pragmatica, esperienza prodotto e tooling che scala con il team.",
+                  "summary":  [
+                                  "Sono un frontend engineer con oltre dieci anni di esperienza tra scale-up e prodotti enterprise. Mi piace mettere ordine nelle interfacce, creare design system che non rallentano e orchestrare pipeline che fanno felici designer e developer.",
+                                  "Negli ultimi anni ho abilitato team cross-funzionali su prodotti AI-driven: ho curato DX, qualita del codice e automazioni che portano valore in produzione senza stress."
+                              ],
+                  "focus":  [
+                                {
+                                    "title":  "Design system plug\u0026play",
+                                    "description":  "Componenti React multibrand con accessibilita baked-in e token sincronizzati."
+                                },
+                                {
+                                    "title":  "AI enablement",
+                                    "description":  "PoC, orchestrazione prompt e integrazione con stack esistente per feature AI real world."
+                                },
+                                {
+                                    "title":  "Developer experience",
+                                    "description":  "Tooling Vite, Nx, lint diffuso e release pipeline che toglie attrito alla consegna."
+                                }
+                            ],
+                  "quickFacts":  [
+                                     {
+                                         "label":  "Esperienza",
+                                         "value":  "10+ anni"
+                                     },
+                                     {
+                                         "label":  "Settori",
+                                         "value":  "Fintech, Retail, SaaS"
+                                     },
+                                     {
+                                         "label":  "Remote",
+                                         "value":  "Europe friendly"
+                                     }
+                                 ]
+              },
+    "experience":  {
+                       "title":  "Esperienza",
+                       "caption":  "Prodotti lanciati con team distribuiti, design system e ossessione per la DX.",
+                       "roles":  [
+                                     {
+                                         "company":  "Buildo",
+                                         "role":  "Principal Frontend Engineer",
+                                         "period":  "2022 â€” oggi",
+                                         "summary":  "Guido l\u0027implementazione del design system modulare e della toolchain front-end per piattaforme enterprise.",
+                                         "highlights":  [
+                                                            "Ho re-ingegnerizzato il design system React 18 con token cross-brand e visual regression automatica.",
+                                                            "Ho introdotto Nx + Vite riducendo del 40% i tempi di build e semplificando la contribuzione dei team."
+                                                        ],
+                                         "tags":  [
+                                                      "React 18",
+                                                      "Nx",
+                                                      "Design System",
+                                                      "AI tooling"
+                                                  ]
+                                     },
+                                     {
+                                         "company":  "DOING / Capgemini",
+                                         "role":  "Lead Frontend Engineer",
+                                         "period":  "2019 â€” 2022",
+                                         "summary":  "Ho coordinato squad multidisciplinari su e-commerce e piattaforme data-driven scalando la DX.",
+                                         "highlights":  [
+                                                            "Ho lanciato un design system condiviso da 6 team con roll-out progressivo e training dedicati.",
+                                                            "Ho portato test end-to-end e monitoraggio real-time riducendo il time-to-recovery del 35%."
+                                                        ],
+                                         "tags":  [
+                                                      "Vue",
+                                                      "React",
+                                                      "Cypress",
+                                                      "Storybook"
+                                                  ]
+                                     },
+                                     {
+                                         "company":  "Freelance",
+                                         "role":  "Senior Frontend \u0026 DX Consultant",
+                                         "period":  "2014 â€” 2019",
+                                         "summary":  "Ho supportato startup e PMI su performance, accessibilita e bootstrap di prodotti digitali.",
+                                         "highlights":  [
+                                                            "Ho lanciato prototipi React + Electron per tool interni con delivery in poche settimane.",
+                                                            "Ho creato boilerplate TypeScript full-stack riutilizzati da team distribuiti in 3 fusi orari."
+                                                        ],
+                                         "tags":  [
+                                                      "Electron",
+                                                      "TypeScript",
+                                                      "Node.js",
+                                                      "DX"
+                                                  ]
+                                     }
+                                 ]
+                   },
+    "skills":  {
+                   "title":  "Stack e competenze",
+                   "caption":  "Tecnologie e pratiche con cui porto valore ogni giorno.",
+                   "categories":  [
+                                      {
+                                          "title":  "Frontend architecture",
+                                          "summary":  "Componentizzazione, rendering ibrido e performance audit continui.",
+                                          "items":  [
+                                                        "React 18",
+                                                        "TypeScript",
+                                                        "Next.js",
+                                                        "Zustand"
+                                                    ]
+                                      },
+                                      {
+                                          "title":  "Tooling \u0026 DX",
+                                          "summary":  "Pipeline Vite, automazioni CI/CD e qualita misurabile.",
+                                          "items":  [
+                                                        "Vite",
+                                                        "Nx",
+                                                        "Vitest",
+                                                        "Playwright"
+                                                    ]
+                                      },
+                                      {
+                                          "title":  "Product delivery",
+                                          "summary":  "Roadmap condivise, discovery rapida e metriche di impatto.",
+                                          "items":  [
+                                                        "Product Strategy",
+                                                        "Design Ops",
+                                                        "Data-informed UX"
+                                                    ]
+                                      }
+                                  ]
+               },
+    "openSource":  {
+                       "title":  "Progetti open source",
+                       "caption":  "Toolkit e sperimentazioni che condivido con la community.",
+                       "projects":  [
+                                        {
+                                            "name":  "PromptOps",
+                                            "description":  "Collection di strumenti per orchestrare prompt multi-modello con fallback intelligenti.",
+                                            "period":  "2024",
+                                            "tags":  [
+                                                         "Node.js",
+                                                         "AI Ops",
+                                                         "OpenAI"
+                                                     ],
+                                            "link":  {
+                                                         "label":  "GitHub",
+                                                         "href":  "https://github.com/5h1ngy/promptops",
+                                                         "type":  "github",
+                                                         "external":  true
+                                                     }
+                                        },
+                                        {
+                                            "name":  "DX Dash",
+                                            "description":  "Dashboard React plug-in per misurare performance DX e copertura dei test in tempo reale.",
+                                            "period":  "2023",
+                                            "tags":  [
+                                                         "React",
+                                                         "Vite",
+                                                         "Vitest"
+                                                     ],
+                                            "link":  {
+                                                         "label":  "GitHub",
+                                                         "href":  "https://github.com/5h1ngy/dx-dash",
+                                                         "type":  "github",
+                                                         "external":  true
+                                                     }
+                                        },
+                                        {
+                                            "name":  "CLI Scaffolder",
+                                            "description":  "Generator CLI TypeScript per bootstrap di microservizi opinionated con best practice pronte.",
+                                            "period":  "2022",
+                                            "tags":  [
+                                                         "TypeScript",
+                                                         "CLI",
+                                                         "DevOps"
+                                                     ],
+                                            "link":  {
+                                                         "label":  "GitHub",
+                                                         "href":  "https://github.com/5h1ngy/cli-scaffolder",
+                                                         "type":  "github",
+                                                         "external":  true
+                                                     }
+                                        }
+                                    ]
+                   }
 }
-

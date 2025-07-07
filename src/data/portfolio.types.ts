@@ -9,7 +9,6 @@ export interface PortfolioMeta {
   title: string
   description: string
   keywords: string[]
-  author: string
 }
 
 export interface PortfolioProfileLink {
@@ -20,7 +19,6 @@ export interface PortfolioProfileLink {
 
 export interface PortfolioProfile {
   name: string
-  headline: string
   tagline: string
   links: PortfolioProfileLink[]
 }
@@ -96,20 +94,10 @@ export interface PortfolioSkillCategory {
   items: string[]
 }
 
-export interface PortfolioProduct {
-  name: string
-  description: string
-  tags: string[]
-  link?: PortfolioActionLink
-}
-
 export interface PortfolioSkills {
   title: string
   caption: string
   categories: PortfolioSkillCategory[]
-  toolbelt: string[]
-  workflows: string[]
-  products: PortfolioProduct[]
 }
 
 export interface PortfolioOpenSourceProject {
