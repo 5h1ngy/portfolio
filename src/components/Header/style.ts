@@ -8,7 +8,7 @@ export const HeaderRoot = styled.header<{ $compact: boolean }>`
   z-index: 20;
   display: flex;
   justify-content: center;
-  padding: ${({ $compact }) => ($compact ? '0.5rem 0 1rem' : '1.5rem 0 2.5rem')};
+  padding: ${({ $compact }) => ($compact ? '0.3rem 0 0.6rem' : '0.7rem 0 1rem')};
   pointer-events: none;
   backdrop-filter: ${({ $compact }) => ($compact ? 'none' : 'blur(20px)')};
   background: ${({ $compact }) =>
@@ -24,7 +24,7 @@ export const HeaderInner = styled.div<{ $compact: boolean }>`
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  padding: ${({ $compact }) => ($compact ? '0.65rem 1.4rem' : '0.9rem 0')};
+  padding: ${({ $compact }) => ($compact ? '0.45rem 1rem' : '0.6rem 0')};
   transition: padding 0.3s ease, background 0.3s ease, border-radius 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
   background: ${({ $compact, theme }) => ($compact ? theme.colors.surface : 'transparent')};
   border-radius: ${({ $compact }) => ($compact ? '999px' : '0')};
@@ -36,7 +36,7 @@ export const HeaderInner = styled.div<{ $compact: boolean }>`
     flex-direction: column;
     align-items: stretch;
     gap: 1rem;
-    padding: ${({ $compact }) => ($compact ? '0.6rem 0.9rem' : '0.9rem 0')};
+    padding: ${({ $compact }) => ($compact ? '0.4rem 0.6rem' : '0.6rem 0')};
   }
 `;
 

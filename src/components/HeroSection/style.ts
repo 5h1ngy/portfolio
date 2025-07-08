@@ -34,6 +34,10 @@ export const HeroSectionWrapper = styled.section`
     z-index: 1;
   }
 
+  @media (max-width: 768px) {
+    margin-top: 5rem;
+  }
+
   @media (max-width: 960px) {
     min-height: auto;
     justify-content: flex-start;
