@@ -8,6 +8,7 @@ import {
   ModalHeader,
   ModalHighlights,
   ModalLink,
+  ModalBody,
   ModalOverlay,
   ModalPeriod,
   ModalScroll,
@@ -75,39 +76,41 @@ export const ExperienceModal = ({ role, onClose }: ExperienceModalProps) => {
     <ModalOverlay role="dialog" aria-modal="true" onClick={handleOverlayClick}>
       <ModalCard onClick={(event) => event.stopPropagation()}>
         <ModalScroll>
-          <ModalTopBar>
-            <ModalHeader>
-              <ModalPeriod>{role.period}</ModalPeriod>
-              {role.company && <ModalCompany>{role.company}</ModalCompany>}
-            </ModalHeader>
-            <ModalCloseSlot>
-              <ModalClose type="button" onClick={onClose} aria-label="Chiudi dettaglio esperienza">
-                <CloseIcon />
-              </ModalClose>
-            </ModalCloseSlot>
-          </ModalTopBar>
+          <ModalBody>
+            <ModalTopBar>
+              <ModalHeader>
+                <ModalPeriod>{role.period}</ModalPeriod>
+                {role.company && <ModalCompany>{role.company}</ModalCompany>}
+              </ModalHeader>
+              <ModalCloseSlot>
+                <ModalClose type="button" onClick={onClose} aria-label="Chiudi dettaglio esperienza">
+                  <CloseIcon />
+                </ModalClose>
+              </ModalCloseSlot>
+            </ModalTopBar>
 
-          <ModalTitle>{role.role}</ModalTitle>
-          <ModalSummary>{role.summary}</ModalSummary>
-          {role.highlights.length > 0 && (
-            <ModalHighlights>
-              {role.highlights.map((highlight, index) => (
-                <li key={index}>{highlight}</li>
-              ))}
-            </ModalHighlights>
-          )}
-          {role.tags.length > 0 && (
-            <ModalTags>
-              {role.tags.map((tag) => (
-                <ModalTag key={tag}>{tag}</ModalTag>
-              ))}
-            </ModalTags>
-          )}
-          {role.link && (
-            <ModalLink href={role.link.href} target={external ? '_blank' : undefined} rel={external ? 'noreferrer' : undefined}>
-              {role.link.label}
-            </ModalLink>
-          )}
+            <ModalTitle>{role.role}</ModalTitle>
+            <ModalSummary>{role.summary}</ModalSummary>
+            {role.highlights.length > 0 && (
+              <ModalHighlights>
+                {role.highlights.map((highlight, index) => (
+                  <li key={index}>{highlight}</li>
+                ))}
+              </ModalHighlights>
+            )}
+            {role.tags.length > 0 && (
+              <ModalTags>
+                {role.tags.map((tag) => (
+                  <ModalTag key={tag}>{tag}</ModalTag>
+                ))}
+              </ModalTags>
+            )}
+            {role.link && (
+              <ModalLink href={role.link.href} target={external ? '_blank' : undefined} rel={external ? 'noreferrer' : undefined}>
+                {role.link.label}
+              </ModalLink>
+            )}
+          </ModalBody>
         </ModalScroll>
       </ModalCard>
     </ModalOverlay>

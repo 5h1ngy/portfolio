@@ -125,11 +125,10 @@ export const TimelineMeta = styled.div`
 export const TimelinePeriod = styled.span``
 
 export const TimelineCompany = styled.span`
-  padding: 0.35rem 0.75rem;
-  border-radius: 999px;
-  border: 1px solid ${({ theme }) => theme.colors.accentOutline};
-  background: ${({ theme }) => theme.colors.surfaceMuted};
-  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  color: ${({ theme }) => theme.colors.textMuted};
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 `
 
 export const TimelineTitle = styled.h3`
@@ -147,12 +146,12 @@ export const TimelineSummary = styled.p`
 `
 
 export const TimelineCTA = styled.button`
-  justify-self: start;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 42px;
   height: 42px;
+  margin-left: auto;
   border-radius: 999px;
   border: 1px solid ${({ theme }) => theme.colors.accentOutline};
   background: ${({ theme }) => theme.colors.surfaceMuted};

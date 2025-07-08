@@ -56,15 +56,15 @@ export const ExperienceSection = ({ experience }: ExperienceSectionProps) => {
             <TimelineCard role="listitem">
               <TimelineMeta>
                 <TimelinePeriod>{role.period}</TimelinePeriod>
-                {role.company && <TimelineCompany>{role.company}</TimelineCompany>}
+                <TimelineCTA type="button" onClick={() => handleOpen(role)} aria-label={`Apri dettagli ${role.role}`}>
+                  <TimelineCTAIcon>
+                    <EyeIcon />
+                  </TimelineCTAIcon>
+                </TimelineCTA>
               </TimelineMeta>
               <TimelineTitle>{role.role}</TimelineTitle>
+              {role.company && <TimelineCompany>{role.company}</TimelineCompany>}
               <TimelineSummary>{truncate(role.summary, SUMMARY_TRUNCATE_LENGTH)}</TimelineSummary>
-              <TimelineCTA type="button" onClick={() => handleOpen(role)} aria-label={`Apri dettagli ${role.role}`}>
-                <TimelineCTAIcon>
-                  <EyeIcon />
-                </TimelineCTAIcon>
-              </TimelineCTA>
             </TimelineCard>
           );
 

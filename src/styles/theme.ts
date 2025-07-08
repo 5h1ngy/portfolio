@@ -93,7 +93,7 @@ export const createTheme = (mode: ThemeMode, accent: string): AppTheme => {
       overlay: base.overlay,
     },
     layout: {
-      maxWidth: '60vw',
+      maxWidth: '880px',
       gutter: '2.5rem',
     },
     shadows: {

@@ -44,14 +44,21 @@ export const ModalCard = styled.div`
 export const ModalScroll = styled.div`
   flex: 1;
   padding: clamp(1.05rem, 3vw, 1.6rem);
-  display: grid;
-  gap: clamp(0.7rem, 2vw, 1rem);
+  display: block;
   overflow-y: auto;
   min-height: 0;
 
   @media (max-width: 720px) {
-    padding: 0.95rem 0.9rem 1.25rem;
-    gap: 0.6rem;
+    padding: 0.85rem 0.85rem 1.15rem;
+  }
+`
+
+export const ModalBody = styled.div`
+  display: grid;
+  gap: clamp(0.7rem, 2.2vw, 1rem);
+
+  @media (max-width: 720px) {
+    gap: 0.55rem;
   }
 `
 
@@ -61,11 +68,12 @@ export const ModalTopBar = styled.div`
   justify-content: space-between;
   gap: clamp(0.8rem, 2.4vw, 1.2rem);
   padding-bottom: clamp(0.55rem, 1.8vw, 0.95rem);
-  margin-bottom: clamp(0.6rem, 2vw, 0.95rem);
+  margin-bottom: 0;
   border-bottom: 1px solid ${({ theme }) => theme.colors.accentOutline};
 
   @media (max-width: 720px) {
-    gap: 0.7rem;
+    gap: 0.65rem;
+    padding-bottom: 0.55rem;
   }
 `
 
@@ -167,6 +175,11 @@ export const ModalTags = styled.div`
   flex-wrap: wrap;
   gap: 0.45rem;
   margin-top: 0.25rem;
+
+  @media (max-width: 720px) {
+    gap: 0.35rem;
+    margin-top: 0.15rem;
+  }
 `
 
 export const ModalTag = styled.span`
@@ -177,12 +190,14 @@ export const ModalTag = styled.span`
   border: 1px solid ${({ theme }) => theme.colors.accentOutline};
   padding: 0.3rem 0.85rem;
   font-size: 0.8rem;
+  line-height: 1.2;
   color: ${({ theme }) => theme.colors.textSecondary};
   background: ${({ theme }) => theme.colors.surfaceMuted};
 
   @media (max-width: 720px) {
-    font-size: 0.75rem;
-    padding: 0.26rem 0.7rem;
+    font-size: 0.74rem;
+    padding: 0.24rem 0.68rem;
+    line-height: 1.15;
   }
 `
 
