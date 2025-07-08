@@ -4,11 +4,11 @@ export const SectionWrapper = styled.section<{ $subtle?: boolean }>`
   display: flex;
   flex-direction: column;
   gap: 1.75rem;
-  padding: 3rem 0;
+  padding: clamp(3.5rem, 7vw, 5rem) 0;
   scroll-margin-top: 6rem;
 
   &:first-of-type {
-    padding-top: 1.5rem;
+    padding-top: clamp(2.5rem, 6vw, 3rem);
   }
 
   &:last-of-type {

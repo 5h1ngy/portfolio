@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const TimelineWrapper = styled.div`
   position: relative;
@@ -32,23 +32,22 @@ export const TimelineWrapper = styled.div`
       left: calc(clamp(24px, 8vw, 32px) / 2);
     }
   }
-`;
+`
 
 export const TimelineRow = styled.div`
   display: contents;
-`;
+`
 
 export const TimelineSlot = styled.div<{ $side: "left" | "right" }>`
   grid-column: ${({ $side }) => ($side === "left" ? 1 : 3)};
   display: flex;
-  justify-content: ${({ $side }) =>
-    $side === "left" ? "flex-end" : "flex-start"};
+  justify-content: ${({ $side }) => ($side === "left" ? "flex-end" : "flex-start")};
 
   @media (max-width: 960px) {
     grid-column: 2;
     justify-content: flex-start;
   }
-`;
+`
 
 export const TimelinePlaceholder = styled.div<{ $side: "left" | "right" }>`
   grid-column: ${({ $side }) => ($side === "left" ? 1 : 3)};
@@ -56,7 +55,7 @@ export const TimelinePlaceholder = styled.div<{ $side: "left" | "right" }>`
   @media (max-width: 960px) {
     display: none;
   }
-`;
+`
 
 export const TimelineMarkerCell = styled.div`
   grid-column: 2;
@@ -70,7 +69,7 @@ export const TimelineMarkerCell = styled.div`
   @media (max-width: 960px) {
     grid-column: 1;
   }
-`;
+`
 
 export const TimelineMarker = styled.span`
   display: inline-block;
@@ -85,24 +84,32 @@ export const TimelineMarker = styled.span`
   @media (max-width: 960px) {
     display: none;
   }
-`;
+`
 
-export const TimelineCard = styled.div`
+export const TimelineCard = styled.article`
   position: relative;
   display: grid;
-  gap: 0.85rem;
-  width: clamp(260px, 32vw, 360px);
-  padding: 1.6rem 1.8rem;
+  gap: 0.75rem;
+  width: clamp(240px, 30vw, 340px);
+  padding: 1.35rem 1.5rem;
   border-radius: 22px;
   background: ${({ theme }) => theme.colors.surfaceElevated};
   border: 1px solid ${({ theme }) => theme.colors.accentOutline};
   box-shadow: ${({ theme }) => theme.shadows.ambient};
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+
+  &:hover,
+  &:focus-within {
+    transform: translateY(-6px);
+    border-color: ${({ theme }) => theme.colors.accentOutline};
+    box-shadow: ${({ theme }) => theme.shadows.accent};
+  }
 
   @media (max-width: 960px) {
     width: 100%;
-    padding: 1.5rem 1.6rem;
+    padding: 1.4rem 1.5rem;
   }
-`;
+`
 
 export const TimelineMeta = styled.div`
   display: flex;
@@ -113,9 +120,9 @@ export const TimelineMeta = styled.div`
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.textMuted};
-`;
+`
 
-export const TimelinePeriod = styled.span``;
+export const TimelinePeriod = styled.span``
 
 export const TimelineCompany = styled.span`
   padding: 0.35rem 0.75rem;
@@ -123,59 +130,53 @@ export const TimelineCompany = styled.span`
   border: 1px solid ${({ theme }) => theme.colors.accentOutline};
   background: ${({ theme }) => theme.colors.surfaceMuted};
   letter-spacing: 0.08em;
-`;
+`
 
 export const TimelineTitle = styled.h3`
   margin: 0;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   color: ${({ theme }) => theme.colors.textPrimary};
-`;
+`
 
 export const TimelineSummary = styled.p`
   margin: 0;
   color: ${({ theme }) => theme.colors.textSecondary};
-  line-height: 1.6;
-`;
+  line-height: 1.5;
+  font-size: 0.9rem;
+  min-height: 2.6rem;
+`
 
-export const TimelineHighlights = styled.ul`
-  margin: 0;
-  padding-left: 1.1rem;
-  display: grid;
-  gap: 0.55rem;
-  color: ${({ theme }) => theme.colors.textSecondary};
-`;
-
-export const TimelineTags = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-`;
-
-export const TimelineTag = styled.span`
+export const TimelineCTA = styled.button`
+  justify-self: start;
   display: inline-flex;
   align-items: center;
-  align-items: flex-start;
   justify-content: center;
+  width: 42px;
+  height: 42px;
   border-radius: 999px;
   border: 1px solid ${({ theme }) => theme.colors.accentOutline};
-  padding: 0.35rem 0.9rem;
-  font-size: 0.82rem;
-  color: ${({ theme }) => theme.colors.textSecondary};
   background: ${({ theme }) => theme.colors.surfaceMuted};
-`;
-
-export const TimelineLink = styled.a`
-  justify-self: start;
-  font-weight: 600;
-  font-size: 0.9rem;
   color: ${({ theme }) => theme.colors.accent};
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
+  cursor: pointer;
+  transition: border-color 0.18s ease, transform 0.18s ease, color 0.18s ease;
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
 
   &:hover,
   &:focus-visible {
-    text-decoration: underline;
+    border-color: ${({ theme }) => theme.colors.accent};
+    color: ${({ theme }) => theme.colors.textPrimary};
+    transform: translateY(-1px) scale(1.05);
   }
-`;
+`
+
+export const TimelineCTAIcon = styled.span`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+`

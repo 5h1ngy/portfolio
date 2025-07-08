@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+﻿import styled, { keyframes } from "styled-components";
 
 const caretBlink = keyframes`
   0%, 50% {
@@ -34,6 +34,10 @@ export const HeroSectionWrapper = styled.section`
     z-index: 1;
   }
 
+  @media (max-width: 768px) {
+    margin-top: 5rem;
+  }
+
   @media (max-width: 960px) {
     min-height: auto;
     justify-content: flex-start;
@@ -43,9 +47,9 @@ export const HeroSectionWrapper = styled.section`
 export const HeroLayout = styled.div`
   position: relative;
   width: min(1120px, 92vw);
-  margin-top: -35vh;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 20vw);
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 30vw);
   gap: clamp(4.25rem, 12vw, 9.5rem);
   align-items: center;
 
@@ -179,3 +183,5 @@ export const HeroTitleText = styled.span`
     animation: ${caretBlink} 1s steps(2, start) infinite;
   }
 `;
+
+
