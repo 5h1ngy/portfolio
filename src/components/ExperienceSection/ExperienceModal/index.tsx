@@ -1,5 +1,3 @@
-import { useEffect, type MouseEvent } from 'react';
-
 import {
   ModalCard,
   ModalClose,
@@ -19,14 +17,9 @@ import {
   ModalTopBar,
 } from '@components/ExperienceSection/ExperienceModal/style';
 import type { PortfolioExperienceRole } from '@data/portfolio.types';
-
-const isExternalLink = (href: string) => /^https?:\/\//i.test(href);
-
-const CloseIcon = () => (
-  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
-    <path d="M6.757 5.343a1 1 0 0 0-1.414 1.414L10.586 12l-5.243 5.243a1 1 0 0 0 1.414 1.414L12 13.414l5.243 5.243a1 1 0 0 0 1.414-1.414L13.414 12l5.243-5.243a1 1 0 1 0-1.414-1.414L12 10.586 6.757 5.343Z" />
-  </svg>
-);
+import { useExperienceModal } from '@components/ExperienceSection/ExperienceModal/hooks';
+import { isExternalLink } from '@components/ExperienceSection/ExperienceModal/helpers';
+import { CloseIcon } from '@components/ExperienceSection/ExperienceModal/icons';
 
 interface ExperienceModalProps {
   role: PortfolioExperienceRole | null;
@@ -34,31 +27,7 @@ interface ExperienceModalProps {
 }
 
 export const ExperienceModal = ({ role, onClose }: ExperienceModalProps) => {
-  useEffect(() => {
-    if (!role) {
-      return;
-    }
-
-    const { body, documentElement } = document;
-    const previousOverflow = body.style.overflow;
-    const previousHtmlOverflow = documentElement.style.overflow;
-    body.style.overflow = 'hidden';
-    documentElement.style.overflow = 'hidden';
-
-    const handleKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        onClose();
-      }
-    };
-
-    window.addEventListener('keydown', handleKey);
-
-    return () => {
-      body.style.overflow = previousOverflow;
-      documentElement.style.overflow = previousHtmlOverflow;
-      window.removeEventListener('keydown', handleKey);
-    };
-  }, [role, onClose]);
+  const { titleId, handleOverlayClick } = useExperienceModal({ role, onClose });
 
   if (!role) {
     return null;
@@ -66,14 +35,8 @@ export const ExperienceModal = ({ role, onClose }: ExperienceModalProps) => {
 
   const external = Boolean(role.link && (role.link.external || isExternalLink(role.link.href)));
 
-  const handleOverlayClick = (event: MouseEvent<HTMLDivElement>) => {
-    if (event.target === event.currentTarget) {
-      onClose();
-    }
-  };
-
   return (
-    <ModalOverlay role="dialog" aria-modal="true" onClick={handleOverlayClick}>
+    <ModalOverlay role="dialog" aria-modal="true" aria-labelledby={titleId} onClick={handleOverlayClick}>
       <ModalCard onClick={(event) => event.stopPropagation()}>
         <ModalScroll>
           <ModalBody>
@@ -89,7 +52,7 @@ export const ExperienceModal = ({ role, onClose }: ExperienceModalProps) => {
               </ModalCloseSlot>
             </ModalTopBar>
 
-            <ModalTitle>{role.role}</ModalTitle>
+            <ModalTitle id={titleId}>{role.role}</ModalTitle>
             <ModalSummary>{role.summary}</ModalSummary>
             {role.highlights.length > 0 && (
               <ModalHighlights>
