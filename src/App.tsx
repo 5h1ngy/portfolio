@@ -6,7 +6,7 @@ import { ExperienceSection } from '@components/ExperienceSection'
 import { Footer } from '@components/Footer'
 import { Header } from '@components/Header'
 import { HeroSection } from '@components/HeroSection'
-import { OpenSourceSection } from '@components/OpenSourceSection'
+import { OpenSourceProductsSection, OpenSourceSection } from '@components/OpenSourceSection'
 import { SkillsSection } from '@components/SkillsSection'
 import { portfolioData } from '@data/portfolio'
 import { AppMain, AppShell } from '@/App.style'
@@ -17,13 +17,14 @@ const ACCENT_OPTIONS = ['#5cf3e9', '#ff7de8', '#6dff89', '#7ca9ff']
 const DEFAULT_NAVIGATION = [
   { label: 'Profilo', targetId: 'about' },
   { label: 'Competenze', targetId: 'skills' },
+  { label: 'Prodotti', targetId: 'open-source-products' },
   { label: 'Open source', targetId: 'open-source' },
   { label: 'Esperienza', targetId: 'experience' },
 ]
 const DEFAULT_ACCENT = ACCENT_OPTIONS[0]
 
 export const App = () => {
-  const { meta, profile, hero, about, experience, skills, openSource } = portfolioData
+  const { meta, profile, hero, about, experience, skills, openSource, openSourceProducts } = portfolioData
 
   const [themeMode, setThemeMode] = useState<ThemeMode>('dark')
   const [accentColor, setAccentColor] = useState<string>(DEFAULT_ACCENT)
@@ -64,6 +65,7 @@ export const App = () => {
           <HeroSection hero={hero} socialLinks={profile.links} />
           <AboutSection about={about} />
           <SkillsSection skills={skills} />
+          <OpenSourceProductsSection products={openSourceProducts} />
           <OpenSourceSection openSource={openSource} />
           <ExperienceSection experience={experience} />
         </AppMain>

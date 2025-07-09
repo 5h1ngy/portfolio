@@ -1,7 +1,9 @@
 import { Section } from '@components/Section';
-import type { OpenSourceSectionProps } from '@components/OpenSourceSection/types';
+import type { OpenSourceProductsSectionProps, OpenSourceSectionProps } from '@components/OpenSourceSection/types';
+import { ProductsSlider } from '@components/OpenSourceSection/ProductsSlider';
 import {
   OpenSourceGrid,
+  ProductsEmpty,
   ProjectCard,
   ProjectDescription,
   ProjectHeader,
@@ -14,8 +16,14 @@ import {
 
 const isExternal = (href: string) => /^https?:\/\//i.test(href);
 
-export const OpenSourceSection = ({ openSource }: OpenSourceSectionProps) => (
-  <Section id="open-source" accent="Open source" title={openSource.title} description={openSource.caption}>
+interface OpenSourceListSectionProps {
+  id: string;
+  accent: string;
+  openSource: OpenSourceSectionProps['openSource'];
+}
+
+const OpenSourceListSection = ({ id, accent, openSource }: OpenSourceListSectionProps) => (
+  <Section id={id} accent={accent} title={openSource.title} description={openSource.caption}>
     <OpenSourceGrid>
       {openSource.projects.map((project) => (
         <ProjectCard key={project.name}>
@@ -45,3 +53,19 @@ export const OpenSourceSection = ({ openSource }: OpenSourceSectionProps) => (
     </OpenSourceGrid>
   </Section>
 );
+
+export const OpenSourceSection = ({ openSource }: OpenSourceSectionProps) => (
+  <OpenSourceListSection id="open-source" accent="Open source" openSource={openSource} />
+);
+
+export const OpenSourceProductsSection = ({ products }: OpenSourceProductsSectionProps) => {
+  return (
+    <Section id="open-source-products" accent="Prodotti" title={products.title} description={products.caption}>
+      {products.projects.length === 0 ? (
+        <ProductsEmpty>Nessun prodotto open source pubblicato al momento.</ProductsEmpty>
+      ) : (
+        <ProductsSlider products={products} />
+      )}
+    </Section>
+  );
+};

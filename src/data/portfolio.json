@@ -208,11 +208,11 @@
                                  ]
                    },
     "skills":  {
-                   "title":  "Stack e competenze",
-                   "caption":  "Tecnologie e pratiche con cui porto valore ogni giorno.",
-                   "categories":  [
-                                      {
-                                          "title":  "Frontend architecture",
+                    "title":  "Stack e competenze",
+                    "caption":  "Tecnologie e pratiche con cui porto valore ogni giorno.",
+                    "categories":  [
+                                       {
+                                           "title":  "Frontend architecture",
                                           "summary":  "Componentizzazione, rendering ibrido e performance audit continui.",
                                           "items":  [
                                                         "React 18",
@@ -240,11 +240,107 @@
                                                         "Data-informed UX"
                                                     ]
                                       }
-                                  ]
-               },
+                                     ]
+                },
+     "openSourceProducts":  {
+                        "title":  "Prodotti open source",
+                        "caption":  "Pacchetti e servizi che mantengo per abilitare team cross-funzione.",
+                        "projects":  [
+                                         {
+                                             "name":  "Telemetry Hub",
+                                             "description":  "Piattaforma self-hosted per aggregare metriche DX e insight su pipeline Git.",
+                                             "period":  "2024",
+                                             "tags":  [
+                                                          "Go",
+                                                          "Prometheus",
+                                                          "Grafana"
+                                                      ],
+                                             "link":  {
+                                                          "label":  "Website",
+                                                          "href":  "https://telemetry-hub.dev",
+                                                          "type":  "website",
+                                                          "external":  true
+                                                      },
+                                             "links":  [
+                                                            {
+                                                                "label":  "Website",
+                                                                "href":  "https://telemetry-hub.dev",
+                                                                "type":  "website",
+                                                                "external":  true
+                                                            },
+                                                            {
+                                                                "label":  "GitHub",
+                                                                "href":  "https://github.com/5h1ngy/telemetry-hub",
+                                                                "type":  "github",
+                                                                "external":  true
+                                                            }
+                                                        ]
+                                         },
+                                         {
+                                             "name":  "Design Tokens Studio",
+                                             "description":  "Servizio SaaS leggero per sincronizzare design token multi-brand verso librerie React/Flutter.",
+                                             "period":  "2023",
+                                             "tags":  [
+                                                          "Design System",
+                                                          "API",
+                                                          "SaaS"
+                                                      ],
+                                             "link":  {
+                                                          "label":  "Docs",
+                                                          "href":  "https://tokens.studio/docs",
+                                                          "type":  "docs",
+                                                          "external":  true
+                                                      },
+                                             "links":  [
+                                                            {
+                                                                "label":  "Website",
+                                                                "href":  "https://tokens.studio",
+                                                                "type":  "website",
+                                                                "external":  true
+                                                            },
+                                                            {
+                                                                "label":  "Docs",
+                                                                "href":  "https://tokens.studio/docs",
+                                                                "type":  "docs",
+                                                                "external":  true
+                                                            },
+                                                            {
+                                                                "label":  "GitHub",
+                                                                "href":  "https://github.com/5h1ngy/design-tokens-studio",
+                                                                "type":  "github",
+                                                                "external":  true
+                                                            }
+                                                        ]
+                                         },
+                                         {
+                                             "name":  "Pipeline Kit",
+                                             "description":  "Suite di template CI/CD pronta all'uso per orchestrare build, release e controlli di qualità multi-repo.",
+                                             "period":  "2021",
+                                             "tags":  [
+                                                          "CI/CD",
+                                                          "GitHub Actions",
+                                                          "DX"
+                                                      ],
+                                             "link":  {
+                                                          "label":  "GitHub",
+                                                          "href":  "https://github.com/5h1ngy/pipeline-kit",
+                                                          "type":  "github",
+                                                          "external":  true
+                                                      },
+                                             "links":  [
+                                                            {
+                                                                "label":  "GitHub",
+                                                                "href":  "https://github.com/5h1ngy/pipeline-kit",
+                                                                "type":  "github",
+                                                                "external":  true
+                                                            }
+                                                        ]
+                                         }
+                                     ]
+                    },
     "openSource":  {
-                       "title":  "Progetti open source",
-                       "caption":  "Toolkit e sperimentazioni che condivido con la community.",
+                        "title":  "Progetti open source",
+                        "caption":  "Toolkit e sperimentazioni che condivido con la community.",
                        "projects":  [
                                         {
                                             "name":  "PromptOps",

@@ -3,7 +3,7 @@ import styled from "styled-components"
 export const ModalOverlay = styled.div`
   position: fixed;
   inset: 0;
-  background: linear-gradient(180deg, rgba(4, 8, 20, 0.82), rgba(4, 8, 20, 0.92));
+  background: rgba(4, 8, 20, 0.9);
   backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
@@ -27,7 +27,7 @@ export const ModalCard = styled.div`
   border-radius: 28px;
   border: 1px solid ${({ theme }) => theme.colors.accentOutline};
   background: ${({ theme }) => theme.colors.surfaceElevated};
-  box-shadow: ${({ theme }) => theme.shadows.accent};
+  box-shadow: none;
   display: flex;
   flex-direction: column;
   overflow: hidden;

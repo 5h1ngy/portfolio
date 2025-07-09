@@ -61,3 +61,12 @@ export const ProjectLink = styled.a`
   font-size: 0.88rem;
   color: ${({ theme }) => theme.colors.accent};
 `;
+
+export const ProductsEmpty = styled.div`
+  padding: clamp(1.2rem, 3vw, 1.6rem);
+  border-radius: 20px;
+  border: 1px dashed ${({ theme }) => theme.colors.accentOutline};
+  background: ${({ theme }) => theme.colors.surfaceMuted};
+  color: ${({ theme }) => theme.colors.textSecondary};
+  text-align: center;
+`;
