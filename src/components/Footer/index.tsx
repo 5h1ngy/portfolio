@@ -1,5 +1,5 @@
-import type { FooterProps } from '@components/Footer/types';
-import { isExternal } from '@components/Footer/helpers';
+import type { FooterProps } from '@/components/Footer/types';
+import { isExternal } from '@/components/Footer/helpers';
 import {
   FooterBrand,
   FooterCopy,
@@ -8,7 +8,7 @@ import {
   FooterLinks,
   FooterName,
   FooterRoot,
-} from '@components/Footer/style';
+} from '@/components/Footer/style';
 
 export const Footer = ({ profile, meta }: FooterProps) => (
   <FooterRoot>

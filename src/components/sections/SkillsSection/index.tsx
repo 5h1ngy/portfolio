@@ -1,12 +1,12 @@
 import type { PortfolioSkills } from '@data/portfolio.types';
-import { Section } from '@components/Section';
+import { Section } from '@components/shared/Section';
 import {
   CategoryCard,
   CategoryGrid,
   CategoryList,
   CategorySubtitle,
   CategoryTitle,
-} from '@components/SkillsSection/style';
+} from '@/components/sections/SkillsSection/style';
 
 interface SkillsSectionProps {
   skills: PortfolioSkills;

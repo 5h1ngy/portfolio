@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { SVGProps } from 'react';
 
-import type { HeaderProps } from '@components/Header/types';
-import { useHeaderCompact } from '@components/Header/hooks';
+import type { HeaderProps } from '@/components/Header/types';
+import { useHeaderCompact } from '@/components/Header/hooks';
 import {
   AccentGrid,
   AccentSwatch,
@@ -23,7 +23,7 @@ import {
   ThemeSwitchIcon,
   ThemeSwitchThumb,
   ThemeTriggerIcon,
-} from '@components/Header/style';
+} from '@/components/Header/style';
 
 const ACCENT_LABELS: Record<string, string> = {
   '#5cf3e9': 'Aqua glow',

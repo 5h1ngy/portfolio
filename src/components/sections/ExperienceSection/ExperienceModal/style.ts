@@ -1,9 +1,10 @@
 import styled from "styled-components"
+import { TagPill } from '@components/shared/TagPill'
 
 export const ModalOverlay = styled.div`
   position: fixed;
   inset: 0;
-  background: linear-gradient(180deg, rgba(4, 8, 20, 0.82), rgba(4, 8, 20, 0.92));
+  background: rgba(4, 8, 20, 0.9);
   backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
@@ -27,7 +28,7 @@ export const ModalCard = styled.div`
   border-radius: 28px;
   border: 1px solid ${({ theme }) => theme.colors.accentOutline};
   background: ${({ theme }) => theme.colors.surfaceElevated};
-  box-shadow: ${({ theme }) => theme.shadows.accent};
+  box-shadow: none;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -182,17 +183,9 @@ export const ModalTags = styled.div`
   }
 `
 
-export const ModalTag = styled.span`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  border: 1px solid ${({ theme }) => theme.colors.accentOutline};
-  padding: 0.3rem 0.85rem;
+export const ModalTag = styled(TagPill)`
   font-size: 0.8rem;
-  line-height: 1.2;
-  color: ${({ theme }) => theme.colors.textSecondary};
-  background: ${({ theme }) => theme.colors.surfaceMuted};
+  padding: 0.3rem 0.85rem;
 
   @media (max-width: 720px) {
     font-size: 0.74rem;

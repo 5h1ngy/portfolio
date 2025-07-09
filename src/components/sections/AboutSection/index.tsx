@@ -1,5 +1,5 @@
-import type { AboutSectionProps } from '@components/AboutSection/types';
-import { Section } from '@components/Section';
+import type { AboutSectionProps } from '@/components/sections/AboutSection/types';
+import { Section } from '@components/shared/Section';
 import {
   FactCard,
   FactLabel,
@@ -10,7 +10,7 @@ import {
   FocusTitle,
   QuickFacts,
   Summary,
-} from '@components/AboutSection/style';
+} from '@/components/sections/AboutSection/style';
 
 export const AboutSection = ({ about }: AboutSectionProps) => (
   <Section id="about" accent="Profilo" title={about.title} description={about.caption}>

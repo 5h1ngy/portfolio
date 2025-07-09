@@ -10,9 +10,11 @@ export const HeaderRoot = styled.header<{ $compact: boolean }>`
   justify-content: center;
   padding: ${({ $compact }) => ($compact ? '0.3rem 0 0.6rem' : '0.7rem 0 1rem')};
   pointer-events: none;
-  backdrop-filter: ${({ $compact }) => ($compact ? 'none' : 'blur(20px)')};
+  backdrop-filter: blur(20px);
   background: ${({ $compact }) =>
-    $compact ? 'transparent' : 'linear-gradient(180deg, rgba(4, 7, 19, 0.85) 0%, rgba(4, 7, 19, 0.68) 60%, transparent 100%)'};
+    $compact
+      ? 'transparent'
+      : 'linear-gradient(180deg, rgba(4, 7, 19, 0.85) 0%, rgba(4, 7, 19, 0.68) 60%, transparent 100%)'};
   border-bottom: ${({ $compact, theme }) => ($compact ? 'transparent' : theme.colors.border)};
   transition: background 0.3s ease, border-bottom 0.3s ease, padding 0.3s ease;
 `;
@@ -338,4 +340,3 @@ export const MobileBackdrop = styled.button<{ $visible: boolean }>`
     pointer-events: ${({ $visible }) => ($visible ? 'auto' : 'none')};
   }
 `;
-

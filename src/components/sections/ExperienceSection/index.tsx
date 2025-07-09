@@ -1,6 +1,6 @@
-import { ExperienceModal } from '@components/ExperienceSection/ExperienceModal';
-import { Section } from '@components/Section';
-import type { ExperienceSectionProps } from '@components/ExperienceSection/types';
+import { ExperienceModal } from '@/components/sections/ExperienceSection/ExperienceModal';
+import { Section } from '@components/shared/Section';
+import type { ExperienceSectionProps } from '@/components/sections/ExperienceSection/types';
 import {
   TimelineCTA,
   TimelineCTAIcon,
@@ -16,10 +16,10 @@ import {
   TimelineSummary,
   TimelineTitle,
   TimelineWrapper,
-} from '@components/ExperienceSection/style';
-import { EyeIcon } from '@components/ExperienceSection/icons';
-import { truncateSummary } from '@components/ExperienceSection/helpers';
-import { useExperienceTimeline } from '@components/ExperienceSection/hooks';
+} from '@/components/sections/ExperienceSection/style';
+import { EyeIcon } from '@/components/sections/ExperienceSection/icons';
+import { truncateSummary } from '@/components/sections/ExperienceSection/helpers';
+import { useExperienceTimeline } from '@/components/sections/ExperienceSection/hooks';
 
 export const ExperienceSection = ({ experience }: ExperienceSectionProps) => {
   const { roles, activeRole, openRole, closeRole } = useExperienceTimeline(experience.roles);

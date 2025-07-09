@@ -106,6 +106,7 @@ export interface PortfolioOpenSourceProject {
   period: string
   tags: string[]
   link?: PortfolioActionLink
+  links?: PortfolioActionLink[]
 }
 
 export interface PortfolioOpenSource {
@@ -122,4 +123,5 @@ export interface PortfolioData {
   experience: PortfolioExperience
   skills: PortfolioSkills
   openSource: PortfolioOpenSource
+  openSourceProducts: PortfolioOpenSource
 }

@@ -1,9 +1,9 @@
 import type { ComponentType, SVGProps } from 'react';
 
-import { HeroOrbit } from '@components/HeroOrbit';
-import { isExternal } from '@components/HeroSection/helpers';
-import { useHeroSocialIcons, useTypingHeadline, type HeroIconType } from '@components/HeroSection/hooks';
-import type { HeroSectionProps } from '@components/HeroSection/types';
+import { HeroOrbit } from './HeroOrbit';
+import { isExternal } from '@/components/sections/HeroSection/helpers';
+import { useHeroSocialIcons, useTypingHeadline, type HeroIconType } from '@/components/sections/HeroSection/hooks';
+import type { HeroSectionProps } from '@/components/sections/HeroSection/types';
 import {
   HeroDescription,
   HeroEyebrow,
@@ -17,7 +17,7 @@ import {
   HeroTitle,
   HeroTitleGhost,
   HeroTitleText,
-} from '@components/HeroSection/style';
+} from '@/components/sections/HeroSection/style';
 
 const GitHubIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="currentColor" {...props}>

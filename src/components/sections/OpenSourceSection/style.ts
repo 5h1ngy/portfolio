@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { TagPill } from '@components/shared/TagPill';
 
 export const OpenSourceGrid = styled.div`
   display: grid;
@@ -47,17 +48,21 @@ export const ProjectTags = styled.div`
   gap: 0.45rem;
 `;
 
-export const ProjectTag = styled.span`
-  border-radius: 999px;
-  border: 1px solid ${({ theme }) => theme.colors.accentOutline};
+export const ProjectTag = styled(TagPill)`
   padding: 0.35rem 0.85rem;
-  font-size: 0.78rem;
-  color: ${({ theme }) => theme.colors.textSecondary};
-  background: ${({ theme }) => theme.colors.surfaceMuted};
 `;
 
 export const ProjectLink = styled.a`
   font-weight: 600;
   font-size: 0.88rem;
   color: ${({ theme }) => theme.colors.accent};
+`;
+
+export const ProductsEmpty = styled.div`
+  padding: clamp(1.2rem, 3vw, 1.6rem);
+  border-radius: 20px;
+  border: 1px dashed ${({ theme }) => theme.colors.accentOutline};
+  background: ${({ theme }) => theme.colors.surfaceMuted};
+  color: ${({ theme }) => theme.colors.textSecondary};
+  text-align: center;
 `;

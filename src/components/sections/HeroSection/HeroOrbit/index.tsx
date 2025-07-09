@@ -1,7 +1,7 @@
-import type { HeroOrbitProps } from '@components/HeroOrbit/types';
-import { OrbitCenter, OrbitIcon, OrbitItem, OrbitRing, OrbitRings, OrbitWrapper } from '@components/HeroOrbit/style';
-import { resolveOrbitAsset } from '@components/HeroOrbit/helpers';
-import { useOrbitRings } from '@components/HeroOrbit/hooks';
+import type { HeroOrbitProps } from './types';
+import { OrbitCenter, OrbitIcon, OrbitItem, OrbitRing, OrbitRings, OrbitWrapper } from './style';
+import { resolveOrbitAsset } from './helpers';
+import { useOrbitRings } from './hooks';
 
 export const HeroOrbit = ({ orbit }: HeroOrbitProps) => {
   const rings = useOrbitRings(orbit);
