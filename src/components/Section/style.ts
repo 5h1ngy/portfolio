@@ -33,20 +33,16 @@ export const SectionWrapper = styled.section<{ $subtle?: boolean }>`
 export const SectionHeader = styled.header`
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.85rem;
 `;
 
-export const SectionAccent = styled.span`
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: ${({ theme }) => theme.colors.accent};
-  font-weight: 600;
-`;
-
-export const SectionTitle = styled.h2`
-  font-size: clamp(1.45rem, 3vw, 2rem);
+export const SectionHeading = styled.h2`
   margin: 0;
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: ${({ theme }) => theme.colors.accent};
+  font-weight: 700;
 `;
 
 export const SectionDescription = styled.p`

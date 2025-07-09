@@ -1,12 +1,5 @@
 ﻿import type { PropsWithChildren } from 'react'
-import {
-  SectionAccent,
-  SectionContent,
-  SectionDescription,
-  SectionHeader,
-  SectionTitle,
-  SectionWrapper,
-} from '@components/Section/style'
+import { SectionContent, SectionDescription, SectionHeader, SectionHeading, SectionWrapper } from '@components/Section/style'
 
 interface SectionProps {
   id: string
@@ -24,14 +17,14 @@ export const Section = ({
   subtle,
   children,
 }: PropsWithChildren<SectionProps>) => {
-  const hasHeader = Boolean(accent || title || description)
+  const heading = accent ?? title
+  const hasHeader = Boolean(heading || description)
 
   return (
     <SectionWrapper id={id} $subtle={subtle}>
       {hasHeader && (
         <SectionHeader>
-          {accent && <SectionAccent>{accent}</SectionAccent>}
-          {title && <SectionTitle>{title}</SectionTitle>}
+          {heading && <SectionHeading>{heading}</SectionHeading>}
           {description && <SectionDescription>{description}</SectionDescription>}
         </SectionHeader>
       )}
