@@ -1,6 +1,6 @@
 import type { ComponentType, SVGProps } from 'react';
 
-import { HeroOrbit } from './HeroOrbit';
+import { HeroOrbit } from './components/HeroOrbit';
 import { isExternal } from '@/components/sections/HeroSection/helpers';
 import { useHeroSocialIcons, useTypingHeadline, type HeroIconType } from '@/components/sections/HeroSection/hooks';
 import type { HeroSectionProps } from '@/components/sections/HeroSection/types';
