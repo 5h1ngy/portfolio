@@ -1,4 +1,4 @@
-import { ExperienceModal } from '@/components/sections/ExperienceSection/ExperienceModal';
+import { ExperienceModal } from './components/ExperienceModal';
 import { Section } from '@components/shared/Section';
 import type { ExperienceSectionProps } from '@/components/sections/ExperienceSection/types';
 import {

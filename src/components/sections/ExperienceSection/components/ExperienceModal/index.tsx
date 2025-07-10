@@ -15,11 +15,11 @@ import {
   ModalTags,
   ModalTitle,
   ModalTopBar,
-} from '@/components/sections/ExperienceSection/ExperienceModal/style';
+} from './style';
 import type { PortfolioExperienceRole } from '@data/portfolio.types';
-import { useExperienceModal } from '@/components/sections/ExperienceSection/ExperienceModal/hooks';
-import { isExternalLink } from '@/components/sections/ExperienceSection/ExperienceModal/helpers';
-import { CloseIcon } from '@/components/sections/ExperienceSection/ExperienceModal/icons';
+import { useExperienceModal } from './hooks';
+import { isExternalLink } from './helpers';
+import { CloseIcon } from './icons';
 
 interface ExperienceModalProps {
   role: PortfolioExperienceRole | null;
