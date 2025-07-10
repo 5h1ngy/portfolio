@@ -1,6 +1,6 @@
 import { useCallback } from 'react'
 
-import { Nav, NavLink } from '@/components/Header/style'
+import { Nav, NavLink } from '@/components/Header/components/HeaderNavigation.style'
 import type { HeaderNavigationItem } from '@/components/Header/types'
 
 interface HeaderNavigationProps {

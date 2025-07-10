@@ -3,7 +3,6 @@ import type { RefObject } from 'react';
 import {
   AccentGrid,
   AccentSwatch,
-  HiddenLabel,
   ThemeMenu,
   ThemeMenuButton,
   ThemeMenuContent,
@@ -13,7 +12,8 @@ import {
   ThemeSwitchIcon,
   ThemeSwitchThumb,
   ThemeTriggerIcon,
-} from '@/components/Header/style';
+} from '@/components/Header/components/HeaderThemeMenu.style';
+import { HiddenLabel } from '@/components/Header/components/HeaderShared.style';
 import type { ThemeMode } from '@styles/theme';
 import { MoonIcon, PaletteIcon, SunIcon } from '@styles/icons';
 

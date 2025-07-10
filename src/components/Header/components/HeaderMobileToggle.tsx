@@ -1,4 +1,5 @@
-import { HiddenLabel, MobileToggle } from '@/components/Header/style';
+import { HiddenLabel } from '@/components/Header/components/HeaderShared.style';
+import { MobileToggle } from '@/components/Header/components/HeaderMobileToggle.style';
 
 interface HeaderMobileToggleProps {
   isOpen: boolean;
