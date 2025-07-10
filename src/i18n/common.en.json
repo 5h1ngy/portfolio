@@ -1,0 +1,53 @@
+{
+  "navigation": {
+    "about": "Profile",
+    "skills": "Skills",
+    "products": "Products",
+    "openSource": "Open source",
+    "experience": "Experience"
+  },
+  "header": {
+    "menu": {
+      "open": "Open navigation",
+      "close": "Close navigation",
+      "openLabel": "Menu",
+      "closeLabel": "Close",
+      "navigation": "Portfolio sections"
+    },
+    "theme": {
+      "section": "Theme",
+      "accent": "Accent",
+      "accentGroup": "Accent colors",
+      "buttonAria": "Theme settings: {{mode}} - {{accent}}",
+      "switchAria": "Switch to the {{target}} theme",
+      "fallbackAccent": "Accent color {{index}}",
+      "mode": {
+        "light": "light theme",
+        "dark": "dark theme"
+      },
+      "target": {
+        "light": "light",
+        "dark": "dark"
+      }
+    },
+    "language": {
+      "label": "Language",
+      "options": {
+        "it": "Italian",
+        "en": "English"
+      }
+    }
+  },
+  "products": {
+    "previous": "Previous product",
+    "next": "Next product"
+  },
+  "experience": {
+    "accent": "Experience",
+    "openDetails": "Open details for {{role}}",
+    "closeModal": "Close experience details"
+  },
+  "footer": {
+    "profileLinks": "Profile links"
+  }
+}

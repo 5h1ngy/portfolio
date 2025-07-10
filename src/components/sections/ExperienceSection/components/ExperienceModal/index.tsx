@@ -1,4 +1,7 @@
+import { useTranslation } from 'react-i18next'
+
 import {
+  ModalBody,
   ModalCard,
   ModalClose,
   ModalCloseSlot,
@@ -6,7 +9,6 @@ import {
   ModalHeader,
   ModalHighlights,
   ModalLink,
-  ModalBody,
   ModalOverlay,
   ModalPeriod,
   ModalScroll,
@@ -15,25 +17,26 @@ import {
   ModalTags,
   ModalTitle,
   ModalTopBar,
-} from '@/components/sections/ExperienceSection/ExperienceModal/style';
-import type { PortfolioExperienceRole } from '@data/portfolio.types';
-import { useExperienceModal } from '@/components/sections/ExperienceSection/ExperienceModal/hooks';
-import { isExternalLink } from '@/components/sections/ExperienceSection/ExperienceModal/helpers';
-import { CloseIcon } from '@/components/sections/ExperienceSection/ExperienceModal/icons';
+} from './style'
+import type { PortfolioExperienceRole } from '@data/portfolio.types'
+import { useExperienceModal } from './hooks'
+import { isExternalLink } from './helpers'
+import { CloseIcon } from '@styles/icons'
 
 interface ExperienceModalProps {
-  role: PortfolioExperienceRole | null;
-  onClose: () => void;
+  role: PortfolioExperienceRole | null
+  onClose: () => void
 }
 
 export const ExperienceModal = ({ role, onClose }: ExperienceModalProps) => {
-  const { titleId, handleOverlayClick } = useExperienceModal({ role, onClose });
+  const { t } = useTranslation()
+  const { titleId, handleOverlayClick } = useExperienceModal({ role, onClose })
 
   if (!role) {
-    return null;
+    return null
   }
 
-  const external = Boolean(role.link && (role.link.external || isExternalLink(role.link.href)));
+  const external = Boolean(role.link && (role.link.external || isExternalLink(role.link.href)))
 
   return (
     <ModalOverlay role="dialog" aria-modal="true" aria-labelledby={titleId} onClick={handleOverlayClick}>
@@ -46,7 +49,7 @@ export const ExperienceModal = ({ role, onClose }: ExperienceModalProps) => {
                 {role.company && <ModalCompany>{role.company}</ModalCompany>}
               </ModalHeader>
               <ModalCloseSlot>
-                <ModalClose type="button" onClick={onClose} aria-label="Chiudi dettaglio esperienza">
+                <ModalClose type="button" onClick={onClose} aria-label={t('experience.closeModal')}>
                   <CloseIcon />
                 </ModalClose>
               </ModalCloseSlot>
@@ -77,5 +80,5 @@ export const ExperienceModal = ({ role, onClose }: ExperienceModalProps) => {
         </ModalScroll>
       </ModalCard>
     </ModalOverlay>
-  );
-};
+  )
+}

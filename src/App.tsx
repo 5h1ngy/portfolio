@@ -1,35 +1,50 @@
-﻿import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { ThemeProvider } from 'styled-components'
 
-import { AboutSection } from '@/components/sections/AboutSection'
-import { ExperienceSection } from '@/components/sections/ExperienceSection'
+import { AppMain, AppShell } from '@/App.style'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
+import { AboutSection } from '@/components/sections/AboutSection'
+import { ExperienceSection } from '@/components/sections/ExperienceSection'
 import { HeroSection } from '@/components/sections/HeroSection'
 import { OpenSourceProductsSection, OpenSourceSection } from '@/components/sections/OpenSourceSection'
 import { SkillsSection } from '@/components/sections/SkillsSection'
-import { portfolioData } from '@data/portfolio'
-import { AppMain, AppShell } from '@/App.style'
+import { getPortfolioData, getSupportedLocales, type PortfolioLocale } from '@data/portfolio'
 import { GlobalStyle } from '@styles'
 import { createTheme, type ThemeMode } from '@styles/theme'
 
 const ACCENT_OPTIONS = ['#5cf3e9', '#ff7de8', '#6dff89', '#7ca9ff']
-const DEFAULT_NAVIGATION = [
-  { label: 'Profilo', targetId: 'about' },
-  { label: 'Competenze', targetId: 'skills' },
-  { label: 'Prodotti', targetId: 'open-source-products' },
-  { label: 'Open source', targetId: 'open-source' },
-  { label: 'Esperienza', targetId: 'experience' },
-]
 const DEFAULT_ACCENT = ACCENT_OPTIONS[0]
+const SUPPORTED_LOCALES = getSupportedLocales()
 
 export const App = () => {
-  const { meta, profile, hero, about, experience, skills, openSource, openSourceProducts } = portfolioData
-
+  const { t, i18n } = useTranslation()
   const [themeMode, setThemeMode] = useState<ThemeMode>('dark')
   const [accentColor, setAccentColor] = useState<string>(DEFAULT_ACCENT)
+  const [locale, setLocale] = useState<PortfolioLocale>('it')
+
+  const portfolio = useMemo(() => getPortfolioData(locale), [locale])
+  const { meta, profile, hero, about, experience, skills, openSource, openSourceProducts } = portfolio
 
   const theme = useMemo(() => createTheme(themeMode, accentColor), [themeMode, accentColor])
+
+  const navigation = useMemo(
+    () => [
+      { label: t('navigation.about'), targetId: 'about' },
+      { label: t('navigation.skills'), targetId: 'skills' },
+      { label: t('navigation.products'), targetId: 'open-source-products' },
+      { label: t('navigation.openSource'), targetId: 'open-source' },
+      { label: t('navigation.experience'), targetId: 'experience' },
+    ],
+    [t],
+  )
+
+  useEffect(() => {
+    if (i18n.language !== locale) {
+      void i18n.changeLanguage(locale)
+    }
+  }, [i18n, locale])
 
   useEffect(() => {
     document.title = meta.title
@@ -54,12 +69,15 @@ export const App = () => {
       <GlobalStyle />
       <AppShell>
         <Header
-          navigation={DEFAULT_NAVIGATION}
+          navigation={navigation}
           themeMode={themeMode}
           onThemeChange={setThemeMode}
           accentOptions={ACCENT_OPTIONS}
           accentColor={accentColor}
           onAccentChange={setAccentColor}
+          locale={locale}
+          locales={SUPPORTED_LOCALES}
+          onLocaleChange={setLocale}
         />
         <AppMain>
           <HeroSection hero={hero} socialLinks={profile.links} />

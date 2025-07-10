@@ -1,6 +1,8 @@
-import { ExperienceModal } from '@/components/sections/ExperienceSection/ExperienceModal';
-import { Section } from '@components/shared/Section';
-import type { ExperienceSectionProps } from '@/components/sections/ExperienceSection/types';
+import { ExperienceModal } from './components/ExperienceModal'
+import { useTranslation } from 'react-i18next'
+
+import { Section } from '@components/shared/Section'
+import type { ExperienceSectionProps } from '@/components/sections/ExperienceSection/types'
 import {
   TimelineCTA,
   TimelineCTAIcon,
@@ -16,25 +18,30 @@ import {
   TimelineSummary,
   TimelineTitle,
   TimelineWrapper,
-} from '@/components/sections/ExperienceSection/style';
-import { EyeIcon } from '@/components/sections/ExperienceSection/icons';
-import { truncateSummary } from '@/components/sections/ExperienceSection/helpers';
-import { useExperienceTimeline } from '@/components/sections/ExperienceSection/hooks';
+} from '@/components/sections/ExperienceSection/style'
+import { truncateSummary } from '@/components/sections/ExperienceSection/helpers'
+import { useExperienceTimeline } from '@/components/sections/ExperienceSection/hooks'
+import { EyeIcon } from '@styles/icons'
 
 export const ExperienceSection = ({ experience }: ExperienceSectionProps) => {
-  const { roles, activeRole, openRole, closeRole } = useExperienceTimeline(experience.roles);
+  const { t } = useTranslation()
+  const { roles, activeRole, openRole, closeRole } = useExperienceTimeline(experience.roles)
 
   return (
-    <Section id="experience" accent="Esperienza" title={experience.title} description={experience.caption}>
+    <Section id="experience" accent={t('experience.accent')} title={experience.title} description={experience.caption}>
       <TimelineWrapper>
         {roles.map((role, index) => {
-          const side = index % 2 === 0 ? 'left' : 'right';
+          const side = index % 2 === 0 ? 'left' : 'right'
 
           const card = (
             <TimelineCard role="listitem">
               <TimelineMeta>
                 <TimelinePeriod>{role.period}</TimelinePeriod>
-                <TimelineCTA type="button" onClick={() => openRole(role)} aria-label={`Apri dettagli ${role.role}`}>
+                <TimelineCTA
+                  type="button"
+                  onClick={() => openRole(role)}
+                  aria-label={t('experience.openDetails', { role: role.role })}
+                >
                   <TimelineCTAIcon>
                     <EyeIcon />
                   </TimelineCTAIcon>
@@ -44,7 +51,7 @@ export const ExperienceSection = ({ experience }: ExperienceSectionProps) => {
               {role.company && <TimelineCompany>{role.company}</TimelineCompany>}
               <TimelineSummary>{truncateSummary(role.summary)}</TimelineSummary>
             </TimelineCard>
-          );
+          )
 
           return (
             <TimelineRow key={`${role.company}-${role.period}`}>
@@ -52,13 +59,17 @@ export const ExperienceSection = ({ experience }: ExperienceSectionProps) => {
               <TimelineMarkerCell>
                 <TimelineMarker aria-hidden="true" />
               </TimelineMarkerCell>
-              {side === 'right' ? <TimelineSlot $side="right">{card}</TimelineSlot> : <TimelinePlaceholder $side="right" />}
+              {side === 'right' ? (
+                <TimelineSlot $side="right">{card}</TimelineSlot>
+              ) : (
+                <TimelinePlaceholder $side="right" />
+              )}
             </TimelineRow>
-          );
+          )
         })}
       </TimelineWrapper>
 
       <ExperienceModal role={activeRole} onClose={closeRole} />
     </Section>
-  );
-};
+  )
+}

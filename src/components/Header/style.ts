@@ -1,4 +1,6 @@
-﻿import styled from 'styled-components';
+import styled from 'styled-components';
+
+import { FormSelect, FormSelectLabel, FormSelectWrapper } from '@components/shared/FormSelect';
 
 export const HeaderRoot = styled.header<{ $compact: boolean }>`
   position: fixed;
@@ -340,3 +342,28 @@ export const MobileBackdrop = styled.button<{ $visible: boolean }>`
     pointer-events: ${({ $visible }) => ($visible ? 'auto' : 'none')};
   }
 `;
+
+export const LanguageSelectWrapper = styled(FormSelectWrapper)`
+  min-width: 140px;
+  color: ${({ theme }) => theme.colors.textMuted};
+
+  @media (max-width: 720px) {
+    width: 100%;
+  }
+`;
+
+export const LanguageSelectLabel = styled(FormSelectLabel)`
+  color: ${({ theme }) => theme.colors.textMuted};
+`;
+
+export const LanguageSelect = styled(FormSelect)`
+  width: 100%;
+  background: ${({ theme }) => theme.colors.surfaceMuted};
+
+  @media (max-width: 720px) {
+    font-size: 0.86rem;
+  }
+`;
+
+
+
