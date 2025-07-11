@@ -17,10 +17,10 @@ import {
   ModalTags,
   ModalTitle,
   ModalTopBar,
-} from './style'
+} from './ExperienceModal.style'
 import type { PortfolioExperienceRole } from '@data/portfolio.types'
-import { useExperienceModal } from './hooks'
-import { isExternalLink } from './helpers'
+import { useExperienceModal } from '../hooks/ExperienceModal.hooks'
+import { isExternalLink } from '../helpers/ExperienceModal.helpers'
 import { CloseIcon } from '@styles/icons'
 
 interface ExperienceModalProps {

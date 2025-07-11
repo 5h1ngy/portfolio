@@ -5,7 +5,7 @@ export const ThemeMenu = styled.div`
   display: inline-flex;
   align-items: center;
 
-  @media (max-width: 720px) {
+  @media (max-width: 834px) {
     margin-left: auto;
   }
 `
@@ -76,7 +76,7 @@ export const ThemeMenuContent = styled.div<{ $open: boolean }>`
   transition: opacity 0.18s ease, transform 0.18s ease;
   z-index: 8;
 
-  @media (max-width: 720px) {
+  @media (max-width: 834px) {
     min-width: 210px;
     width: min(252px, 90vw);
   }

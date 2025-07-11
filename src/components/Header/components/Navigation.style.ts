@@ -7,7 +7,7 @@ export const Nav = styled.nav<{ $isOpen: boolean }>`
   align-items: center;
   margin-right: auto;
 
-  @media (max-width: 720px) {
+  @media (max-width: 834px) {
     position: fixed;
     inset: 0;
     width: 100vw;
@@ -46,7 +46,7 @@ export const NavLink = styled.a`
     background: ${({ theme }) => theme.colors.accentSoft};
   }
 
-  @media (max-width: 720px) {
+  @media (max-width: 834px) {
     padding: 0.8rem 1.6rem;
     font-size: 1.2rem;
     letter-spacing: 0.12em;

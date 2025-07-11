@@ -3,8 +3,9 @@ import styled from 'styled-components'
 export const LanguageSelectWrapper = styled.div`
   position: relative;
   display: inline-flex;
+  flex-direction: row-reverse;
 
-  @media (max-width: 720px) {
+  @media (max-width: 834px) {
     width: 100%;
   }
 `
@@ -17,7 +18,7 @@ export const LanguageSelectToggle = styled.button<{ $open: boolean }>`
   padding: 0 2.65rem 0 1.15rem;
   height: 44px;
   border-radius: 16px;
-  border: 1px solid ${({ theme }) => theme.colors.accentOutline};
+  border: 0px solid ;
   background: ${({ theme }) => theme.colors.surfaceMuted};
   color: ${({ theme }) => theme.colors.textSecondary};
   font-size: 0.85rem;
@@ -42,7 +43,7 @@ export const LanguageSelectToggle = styled.button<{ $open: boolean }>`
 
   &:hover,
   &:focus-visible {
-    border-color: ${({ theme }) => theme.colors.accent};
+    border-color: ${({ theme }) => theme.colors.textMuted};
     background: ${({ theme }) => theme.colors.surface};
     color: ${({ theme }) => theme.colors.textPrimary};
     box-shadow: ${({ theme }) => theme.shadows.ambient};
@@ -81,7 +82,7 @@ export const LanguageSelectMenu = styled.div<{ $open: boolean }>`
   transition: opacity 0.18s ease, transform 0.18s ease;
   z-index: 12;
 
-  @media (max-width: 720px) {
+  @media (max-width: 834px) {
     min-width: 200px;
   }
 `

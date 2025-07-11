@@ -28,7 +28,7 @@ export const MobileToggle = styled.button<{ $isActive: boolean }>`
       background: ${theme.colors.accentSoft};
     `}
 
-  @media (max-width: 720px) {
+  @media (max-width: 834px) {
     display: inline-flex;
     position: relative;
     z-index: 16;

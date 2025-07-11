@@ -6,7 +6,7 @@ import {
   LanguageSelectOption,
   LanguageSelectToggle,
   LanguageSelectWrapper,
-} from '@/components/Header/components/HeaderLanguageSelect.style'
+} from '@/components/Header/components/LanguageSelect.style'
 import type { PortfolioLocale } from '@data/portfolio'
 
 interface HeaderLanguageSelectProps {

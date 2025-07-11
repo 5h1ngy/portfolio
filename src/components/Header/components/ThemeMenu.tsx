@@ -12,8 +12,8 @@ import {
   ThemeSwitchIcon,
   ThemeSwitchThumb,
   ThemeTriggerIcon,
-} from '@/components/Header/components/HeaderThemeMenu.style';
-import { HiddenLabel } from '@/components/Header/components/HeaderShared.style';
+} from '@/components/Header/components/ThemeMenu.style';
+import { HiddenLabel } from '@/components/Header/components/HiddenLabel.style';
 import type { ThemeMode } from '@styles/theme';
 import { MoonIcon, PaletteIcon, SunIcon } from '@styles/icons';
 

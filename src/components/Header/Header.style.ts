@@ -35,7 +35,7 @@ export const HeaderInner = styled.div<{ $compact: boolean }>`
   box-shadow: ${({ $compact, theme }) => ($compact ? theme.shadows.ambient : 'none')};
   pointer-events: auto;
 
-  @media (max-width: 720px) {
+  @media (max-width: 834px) {
     flex-direction: column;
     align-items: stretch;
     gap: 1rem;
@@ -50,7 +50,7 @@ export const Controls = styled.div`
   position: relative;
   width: 100%;
 
-  @media (max-width: 720px) {
+  @media (max-width: 834px) {
     justify-content: space-between;
     padding: 0 0.35rem;
   }
@@ -59,7 +59,7 @@ export const Controls = styled.div`
 export const MobileBackdrop = styled.button<{ $visible: boolean }>`
   display: none;
 
-  @media (max-width: 720px) {
+  @media (max-width: 834px) {
     display: ${({ $visible }) => ($visible ? 'block' : 'none')};
     position: fixed;
     inset: 0;
