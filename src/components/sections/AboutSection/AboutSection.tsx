@@ -10,7 +10,7 @@ import {
   FocusTitle,
   QuickFacts,
   Summary,
-} from '@/components/sections/AboutSection/AboutSection.style';
+} from './AboutSection.style';
 
 export const AboutSection = ({ about }: AboutSectionProps) => (
   <Section id="about" accent="Profilo" title={about.title} description={about.caption}>

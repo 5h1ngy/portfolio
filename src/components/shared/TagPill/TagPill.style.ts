@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const TagPill = styled.span`
+export const TagPillRoot = styled.span`
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -14,4 +14,3 @@ export const TagPill = styled.span`
   line-height: 1.2;
   white-space: nowrap;
 `
-

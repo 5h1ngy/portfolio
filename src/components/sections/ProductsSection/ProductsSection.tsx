@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 
 import type { PortfolioActionLink } from "@data/portfolio.types";
 import { ArrowIcon, DocsIcon, GithubIcon, GlobeIcon } from "@styles/icons";
-import type { ProductsSliderProps } from "./types";
+import type { ProductsSliderProps } from "./ProductsSection.types";
 import {
   ProductActionButton,
   ProductActions,
@@ -18,7 +18,7 @@ import {
   ProductsCarousel,
   ProductsCounter,
   ProductsNav,
-} from "./style";
+} from "./ProductsSection.style";
 
 const ACTION_ICON = {
   website: GlobeIcon,

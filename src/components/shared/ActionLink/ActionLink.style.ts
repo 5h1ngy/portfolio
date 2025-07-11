@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ActionLink = styled.a`
+export const ActionLinkRoot = styled.a`
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
@@ -25,4 +25,3 @@ export const ActionLink = styled.a`
     border-color: ${({ theme }) => theme.colors.accent};
   }
 `
-

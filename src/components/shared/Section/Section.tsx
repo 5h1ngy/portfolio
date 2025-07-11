@@ -1,5 +1,5 @@
-﻿import type { PropsWithChildren } from 'react'
-import { SectionContent, SectionDescription, SectionHeader, SectionHeading, SectionWrapper } from './style'
+import type { PropsWithChildren } from 'react'
+import { SectionContent, SectionDescription, SectionHeader, SectionHeading, SectionWrapper } from './Section.style'
 
 interface SectionProps {
   id: string
