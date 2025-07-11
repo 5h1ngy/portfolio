@@ -1,10 +1,16 @@
 import styled, { keyframes } from 'styled-components'
+import type { DefaultTheme } from 'styled-components'
+
+const ringStroke = (theme: DefaultTheme) =>
+  theme.mode === 'dark' ? 'rgba(255, 255, 255, 0.35)' : 'rgba(16, 28, 52, 0.4)'
 
 export const OrbitWrapper = styled.div`
   position: relative;
   width: clamp(280px, 40vw, 440px);
   aspect-ratio: 1;
   margin: 0 auto;
+  z-index: 1;
+  pointer-events: none;
 
   @media (max-width: 960px) {
     order: -1;
@@ -21,8 +27,8 @@ export const OrbitRing = styled.span<{ $size: number }>`
   inset: 50%;
   transform: translate(-50%, -50%);
   border-radius: 999px;
-  border: 1px dashed ${({ theme }) => theme.colors.accentOutlineMuted};
-  opacity: 0.65;
+  border: ${({ theme }) => `2px dashed ${ringStroke(theme)}`};
+  opacity: ${({ theme }) => (theme.mode === 'dark' ? 0.7 : 0.5)};
   width: ${({ $size }) => `${$size}px`};
   height: ${({ $size }) => `${$size}px`};
 `
@@ -36,8 +42,8 @@ export const OrbitCenter = styled.div`
   height: clamp(120px, 18vw, 180px);
   border-radius: 999px;
   background: ${({ theme }) => theme.colors.surfaceMuted};
-  border: 2px solid ${({ theme }) => theme.colors.accentOutlineMuted};
-  box-shadow: ${({ theme }) => theme.shadows.accent}, inset 0 0 40px ${({ theme }) => theme.colors.accentSoft};
+  border: 2px solid ${({ theme }) => ringStroke(theme)};
+  box-shadow: ${({ theme }) => theme.shadows.accent}, inset 0 0 48px ${({ theme }) => theme.colors.accentSoft};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -91,6 +97,7 @@ export const OrbitItem = styled.div<{
   transform-origin: center;
   will-change: transform;
   filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.35));
+  pointer-events: none;
 `
 
 export const OrbitIcon = styled.span<{ $duration: number; $delay: number }>`
@@ -99,7 +106,7 @@ export const OrbitIcon = styled.span<{ $duration: number; $delay: number }>`
   height: 100%;
   border-radius: 999px;
   background: ${({ theme }) => theme.colors.surfaceMuted};
-  border: 1px solid ${({ theme }) => theme.colors.accentOutlineMuted};
+  border: 2px solid ${({ theme }) => ringStroke(theme)};
   align-items: center;
   justify-content: center;
   padding: 6px;
@@ -113,4 +120,6 @@ export const OrbitIcon = styled.span<{ $duration: number; $delay: number }>`
     object-fit: contain;
   }
 `
+
+
 

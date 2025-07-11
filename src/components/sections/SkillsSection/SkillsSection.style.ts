@@ -16,9 +16,15 @@ export const CategoryCard = styled.article`
   border-radius: 22px;
   border: 1px solid ${({ theme }) => theme.colors.accentOutlineMuted};
   background: ${({ theme }) => theme.colors.surfaceElevated};
-  background: ${({ theme }) =>
-    `linear-gradient(135deg, ${theme.colors.surfaceElevated} 0%, ${theme.colors.surfaceMuted} 50%, ${theme.colors.accentSoft} 125%)`};
   box-shadow: ${({ theme }) => theme.shadows.ambient};
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-6px);
+    border-color: ${({ theme }) => theme.colors.accent};
+    box-shadow: ${({ theme }) => theme.shadows.accent};
+  }
 `;
 
 export const CategoryTitle = styled.h3`

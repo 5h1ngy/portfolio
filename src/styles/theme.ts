@@ -64,7 +64,7 @@ const darkPalette: Palette = {
     'radial-gradient(circle at 20% 30%, rgba(96, 255, 245, 0.2) 0%, transparent 48%), radial-gradient(circle at 82% 62%, rgba(255, 148, 255, 0.16) 0%, transparent 58%)',
   fog:
     'radial-gradient(circle at 18% 22%, rgba(88, 207, 255, 0.18) 0%, transparent 48%), radial-gradient(circle at 72% 18%, rgba(255, 138, 226, 0.16) 0%, transparent 52%), radial-gradient(circle at 32% 78%, rgba(127, 244, 195, 0.18) 0%, transparent 60%)',
-  ambientShadow: '0 26px 48px rgba(4, 10, 28, 0.55)',
+  ambientShadow: '0 18px 32px rgba(4, 10, 28, 0.45)',
 }
 
 const lightPalette: Palette = {
@@ -82,7 +82,7 @@ const lightPalette: Palette = {
     'radial-gradient(circle at 22% 30%, rgba(255, 255, 255, 0.7) 0%, transparent 58%), radial-gradient(circle at 76% 66%, rgba(255, 255, 255, 0.38) 0%, transparent 54%)',
   fog:
     'radial-gradient(circle at 24% 22%, rgba(120, 230, 255, 0.22) 0%, transparent 56%), radial-gradient(circle at 78% 18%, rgba(255, 164, 244, 0.18) 0%, transparent 54%), radial-gradient(circle at 36% 76%, rgba(176, 255, 207, 0.2) 0%, transparent 60%)',
-  ambientShadow: '0 18px 32px rgba(24, 32, 60, 0.16)',
+  ambientShadow: '0 14px 26px rgba(24, 32, 60, 0.14)',
 }
 
 const palettes: Record<ThemeMode, Palette> = {
@@ -104,7 +104,7 @@ export const createTheme = (mode: ThemeMode, accent: string): AppTheme => {
   const base = palettes[mode]
   const accentSoftOpacity = mode === 'dark' ? 0.28 : 0.2
   const accentOutlineOpacity = mode === 'dark' ? 0.5 : 0.28
-  const accentShadowOpacity = mode === 'dark' ? 0.48 : 0.24
+  const accentShadowOpacity = mode === 'dark' ? 0.42 : 0.2
 
   return {
     mode,
@@ -133,7 +133,7 @@ export const createTheme = (mode: ThemeMode, accent: string): AppTheme => {
     },
     shadows: {
       ambient: base.ambientShadow,
-      accent: `0 24px 42px ${withAlpha(accent, accentShadowOpacity)}`,
+      accent: `0 18px 32px ${withAlpha(accent, accentShadowOpacity)}`,
     },
   }
 }
