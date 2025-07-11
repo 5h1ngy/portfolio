@@ -6,15 +6,15 @@ import { AppMain, AppShell } from '@/App.style'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { AboutSection } from '@/components/sections/AboutSection'
-import { ExperienceSection } from '@/components/sections/ExperienceSection'
+import { ExperienceSection } from '@/components/sections/ExperienceSection/ExperienceSection'
 import { HeroSection } from '@/components/sections/HeroSection'
 import { OpenSourceProductsSection, OpenSourceSection } from '@/components/sections/OpenSourceSection'
 import { SkillsSection } from '@/components/sections/SkillsSection'
 import { getPortfolioData, getSupportedLocales, type PortfolioLocale } from '@data/portfolio'
 import { GlobalStyle } from '@styles'
-import { createTheme, type ThemeMode } from '@styles/theme'
+import { SECONDARY_COLORS, createTheme, type ThemeMode } from '@styles/theme'
 
-const ACCENT_OPTIONS = ['#5cf3e9', '#ff7de8', '#6dff89', '#7ca9ff']
+const ACCENT_OPTIONS = SECONDARY_COLORS
 const DEFAULT_ACCENT = ACCENT_OPTIONS[0]
 const SUPPORTED_LOCALES = getSupportedLocales()
 
@@ -94,3 +94,4 @@ export const App = () => {
 }
 
 export default App
+

@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    background: ${({ theme }) => theme.colors.background};
+    background: ${({ theme }) => `${theme.gradients.fog}, ${theme.colors.background}`};
     color: ${({ theme }) => theme.colors.textPrimary};
     line-height: 1.6;
     transition: background 0.3s ease, color 0.3s ease;
@@ -40,3 +40,5 @@ export const GlobalStyle = createGlobalStyle`
     color: inherit;
   }
 `;
+
+
