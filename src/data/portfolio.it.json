@@ -46,7 +46,7 @@
       "external": true
     },
     "orbit": {
-      "center": "/logos/avatar.png",
+      "center": "/orbiter-icons/avatar.png",
       "rings": [
         {
           "radius": 120,
@@ -54,12 +54,12 @@
           "icons": [
             {
               "label": "React",
-              "icon": "/logos/react.svg",
+              "icon": "/orbiter-icons/react.svg",
               "size": 52
             },
             {
               "label": "TypeScript",
-              "icon": "/logos/typescript.svg",
+              "icon": "/orbiter-icons/typescript.svg",
               "size": 48
             }
           ]
@@ -70,17 +70,17 @@
           "icons": [
             {
               "label": "Node.js",
-              "icon": "/logos/nodejs.svg",
+              "icon": "/orbiter-icons/nodejs.svg",
               "size": 50
             },
             {
               "label": "Vite",
-              "icon": "/logos/vitejs.svg",
+              "icon": "/orbiter-icons/vitejs.svg",
               "size": 46
             },
             {
               "label": "Redux",
-              "icon": "/logos/redux.svg",
+              "icon": "/orbiter-icons/redux.svg",
               "size": 44
             }
           ]
@@ -91,22 +91,22 @@
           "icons": [
             {
               "label": "Docker",
-              "icon": "/logos/docker.svg",
+              "icon": "/orbiter-icons/docker.svg",
               "size": 48
             },
             {
               "label": "MongoDB",
-              "icon": "/logos/mongo-db.svg",
+              "icon": "/orbiter-icons/mongo-db.svg",
               "size": 44
             },
             {
               "label": "NestJS",
-              "icon": "/logos/nestjs.svg",
+              "icon": "/orbiter-icons/nestjs.svg",
               "size": 46
             },
             {
               "label": "Bash",
-              "icon": "/logos/bash.svg",
+              "icon": "/orbiter-icons/bash.svg",
               "size": 40
             }
           ]
@@ -292,19 +292,6 @@
         }
       },
       {
-        "name": "FE React Portfolio",
-        "description": "Portfolio React con Chakra UI, animazioni e contenuti modulari basati su markdown.",
-        "period": "2025",
-        "tags": ["React", "Chakra UI", "GSAP"],
-        "category": "Esperienze frontend",
-        "link": {
-          "label": "GitHub",
-          "href": "https://github.com/5h1ngy/fe-react-portfolio",
-          "type": "github",
-          "external": true
-        }
-      },
-      {
         "name": "BL Custom Backend Node",
         "description": "Boilerplate backend Node.js modulare con autenticazione JWT, modalità mock e documentazione Swagger integrata.",
         "period": "2025",
@@ -313,6 +300,19 @@
         "link": {
           "label": "GitHub",
           "href": "https://github.com/5h1ngy/bl-custom-be-node",
+          "type": "github",
+          "external": true
+        }
+      },
+      {
+        "name": "FE React Portfolio",
+        "description": "Portfolio React con Chakra UI, animazioni e contenuti modulari basati su markdown.",
+        "period": "2025",
+        "tags": ["React", "Chakra UI", "GSAP"],
+        "category": "Esperienze frontend",
+        "link": {
+          "label": "GitHub",
+          "href": "https://github.com/5h1ngy/fe-react-portfolio",
           "type": "github",
           "external": true
         }

@@ -7,6 +7,9 @@
     "experience": "Experience"
   },
   "header": {
+    "brand": {
+      "home": "Back to hero section"
+    },
     "menu": {
       "open": "Open navigation",
       "close": "Close navigation",

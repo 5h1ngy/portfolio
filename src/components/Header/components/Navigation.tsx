@@ -9,9 +9,17 @@ interface HeaderNavigationProps {
   isOpen: boolean
   onItemSelect: () => void
   ariaLabel: string
+  activeId?: string
 }
 
-export const HeaderNavigation = ({ navigation, isMobile, isOpen, onItemSelect, ariaLabel }: HeaderNavigationProps) => {
+export const HeaderNavigation = ({
+  navigation,
+  isMobile,
+  isOpen,
+  onItemSelect,
+  ariaLabel,
+  activeId,
+}: HeaderNavigationProps) => {
   const handleNavLinkClick = useCallback(() => {
     if (!isMobile) {
       return
@@ -22,7 +30,13 @@ export const HeaderNavigation = ({ navigation, isMobile, isOpen, onItemSelect, a
   return (
     <Nav id="primary-navigation" aria-label={ariaLabel} $isOpen={isMobile ? isOpen : true}>
       {navigation.map(({ targetId, label }) => (
-        <NavLink key={targetId} href={`#${targetId}`} onClick={handleNavLinkClick}>
+        <NavLink
+          key={targetId}
+          href={`#${targetId}`}
+          onClick={handleNavLinkClick}
+          $active={targetId === activeId}
+          aria-current={targetId === activeId ? 'page' : undefined}
+        >
           {label}
         </NavLink>
       ))}

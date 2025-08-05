@@ -1,11 +1,6 @@
 import styled from 'styled-components'
 
-const HEADER_BACKDROP = {
-  dark: 'linear-gradient(180deg, rgba(3, 6, 21, 0.92) 0%, rgba(3, 6, 21, 0.78) 68%, transparent 100%)',
-  light: 'linear-gradient(180deg, rgba(247, 249, 255, 0.92) 0%, rgba(247, 249, 255, 0.74) 68%, transparent 100%)',
-} as const
-
-export const HeaderRoot = styled.header<{ $compact: boolean }>`
+export const HeaderRoot = styled.header`
   position: fixed;
   top: 0;
   left: 0;
@@ -13,49 +8,77 @@ export const HeaderRoot = styled.header<{ $compact: boolean }>`
   z-index: 20;
   display: flex;
   justify-content: center;
-  padding: ${({ $compact }) => ($compact ? '0.3rem 0 0.6rem' : '0.7rem 0 1rem')};
+  padding: 0.85rem 0;
   pointer-events: none;
-  backdrop-filter: ${({ $compact }) => ($compact ? 'none' : 'blur(20px)')};
-  background: ${({ $compact, theme }) =>
-    $compact ? 'transparent' : HEADER_BACKDROP[theme.mode]};
-  border-bottom: ${({ $compact, theme }) => ($compact ? 'transparent' : theme.colors.accentOutlineMuted)};
-  transition: background 0.3s ease, border-bottom 0.3s ease, padding 0.3s ease;
+  background: transparent;
+  border-bottom: none;
 `
 
-export const HeaderInner = styled.div<{ $compact: boolean }>`
+export const HeaderInner = styled.div`
   width: ${({ theme }) => `min(${theme.layout.maxWidth}, calc(100% - 2.5rem))`};
   margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1.85rem;
-  padding: ${({ $compact }) => ($compact ? '0.45rem 1rem' : '0.6rem 0')};
-  transition: padding 0.3s ease, background 0.3s ease, border-radius 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
-  background: ${({ $compact, theme }) => ($compact ? theme.colors.surface : 'transparent')};
-  backdrop-filter: ${({ $compact }) => ($compact ? 'blur(20px)' : 'none')};
-  border-radius: ${({ $compact }) => ($compact ? '999px' : '0')};
-  border: ${({ $compact, theme }) => ($compact ? `1px solid ${theme.colors.accentOutline}` : '1px solid transparent')};
-  box-shadow: ${({ $compact, theme }) => ($compact ? theme.shadows.ambient : 'none')};
+  gap: 1rem;
+  padding: 0.55rem 1rem;
+  background: ${({ theme }) => theme.colors.surface};
+  border-radius: 24px;
+  border: 1px solid ${({ theme }) => theme.colors.accentOutlineMuted};
+  box-shadow: ${({ theme }) => theme.shadows.ambient};
   pointer-events: auto;
+  transition: padding 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 
   @media (max-width: 834px) {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 1rem;
-    padding: ${({ $compact }) => ($compact ? '0.4rem 0.6rem' : '0.6rem 0')};
+    width: calc(100% - 1.6rem);
+    padding: 0.7rem 0.9rem;
+    flex-wrap: wrap;
+    border-radius: 18px;
   }
+`
+
+export const BrandLink = styled.a`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 16px;
+  text-decoration: none;
+  background: ${({ theme }) => theme.colors.surface};
+  box-shadow: ${({ theme }) => theme.shadows.ambient};
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-1px);
+    background: ${({ theme }) => theme.colors.surfaceMuted};
+    box-shadow: ${({ theme }) => theme.shadows.accent};
+  }
+
+  @media (max-width: 834px) {
+    display: none;
+  }
+`
+
+export const BrandLogo = styled.img`
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.25));
 `
 
 export const Controls = styled.div`
   display: flex;
   align-items: center;
-  gap: 1.4rem;
-  position: relative;
-  width: 100%;
+  justify-content: flex-end;
+  gap: 0.65rem;
+  flex-wrap: nowrap;
 
   @media (max-width: 834px) {
-    justify-content: space-between;
-    padding: 0 0.35rem;
+    width: 100%;
+    justify-content: flex-end;
+    gap: 0.55rem;
+    flex-wrap: wrap;
   }
 `
 

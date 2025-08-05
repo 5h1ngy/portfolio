@@ -16,4 +16,5 @@ export interface HeaderProps {
   locale: PortfolioLocale
   locales: PortfolioLocale[]
   onLocaleChange: (locale: PortfolioLocale) => void
+  profileName: string
 }
