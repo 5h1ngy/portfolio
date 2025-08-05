@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { TextLinkRoot } from "@components/shared/TextLink";
+
 export const FooterRoot = styled.footer`
   padding: 1.5rem 0;
   border-top: 1px solid ${({ theme }) => theme.colors.accentOutlineMuted};
@@ -46,16 +48,6 @@ export const FooterLinks = styled.nav`
   gap: 0.75rem;
 `;
 
-export const FooterLink = styled.a`
+export const FooterLink = styled(TextLinkRoot)`
   font-size: 0.82rem;
-  color: ${({ theme }) => theme.colors.textSecondary};
-  border-bottom: 1px solid transparent;
-  padding-bottom: 0.1rem;
-  transition: color 0.18s ease, border-color 0.18s ease;
-
-  &:hover,
-  &:focus-visible {
-    color: ${({ theme }) => theme.colors.accent};
-    border-color: ${({ theme }) => theme.colors.accent};
-  }
 `;

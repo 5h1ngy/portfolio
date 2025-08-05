@@ -16,7 +16,7 @@ export const AppMain = styled.main`
   flex: 1;
   width: min(${({ theme }) => theme.layout.maxWidth}, calc(100% - 2.5rem));
   margin: 0 auto;
-  padding: 5rem 0 4rem;
+  padding: 1rem 0 4rem;
   display: flex;
   flex-direction: column;
   gap: 0;

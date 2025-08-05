@@ -105,6 +105,7 @@ export interface PortfolioOpenSourceProject {
   description: string
   period: string
   tags: string[]
+  category?: string
   link?: PortfolioActionLink
   links?: PortfolioActionLink[]
 }

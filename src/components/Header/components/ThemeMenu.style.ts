@@ -4,29 +4,26 @@ export const ThemeMenu = styled.div`
   position: relative;
   display: inline-flex;
   align-items: center;
-
-  @media (max-width: 834px) {
-    margin-left: auto;
-  }
 `
 
 export const ThemeMenuButton = styled.button`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
   border: none;
-  background: ${({ theme }) => theme.colors.surfaceMuted};
+  background: ${({ theme }) => theme.colors.surface};
   color: ${({ theme }) => theme.colors.textPrimary};
   cursor: pointer;
-  transition: border-color 160ms ease, transform 160ms ease, background 160ms ease;
+  box-shadow: ${({ theme }) => theme.shadows.ambient};
+  transition: transform 160ms ease, background 160ms ease;
 
   &:hover,
   &:focus-visible {
     transform: translateY(-1px);
-    background: ${({ theme }) => theme.colors.accentSoft};
+    background: ${({ theme }) => theme.colors.surfaceMuted};
   }
 `
 
@@ -65,7 +62,7 @@ export const ThemeMenuContent = styled.div<{ $open: boolean }>`
   gap: 1.1rem;
   padding: 1.4rem 1.65rem;
   border-radius: 18px;
-  border: 1px solid ${({ theme }) => theme.colors.accentOutlineMuted};
+  border: none;
   background: ${({ theme }) => theme.colors.surface};
   box-shadow: ${({ theme }) => theme.shadows.ambient};
   min-width: 220px;

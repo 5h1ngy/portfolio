@@ -5,7 +5,9 @@ export const Nav = styled.nav<{ $isOpen: boolean }>`
   flex-wrap: wrap;
   gap: 0.85rem;
   align-items: center;
-  margin-right: auto;
+  flex: 1;
+  min-width: 0;
+  justify-content: center;
 
   @media (max-width: 834px) {
     position: fixed;
@@ -18,10 +20,10 @@ export const Nav = styled.nav<{ $isOpen: boolean }>`
     align-items: center;
     gap: 1.4rem;
     padding: 6rem 2.5rem;
-    background: ${({ theme }) => `linear-gradient(180deg, ${theme.colors.background}ee 0%, ${theme.colors.background}f6 60%, ${theme.colors.background}dd 100%)`};
+    background: ${({ theme }) => theme.colors.surface};
     box-shadow: ${({ theme }) => theme.shadows.ambient};
     margin-right: 0;
-    z-index: 15;
+    z-index: 60;
     transform: translateX(${({ $isOpen }) => ($isOpen ? '0%' : '100%')});
     opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
     pointer-events: ${({ $isOpen }) => ($isOpen ? 'auto' : 'none')};
@@ -29,15 +31,24 @@ export const Nav = styled.nav<{ $isOpen: boolean }>`
   }
 `
 
-export const NavLink = styled.a`
+export const NavLink = styled.a<{ $active: boolean }>`
   padding: 0.4rem 0.75rem;
   border-radius: 999px;
   border: 1px solid transparent;
   font-size: 0.82rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: ${({ theme }) => theme.colors.textMuted};
-  transition: color 160ms ease, border-color 160ms ease, background 160ms ease;
+  color: ${({ theme }) => theme.colors.textSecondary};
+  transition: color 160ms ease, border-color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+
+  ${({ $active, theme }) =>
+    $active &&
+    `
+      color: ${theme.colors.textPrimary};
+      border-color: ${theme.colors.accentOutline};
+      background: ${theme.colors.accentSoft};
+      box-shadow: ${theme.shadows.ambient};
+    `}
 
   &:hover,
   &:focus-visible {

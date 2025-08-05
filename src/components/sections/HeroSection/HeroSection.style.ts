@@ -17,7 +17,7 @@ export const HeroSectionWrapper = styled.section`
   width: 100%;
   min-height: 100vh;
   min-height: 100svh;
-  padding: clamp(3rem, 8vw, 5rem) 0 clamp(2rem, 4vw, 3rem);
+  padding: clamp(2.75rem, 7vw, 4.75rem) 0 clamp(2rem, 4vw, 3rem);
 
   &::before {
     content: "";
@@ -32,10 +32,6 @@ export const HeroSectionWrapper = styled.section`
   > * {
     position: relative;
     z-index: 1;
-  }
-
-  @media (max-width: 768px) {
-    margin-top: 5rem;
   }
 
   @media (max-width: 960px) {

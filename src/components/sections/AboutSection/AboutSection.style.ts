@@ -59,14 +59,7 @@ export const FactCard = styled.div`
   background: ${({ theme }) => theme.colors.surfaceMuted};
   display: grid;
   gap: 0.35rem;
-  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
-
-  &:hover,
-  &:focus-visible {
-    transform: translateY(-6px);
-    border-color: ${({ theme }) => theme.colors.accent};
-    box-shadow: ${({ theme }) => theme.shadows.accent};
-  }
+  box-shadow: none;
 `;
 export const FactLabel = styled.span`
   font-size: 0.82rem;

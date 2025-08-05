@@ -47,6 +47,7 @@ export const App = () => {
           locale={locale}
           locales={locales}
           onLocaleChange={setLocale}
+          profileName={profile.name}
         />
         <AppMain>
           <HeroSection hero={hero} socialLinks={profile.links} />

@@ -4,10 +4,6 @@ export const LanguageSelectWrapper = styled.div`
   position: relative;
   display: inline-flex;
   flex-direction: row-reverse;
-
-  @media (max-width: 834px) {
-    width: 100%;
-  }
 `
 
 export const LanguageSelectToggle = styled.button<{ $open: boolean }>`
@@ -15,23 +11,23 @@ export const LanguageSelectToggle = styled.button<{ $open: boolean }>`
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0 2.65rem 0 1.15rem;
-  height: 44px;
-  border-radius: 16px;
-  border: 1px solid ${({ theme }) => theme.colors.accentOutlineMuted};
-  background: ${({ theme }) => theme.colors.surfaceMuted};
+  padding: 0 2.4rem 0 1rem;
+  height: 40px;
+  border-radius: 14px;
+  border: none;
+  background: ${({ theme }) => theme.colors.surface};
   color: ${({ theme }) => theme.colors.textSecondary};
   font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
-  transition: border-color 0.18s ease, background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease,
-    transform 0.18s ease;
+  box-shadow: ${({ theme }) => theme.shadows.ambient};
+  transition: background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
 
   &::after {
     content: '';
     position: absolute;
     top: 50%;
-    right: 1.2rem;
+    right: 1.05rem;
     width: 0;
     height: 0;
     border-left: 5px solid transparent;
@@ -43,8 +39,7 @@ export const LanguageSelectToggle = styled.button<{ $open: boolean }>`
 
   &:hover,
   &:focus-visible {
-    border-color: ${({ theme }) => theme.colors.textMuted};
-    background: ${({ theme }) => theme.colors.surface};
+    background: ${({ theme }) => theme.colors.surfaceMuted};
     color: ${({ theme }) => theme.colors.textPrimary};
     box-shadow: ${({ theme }) => theme.shadows.ambient};
     transform: translateY(-1px);
@@ -73,7 +68,7 @@ export const LanguageSelectMenu = styled.div<{ $open: boolean }>`
   width: max-content;
   padding: 0.65rem;
   border-radius: 14px;
-  border: 1px solid ${({ theme }) => theme.colors.accentOutlineMuted};
+  border: none;
   background: ${({ theme }) => theme.colors.surface};
   box-shadow: ${({ theme }) => theme.shadows.ambient};
   opacity: ${({ $open }) => ($open ? 1 : 0)};

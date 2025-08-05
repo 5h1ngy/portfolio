@@ -31,7 +31,9 @@ export const MobileToggle = styled.button<{ $isActive: boolean }>`
   @media (max-width: 834px) {
     display: inline-flex;
     position: relative;
-    z-index: 16;
+    z-index: 80;
+    align-self: flex-end;
+    margin-right: auto;
   }
 `
 
