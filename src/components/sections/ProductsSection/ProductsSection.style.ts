@@ -12,6 +12,7 @@ export const ProductsCarousel = styled.div`
 
 export const ProductCard = styled.article<{ $direction: 'next' | 'prev' }>`
   position: relative;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
   width: min(720px, 92vw);
   padding: clamp(1.8rem, 4vw, 2.8rem);
   border-radius: 32px;
@@ -34,6 +35,13 @@ export const ProductCard = styled.article<{ $direction: 'next' | 'prev' }>`
     background: radial-gradient(circle at 20% 20%, ${({ theme }) => theme.colors.accentSoft} 0%, transparent 60%);
     opacity: 0.55;
     pointer-events: none;
+  }
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-8px);
+    border-color: ${({ theme }) => theme.colors.accent};
+    box-shadow: ${({ theme }) => theme.shadows.accent};
   }
 
   &::after {
@@ -152,5 +160,7 @@ export const ProductActionButton = styled(ActionLink)`
   padding: 0.5rem 1.1rem;
   border-radius: 14px;
 `
+
+
 
 

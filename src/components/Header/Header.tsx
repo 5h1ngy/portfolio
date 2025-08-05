@@ -15,10 +15,10 @@ import {
 import type { HeaderProps } from "./Header.types";
 
 const ACCENT_LABELS: Record<string, string> = {
-  "#58cfff": "Sky pulse",
-  "#ff8ae2": "Bloom pulse",
-  "#7ff4c3": "Mint charge",
-  "#ffd66b": "Amber spark",
+  "#00c8ff": "Sky pulse",
+  "#ff4bd5": "Bloom pulse",
+  "#24f49b": "Mint charge",
+  "#ffb422": "Amber spark",
 };
 
 export const Header = ({

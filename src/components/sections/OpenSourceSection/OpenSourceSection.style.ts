@@ -18,6 +18,14 @@ export const ProjectCard = styled.article`
   background: ${({ theme }) => theme.colors.surfaceElevated};
   border: 1px solid ${({ theme }) => theme.colors.accentOutlineMuted};
   box-shadow: ${({ theme }) => theme.shadows.ambient};
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-6px);
+    border-color: ${({ theme }) => theme.colors.accent};
+    box-shadow: ${({ theme }) => theme.shadows.accent};
+  }
 `;
 
 export const ProjectHeader = styled.header`
@@ -66,4 +74,11 @@ export const ProductsEmpty = styled.div`
   color: ${({ theme }) => theme.colors.textSecondary};
   text-align: center;
 `;
+
+
+
+
+
+
+
 

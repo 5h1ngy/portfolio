@@ -62,6 +62,8 @@ export const HeroLayout = styled.div`
 `;
 
 export const HeroLead = styled.div`
+  position: relative;
+  z-index: 2;
   display: grid;
   gap: 1rem;
   max-width: 520px;
@@ -183,6 +185,7 @@ export const HeroTitleText = styled.span`
     animation: ${caretBlink} 1s steps(2, start) infinite;
   }
 `;
+
 
 
 
