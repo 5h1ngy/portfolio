@@ -212,81 +212,61 @@
   },
   "openSourceProducts": {
     "title": "Open source products",
-    "caption": "Packages and services I maintain to enable cross-functional teams.",
+    "caption": "Maintained packages and tools I keep ready for team workflows.",
     "projects": [
       {
-        "name": "Telemetry Hub",
-        "description": "Self-hosted platform aggregating DX metrics and insights on Git pipelines.",
-        "period": "2024",
-        "tags": ["Go", "Prometheus", "Grafana"],
-        "link": {
-          "label": "Website",
-          "href": "https://telemetry-hub.dev",
-          "type": "website",
-          "external": true
-        },
-        "links": [
-          {
-            "label": "Website",
-            "href": "https://telemetry-hub.dev",
-            "type": "website",
-            "external": true
-          },
-          {
-            "label": "GitHub",
-            "href": "https://github.com/5h1ngy/telemetry-hub",
-            "type": "github",
-            "external": true
-          }
-        ]
-      },
-      {
-        "name": "Design Tokens Studio",
-        "description": "Lightweight SaaS service to sync multi-brand design tokens into React/Flutter libraries.",
-        "period": "2023",
-        "tags": ["Design System", "API", "SaaS"],
-        "link": {
-          "label": "Docs",
-          "href": "https://tokens.studio/docs",
-          "type": "docs",
-          "external": true
-        },
-        "links": [
-          {
-            "label": "Website",
-            "href": "https://tokens.studio",
-            "type": "website",
-            "external": true
-          },
-          {
-            "label": "Docs",
-            "href": "https://tokens.studio/docs",
-            "type": "docs",
-            "external": true
-          },
-          {
-            "label": "GitHub",
-            "href": "https://github.com/5h1ngy/design-tokens-studio",
-            "type": "github",
-            "external": true
-          }
-        ]
-      },
-      {
-        "name": "Pipeline Kit",
-        "description": "Ready-to-use CI/CD template suite to orchestrate builds, releases, and multi-repo quality checks.",
-        "period": "2021",
-        "tags": ["CI/CD", "GitHub Actions", "DX"],
+        "name": "DSK Project Manager",
+        "description": "Offline-first desktop project manager built with Electron, React, and TypeScript for timelines, dashboards, and automated backups.",
+        "period": "2025",
+        "tags": ["Electron", "React", "TypeScript"],
         "link": {
           "label": "GitHub",
-          "href": "https://github.com/5h1ngy/pipeline-kit",
+          "href": "https://github.com/5h1ngy/dsk-electron-react-project-manager",
           "type": "github",
           "external": true
         },
         "links": [
           {
             "label": "GitHub",
-            "href": "https://github.com/5h1ngy/pipeline-kit",
+            "href": "https://github.com/5h1ngy/dsk-electron-react-project-manager",
+            "type": "github",
+            "external": true
+          }
+        ]
+      },
+      {
+        "name": "React Goblin System",
+        "description": "Comprehensive React UI system with advanced theming, providers, documentation, and Storybook built on TypeScript.",
+        "period": "2025",
+        "tags": ["React", "TypeScript", "Design System"],
+        "link": {
+          "label": "Website",
+          "href": "https://5h1ngy.github.io/pkg-fe-react-goblin-system/",
+          "type": "website",
+          "external": true
+        },
+        "links": [
+          {
+            "label": "Website",
+            "href": "https://5h1ngy.github.io/pkg-fe-react-goblin-system/",
+            "type": "website",
+            "external": true
+          },
+          {
+            "label": "Docs",
+            "href": "https://5h1ngy.github.io/pkg-fe-react-goblin-system/docs",
+            "type": "docs",
+            "external": true
+          },
+          {
+            "label": "Storybook",
+            "href": "https://5h1ngy.github.io/pkg-fe-react-goblin-system/storybook",
+            "type": "storybook",
+            "external": true
+          },
+          {
+            "label": "GitHub",
+            "href": "https://github.com/5h1ngy/pkg-fe-react-goblin-system",
             "type": "github",
             "external": true
           }
@@ -299,37 +279,118 @@
     "caption": "Toolkits and experiments I share with the community.",
     "projects": [
       {
-        "name": "PromptOps",
-        "description": "Collection of tools to orchestrate multi-model prompts with smart fallbacks.",
-        "period": "2024",
-        "tags": ["Node.js", "AI Ops", "OpenAI"],
+        "name": "BL Custom React Boilerplate",
+        "description": "Scalable React starter kit with theming, i18n, mock APIs, and Docker-ready deployment.",
+        "period": "2025",
+        "tags": ["React", "Redux Toolkit", "Vite"],
+        "category": "Frontend platforms",
         "link": {
           "label": "GitHub",
-          "href": "https://github.com/5h1ngy/promptops",
+          "href": "https://github.com/5h1ngy/bl-custom-fe-react",
           "type": "github",
           "external": true
         }
       },
       {
-        "name": "DX Dash",
-        "description": "React dashboard plug-in to measure DX performance and test coverage in real time.",
-        "period": "2023",
-        "tags": ["React", "Vite", "Vitest"],
+        "name": "FE React Portfolio",
+        "description": "Chakra UI portfolio experience with animations, markdown-powered content, and modular architecture.",
+        "period": "2025",
+        "tags": ["React", "Chakra UI", "GSAP"],
+        "category": "Frontend experiences",
         "link": {
           "label": "GitHub",
-          "href": "https://github.com/5h1ngy/dx-dash",
+          "href": "https://github.com/5h1ngy/fe-react-portfolio",
           "type": "github",
           "external": true
         }
       },
       {
-        "name": "CLI Scaffolder",
-        "description": "Opinionated TypeScript CLI generator to bootstrap microservices with ready-to-use best practices.",
-        "period": "2022",
-        "tags": ["TypeScript", "CLI", "DevOps"],
+        "name": "BL Custom Backend Node",
+        "description": "Modular Node.js backend boilerplate with JWT auth, mock mode, Swagger docs, and Docker workflows.",
+        "period": "2025",
+        "tags": ["Node.js", "Express", "Swagger"],
+        "category": "Backend platforms",
         "link": {
           "label": "GitHub",
-          "href": "https://github.com/5h1ngy/cli-scaffolder",
+          "href": "https://github.com/5h1ngy/bl-custom-be-node",
+          "type": "github",
+          "external": true
+        }
+      },
+      {
+        "name": "FE React Calendar POC",
+        "description": "Calendar app with day, week, and month views, persisted events, and import/export workflows.",
+        "period": "2025",
+        "tags": ["React", "Redux Toolkit", "Styled Components"],
+        "category": "Frontend experiences",
+        "link": {
+          "label": "GitHub",
+          "href": "https://github.com/5h1ngy/fe-react-poc-calendar",
+          "type": "github",
+          "external": true
+        }
+      },
+      {
+        "name": "FE React Avatar Maker",
+        "description": "Avatar generator offering multilingual UI, shareable presets, and multi-format exports.",
+        "period": "2025",
+        "tags": ["React", "TypeScript", "i18n"],
+        "category": "Frontend experiences",
+        "link": {
+          "label": "GitHub",
+          "href": "https://github.com/5h1ngy/fe-react-avatar-maker",
+          "type": "github",
+          "external": true
+        }
+      },
+      {
+        "name": "Phaser Isometric RPG POC",
+        "description": "Phaser proof-of-concept that renders isometric maps with animated player movement.",
+        "period": "2025",
+        "tags": ["Phaser", "TypeScript", "Game Dev"],
+        "category": "Game experiments",
+        "link": {
+          "label": "GitHub",
+          "href": "https://github.com/5h1ngy/fe-phaser-poc-isometric-rpg",
+          "type": "github",
+          "external": true
+        }
+      },
+      {
+        "name": "Phaser Season Times",
+        "description": "Responsive match-3 puzzle built with Phaser 3 and GSAP-powered animations.",
+        "period": "2025",
+        "tags": ["Phaser", "GSAP", "Puzzle"],
+        "category": "Game experiments",
+        "link": {
+          "label": "GitHub",
+          "href": "https://github.com/5h1ngy/fe-phaser-season-times",
+          "type": "github",
+          "external": true
+        }
+      },
+      {
+        "name": "AniDB Scraper CLI",
+        "description": "Node.js CLI that scrapes AniDB metadata into SQLite with structured logging and decorators.",
+        "period": "2025",
+        "tags": ["Node.js", "TypeScript", "SQLite"],
+        "category": "CLI utilities",
+        "link": {
+          "label": "GitHub",
+          "href": "https://github.com/5h1ngy/cli-node-scraper-anidb",
+          "type": "github",
+          "external": true
+        }
+      },
+      {
+        "name": "Project Pars3r CLI",
+        "description": "Python CLI that packs project trees into .prompt archives for LLM-ready workflows.",
+        "period": "2025",
+        "tags": ["Python", "CLI", "LLM"],
+        "category": "CLI utilities",
+        "link": {
+          "label": "GitHub",
+          "href": "https://github.com/5h1ngy/cli-py-project-pars3r",
           "type": "github",
           "external": true
         }
