@@ -12,7 +12,6 @@ export const HeaderRoot = styled.header`
   justify-content: center;
   padding: 0.85rem 0;
   pointer-events: none;
-  background: transparent;
   border-bottom: none;
 `
 

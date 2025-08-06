@@ -258,11 +258,6 @@
         ]
       },
       {
-        "title": "Tooling e DX",
-        "summary": "Build veloci, linting condiviso e workflow automatizzati.",
-        "items": ["Vite", "Storybook", "npm / Yarn / pnpm"]
-      },
-      {
         "title": "Node.js e API",
         "summary": "Servizi Express modulari, autenticazione e documentazione API.",
         "items": ["Node.js", "Express", "Sequelize", "SQLite", "Swagger"]
@@ -277,6 +272,11 @@
           "GitHub Actions",
           "GitLab CI"
         ]
+      },
+      {
+        "title": "Tooling e DX",
+        "summary": "Build veloci, linting condiviso e workflow automatizzati.",
+        "items": ["Vite", "Storybook", "npm / Yarn / pnpm"]
       }
     ]
   },
