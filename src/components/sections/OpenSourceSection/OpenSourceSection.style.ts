@@ -134,7 +134,7 @@ export const ProductsEmpty = styled.div`
 export const PaginationControls = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   gap: 1.1rem;
 `
 

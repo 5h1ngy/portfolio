@@ -283,7 +283,7 @@
         "description": "Starter kit React scalabile con theming, i18n, API mock e deployment Docker-ready.",
         "period": "2025",
         "tags": ["React", "Redux Toolkit", "Vite"],
-        "category": "Piattaforme frontend",
+        "category": "Frontend",
         "link": {
           "label": "GitHub",
           "href": "https://github.com/5h1ngy/bl-custom-fe-react",
@@ -296,7 +296,7 @@
         "description": "Boilerplate backend Node.js modulare con autenticazione JWT, modalità mock e documentazione Swagger integrata.",
         "period": "2025",
         "tags": ["Node.js", "Express", "Swagger"],
-        "category": "Piattaforme backend",
+        "category": "Backend",
         "link": {
           "label": "GitHub",
           "href": "https://github.com/5h1ngy/bl-custom-be-node",
@@ -309,7 +309,7 @@
         "description": "Portfolio React con Chakra UI, animazioni e contenuti modulari basati su markdown.",
         "period": "2025",
         "tags": ["React", "Chakra UI", "GSAP"],
-        "category": "Esperienze frontend",
+        "category": "Frontend",
         "link": {
           "label": "GitHub",
           "href": "https://github.com/5h1ngy/fe-react-portfolio",
@@ -322,7 +322,7 @@
         "description": "Calendario con viste giorno/settimana/mese, eventi persistenti e flussi di import/export.",
         "period": "2025",
         "tags": ["React", "Redux Toolkit", "Styled Components"],
-        "category": "Esperienze frontend",
+        "category": "Frontend",
         "link": {
           "label": "GitHub",
           "href": "https://github.com/5h1ngy/fe-react-poc-calendar",
@@ -335,7 +335,7 @@
         "description": "Generatore di avatar con interfaccia multilingua, preset condivisibili ed export multi-formato.",
         "period": "2025",
         "tags": ["React", "TypeScript", "i18n"],
-        "category": "Esperienze frontend",
+        "category": "Frontend",
         "link": {
           "label": "GitHub",
           "href": "https://github.com/5h1ngy/fe-react-avatar-maker",
