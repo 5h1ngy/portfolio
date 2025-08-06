@@ -1,4 +1,6 @@
-import styled from 'styled-components'
+import type { HTMLAttributes, PropsWithChildren } from "react";
+
+import styled from "styled-components";
 
 export const TagPillRoot = styled.span`
   display: inline-flex;
@@ -13,6 +15,13 @@ export const TagPillRoot = styled.span`
   letter-spacing: 0.04em;
   line-height: 1.2;
   white-space: nowrap;
-`
+`;
 
+export type TagPillProps = HTMLAttributes<HTMLSpanElement>;
 
+export const TagPill = ({
+  children,
+  ...props
+}: PropsWithChildren<TagPillProps>) => (
+  <TagPillRoot {...props}>{children}</TagPillRoot>
+);

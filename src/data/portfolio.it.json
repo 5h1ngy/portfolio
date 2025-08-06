@@ -1,4 +1,4 @@
-﻿{
+{
   "meta": {
     "title": "Davide Scarano - Frontend \u0026 DX Engineer",
     "description": "Senior frontend engineer che costruisce interfacce scalabili e pipeline DX con React, TypeScript e AI.",
@@ -14,7 +14,7 @@
   },
   "profile": {
     "name": "Davide Scarano",
-    "tagline": "React, DX e AI per team che vogliono muoversi veloci senza rompere nulla.",
+    "tagline": "Software engineer che costruisce piattaforme React e Node.js affidabili.",
     "links": [
       {
         "label": "GitHub",
@@ -31,8 +31,8 @@
   "hero": {
     "title": "Davide Scarano",
     "typingTitles": ["5h1ngy", "Davide Scarano"],
-    "subtitle": "Creo interfacce affidabili con DX moderna.",
-    "description": "React, TypeScript e automazioni AI per consegnare esperienze che scalano con il team.",
+    "subtitle": "Costruisco interfacce React e servizi Node.js con processi pratici.",
+    "description": "Design system snelli, API Express tipizzate e pipeline CI/CD curate per back office affidabili.",
     "primaryAction": {
       "label": "GitHub",
       "href": "https://github.com/5h1ngy",
@@ -152,61 +152,131 @@
   },
   "experience": {
     "title": "Esperienza",
-    "caption": "Prodotti lanciati con team distribuiti, design system e ossessione per la DX.",
+    "caption": "Percorso su interfacce enterprise, banking e strumenti OSS.",
     "roles": [
       {
-        "company": "Buildo",
-        "role": "Principal Frontend Engineer",
-        "period": "2022 — oggi",
-        "summary": "Guido l\u0027implementazione del design system modulare e della toolchain front-end per piattaforme enterprise.",
+        "company": "Dacomat S.r.l.",
+        "role": "Front-end Engineer, Banking \u0026 Payments",
+        "period": "Ago 2022 - Attuale",
+        "summary": "Sviluppo portali banking ed e-commerce per Nexi Digital.",
         "highlights": [
-          "Ho re-ingegnerizzato il design system React 18 con token cross-brand e visual regression automatica.",
-          "Ho introdotto Nx + Vite riducendo del 40% i tempi di build e semplificando la contribuzione dei team."
+          "Sviluppo e mantenimento con implementaizone di evolutive sui vari portali.",
+          "Sviluppo e progettazione di Design Patterns UI riutilizzabili.",
+          "Mantenimento dei portali legacy.",
+          "Formazione di juniors.",
+          "Configurazione delle pipeline build/deploy."
         ],
-        "tags": ["React 18", "Nx", "Design System", "AI tooling"]
+        "tags": [
+          "Javascript",
+          "React",
+          "Redux",
+          "Redux-Sagas",
+          "Webpack",
+          "Storybook",
+          "Jest",
+          "Jenkins",
+          "Docker",
+          "Nginx",
+          "Apache HTTP Server"
+        ]
       },
       {
-        "company": "DOING / Capgemini",
-        "role": "Lead Frontend Engineer",
-        "period": "2019 — 2022",
-        "summary": "Ho coordinato squad multidisciplinari su e-commerce e piattaforme data-driven scalando la DX.",
+        "company": "Proxima Informatica / Eurobet-Entain",
+        "role": "Front-end Game Developer, Gambling",
+        "period": "Set 2021 - Ago 2022",
+        "summary": "Sviluppo e mantenimento di videogame nel settore del gambling, con mantenimento continuo del framework aziendale.",
         "highlights": [
-          "Ho lanciato un design system condiviso da 6 team con roll-out progressivo e training dedicati.",
-          "Ho portato test end-to-end e monitoraggio real-time riducendo il time-to-recovery del 35%."
+          "Sviluppo e progettazione di videogiochi e moduli del framework aziendale.",
+          "Mantenimento di videogame legacy.",
+          "Occasionale configuraizone del GitLab.",
+          "Sviluppo e progettazione di PoC.",
+          "Stesura della documentazione tecnica."
         ],
-        "tags": ["Vue", "React", "Cypress", "Storybook"]
+        "tags": ["Javascript", "PixiJS", "Webpack", "Gitlab"]
       },
       {
-        "company": "Freelance",
-        "role": "Senior Frontend \u0026 DX Consultant",
-        "period": "2014 — 2019",
-        "summary": "Ho supportato startup e PMI su performance, accessibilita e bootstrap di prodotti digitali.",
+        "company": "ECTM Ingegneria S.r.l.",
+        "role": "Full Stack Developer",
+        "period": "Mag 2021 - Ago 2021",
+        "summary": "Sviluppo moduli Angular Material e servizi Laravel per strumenti digitali nel settore edilizio.",
         "highlights": [
-          "Ho lanciato prototipi React + Electron per tool interni con delivery in poche settimane.",
-          "Ho creato boilerplate TypeScript full-stack riutilizzati da team distribuiti in 3 fusi orari."
+          "Progettazione della UI/UX.",
+          "Sviluppo del frontend Angular e del backend API Laravel.",
+          "Progettazione dei moduli.",
+          "Sviluppo di microservizi.",
+          "Scrittura immagini docker per il rilascio e lo sviluppo."
         ],
-        "tags": ["Electron", "TypeScript", "Node.js", "DX"]
+        "tags": [
+          "Typescript",
+          "Angular",
+          "NgRx",
+          "RxJs",
+          "PHP",
+          "Laravel",
+          "Nginx",
+          "Docker"
+        ]
+      },
+      {
+        "company": "Advanced Global Solution (AGS)",
+        "role": "Frontend Developer, Operational Support Systems",
+        "period": "Ago 2019 - Mag 2021",
+        "summary": "Sviluppo e mantenimento di portali per la creazione e gestione dei nodi di internet.",
+        "highlights": [
+          "Sviluppo e mantenimento nel settore O.S.S.",
+          "Bug-fixing backend.",
+          "Configurazione delle macchine linux per il rilascio in dev.",
+          "Integro workflow REST/SOAP e SharePoint assicurando continuita operativa."
+        ],
+        "tags": [
+          "Javascript",
+          "Typescript",
+          "AngularJS",
+          "Angular",
+          "UOC",
+          "REST/SOAP",
+          "Sharepoint"
+        ]
       }
     ]
   },
   "skills": {
     "title": "Stack e competenze",
-    "caption": "Tecnologie e pratiche con cui porto valore ogni giorno.",
+    "caption": "Focus su piattaforme React e Node.js con tooling produttivo.",
     "categories": [
       {
-        "title": "Frontend architecture",
-        "summary": "Componentizzazione, rendering ibrido e performance audit continui.",
-        "items": ["React 18", "TypeScript", "Next.js", "Zustand"]
+        "title": "UI e componenti React",
+        "summary": "Componenti tipizzati, stato prevedibile e interfacce accessibili.",
+        "items": [
+          "React",
+          "TypeScript",
+          "Redux Toolkit",
+          "React Router DOM",
+          "React Hook Form",
+          "Zod",
+          "Styled Components"
+        ]
       },
       {
-        "title": "Tooling \u0026 DX",
-        "summary": "Pipeline Vite, automazioni CI/CD e qualita misurabile.",
-        "items": ["Vite", "Nx", "Vitest", "Playwright"]
+        "title": "Tooling e DX",
+        "summary": "Build veloci, linting condiviso e workflow automatizzati.",
+        "items": ["Vite", "Storybook", "npm / Yarn / pnpm"]
       },
       {
-        "title": "Product delivery",
-        "summary": "Roadmap condivise, discovery rapida e metriche di impatto.",
-        "items": ["Product Strategy", "Design Ops", "Data-informed UX"]
+        "title": "Node.js e API",
+        "summary": "Servizi Express modulari, autenticazione e documentazione API.",
+        "items": ["Node.js", "Express", "Sequelize", "SQLite", "Swagger"]
+      },
+      {
+        "title": "CI/CD e DevOps",
+        "summary": "Pipeline continue, container e provisioning ambienti.",
+        "items": [
+          "Docker",
+          "Docker Compose",
+          "Nginx",
+          "GitHub Actions",
+          "GitLab CI"
+        ]
       }
     ]
   },
@@ -283,7 +353,7 @@
         "description": "Starter kit React scalabile con theming, i18n, API mock e deployment Docker-ready.",
         "period": "2025",
         "tags": ["React", "Redux Toolkit", "Vite"],
-        "category": "Piattaforme frontend",
+        "category": "Frontend",
         "link": {
           "label": "GitHub",
           "href": "https://github.com/5h1ngy/bl-custom-fe-react",
@@ -296,7 +366,7 @@
         "description": "Boilerplate backend Node.js modulare con autenticazione JWT, modalità mock e documentazione Swagger integrata.",
         "period": "2025",
         "tags": ["Node.js", "Express", "Swagger"],
-        "category": "Piattaforme backend",
+        "category": "Backend",
         "link": {
           "label": "GitHub",
           "href": "https://github.com/5h1ngy/bl-custom-be-node",
@@ -309,7 +379,7 @@
         "description": "Portfolio React con Chakra UI, animazioni e contenuti modulari basati su markdown.",
         "period": "2025",
         "tags": ["React", "Chakra UI", "GSAP"],
-        "category": "Esperienze frontend",
+        "category": "Frontend",
         "link": {
           "label": "GitHub",
           "href": "https://github.com/5h1ngy/fe-react-portfolio",
@@ -322,7 +392,7 @@
         "description": "Calendario con viste giorno/settimana/mese, eventi persistenti e flussi di import/export.",
         "period": "2025",
         "tags": ["React", "Redux Toolkit", "Styled Components"],
-        "category": "Esperienze frontend",
+        "category": "Frontend",
         "link": {
           "label": "GitHub",
           "href": "https://github.com/5h1ngy/fe-react-poc-calendar",
@@ -335,7 +405,7 @@
         "description": "Generatore di avatar con interfaccia multilingua, preset condivisibili ed export multi-formato.",
         "period": "2025",
         "tags": ["React", "TypeScript", "i18n"],
-        "category": "Esperienze frontend",
+        "category": "Frontend",
         "link": {
           "label": "GitHub",
           "href": "https://github.com/5h1ngy/fe-react-avatar-maker",

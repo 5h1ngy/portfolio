@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const HiddenLabel = styled.span`
+export const VisuallyHidden = styled.span`
   position: absolute;
   width: 1px;
   height: 1px;

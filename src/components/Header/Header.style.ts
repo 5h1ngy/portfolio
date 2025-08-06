@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import { Backdrop } from '@components/shared/Backdrop'
+
 
 export const HeaderRoot = styled.header`
   position: fixed;
@@ -82,19 +84,18 @@ export const Controls = styled.div`
   }
 `
 
-export const MobileBackdrop = styled.button<{ $visible: boolean }>`
+export const MobileBackdrop = styled(Backdrop).attrs({
+  as: 'button',
+  type: 'button',
+  $tone: 'dark',
+  $blur: 'blur(6px)',
+  $zIndex: 5,
+})<{ $visible: boolean }>`
   display: none;
 
   @media (max-width: 834px) {
     display: ${({ $visible }) => ($visible ? 'block' : 'none')};
-    position: fixed;
-    inset: 0;
-    background: ${({ theme }) =>
-      theme.mode === 'dark' ? 'rgba(3, 6, 21, 0.62)' : 'rgba(12, 18, 32, 0.28)'};
-    border: none;
-    padding: 0;
-    margin: 0;
-    z-index: 5;
     pointer-events: ${({ $visible }) => ($visible ? 'auto' : 'none')};
   }
 `
+

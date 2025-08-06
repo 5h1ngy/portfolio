@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import { IconButton, SurfaceButton } from '@components/shared/Button'
+import { MenuSurface } from '@components/shared/Menu'
 
 export const ThemeMenu = styled.div`
   position: relative;
@@ -6,17 +8,7 @@ export const ThemeMenu = styled.div`
   align-items: center;
 `
 
-export const ThemeMenuButton = styled.button`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  border: none;
-  background: ${({ theme }) => theme.colors.surface};
-  color: ${({ theme }) => theme.colors.textPrimary};
-  cursor: pointer;
+export const ThemeMenuButton = styled(IconButton).attrs({ $tone: 'surface', $size: 'md' })`
   box-shadow: ${({ theme }) => theme.shadows.ambient};
   transition: transform 160ms ease, background 160ms ease;
 
@@ -52,25 +44,15 @@ export const ThemeTriggerIcon = styled.span`
   }
 `
 
-export const ThemeMenuContent = styled.div<{ $open: boolean }>`
-  position: absolute;
+export const ThemeMenuContent = styled(MenuSurface)`
   top: calc(100% + 0.75rem);
-  right: 0;
   display: grid;
   align-items: start;
   justify-items: stretch;
   gap: 1.1rem;
   padding: 1.4rem 1.65rem;
-  border-radius: 18px;
-  border: none;
-  background: ${({ theme }) => theme.colors.surface};
-  box-shadow: ${({ theme }) => theme.shadows.ambient};
   min-width: 220px;
-  width: max-content;
-  opacity: ${({ $open }) => ($open ? 1 : 0)};
-  transform: translateY(${({ $open }) => ($open ? '0' : '-6px')});
-  pointer-events: ${({ $open }) => ($open ? 'auto' : 'none')};
-  transition: opacity 0.18s ease, transform 0.18s ease;
+  right: 0;
   z-index: 8;
 
   @media (max-width: 834px) {
@@ -87,18 +69,17 @@ export const ThemeMenuLabel = styled.span`
   text-align: left;
 `
 
-export const ThemeSwitch = styled.button<{ $mode: 'light' | 'dark' }>`
+export const ThemeSwitch = styled(SurfaceButton).attrs({ as: 'button', $tone: 'muted', $padding: '0 10px' })<{
+  $mode: 'light' | 'dark'
+}>`
   position: relative;
   width: 70px;
   height: 32px;
   border-radius: 999px;
   border: 1px solid ${({ theme }) => theme.colors.accentOutlineMuted};
-  background: ${({ theme }) => theme.colors.surfaceMuted};
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 10px;
-  cursor: pointer;
   transition: border-color 160ms ease, background 160ms ease;
 
   &:hover,
@@ -146,19 +127,13 @@ export const AccentGrid = styled.div`
   justify-content: flex-start;
 `
 
-export const AccentSwatch = styled.button<{ $active: boolean; $color: string }>`
-  width: 26px;
-  height: 26px;
-  border-radius: 999px;
+export const AccentSwatch = styled(IconButton).attrs({ $tone: 'ghost', $size: 'sm', $shape: 'circle' })<{
+  $active: boolean
+  $color: string
+}>`
   border: 2px solid transparent;
-  cursor: pointer;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
-  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
   background-color: ${({ $color }) => $color};
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
 
   &:hover,
   &:focus-visible {

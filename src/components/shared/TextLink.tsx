@@ -1,3 +1,5 @@
+import type { AnchorHTMLAttributes, PropsWithChildren } from 'react'
+
 import styled from 'styled-components'
 
 export const TextLinkRoot = styled.a`
@@ -14,3 +16,8 @@ export const TextLinkRoot = styled.a`
     border-color: ${({ theme }) => theme.colors.accent};
   }
 `
+export type TextLinkProps = AnchorHTMLAttributes<HTMLAnchorElement>
+
+export const TextLink = ({ children, ...props }: PropsWithChildren<TextLinkProps>) => (
+  <TextLinkRoot {...props}>{children}</TextLinkRoot>
+)
