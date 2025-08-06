@@ -1,5 +1,5 @@
-import { HiddenLabel } from '@/components/Header/components/HiddenLabel.style';
 import { MobileToggle } from '@/components/Header/components/MobileToggle.style';
+import { VisuallyHidden } from '@components/shared/VisuallyHidden';
 
 interface HeaderMobileToggleProps {
   isOpen: boolean;
@@ -17,7 +17,7 @@ export const HeaderMobileToggle = ({ isOpen, onToggle, hiddenLabel, closedLabel,
     aria-controls="primary-navigation"
     $isActive={isOpen}
   >
-    <HiddenLabel>{hiddenLabel}</HiddenLabel>
+    <VisuallyHidden>{hiddenLabel}</VisuallyHidden>
     <span aria-hidden>{isOpen ? openLabel : closedLabel}</span>
   </MobileToggle>
 );

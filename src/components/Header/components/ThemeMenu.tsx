@@ -13,7 +13,7 @@ import {
   ThemeSwitchThumb,
   ThemeTriggerIcon,
 } from '@/components/Header/components/ThemeMenu.style';
-import { HiddenLabel } from '@/components/Header/components/HiddenLabel.style';
+import { VisuallyHidden } from '@components/shared/VisuallyHidden';
 import type { ThemeMode } from '@styles/theme';
 import { MoonIcon, PaletteIcon, SunIcon } from '@styles/icons';
 
@@ -89,7 +89,7 @@ export const HeaderThemeMenu = ({
             aria-label={accentLabel(option, index)}
             title={accentLabel(option, index)}
           >
-            <HiddenLabel>{accentLabel(option, index)}</HiddenLabel>
+            <VisuallyHidden>{accentLabel(option, index)}</VisuallyHidden>
           </AccentSwatch>
         ))}
       </AccentGrid>

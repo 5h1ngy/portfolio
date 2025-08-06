@@ -1,17 +1,15 @@
 import styled from 'styled-components'
+import { PillButton } from '@components/shared/Button'
 
-export const MobileToggle = styled.button<{ $isActive: boolean }>`
+export const MobileToggle = styled(PillButton).attrs({ $tone: 'muted', $dense: true })<{ $isActive: boolean }>`
   display: none;
   align-items: center;
   justify-content: center;
   gap: 0.45rem;
-  padding: 0.45rem 0.8rem;
-  border-radius: 999px;
-  border: 1px solid ${({ theme }) => theme.colors.accentOutlineMuted};
-  background: ${({ theme }) => theme.colors.surfaceMuted};
-  color: ${({ theme }) => theme.colors.textPrimary};
   font-size: 0.82rem;
-  cursor: pointer;
+  color: ${({ theme }) => theme.colors.textPrimary};
+  border-color: ${({ theme }) => theme.colors.accentOutlineMuted};
+  background: ${({ theme }) => theme.colors.surfaceMuted};
   transition: border-color 160ms ease, transform 160ms ease, background 160ms ease;
 
   &:hover,
@@ -34,6 +32,6 @@ export const MobileToggle = styled.button<{ $isActive: boolean }>`
     z-index: 80;
     align-self: flex-end;
     margin-right: auto;
+    padding: 0.45rem 0.8rem;
   }
 `
-

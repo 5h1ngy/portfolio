@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import { SurfaceButton } from '@components/shared/Button'
+import { MenuSurface } from '@components/shared/Menu'
 
 export const LanguageSelectWrapper = styled.div`
   position: relative;
@@ -6,7 +8,7 @@ export const LanguageSelectWrapper = styled.div`
   flex-direction: row-reverse;
 `
 
-export const LanguageSelectToggle = styled.button<{ $open: boolean }>`
+export const LanguageSelectToggle = styled(SurfaceButton).attrs({ $tone: 'surface' })<{ $open: boolean }>`
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -14,7 +16,6 @@ export const LanguageSelectToggle = styled.button<{ $open: boolean }>`
   padding: 0 2.4rem 0 1rem;
   height: 40px;
   border-radius: 14px;
-  border: none;
   background: ${({ theme }) => theme.colors.surface};
   color: ${({ theme }) => theme.colors.textSecondary};
   font-size: 0.85rem;
@@ -45,10 +46,6 @@ export const LanguageSelectToggle = styled.button<{ $open: boolean }>`
     transform: translateY(-1px);
   }
 
-  &:focus-visible {
-    outline: none;
-  }
-
   ${({ $open }) =>
     $open &&
     `
@@ -58,45 +55,32 @@ export const LanguageSelectToggle = styled.button<{ $open: boolean }>`
     `}
 `
 
-export const LanguageSelectMenu = styled.div<{ $open: boolean }>`
-  position: absolute;
-  top: calc(100% + 0.6rem);
-  left: 0;
-  display: grid;
+export const LanguageSelectMenu = styled(MenuSurface)`
   gap: 0.45rem;
+  left: 0;
+  right: auto;
   min-width: 190px;
-  width: max-content;
-  padding: 0.65rem;
-  border-radius: 14px;
-  border: none;
-  background: ${({ theme }) => theme.colors.surface};
-  box-shadow: ${({ theme }) => theme.shadows.ambient};
-  opacity: ${({ $open }) => ($open ? 1 : 0)};
-  transform: translateY(${({ $open }) => ($open ? '0' : '-6px')});
-  pointer-events: ${({ $open }) => ($open ? 'auto' : 'none')};
-  transition: opacity 0.18s ease, transform 0.18s ease;
-  z-index: 12;
 
   @media (max-width: 834px) {
     min-width: 200px;
   }
 `
 
-export const LanguageSelectOption = styled.button<{ $active: boolean }>`
+export const LanguageSelectOption = styled(SurfaceButton).attrs({ as: 'button', $tone: 'ghost', $padding: '0.55rem 0.85rem' })<{
+  $active: boolean
+}>`
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 0.85rem;
   width: 100%;
-  padding: 0.55rem 0.85rem;
-  border-radius: 12px;
   border: none;
+  box-shadow: none;
   background: ${({ $active, theme }) => ($active ? theme.colors.accentSoft : 'transparent')};
   color: ${({ $active, theme }) => ($active ? theme.colors.textPrimary : theme.colors.textSecondary)};
   font-size: 0.82rem;
   font-weight: 600;
   text-align: left;
-  cursor: pointer;
   transition: background 0.16s ease, color 0.16s ease, transform 0.16s ease;
 
   &:hover,
@@ -104,10 +88,6 @@ export const LanguageSelectOption = styled.button<{ $active: boolean }>`
     background: ${({ theme }) => theme.colors.accentSoft};
     color: ${({ theme }) => theme.colors.textPrimary};
     transform: translateY(-1px);
-  }
-
-  &:focus-visible {
-    outline: none;
   }
 `
 

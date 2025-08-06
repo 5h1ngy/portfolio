@@ -1,4 +1,6 @@
-import styled from 'styled-components'
+import type { AnchorHTMLAttributes, PropsWithChildren } from "react";
+
+import styled from "styled-components";
 
 export const ActionLinkRoot = styled.a`
   display: inline-flex;
@@ -24,7 +26,13 @@ export const ActionLinkRoot = styled.a`
     color: ${({ theme }) => theme.colors.textPrimary};
     border-color: ${({ theme }) => theme.colors.accent};
   }
-`
+`;
 
+export type ActionLinkProps = AnchorHTMLAttributes<HTMLAnchorElement>;
 
-
+export const ActionLink = ({
+  children,
+  ...props
+}: PropsWithChildren<ActionLinkProps>) => (
+  <ActionLinkRoot {...props}>{children}</ActionLinkRoot>
+);

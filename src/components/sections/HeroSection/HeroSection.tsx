@@ -8,7 +8,6 @@ import {
   HeroDescription,
   HeroEyebrow,
   HeroIconButton,
-  HeroIconLabel,
   HeroIconRow,
   HeroLayout,
   HeroLead,
@@ -19,6 +18,7 @@ import {
   HeroTitleText,
 } from './HeroSection.style';
 import { GithubIcon, LinkedinIcon } from '@styles/icons';
+import { VisuallyHidden } from '@components/shared/VisuallyHidden';
 
 const ICON_COMPONENTS: Record<HeroIconType, ComponentType<SVGProps<SVGSVGElement>>> = {
   github: GithubIcon,
@@ -55,7 +55,7 @@ export const HeroSection = ({ hero, socialLinks }: HeroSectionProps) => {
                     aria-label={label}
                   >
                     <Icon aria-hidden="true" />
-                    <HeroIconLabel>{label}</HeroIconLabel>
+                    <VisuallyHidden>{label}</VisuallyHidden>
                   </HeroIconButton>
                 );
               })}
