@@ -46,14 +46,11 @@ export const BrandLink = styled.a`
   border-radius: 16px;
   text-decoration: none;
   background: ${({ theme }) => theme.colors.surface};
-  box-shadow: ${({ theme }) => theme.shadows.ambient};
   transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 
   &:hover,
   &:focus-visible {
     transform: translateY(-1px);
-    background: ${({ theme }) => theme.colors.surfaceMuted};
-    box-shadow: ${({ theme }) => theme.shadows.accent};
   }
 
   @media (max-width: 834px) {

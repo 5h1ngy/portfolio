@@ -2,9 +2,14 @@ import styled from "styled-components";
 
 export const Summary = styled.div`
   display: grid;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  gap: 0.75rem;
+  margin-bottom: 1.2rem;
   color: ${({ theme }) => theme.colors.textSecondary};
+
+  p {
+    margin: 0;
+    line-height: 1.45;
+  }
 `;
 
 export const FocusGrid = styled.div`
