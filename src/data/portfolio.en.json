@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Davide Scarano - Frontend & DX Engineer",
-    "description": "Senior frontend engineer who builds scalable interfaces and DX pipelines with React, TypeScript, and AI.",
+    "title": "Davide Scarano - Frontend Engineer",
+    "description": "Senior frontend engineer who builds scalable interfaces with React, TypeScript, and AI.",
     "keywords": [
       "React",
       "TypeScript",
@@ -31,8 +31,8 @@
   "hero": {
     "title": "Davide Scarano",
     "typingTitles": ["5h1ngy", "Davide Scarano"],
-    "subtitle": "I build React interfaces and Node.js services with practical processes.",
-    "description": "Lean design systems, typed Express APIs, and curated CI/CD pipelines for reliable back offices.",
+    "subtitle": "Frontend engineer for web products.",
+    "description": "I build clear components, follow the design system, and keep interfaces easy to evolve.",
     "primaryAction": {
       "label": "GitHub",
       "href": "https://github.com/5h1ngy",
@@ -116,37 +116,37 @@
   },
   "about": {
     "title": "About",
-    "caption": "Pragmatic frontend, product experience, and tooling that scales with the team.",
+    "caption": "Pragmatic frontend, product focus, and tools that help teams ship.",
     "summary": [
-      "I’m a frontend engineer with over ten years of experience across scale-ups and enterprise products. I like tidying up interfaces, creating design systems that don’t slow teams down, and orchestrating pipelines that make designers and developers happy.",
-      "In recent years I’ve enabled cross-functional teams on AI-driven products: I’ve taken care of DX, code quality, and automations that deliver value to production without stress."
+      "I’m a frontend engineer with 6 years of experience on enterprise React platforms. I organize reusable components, standardize patterns, and keep UIs consistent across the product lifecycle.",
+      "In recent projects I’ve worked on banking back offices and apps that integrate AI APIs, looking after DX, QA, and release pipelines for distributed squads."
     ],
     "focus": [
       {
-        "title": "Plug & play design systems",
-        "description": "Multi-brand React components with baked-in accessibility and synchronized tokens."
+        "title": "Maintainable design systems",
+        "description": "Typed React libraries, shared tokens, and documentation that supports teams day to day."
       },
       {
-        "title": "AI enablement",
-        "description": "PoCs, prompt orchestration, and integration with the existing stack for real-world AI features."
+        "title": "Data-driven interfaces",
+        "description": "Dashboards and complex flows with attention to accessibility, validation, and perceived performance."
       },
       {
-        "title": "Developer experience",
-        "description": "Vite/Nx tooling, pervasive linting, and release pipelines that remove delivery friction."
+        "title": "Tooling & quality",
+        "description": "CI/CD, linting, tests, and script automation to provide fast feedback and reduce regressions."
       }
     ],
     "quickFacts": [
       {
         "label": "Experience",
-        "value": "10+ years"
+        "value": "6+ years"
       },
       {
         "label": "Industries",
-        "value": "Fintech, Retail, SaaS"
+        "value": "Banking, SaaS, Gambling"
       },
       {
         "label": "Remote",
-        "value": "Europe-friendly"
+        "value": "Hybrid / Italy (Turin, Milan)"
       }
     ]
   },
@@ -258,11 +258,6 @@
         ]
       },
       {
-        "title": "Tooling & DX",
-        "summary": "Fast builds, shared linting, and automated workflows.",
-        "items": ["Vite", "Storybook", "npm / Yarn / pnpm"]
-      },
-      {
         "title": "Node.js & APIs",
         "summary": "Modular Express services, authentication, and API documentation.",
         "items": ["Node.js", "Express", "Sequelize", "SQLite", "Swagger"]
@@ -277,6 +272,11 @@
           "GitHub Actions",
           "GitLab CI"
         ]
+      },
+      {
+        "title": "Tooling & DX",
+        "summary": "Fast builds, shared linting, and automated workflows.",
+        "items": ["Vite", "Storybook", "npm / Yarn / pnpm"]
       }
     ]
   },

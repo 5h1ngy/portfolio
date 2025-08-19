@@ -51,7 +51,7 @@ export const SECONDARY_COLORS = ['#00c8ff', '#ff4bd5', '#24f49b', '#ffb422']
 
 const darkPalette: Palette = {
   background: '#030616',
-  surface: 'rgba(12, 20, 38, 0.9)',
+  surface: 'rgba(12, 20, 38)',
   surfaceMuted: 'rgba(8, 14, 28, 0.82)',
   surfaceElevated: 'rgba(16, 28, 52, 0.94)',
   textPrimary: '#edf4ff',
@@ -69,7 +69,7 @@ const darkPalette: Palette = {
 
 const lightPalette: Palette = {
   background: '#f7f9ff',
-  surface: 'rgba(255, 255, 255, 0.95)',
+  surface: 'rgba(255, 255, 255)',
   surfaceMuted: 'rgba(248, 249, 255, 0.88)',
   surfaceElevated: 'rgba(255, 255, 255, 0.98)',
   textPrimary: '#0f1c3a',
