@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import type { RefObject } from 'react'
 
 interface ScrollControls {
-  containerRef: RefObject<HTMLDivElement>
+  containerRef: RefObject<HTMLDivElement | null>
   canScrollPrev: boolean
   canScrollNext: boolean
   scrollPrev: () => void

@@ -152,7 +152,7 @@ export const Header = ({
       <HeaderInner>
         {!isMobile && (
           <BrandLink href="#hero" aria-label={t('header.brand.home')}>
-            <BrandLogo src="/logo.png" alt={`${profileName} logo`} width={30} height={30} />
+            <BrandLogo src="logo.png" alt={`${profileName} logo`} width={30} height={30} />
           </BrandLink>
         )}
 
@@ -196,7 +196,6 @@ export const Header = ({
       </HeaderInner>
 
       <MobileBackdrop
-        type="button"
         $visible={isMobile && isNavOpen}
         aria-hidden={!(isMobile && isNavOpen)}
         onClick={handleNavItemSelect}

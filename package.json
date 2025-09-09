@@ -1,7 +1,7 @@
 {
   "name": "davide-scarano-portfolio",
   "private": true,
-  "version": "1.0.0",
+  "version": "5.0.0",
   "description": "Davide Scarano's frontend portfolio built with React 19, Vite, and styled-components.",
   "type": "module",
   "author": "5h1ngy",

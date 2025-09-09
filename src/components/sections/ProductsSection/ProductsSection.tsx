@@ -1,9 +1,9 @@
 import { useMemo, useState } from "react";
-import type { SVGProps } from "react";
+import type { ComponentType, SVGProps } from "react";
 import { useTranslation } from "react-i18next";
 
 import type { PortfolioActionLink } from "@data/portfolio.types";
-import { ArrowIcon, DocsIcon, GithubIcon, GlobeIcon } from "@styles/icons";
+import { ArrowIcon, DocsIcon, GithubIcon, GlobeIcon, LinkedinIcon } from "@styles/icons";
 import type { ProductsSliderProps } from "./ProductsSection.types";
 import {
   ProductActionButton,
@@ -20,11 +20,14 @@ import {
   ProductsNav,
 } from "./ProductsSection.style";
 
-const ACTION_ICON = {
+type ActionType = NonNullable<PortfolioActionLink["type"]>;
+
+const ACTION_ICON: Record<ActionType, ComponentType<SVGProps<SVGSVGElement>>> = {
   website: GlobeIcon,
   github: GithubIcon,
   docs: DocsIcon,
-} satisfies Record<string, (props: SVGProps<SVGSVGElement>) => JSX.Element>;
+  linkedin: LinkedinIcon,
+};
 
 const sortActions = (links: PortfolioActionLink[]) => {
   const priority: Record<string, number> = { website: 0, docs: 1, github: 2 };
@@ -81,7 +84,7 @@ export const ProductsSlider = ({ products }: ProductsSliderProps) => {
           <ProductMeta>
             <ProductActions>
               {actions.map((action) => {
-                const Icon = ACTION_ICON[action.type ?? ""] ?? GlobeIcon;
+                const Icon = action.type ? ACTION_ICON[action.type] : GlobeIcon;
                 const external =
                   action.external !== false || isExternal(action.href);
                 return (

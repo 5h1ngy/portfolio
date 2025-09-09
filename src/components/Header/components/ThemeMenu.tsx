@@ -26,7 +26,7 @@ interface HeaderThemeMenuLabels {
 }
 
 interface HeaderThemeMenuProps {
-  menuRef: RefObject<HTMLDivElement>;
+  menuRef: RefObject<HTMLDivElement | null>;
   isOpen: boolean;
   onToggle: () => void;
   themeMode: ThemeMode;

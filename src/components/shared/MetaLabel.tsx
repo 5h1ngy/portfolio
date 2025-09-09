@@ -28,7 +28,7 @@ const variantStyles = {
     letter-spacing: 0.12em;
     font-weight: 600;
   `,
-  badge: css`
+  badge: css<MetaLabelProps>`
     font-size: 0.78rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;

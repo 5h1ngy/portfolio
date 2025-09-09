@@ -1,3 +1,4 @@
+import type { ComponentPropsWithoutRef } from 'react'
 import styled from 'styled-components'
 import { Backdrop } from '@components/shared/Backdrop'
 
@@ -80,7 +81,7 @@ export const Controls = styled.div`
   }
 `
 
-export const MobileBackdrop = styled(Backdrop).attrs({
+export const MobileBackdrop = styled(Backdrop).attrs<ComponentPropsWithoutRef<'button'>>({
   as: 'button',
   type: 'button',
   $tone: 'dark',
