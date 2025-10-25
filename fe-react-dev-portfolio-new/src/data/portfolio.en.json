@@ -1,0 +1,470 @@
+{
+  "meta": {
+    "title": "Davide Scarano - Frontend Engineer",
+    "description": "Senior frontend engineer who builds scalable interfaces with React, TypeScript, and AI.",
+    "keywords": [
+      "React",
+      "TypeScript",
+      "Design System",
+      "Developer Experience",
+      "AI Integration",
+      "Vite",
+      "Electron"
+    ]
+  },
+  "profile": {
+    "name": "Davide Scarano",
+    "tagline": "Software engineer who builds reliable React and Node.js platforms.",
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/5h1ngy",
+        "type": "github"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/sig-scarano",
+        "type": "linkedin"
+      }
+    ]
+  },
+  "hero": {
+    "title": "Davide Scarano",
+    "typingTitles": ["5h1ngy", "Davide Scarano"],
+    "subtitle": "Frontend engineer for web products.",
+    "description": "I build clear components, follow the design system, and keep interfaces easy to evolve.",
+    "primaryAction": {
+      "label": "GitHub",
+      "href": "https://github.com/5h1ngy",
+      "type": "github",
+      "external": true
+    },
+    "secondaryAction": {
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/sig-scarano",
+      "type": "linkedin",
+      "external": true
+    },
+    "orbit": {
+      "center": "/orbiter-icons/avatar.png",
+      "rings": [
+        {
+          "radius": 120,
+          "speed": 18,
+          "icons": [
+            {
+              "label": "React",
+              "icon": "/orbiter-icons/react.svg",
+              "size": 52
+            },
+            {
+              "label": "TypeScript",
+              "icon": "/orbiter-icons/typescript.svg",
+              "size": 48
+            }
+          ]
+        },
+        {
+          "radius": 170,
+          "speed": 24,
+          "icons": [
+            {
+              "label": "Node.js",
+              "icon": "/orbiter-icons/nodejs.svg",
+              "size": 50
+            },
+            {
+              "label": "Vite",
+              "icon": "/orbiter-icons/vitejs.svg",
+              "size": 46
+            },
+            {
+              "label": "Redux",
+              "icon": "/orbiter-icons/redux.svg",
+              "size": 44
+            }
+          ]
+        },
+        {
+          "radius": 210,
+          "speed": 30,
+          "icons": [
+            {
+              "label": "Docker",
+              "icon": "/orbiter-icons/docker.svg",
+              "size": 48
+            },
+            {
+              "label": "MongoDB",
+              "icon": "/orbiter-icons/mongo-db.svg",
+              "size": 44
+            },
+            {
+              "label": "NestJS",
+              "icon": "/orbiter-icons/nestjs.svg",
+              "size": 46
+            },
+            {
+              "label": "Bash",
+              "icon": "/orbiter-icons/bash.svg",
+              "size": 40
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "about": {
+    "title": "About",
+    "caption": "Pragmatic frontend, product focus, and tools that help teams ship.",
+    "summary": [
+      "I’m a frontend engineer with 6 years of experience on enterprise React platforms. I organize reusable components, standardize patterns, and keep UIs consistent across the product lifecycle.",
+      "In recent projects I’ve worked on banking back offices and apps that integrate AI APIs, looking after DX, QA, and release pipelines for distributed squads."
+    ],
+    "focus": [
+      {
+        "title": "Maintainable design systems",
+        "description": "Typed React libraries, shared tokens, and documentation that supports teams day to day."
+      },
+      {
+        "title": "Data-driven interfaces",
+        "description": "Dashboards and complex flows with attention to accessibility, validation, and perceived performance."
+      },
+      {
+        "title": "Tooling & quality",
+        "description": "CI/CD, linting, tests, and script automation to provide fast feedback and reduce regressions."
+      }
+    ],
+    "quickFacts": [
+      {
+        "label": "Experience",
+        "value": "6+ years"
+      },
+      {
+        "label": "Industries",
+        "value": "Banking, SaaS, Gambling"
+      },
+      {
+        "label": "Remote",
+        "value": "Hybrid / Italy (Turin, Milan)"
+      }
+    ]
+  },
+  "experience": {
+    "title": "Experience",
+    "caption": "Track record across enterprise interfaces, banking, and OSS tools.",
+    "roles": [
+      {
+        "company": "Dacomat S.r.l.",
+        "role": "Front-end Engineer, Banking & Payments",
+        "period": "Aug 2022 - Present",
+        "summary": "Development of banking and e-commerce portals for Nexi Digital.",
+        "highlights": [
+          "Development and maintenance, implementing enhancements across various portals.",
+          "Design and development of reusable UI design patterns.",
+          "Maintenance of legacy portals.",
+          "Mentoring juniors.",
+          "Configuration of build/deploy pipelines."
+        ],
+        "tags": [
+          "JavaScript",
+          "React",
+          "Redux",
+          "Redux-Sagas",
+          "Webpack",
+          "Storybook",
+          "Jest",
+          "Jenkins",
+          "Docker",
+          "Nginx",
+          "Apache HTTP Server"
+        ]
+      },
+      {
+        "company": "Proxima Informatica / Eurobet-Entain",
+        "role": "Front-end Game Developer, Gambling",
+        "period": "Sep 2021 - Aug 2022",
+        "summary": "Development and maintenance of video games in the gambling sector, with continuous maintenance of the company framework.",
+        "highlights": [
+          "Design and development of video games and modules for the company framework.",
+          "Maintenance of legacy games.",
+          "Occasional GitLab configuration.",
+          "Design and development of PoCs.",
+          "Writing technical documentation."
+        ],
+        "tags": ["JavaScript", "PixiJS", "Webpack", "GitLab"]
+      },
+      {
+        "company": "ECTM Ingegneria S.r.l.",
+        "role": "Full Stack Developer",
+        "period": "May 2021 - Aug 2021",
+        "summary": "Developed Angular Material modules and Laravel services for digital tools in the construction sector.",
+        "highlights": [
+          "UI/UX design.",
+          "Frontend development with Angular and backend APIs with Laravel.",
+          "Module design.",
+          "Microservice development.",
+          "Writing Docker images for release and development."
+        ],
+        "tags": [
+          "TypeScript",
+          "Angular",
+          "NgRx",
+          "RxJs",
+          "PHP",
+          "Laravel",
+          "Nginx",
+          "Docker"
+        ]
+      },
+      {
+        "company": "Advanced Global Solution (AGS)",
+        "role": "Frontend Developer, Operational Support Systems",
+        "period": "Aug 2019 - May 2021",
+        "summary": "Development and maintenance of portals for creating and managing network nodes.",
+        "highlights": [
+          "Development and maintenance in the O.S.S. domain.",
+          "Backend bug fixing.",
+          "Configuring Linux machines for dev releases.",
+          "Integrated REST/SOAP workflows and SharePoint, ensuring operational continuity."
+        ],
+        "tags": [
+          "JavaScript",
+          "TypeScript",
+          "AngularJS",
+          "Angular",
+          "UOC",
+          "REST/SOAP",
+          "SharePoint"
+        ]
+      }
+    ]
+  },
+  "skills": {
+    "title": "Stack & skills",
+    "caption": "Focus on React and Node.js platforms with productive tooling.",
+    "categories": [
+      {
+        "title": "React UI & components",
+        "summary": "Typed components, predictable state, and accessible interfaces.",
+        "items": [
+          "React",
+          "TypeScript",
+          "Redux Toolkit",
+          "React Router DOM",
+          "React Hook Form",
+          "Zod",
+          "Styled Components"
+        ]
+      },
+      {
+        "title": "Node.js & APIs",
+        "summary": "Modular Express services, authentication, and API documentation.",
+        "items": ["Node.js", "Express", "Sequelize", "SQLite", "Swagger"]
+      },
+      {
+        "title": "CI/CD & DevOps",
+        "summary": "Continuous pipelines, containers, and environment provisioning.",
+        "items": [
+          "Docker",
+          "Docker Compose",
+          "Nginx",
+          "GitHub Actions",
+          "GitLab CI"
+        ]
+      },
+      {
+        "title": "Tooling & DX",
+        "summary": "Fast builds, shared linting, and automated workflows.",
+        "items": ["Vite", "Storybook", "npm / Yarn / pnpm"]
+      }
+    ]
+  },
+  "openSourceProducts": {
+    "title": "Open source products",
+    "caption": "A collection of packages and tools I maintain to support teams.",
+    "projects": [
+      {
+        "name": "DSK Project Manager",
+        "description": "Offline-first desktop project manager built with Electron, React, and TypeScript for timelines, dashboards, and automated backups.",
+        "period": "2025",
+        "tags": ["Electron", "React", "TypeScript"],
+        "link": {
+          "label": "GitHub",
+          "href": "https://github.com/5h1ngy/dsk-electron-react-project-manager",
+          "type": "github",
+          "external": true
+        },
+        "links": [
+          {
+            "label": "GitHub",
+            "href": "https://github.com/5h1ngy/dsk-electron-react-project-manager",
+            "type": "github",
+            "external": true
+          }
+        ]
+      },
+      {
+        "name": "React Goblin System",
+        "description": "UI system for React with advanced theming, application providers, documentation, and Storybook on TypeScript.",
+        "period": "2025",
+        "tags": ["React", "TypeScript", "Design System"],
+        "link": {
+          "label": "Website",
+          "href": "https://5h1ngy.github.io/pkg-fe-react-goblin-system/",
+          "type": "website",
+          "external": true
+        },
+        "links": [
+          {
+            "label": "Website",
+            "href": "https://5h1ngy.github.io/pkg-fe-react-goblin-system/",
+            "type": "website",
+            "external": true
+          },
+          {
+            "label": "Docs",
+            "href": "https://5h1ngy.github.io/pkg-fe-react-goblin-system/docs",
+            "type": "docs",
+            "external": true
+          },
+          {
+            "label": "Storybook",
+            "href": "https://5h1ngy.github.io/pkg-fe-react-goblin-system/storybook",
+            "type": "storybook",
+            "external": true
+          },
+          {
+            "label": "GitHub",
+            "href": "https://github.com/5h1ngy/pkg-fe-react-goblin-system",
+            "type": "github",
+            "external": true
+          }
+        ]
+      }
+    ]
+  },
+  "openSource": {
+    "title": "Open source projects",
+    "caption": "Tooling and experiments I share with the community.",
+    "projects": [
+      {
+        "name": "BL Custom React Boilerplate",
+        "description": "Scalable React starter kit with theming, i18n, mocked APIs, and Docker-ready deployment.",
+        "period": "2025",
+        "tags": ["React", "Redux Toolkit", "Vite"],
+        "category": "Frontend",
+        "link": {
+          "label": "GitHub",
+          "href": "https://github.com/5h1ngy/bl-custom-fe-react",
+          "type": "github",
+          "external": true
+        }
+      },
+      {
+        "name": "BL Custom Backend Node",
+        "description": "Modular Node.js backend boilerplate with JWT authentication, mock mode, and integrated Swagger documentation.",
+        "period": "2025",
+        "tags": ["Node.js", "Express", "Swagger"],
+        "category": "Backend",
+        "link": {
+          "label": "GitHub",
+          "href": "https://github.com/5h1ngy/bl-custom-be-node",
+          "type": "github",
+          "external": true
+        }
+      },
+      {
+        "name": "FE React Portfolio",
+        "description": "React portfolio with Chakra UI, animations, and modular content based on Markdown.",
+        "period": "2025",
+        "tags": ["React", "Chakra UI", "GSAP"],
+        "category": "Frontend",
+        "link": {
+          "label": "GitHub",
+          "href": "https://github.com/5h1ngy/fe-react-portfolio",
+          "type": "github",
+          "external": true
+        }
+      },
+      {
+        "name": "FE React Calendar POC",
+        "description": "Calendar with day/week/month views, persistent events, and import/export flows.",
+        "period": "2025",
+        "tags": ["React", "Redux Toolkit", "Styled Components"],
+        "category": "Frontend",
+        "link": {
+          "label": "GitHub",
+          "href": "https://github.com/5h1ngy/fe-react-poc-calendar",
+          "type": "github",
+          "external": true
+        }
+      },
+      {
+        "name": "FE React Avatar Maker",
+        "description": "Avatar generator with a multilingual interface, shareable presets, and multi-format export.",
+        "period": "2025",
+        "tags": ["React", "TypeScript", "i18n"],
+        "category": "Frontend",
+        "link": {
+          "label": "GitHub",
+          "href": "https://github.com/5h1ngy/fe-react-avatar-maker",
+          "type": "github",
+          "external": true
+        }
+      },
+      {
+        "name": "Phaser Isometric RPG POC",
+        "description": "Phaser proof-of-concept that renders isometric maps with animated player movement.",
+        "period": "2025",
+        "tags": ["Phaser", "TypeScript", "Game Dev"],
+        "category": "Game experiments",
+        "link": {
+          "label": "GitHub",
+          "href": "https://github.com/5h1ngy/fe-phaser-poc-isometric-rpg",
+          "type": "github",
+          "external": true
+        }
+      },
+      {
+        "name": "Phaser Season Times",
+        "description": "Responsive match-3 puzzle built with Phaser 3 and GSAP animations.",
+        "period": "2025",
+        "tags": ["Phaser", "GSAP", "Puzzle"],
+        "category": "Game experiments",
+        "link": {
+          "label": "GitHub",
+          "href": "https://github.com/5h1ngy/fe-phaser-season-times",
+          "type": "github",
+          "external": true
+        }
+      },
+      {
+        "name": "AniDB Scraper CLI",
+        "description": "Node.js CLI that scrapes AniDB into SQLite with structured logging and decorators.",
+        "period": "2025",
+        "tags": ["Node.js", "TypeScript", "SQLite"],
+        "category": "CLI utility",
+        "link": {
+          "label": "GitHub",
+          "href": "https://github.com/5h1ngy/cli-node-scraper-anidb",
+          "type": "github",
+          "external": true
+        }
+      },
+      {
+        "name": "Project Pars3r CLI",
+        "description": "Python CLI that bundles projects into .prompt archives ready for LLM workflows.",
+        "period": "2025",
+        "tags": ["Python", "CLI", "LLM"],
+        "category": "CLI utility",
+        "link": {
+          "label": "GitHub",
+          "href": "https://github.com/5h1ngy/cli-py-project-pars3r",
+          "type": "github",
+          "external": true
+        }
+      }
+    ]
+  }
+}
