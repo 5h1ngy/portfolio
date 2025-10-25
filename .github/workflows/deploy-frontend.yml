@@ -20,22 +20,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          # non usare "cache: yarn", altrimenti gira Yarn 1.x prima di Corepack
-
-      - name: Enable Corepack
-        run: corepack enable
-
-      - name: Use the correct Yarn version
-        run: corepack prepare yarn@4.7.0 --activate
-
-      - name: Verify Yarn version
-        run: yarn --version
+          cache: npm
 
       - name: Install dependencies
-        run: yarn install --immutable
+        run: npm install
 
       - name: Build Prod environment
-        run: yarn build
+        run: npm run build
 
       - name: Copy index.html to 404.html for SPA routing
         run: cp dist/index.html dist/404.html
