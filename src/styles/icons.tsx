@@ -71,6 +71,13 @@ export const DocsIcon = ({ width = 16, height = 16, ...props }: SVGProps<SVGSVGE
   </svg>
 );
 
+export const StorybookIcon = ({ width = 16, height = 16, ...props }: SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" width={width} height={height} fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <rect x="5" y="3.5" width="14" height="17" rx="2.4" />
+    <path d="M15.8 7.6h-4.8l-.4 2.1 1.8-.9 1.7 2.7.4-1.7 1.9.4" />
+  </svg>
+);
+
 export const EyeIcon = ({ width = 16, height = 16, ...props }: SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" width={width} height={height} fill="currentColor" aria-hidden="true" {...props}>
     <path d="M12 5c-4.5 0-8.21 2.94-9.82 7 1.61 4.06 5.32 7 9.82 7s8.21-2.94 9.82-7C20.21 7.94 16.5 5 12 5Zm0 11a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm0-6.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z" />

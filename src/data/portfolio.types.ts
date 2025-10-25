@@ -2,7 +2,7 @@ export interface PortfolioActionLink {
   label: string
   href: string
   external?: boolean
-  type?: 'github' | 'website' | 'linkedin' | 'docs'
+  type?: 'github' | 'website' | 'linkedin' | 'docs' | 'storybook'
 }
 
 export interface PortfolioMeta {

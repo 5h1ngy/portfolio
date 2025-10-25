@@ -3,7 +3,7 @@ import type { ComponentType, SVGProps } from "react";
 import { useTranslation } from "react-i18next";
 
 import type { PortfolioActionLink } from "@data/portfolio.types";
-import { ArrowIcon, DocsIcon, GithubIcon, GlobeIcon, LinkedinIcon } from "@styles/icons";
+import { ArrowIcon, DocsIcon, GithubIcon, GlobeIcon, LinkedinIcon, StorybookIcon } from "@styles/icons";
 import type { ProductsSliderProps } from "./ProductsSection.types";
 import {
   ProductActionButton,
@@ -27,10 +27,17 @@ const ACTION_ICON: Record<ActionType, ComponentType<SVGProps<SVGSVGElement>>> = 
   github: GithubIcon,
   docs: DocsIcon,
   linkedin: LinkedinIcon,
+  storybook: StorybookIcon,
 };
 
 const sortActions = (links: PortfolioActionLink[]) => {
-  const priority: Record<string, number> = { website: 0, docs: 1, github: 2 };
+  const priority: Record<string, number> = {
+    website: 0,
+    docs: 1,
+    storybook: 2,
+    github: 3,
+    linkedin: 4,
+  };
   return [...links].sort(
     (a, b) => (priority[a.type ?? ""] ?? 99) - (priority[b.type ?? ""] ?? 99)
   );
@@ -84,7 +91,9 @@ export const ProductsSlider = ({ products }: ProductsSliderProps) => {
           <ProductMeta>
             <ProductActions>
               {actions.map((action) => {
-                const Icon = action.type ? ACTION_ICON[action.type] : GlobeIcon;
+                const Icon = action.type
+                  ? ACTION_ICON[action.type] ?? GlobeIcon
+                  : GlobeIcon;
                 const external =
                   action.external !== false || isExternal(action.href);
                 return (
