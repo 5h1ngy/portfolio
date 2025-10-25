@@ -11,7 +11,7 @@ export const HeaderRoot = styled.header`
   z-index: 20;
   display: flex;
   justify-content: center;
-  padding: 0.85rem 0;
+  padding: 1rem 0;
   pointer-events: none;
   border-bottom: none;
 `

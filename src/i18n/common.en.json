@@ -52,5 +52,10 @@
   },
   "footer": {
     "profileLinks": "Profile links"
+  },
+  "loader": {
+    "label": "Loading...",
+    "progressAria": "Portfolio loading progress",
+    "percent": "{{value}}%"
   }
 }

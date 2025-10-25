@@ -52,5 +52,10 @@
   },
   "footer": {
     "profileLinks": "Link profilo"
+  },
+  "loader": {
+    "label": "Caricamento...",
+    "progressAria": "Avanzamento caricamento portfolio",
+    "percent": "{{value}}%"
   }
 }
