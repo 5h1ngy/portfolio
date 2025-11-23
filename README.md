@@ -1,166 +1,115 @@
-# fe-react-poc-nfs (Proof of concept, Network File System)
+# Davide Scarano – Frontend/DX Portfolio
 
-![](./docs/preview.png)
+![React 19](https://img.shields.io/badge/React-19.0-61dafb?logo=react&logoColor=222)
+![TypeScript 5.7](https://img.shields.io/badge/TypeScript-5.7-3178c6?logo=typescript&logoColor=fff)
+![Vite 6](https://img.shields.io/badge/Vite-6-646cff?logo=vite&logoColor=fff)
+![styled-components 6](https://img.shields.io/badge/styled--components-6-db7093)
+![i18next](https://img.shields.io/badge/i18next-25-26a5d3)
 
-## 1.Guida all'Installazione e all'Avvio
+Personal portfolio for Davide Scarano. The UI is completely data-driven via multilingual JSON, includes theme switching (light/dark) with custom accent colors, and ships animated sections powered by React 19, TypeScript 5.7, and Vite 6.
 
-#### Requisiti di Sistema
+## ✨ Highlights
 
-Prima di procedere con l'installazione e l'avvio del progetto, assicurati di avere installati i seguenti requisiti:
+- **Data-driven copy**: every section (hero, about, skills, open source, experience) reads from `src/data/portfolio.[locale].json` and is type-safe thanks to `src/data/portfolio.types.ts`.
+- **Bilingual (IT/EN)**: `i18next` + `react-i18next` handle navigation labels, header controls, and fallbacks. Switching the locale also swaps the portfolio JSON.
+- **Theme & accent picker**: header menu to toggle light/dark plus four accent colors (`SECONDARY_COLORS`) with persistence in `localStorage`.
+- **Animated hero**: GSAP TextPlugin animates the typing headline, while the skill orbit renders layered icon rings with CTA buttons tied to social profiles.
+- **Product storytelling UX**: About, Skills, Open Source Products, Open Source Contributions, and Experience sections reuse the same data model for consistent responsive layouts.
+- **Dynamic SEO**: `src/App.hooks.tsx` keeps `document.title`, meta description, and keywords in sync with the active portfolio data.
 
-1. **Node.js:** È necessario Node.js installato sul tuo sistema. Puoi scaricarlo e installarlo da [nodejs.org](https://nodejs.org/).
+## 🧱 Core stack
 
-#### Passaggi per l'Installazione
+- React 19 + TypeScript 5.7 + Vite 6
+- styled-components 6 with typed theming (`src/styles/theme.ts`, `src/styles/styled.d.ts`)
+- i18next / react-i18next for UI localization
+- GSAP (TextPlugin) for hero typing animations
+- ESLint 9 + TypeScript ESLint for consistent linting
 
-1. **Clonare il Repository:** Clona il repository del progetto sul tuo sistema locale utilizzando Git:
-   
-   ```bash
-   git clone <URL_del_repository>
-   ```
+## 🗂️ Project structure
 
-2. **Navigare nella Directory del Progetto:** Entra nella directory del progetto appena clonato:
-   
-   ```bash
-   cd fe-react-poc-nfs
-   ```
-
-3. **Installare le Dipendenze:** Utilizza npm per installare tutte le dipendenze del progetto:
-   
-   ```bash
-   yarn install
-   ```
-
-#### Avvio del Server di Sviluppo
-
-Una volta completata l'installazione delle dipendenze, puoi avviare il server di sviluppo locale per eseguire l'applicazione. Assicurati di essere nella directory del progetto.
-
-```bash
-yarn start:dev
+```
+├── public/
+│   └── orbiter-icons/       # assets consumed by HeroOrbit
+├── src/
+│   ├── App.tsx              # root layout and section composition
+│   ├── App.hooks.tsx        # theme/i18n/view-model logic + meta tags
+│   ├── components/
+│   │   ├── Header/          # navigation, theme menu, language select
+│   │   ├── Footer/
+│   │   └── sections/        # Hero, About, Skills, OpenSource*, Experience
+│   ├── data/
+│   │   ├── portfolio.en.json
+│   │   ├── portfolio.it.json
+│   │   └── portfolio.types.ts
+│   ├── i18n/                # config + common.*.json
+│   └── styles/              # GlobalStyle, icons, theme utilities
+├── package.json
+├── tsconfig*.json
+└── vite.config.ts
 ```
 
-L'applicazione verrà avviata e sarà accessibile localmente tramite il browser all'indirizzo `http://localhost:3000`.
+## 📦 Available scripts
 
-#### Creare una Build per la Produzione
+| Command          | Description                                                                  |
+| ---------------- | ---------------------------------------------------------------------------- |
+| `npm run dev`    | Start the Vite dev server with HMR.                                          |
+| `npm run build`  | Run TypeScript build (`tsc -b`) and emit the production bundle (`vite build`).|
+| `npm run preview`| Serve the built app locally for a quick smoke test.                          |
+| `npm run lint`   | Lint the entire workspace with ESLint.                                       |
+| `npm run typecheck` | Run a type-only compilation (no emit).                                   |
+| `npm run check`  | Convenience command that runs `lint` + `typecheck`.                          |
 
-Se desideri creare una build ottimizzata per la produzione, puoi eseguire il seguente comando:
+> Requirement: Node.js ≥ 18 (see the `engines` field inside `package.json`).
 
-```bash
-yarn build:prod
-```
+## 🚀 Getting started
 
-Questo comando genererà una versione ottimizzata dell'applicazione pronta per essere distribuita.
+1. **Install dependencies**
+   ```bash
+   npm install
+   ```
+2. **Start developing**
+   ```bash
+   npm run dev
+   ```
+   Open `http://localhost:5173` and play with the language/theme pickers.
+3. **Build & preview**
+   ```bash
+   npm run build
+   npm run preview
+   ```
+   Deploy the contents of `dist/` to GitHub Pages, Netlify, or any static host.
 
-#### Pulire il Progetto
+## 🧩 Content model & localization
 
-Se necessario, puoi pulire il progetto eliminando i file generati durante l'installazione o la build:
+- Public-facing strings live in `src/data/portfolio.it.json` and `src/data/portfolio.en.json`; both conform to the `PortfolioData` interface.
+- To keep locales in sync:
+  1. Update the IT/EN JSON files together.
+  2. Run `npm run dev` to manually verify layout/length.
+  3. If you add new sections or fields, update `src/data/portfolio.types.ts`.
+- UI labels (navigation, theme/language controls, experience modal) live in `src/i18n/common.*.json`.
+- To add a new locale: extend `SUPPORTED_LOCALES` in `src/App.hooks.tsx`, create `portfolio.<locale>.json`, add `common.<locale>.json`, and register the language in `src/i18n/config.ts`.
 
-```bash
-npm run clean
-```
+## 🎨 Theme, accents & customization
 
-Questo comando rimuoverà la cartella `node_modules`, `.yarn-cache`, `.vite`, e `dist`.
+- `src/styles/theme.ts` defines the light/dark palettes plus the `SECONDARY_COLORS` array. The active theme is injected via `ThemeProvider` (`App.tsx`).
+- Preferences (`mode` + `accent`) are saved to `localStorage` (`app-theme-preferences`) so visitors keep their look across sessions.
+- To add another accent, append a hex color to `SECONDARY_COLORS`. The header menu will automatically generate fallback labels (`header.theme.fallbackAccent`).
+- Hero Orbit pulls icons from `public/orbiter-icons`. Drop an SVG/PNG there and reference it inside `hero.orbit.rings`.
 
-Seguendo questi passaggi, sarai in grado di installare correttamente il progetto sul tuo sistema locale, avviarlo in modalità di sviluppo e creare una build ottimizzata per la produzione. Assicurati di seguire attentamente i passaggi e di soddisfare tutti i requisiti di sistema necessari.
+## 📑 Key sections
 
-## 2.Documentazione Generale
+- **Hero** – animated typing headline (`useTypingHeadline`), CTA buttons, skill orbit.
+- **About** – summary paragraphs + three focus areas + quick facts, all editable via JSON.
+- **Skills** – grouped categories with descriptions and bullet lists.
+- **Open Source Products / Open Source** – separate showcases for products and community contributions.
+- **Experience** – role timeline with highlights and technology tags; includes modal details (`components/sections/ExperienceSection`).
 
-### Obiettivo del Progetto e Contesto
+## 📦 Deployment
 
-Il progetto è un proof-of-concept di una tecnologia che replica il funzionamento di un network file system lato client, simile a Google Drive. L'obiettivo principale è sviluppare una toolchain ottimale per lo sviluppo e la produzione di applicazioni frontend, con particolare attenzione alla struttura modulare, alla gestione dello stato globale e all'utilizzo avanzato delle rotte dinamiche e del caricamento a runtime di codice React.
+1. Run `npm run build`.
+2. Upload the `dist/` folder to your static host of choice.
+3. For GitHub Pages with `gh-pages`, set the appropriate `base` in `vite.config.ts` (defaults to `/`).
 
-#### Funzionalità Principali del Progetto
+## 📃 License
 
-1. **Sviluppo di una Toolchain Ottimale:**
-   
-   - Struttura modulare per facilitare lo sviluppo, la manutenzione e l'estensione del codice.
-   - Configurazione per la produzione ottimizzata per prestazioni e dimensioni del bundle.
-   - Utilizzo avanzato di tecnologie come React, Redux, React Router DOM e Chakra UI per garantire una migliore esperienza utente.
-
-2. **Scaffolding per Progetti Medi:**
-   
-   - Fornitura di uno scaffolding preconfigurato per avviare rapidamente progetti di medie dimensioni.
-   - Incapsulamento dello stato dei container modulari al livello globale per una gestione più efficiente dello stato dell'applicazione.
-
-3. **Utilizzo di Rotte Dinamiche e Caricamento a Runtime:**
-   
-   - Implementazione di rotte dinamiche per consentire la navigazione fluida all'interno dell'applicazione.
-   - Caricamento a runtime di codice React per ottimizzare i tempi di caricamento e migliorare le prestazioni complessive dell'applicazione.
-
-4. **Sviluppo di Componenti Riutilizzabili:**
-   
-   - Utilizzo di Chakra UI per lo sviluppo di componenti atomici e riutilizzabili, garantendo una progettazione coerente e un'esperienza utente omogenea.
-
-5. **Sviluppo di Container Modulari:**
-   
-   - Implementazione di container modulari, estendibili e riutilizzabili, per la gestione e la presentazione dei dati all'interno dell'applicazione.
-
-#### Tecnologie Utilizzate e Motivazioni delle Scelte Fatte
-
-- **React e React DOM:** Scelta di React come libreria principale per la costruzione dell'interfaccia utente, per la sua flessibilità e la sua vasta adozione nella comunità di sviluppatori.
-- **Redux:** Utilizzo di Redux per la gestione dello stato globale dell'applicazione, facilitando la condivisione dei dati tra i componenti e migliorando la scalabilità del progetto.
-- **React Router DOM:** Adozione di React Router DOM per gestire la navigazione all'interno dell'applicazione, sfruttando le sue capacità di gestione delle rotte dinamiche.
-- **Chakra UI:** Scelta di Chakra UI per lo sviluppo di componenti UI consistenti e riutilizzabili, per una progettazione efficiente e una migliore esperienza utente.
-- **Altre Tecnologie:** Utilizzo di altre librerie e strumenti come framer-motion per le animazioni e faker-js per la generazione di dati fittizi durante lo sviluppo.
-
-La scelta di queste tecnologie è motivata dalla loro affidabilità, dalla loro popolarità nella comunità degli sviluppatori e dalla loro capacità di soddisfare i requisiti specifici del progetto.
-
-## 3.Struttura del Codice Sorgente
-
-Il progetto è strutturato seguendo un approccio modulare, che organizza il codice in diverse cartelle per facilitare la manutenzione e l'estensione del progetto. Ecco una panoramica della struttura del codice sorgente:
-
-- **`app/public`:** Contiene i file statici accessibili pubblicamente, come immagini, font o altri asset.
-
-- **`app/src`:** Questa è la cartella principale del codice sorgente dell'applicazione.
-  
-  - **`assets`:** Contiene risorse statiche utilizzate nell'applicazione, come file di configurazione o immagini.
-    
-    - **`config.jsonc`:** File di configurazione dell'applicazione, probabilmente contenente informazioni globali o opzioni di personalizzazione.
-  
-  - **`components`:** Contiene i componenti React riutilizzabili.
-    
-    - **`ActionBar`:** Un componente che fornisce un'azione per interagire con l'applicazione.
-    - [...]
-  
-  - **`containers`:** Contiene i container modulari, che gestiscono lo stato e la logica di presentazione dei dati.
-    
-    - **`FileSystemNavigator`:** Un container che gestisce la visualizzazione e la navigazione dei file nel sistema di file.
-  
-  - **`hocs`:** Contiene gli Higher Order Components (HOC), che sono funzioni che prendono un componente e restituiscono un nuovo componente arricchito di funzionalità.
-  
-  - **`pages`:** Contiene le pagine principali dell'applicazione.
-    
-    - **`Dashboard`:** La pagina principale dell'applicazione, che può includere una dashboard con varie sezioni e funzionalità.
-  
-  - **`services`:** Contiene i servizi utilizzati dall'applicazione per comunicare con backend esterni o effettuare altre operazioni di rete.
-    
-    - **`NFS.js`:** Un servizio che implementa le operazioni del Network File System (NFS), probabilmente per recuperare o inviare dati dal/dal backend.
-  
-  - **`store`:** Contiene la configurazione dello stato globale dell'applicazione utilizzando Redux.
-    
-    - **`index.js`:** Il file principale per la configurazione dello store Redux.
-    
-    - **`pages`:** Contiene i reducers specifici delle pagine dell'applicazione.
-    
-    - **`containers`:** Contiene i reducers specifici dei container modulari.
-  
-  - **`main.jsx`:** Il file principale che avvia l'applicazione, importando e renderizzando il componente radice.
-  
-  - **`routes.jsx`:** Il file che definisce le rotte dell'applicazione, utilizzando React Router DOM per associare i percorsi URL ai componenti delle pagine.
-
-### Guida alla Navigazione del Progetto
-
-Per navigare all'interno del progetto, puoi seguire questa guida:
-
-1. **Componenti Riutilizzabili:** I componenti riutilizzabili si trovano nella cartella `components`. Ogni componente è contenuto in una cartella separata e include i file `.jsx` per la definizione del componente, i file `.styles.jsx` per i CSS-in-JS (se utilizzati) e eventuali file di default delle props.
-
-2. **Container Modulari:** I container modulari, che gestiscono la logica di stato e di presentazione dei dati, si trovano nella cartella `containers`. All'interno di ogni container, troverai i file per il componente React, i file di stile e eventualmente un file di configurazione (`container.js`) che definisce la logica del container.
-
-3. **Servizi:** I servizi utilizzati per comunicare con backend esterni o per altre operazioni di rete si trovano nella cartella `services`.
-
-4. **Store Redux:** La configurazione dello stato globale dell'applicazione utilizzando Redux è contenuta nella cartella `store`. All'interno di questa cartella, troverai i file per la configurazione dello store principale (`index.js`), i reducers specifici delle pagine e dei container modulari.
-
-5. **Pagina Principale:** La pagina principale dell'applicazione, generalmente la dashboard, si trova nella cartella `pages/Dashboard`.
-
-6. **Rotte:** Le rotte dell'applicazione sono definite nel file `routes.jsx`, dove vengono associati i percorsi URL ai componenti delle pagine utilizzando React Router DOM.
-
-Navigare all'interno del progetto seguendo questa struttura ti permetterà di individuare rapidamente i diversi componenti, container e servizi utilizzati nell'applicazione.
+MIT — see the `license` field in `package.json`. Feel free to fork and adapt it to your own profile.
