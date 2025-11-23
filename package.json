@@ -6,13 +6,13 @@
   "type": "module",
   "author": "5h1ngy",
   "license": "MIT",
-  "homepage": "https://5h1ngy.github.io/fe-react-portfolio",
+  "homepage": "https://5h1ngy.github.io/portfolio",
   "repository": {
     "type": "git",
-    "url": "https://github.com/5h1ngy/fe-react-portfolio.git"
+    "url": "https://github.com/5h1ngy/portfolio.git"
   },
   "bugs": {
-    "url": "https://github.com/5h1ngy/fe-react-portfolio/issues"
+    "url": "https://github.com/5h1ngy/portfolio/issues"
   },
   "keywords": [
     "react",
